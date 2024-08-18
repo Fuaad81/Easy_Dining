@@ -1,5 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors
 
+import 'package:easy_dine_in/model/style/color.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -31,14 +32,13 @@ class CustomTextFormField extends StatelessWidget {
         suffixIcon: suffixIcon,
         label: labelText,
         labelStyle: labelStyle,
-        floatingLabelBehavior: FloatingLabelBehavior.never,
         prefixIcon: prefixIcon,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none
         ),
         filled: true,
-        fillColor: Color(0xFFB6B7B7),
+        fillColor: myColor.fieldbackground,
         contentPadding: EdgeInsets.symmetric(horizontal: 20),
       ),
     );

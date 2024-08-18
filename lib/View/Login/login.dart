@@ -79,17 +79,10 @@ class _Login_PageState extends State<Login_Page> {
                       }
                       return null;
                     },
-                    prefixIcon: Container(
-                      width: ScreenUtil().setWidth(20),
-                      decoration: BoxDecoration(
-                        color: myColor.maincolor,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Icon(
-                        CupertinoIcons.mail,
-                        color: myColor.background,
-                        size: 30,
-                      ),
+                    prefixIcon: Icon(
+                      CupertinoIcons.mail,
+                      color: myColor.textcolor,
+                      size: 30,
                     ),
                     labelStyle: GoogleFonts.poppins(
                         fontSize: 18,
@@ -116,17 +109,10 @@ class _Login_PageState extends State<Login_Page> {
                       }
                       return null;
                     },
-                    prefixIcon: Container(
-                      width: ScreenUtil().setWidth(20),
-                      decoration: BoxDecoration(
-                        color: myColor.maincolor,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Icon(
-                        IconlyLight.lock,
-                        color: myColor.background,
-                        size: 35,
-                      ),
+                    prefixIcon: Icon(
+                      IconlyLight.lock,
+                      color: myColor.textcolor,
+                      size: 35,
                     ),
                     labelStyle: GoogleFonts.poppins(
                         fontSize: 18,
@@ -145,7 +131,7 @@ class _Login_PageState extends State<Login_Page> {
                   children: [
                     TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/register');
+                          
                         },
                         child: Text(
                           "Forgot Password?",
@@ -173,7 +159,7 @@ class _Login_PageState extends State<Login_Page> {
                             WidgetStatePropertyAll(myColor.background),
                         fixedSize: WidgetStatePropertyAll(Size(
                             ScreenUtil().setWidth(200),
-                            ScreenUtil().setHeight(40))),
+                            ScreenUtil().setHeight(45))),
                         textStyle: WidgetStatePropertyAll(
                             GoogleFonts.poppins(fontSize: 18)),
                       )),
@@ -190,7 +176,9 @@ class _Login_PageState extends State<Login_Page> {
                           fontSize: 18, fontWeight: FontWeight.w500),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/register');
+                      },
                       child: Text(
                         "Sign Up",
                         style: GoogleFonts.poppins(
