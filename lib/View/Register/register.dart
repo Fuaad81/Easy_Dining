@@ -72,8 +72,10 @@ class _RegisterState extends State<Register> {
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: myColor.textcolor),
-                    prefixIcon: Image.network("https://img.icons8.com/?size=30&id=mj4zUKpD4IjJ&format=png"),
-                    suffixIcon: Icon(null)),
+                    prefixIcon: Icon(
+                      CupertinoIcons.person,
+                      size: 30,
+                    ),),
               ),
             ),
             Padding(
@@ -92,8 +94,7 @@ class _RegisterState extends State<Register> {
                       CupertinoIcons.mail,
                       color: myColor.textcolor,
                       size: 30,
-                    ),
-                    suffixIcon: Icon(null)),
+                    ),),
               ),
             ),
             Padding(
@@ -112,8 +113,7 @@ class _RegisterState extends State<Register> {
                       CupertinoIcons.phone,
                       color: myColor.textcolor,
                       size: 30,
-                    ),
-                    suffixIcon: Icon(null)),
+                    ),),
               ),
             ),
             Padding(
@@ -122,18 +122,19 @@ class _RegisterState extends State<Register> {
                 width: ScreenUtil().setWidth(315),
                 height: ScreenUtil().setHeight(44),
                 child: CustomTextFormField(
-                    controller: _passwordcontroller,
-                    labelText: Text("password"),
-                    labelStyle: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: myColor.textcolor),
-                    prefixIcon: Icon(
-                      IconlyLight.lock,
-                      color: myColor.textcolor,
-                      size: 30,
-                    ),
-                    suffixIcon: Icon(null)),
+                  controller: _passwordcontroller,
+                  labelText: Text("password"),
+                  labelStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: myColor.textcolor),
+                  prefixIcon: Icon(
+                    IconlyLight.lock,
+                    color: myColor.textcolor,
+                    size: 30,
+                  ),
+                  suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                ),
               ),
             ),
             Padding(
@@ -153,7 +154,7 @@ class _RegisterState extends State<Register> {
                       color: myColor.textcolor,
                       size: 30,
                     ),
-                    suffixIcon: Icon(null)),
+                    suffixIcon: Icon(Icons.remove_red_eye_outlined)),
               ),
             ),
             Padding(
@@ -182,101 +183,103 @@ class _RegisterState extends State<Register> {
               ),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/createsuccess");
+                    },
+                    child: Text("Register"),
+                    style: ButtonStyle(
+                      shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10))),
+                      backgroundColor:
+                          WidgetStatePropertyAll(myColor.maincolor),
+                      foregroundColor:
+                          WidgetStatePropertyAll(myColor.background),
+                      fixedSize: WidgetStatePropertyAll(Size(
+                          ScreenUtil().setWidth(200),
+                          ScreenUtil().setHeight(45))),
+                      textStyle: WidgetStatePropertyAll(
+                          GoogleFonts.poppins(fontSize: 18)),
+                    )),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                      onPressed: () {},
-                      child: Text("Register"),
-                      style: ButtonStyle(
-                        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                        backgroundColor:
-                            WidgetStatePropertyAll(myColor.maincolor),
-                        foregroundColor:
-                            WidgetStatePropertyAll(myColor.background),
-                        fixedSize: WidgetStatePropertyAll(Size(
-                            ScreenUtil().setWidth(200),
-                            ScreenUtil().setHeight(45))),
-                        textStyle: WidgetStatePropertyAll(
-                            GoogleFonts.poppins(fontSize: 18)),
-                      )),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Already have an account?",
+                  Text(
+                    "Already have an account?",
+                    style: GoogleFonts.poppins(
+                        fontSize: 18, fontWeight: FontWeight.w500),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
+                    child: Text(
+                      "Login",
                       style: GoogleFonts.poppins(
                           fontSize: 18, fontWeight: FontWeight.w500),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/login');
-                      },
-                      child: Text(
-                        "Login",
-                        style: GoogleFonts.poppins(
-                            fontSize: 18, fontWeight: FontWeight.w500),
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 120,
-                      child: Divider(
-                        height: 20,
-                        thickness: 2,
-                        endIndent: 10,
-                        color: myColor.textcolor,
-                      ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: ScreenUtil().setWidth(120),
+                    child: Divider(
+                      height: 20,
+                      thickness: 2,
+                      endIndent: 10,
+                      color: myColor.textcolor,
                     ),
-                    Text(
-                      "or login with",
-                      style: GoogleFonts.poppins(fontSize: 18),
+                  ),
+                  Text(
+                    "or login with",
+                    style: GoogleFonts.poppins(fontSize: 18),
+                  ),
+                  SizedBox(
+                    width: ScreenUtil().setWidth(120),
+                    child: Divider(
+                      height: 20,
+                      thickness: 2,
+                      indent: 10,
+                      color: myColor.textcolor,
                     ),
-                    SizedBox(
-                      width: 120,
-                      child: Divider(
-                        height: 20,
-                        thickness: 2,
-                        indent: 10,
-                        color: myColor.textcolor,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                        onPressed: () {},
-                        icon: Image.network(
-                          "https://img.icons8.com/?size=100&id=V5cGWnc9R4xj&format=png&color=000000",
-                          width: ScreenUtil().setWidth(40),
-                          height: ScreenUtil().setHeight(40),
-                        )),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Image.network(
-                          "https://img.icons8.com/?size=100&id=118497&format=png&color=000000",
-                          width: ScreenUtil().setWidth(40),
-                          height: ScreenUtil().setHeight(40),
-                        ))
-                  ],
-                ),
-              )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: Image.network(
+                        "https://img.icons8.com/?size=100&id=V5cGWnc9R4xj&format=png&color=000000",
+                        width: ScreenUtil().setWidth(40),
+                        height: ScreenUtil().setHeight(40),
+                      )),
+                  IconButton(
+                      onPressed: () {},
+                      icon: Image.network(
+                        "https://img.icons8.com/?size=100&id=118497&format=png&color=000000",
+                        width: ScreenUtil().setWidth(40),
+                        height: ScreenUtil().setHeight(40),
+                      ))
+                ],
+              ),
+            )
           ],
         ),
       )),

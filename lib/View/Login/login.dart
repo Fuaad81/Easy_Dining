@@ -88,7 +88,6 @@ class _Login_PageState extends State<Login_Page> {
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: myColor.textcolor),
-                    suffixIcon: Icon(null),
                   ),
                 ),
               ),
@@ -131,7 +130,7 @@ class _Login_PageState extends State<Login_Page> {
                   children: [
                     TextButton(
                         onPressed: () {
-                          
+                          Navigator.pushNamed(context, "/forgot");
                         },
                         child: Text(
                           "Forgot Password?",
@@ -148,7 +147,9 @@ class _Login_PageState extends State<Login_Page> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/bottomnav");
+                      },
                       child: Text("submit"),
                       style: ButtonStyle(
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
@@ -194,7 +195,7 @@ class _Login_PageState extends State<Login_Page> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 120,
+                      width: ScreenUtil().setWidth(120),
                       child: Divider(
                         height: 20,
                         thickness: 2,
@@ -207,7 +208,7 @@ class _Login_PageState extends State<Login_Page> {
                       style: GoogleFonts.poppins(fontSize: 18),
                     ),
                     SizedBox(
-                      width: 120,
+                      width: ScreenUtil().setWidth(120),
                       child: Divider(
                         height: 20,
                         thickness: 2,

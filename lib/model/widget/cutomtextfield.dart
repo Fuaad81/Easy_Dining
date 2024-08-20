@@ -7,8 +7,8 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final Widget labelText;
   final TextStyle labelStyle;
-  final Widget prefixIcon;
-  final Widget suffixIcon;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final bool obscureText;
   final FormFieldValidator<String>? validator;
 
@@ -16,8 +16,8 @@ class CustomTextFormField extends StatelessWidget {
     required this.controller,
     required this.labelText,
     required this.labelStyle,
-    required this.prefixIcon,
-    required this.suffixIcon,
+    this.prefixIcon,
+    this.suffixIcon,
     this.obscureText = false,
     this.validator,
   });
