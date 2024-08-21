@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:easy_dine_in/model/style/color.dart';
+import 'package:easy_dine_in/model/widget/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,20 +28,26 @@ class _createdSuccesState extends State<createdSucces> {
               height: ScreenUtil().setHeight(250),
             ),
             Center(
-              child: Text(
-                "Account Created",
-                style: GoogleFonts.poppins(
-                    fontSize: 24, fontWeight: FontWeight.w700),
+              child: CustomText(
+                text: "Account Created",
+                size: 24,
+                color: myColor.textcolor,
+                weight: FontWeight.w700,
+                textAlign: TextAlign.center,
+                textStyle: TextStyle(),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Center(
-                child: Text(
-                  "Your account has been\ncreated succesfully",
+                child: CustomText(
+                  text: "Your account has been\ncreated succesfully",
+                  size: 22,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                      fontSize: 22, fontWeight: FontWeight.w400,letterSpacing: 2),
+                  letterSpacing: 2,
+                  textStyle: TextStyle(),
                 ),
               ),
             ),
@@ -51,7 +60,14 @@ class _createdSuccesState extends State<createdSucces> {
                       onPressed: () {
                         Navigator.pushNamed(context, "/bottomnav");
                       },
-                      child: Text("Done"),
+                      child: CustomText(
+                        text: "Done",
+                        size: 20,
+                        color: myColor.background,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                       style: ButtonStyle(
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),

@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:easy_dine_in/model/style/color.dart';
+import 'package:easy_dine_in/model/widget/customtext.dart';
 import 'package:easy_dine_in/model/widget/cutomtextfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +32,7 @@ class _Login_PageState extends State<Login_Page> {
                 padding: const EdgeInsets.only(top: 20),
                 child: Center(
                     child: LottieBuilder.network(
-                      repeat: false,
+                  repeat: false,
                   "https://lottie.host/fbc237c1-ec53-435f-9575-2f31013f6120/Z9dkIXS2kG.json",
                   width: ScreenUtil().setWidth(350),
                   height: ScreenUtil().setHeight(250),
@@ -37,29 +40,26 @@ class _Login_PageState extends State<Login_Page> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
-                child: Text(
-                  'Wellcome Back!',
+                child: CustomText(
+                  text: 'Wellcome Back!',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    color: myColor.textcolor,
-                    fontSize: 27,
-                    fontWeight: FontWeight.w700,
-                    height: 0,
-                    letterSpacing: 1.08,
+                  textStyle: GoogleFonts.poppins(
+                    letterSpacing: 1.05,
                   ),
+                  size: 27,
+                  weight: FontWeight.w700,
+                  color: myColor.textcolor,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
-                child: Text(
-                  'Sign in to continue...',
+                child: CustomText(
+                  text: 'Sign in to continue...',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    color: myColor.textcolor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w300,
-                    height: 0,
-                  ),
+                  textStyle: GoogleFonts.poppins(),
+                  size: 20,
+                  weight: FontWeight.w300,
+                  color: myColor.textcolor,
                 ),
               ),
               Padding(
@@ -71,7 +71,14 @@ class _Login_PageState extends State<Login_Page> {
                     controller: textEditingController,
                     labelText: Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: Text("email or phone"),
+                      child: CustomText(
+                        text: "email or phone",
+                        size: 18,
+                        color: myColor.textcolor,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                     ),
                     validator: (value) {
                       if (value == null) {
@@ -100,7 +107,14 @@ class _Login_PageState extends State<Login_Page> {
                     controller: textEditingController,
                     labelText: Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: Text("password"),
+                      child: CustomText(
+                        text: "password",
+                        size: 18,
+                        color: myColor.textcolor,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                     ),
                     validator: (value) {
                       if (value == null) {
@@ -132,14 +146,14 @@ class _Login_PageState extends State<Login_Page> {
                         onPressed: () {
                           Navigator.pushNamed(context, "/forgot");
                         },
-                        child: Text(
-                          "Forgot Password?",
-                          style: GoogleFonts.poppins(
-                            fontSize: 18,
-                            color: myColor.linktext,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ))
+                        child: CustomText(
+                        text: "forgot password?",
+                        size: 18,
+                        color: myColor.linktext,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),)
                   ],
                 ),
               ),
@@ -150,7 +164,14 @@ class _Login_PageState extends State<Login_Page> {
                       onPressed: () {
                         Navigator.pushNamed(context, "/bottomnav");
                       },
-                      child: Text("submit"),
+                      child: CustomText(
+                        text: "Submit",
+                        size: 20,
+                        color: myColor.background,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                       style: ButtonStyle(
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
@@ -171,19 +192,25 @@ class _Login_PageState extends State<Login_Page> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "i don't have an account!",
-                      style: GoogleFonts.poppins(
-                          fontSize: 18, fontWeight: FontWeight.w500),
-                    ),
+                    CustomText(
+                        text: "i don't have any account!",
+                        size: 18,
+                        color: myColor.textcolor,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                     TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/register');
                       },
-                      child: Text(
-                        "Sign Up",
-                        style: GoogleFonts.poppins(
-                            fontSize: 18, fontWeight: FontWeight.w500),
+                      child: CustomText(
+                        text: "sign up",
+                        size: 20,
+                        color: myColor.linktext,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
                       ),
                     )
                   ],
@@ -203,10 +230,14 @@ class _Login_PageState extends State<Login_Page> {
                         color: myColor.textcolor,
                       ),
                     ),
-                    Text(
-                      "or login with",
-                      style: GoogleFonts.poppins(fontSize: 18),
-                    ),
+                    CustomText(
+                        text: "or login with",
+                        size: 18,
+                        color: myColor.textcolor,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                     SizedBox(
                       width: ScreenUtil().setWidth(120),
                       child: Divider(

@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:easy_dine_in/model/style/color.dart';
+import 'package:easy_dine_in/model/widget/customtext.dart';
 import 'package:easy_dine_in/model/widget/cutomtextfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,12 +22,13 @@ class _changePasswordState extends State<changePassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Change Password",
-          style: GoogleFonts.poppins(
-              fontSize: 21,
-              fontWeight: FontWeight.w500,
-              color: myColor.textcolor),
+        title: CustomText(
+          text: "Change Password",
+          size: 21,
+          color: myColor.textcolor,
+          weight: FontWeight.w500,
+          textAlign: TextAlign.center,
+          textStyle: TextStyle(),
         ),
         centerTitle: true,
       ),
@@ -34,13 +38,13 @@ class _changePasswordState extends State<changePassword> {
             Padding(
               padding: const EdgeInsets.only(top: 30),
               child: Center(
-                child: Text(
-                  "Enter new password and\nconform",
+                child: CustomText(
+                  text: "Enter new password and\nconform",
+                  size: 22,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w500,
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  textStyle: TextStyle(),
                 ),
               ),
             ),
@@ -51,7 +55,14 @@ class _changePasswordState extends State<changePassword> {
                 height: ScreenUtil().setHeight(44),
                 child: CustomTextFormField(
                   controller: _newpass,
-                  labelText: Text("new password"),
+                  labelText: CustomText(
+                    text: "new password",
+                    size: 18,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
                   labelStyle: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -67,7 +78,14 @@ class _changePasswordState extends State<changePassword> {
                 height: ScreenUtil().setHeight(44),
                 child: CustomTextFormField(
                   controller: _newconfirmpass,
-                  labelText: Text("confirm password"),
+                  labelText: CustomText(
+                    text: "confirm password",
+                    size: 18,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
                   labelStyle: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -82,8 +100,17 @@ class _changePasswordState extends State<changePassword> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                      onPressed: () {},
-                      child: Text("change password"),
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/login");
+                      },
+                      child: CustomText(
+                        text: "change password",
+                        size: 20,
+                        color: myColor.background,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                       style: ButtonStyle(
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),

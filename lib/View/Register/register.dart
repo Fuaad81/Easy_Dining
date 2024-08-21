@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:easy_dine_in/model/style/color.dart';
+import 'package:easy_dine_in/model/widget/customtext.dart';
 import 'package:easy_dine_in/model/widget/cutomtextfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -42,21 +45,76 @@ class _RegisterState extends State<Register> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20),
-              child: Text(
-                "Sign Up",
-                style: GoogleFonts.poppins(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w700,
+              child: CustomText(
+                text: "Sign Up",
+                size: 28,
+                color: myColor.textcolor,
+                weight: FontWeight.w700,
+                textAlign: TextAlign.center,
+                textStyle: TextStyle(),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, top: 10),
+              child: CustomText(
+                text: "create your account",
+                size: 20,
+                color: myColor.textcolor,
+                weight: FontWeight.w300,
+                textAlign: TextAlign.center,
+                textStyle: TextStyle(),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, top: 10),
+              child: SizedBox(
+                width: ScreenUtil().setWidth(315),
+                height: ScreenUtil().setHeight(44),
+                child: CustomTextFormField(
+                  controller: _namecontroller,
+                  labelText: CustomText(
+                    text: "name",
+                    size: 20,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  labelStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: myColor.textcolor),
+                  prefixIcon: Icon(
+                    CupertinoIcons.person,
+                    size: 30,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 10),
-              child: Text(
-                "create your account",
-                style: GoogleFonts.poppins(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
+              child: SizedBox(
+                width: ScreenUtil().setWidth(315),
+                height: ScreenUtil().setHeight(44),
+                child: CustomTextFormField(
+                  controller: _emailcontroller,
+                  labelText: CustomText(
+                    text: "email",
+                    size: 18,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  labelStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: myColor.textcolor),
+                  prefixIcon: Icon(
+                    CupertinoIcons.mail,
+                    color: myColor.textcolor,
+                    size: 30,
+                  ),
                 ),
               ),
             ),
@@ -66,54 +124,25 @@ class _RegisterState extends State<Register> {
                 width: ScreenUtil().setWidth(315),
                 height: ScreenUtil().setHeight(44),
                 child: CustomTextFormField(
-                    controller: _namecontroller,
-                    labelText: Text("name"),
-                    labelStyle: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: myColor.textcolor),
-                    prefixIcon: Icon(
-                      CupertinoIcons.person,
-                      size: 30,
-                    ),),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
-              child: SizedBox(
-                width: ScreenUtil().setWidth(315),
-                height: ScreenUtil().setHeight(44),
-                child: CustomTextFormField(
-                    controller: _emailcontroller,
-                    labelText: Text("email"),
-                    labelStyle: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: myColor.textcolor),
-                    prefixIcon: Icon(
-                      CupertinoIcons.mail,
-                      color: myColor.textcolor,
-                      size: 30,
-                    ),),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
-              child: SizedBox(
-                width: ScreenUtil().setWidth(315),
-                height: ScreenUtil().setHeight(44),
-                child: CustomTextFormField(
-                    controller: _numbercontroller,
-                    labelText: Text("number"),
-                    labelStyle: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: myColor.textcolor),
-                    prefixIcon: Icon(
-                      CupertinoIcons.phone,
-                      color: myColor.textcolor,
-                      size: 30,
-                    ),),
+                  controller: _numbercontroller,
+                  labelText: CustomText(
+                    text: "number",
+                    size: 18,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  labelStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: myColor.textcolor),
+                  prefixIcon: Icon(
+                    CupertinoIcons.phone,
+                    color: myColor.textcolor,
+                    size: 30,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -123,7 +152,14 @@ class _RegisterState extends State<Register> {
                 height: ScreenUtil().setHeight(44),
                 child: CustomTextFormField(
                   controller: _passwordcontroller,
-                  labelText: Text("password"),
+                  labelText: CustomText(
+                    text: "password",
+                    size: 18,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
                   labelStyle: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -144,7 +180,14 @@ class _RegisterState extends State<Register> {
                 height: ScreenUtil().setHeight(44),
                 child: CustomTextFormField(
                     controller: _cpasswordcontroller,
-                    labelText: Text("confirm password"),
+                    labelText: CustomText(
+                      text: "confirm password",
+                      size: 18,
+                      color: myColor.textcolor,
+                      weight: FontWeight.w500,
+                      textAlign: TextAlign.center,
+                      textStyle: TextStyle(),
+                    ),
                     labelStyle: GoogleFonts.poppins(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
@@ -165,20 +208,25 @@ class _RegisterState extends State<Register> {
                     value: check,
                     onChanged: (value) {},
                   ),
-                  Text(
-                    "I Agree with",
-                    style: GoogleFonts.poppins(
-                        fontSize: 16, fontWeight: FontWeight.w400),
+                  CustomText(
+                    text: "I Agree with",
+                    size: 16,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w400,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
                   ),
                   TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Terms & Conditions",
-                        style: GoogleFonts.poppins(
-                            color: myColor.linktext,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
-                      ))
+                    onPressed: () {},
+                    child: CustomText(
+                      text: "Terms & Conditions",
+                      size: 16,
+                      color: myColor.linktext,
+                      weight: FontWeight.w500,
+                      textAlign: TextAlign.center,
+                      textStyle: TextStyle(),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -189,7 +237,14 @@ class _RegisterState extends State<Register> {
                     onPressed: () {
                       Navigator.pushNamed(context, "/createsuccess");
                     },
-                    child: Text("Register"),
+                    child: CustomText(
+                        text: "Register",
+                        size: 20,
+                        color: myColor.background,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                     style: ButtonStyle(
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10))),
@@ -210,20 +265,26 @@ class _RegisterState extends State<Register> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Already have an account?",
-                    style: GoogleFonts.poppins(
-                        fontSize: 18, fontWeight: FontWeight.w500),
-                  ),
+                  CustomText(
+                        text: "Allready have an account?",
+                        size: 18,
+                        color: myColor.textcolor,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                   TextButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/login');
                     },
-                    child: Text(
-                      "Login",
-                      style: GoogleFonts.poppins(
-                          fontSize: 18, fontWeight: FontWeight.w500),
-                    ),
+                    child: CustomText(
+                        text: "Login",
+                        size: 18,
+                        color: myColor.linktext,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                   )
                 ],
               ),
@@ -242,10 +303,14 @@ class _RegisterState extends State<Register> {
                       color: myColor.textcolor,
                     ),
                   ),
-                  Text(
-                    "or login with",
-                    style: GoogleFonts.poppins(fontSize: 18),
-                  ),
+                  CustomText(
+                        text: "or login with",
+                        size: 18,
+                        color: myColor.textcolor,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                   SizedBox(
                     width: ScreenUtil().setWidth(120),
                     child: Divider(

@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:easy_dine_in/model/style/color.dart';
+import 'package:easy_dine_in/model/widget/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,12 +20,13 @@ class _OtpState extends State<Otp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Confirm OTP",
-          style: GoogleFonts.poppins(
-              fontSize: 21,
-              fontWeight: FontWeight.w500,
-              color: myColor.textcolor),
+        title: CustomText(
+          text: "Confirm OTP",
+          size: 21,
+          color: myColor.textcolor,
+          weight: FontWeight.w500,
+          textAlign: TextAlign.center,
+          textStyle: TextStyle(),
         ),
         centerTitle: true,
       ),
@@ -32,11 +36,13 @@ class _OtpState extends State<Otp> {
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Center(
-              child: Text(
-                "Enter your otp here,\nand conform",
+              child: CustomText(
+                text: "Enter your otp here,\nand conform",
+                size: 20,
+                color: myColor.textcolor,
+                weight: FontWeight.w500,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w400),
+                textStyle: TextStyle(),
               ),
             ),
           ),
@@ -84,7 +90,14 @@ class _OtpState extends State<Otp> {
                     onPressed: () {
                       Navigator.pushNamed(context, "/confirmpass");
                     },
-                    child: Text("Verify"),
+                    child: CustomText(
+                        text: "Verify",
+                        size: 20,
+                        color: myColor.background,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                     style: ButtonStyle(
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10))),

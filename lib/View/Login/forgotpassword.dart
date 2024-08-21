@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:easy_dine_in/model/style/color.dart';
+import 'package:easy_dine_in/model/widget/customtext.dart';
 import 'package:easy_dine_in/model/widget/cutomtextfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +21,13 @@ class _forgotPasswordState extends State<forgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Forgot Password",
-          style: GoogleFonts.poppins(fontSize: 21, fontWeight: FontWeight.w500),
+        title: CustomText(
+          text: "Forgot Password",
+          size: 21,
+          color: myColor.textcolor,
+          weight: FontWeight.w500,
+          textAlign: TextAlign.center,
+          textStyle: TextStyle(),
         ),
         centerTitle: true,
       ),
@@ -30,11 +37,14 @@ class _forgotPasswordState extends State<forgotPassword> {
           Padding(
             padding: const EdgeInsets.only(top: 30),
             child: Center(
-              child: Text(
-                "Please enter your email correctly\nand reset your password",
+              child: CustomText(
+                text:
+                    "Please enter your email correctly\nand reset your password",
+                size: 20,
+                color: myColor.textcolor,
+                weight: FontWeight.w500,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w400),
+                textStyle: TextStyle(),
               ),
             ),
           ),
@@ -45,7 +55,14 @@ class _forgotPasswordState extends State<forgotPassword> {
               height: ScreenUtil().setHeight(44),
               child: CustomTextFormField(
                 controller: _forgotpass,
-                labelText: Text("enter your email"),
+                labelText: CustomText(
+                        text: "enter your email",
+                        size: 18,
+                        color: myColor.textcolor,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                 labelStyle: GoogleFonts.poppins(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -63,7 +80,14 @@ class _forgotPasswordState extends State<forgotPassword> {
                     onPressed: () {
                       Navigator.pushNamed(context, "/otp");
                     },
-                    child: Text("Send OTP"),
+                    child: CustomText(
+                        text: "send OTP",
+                        size: 20,
+                        color: myColor.background,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                     style: ButtonStyle(
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10))),

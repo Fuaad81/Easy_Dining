@@ -9,6 +9,7 @@ import 'package:easy_dine_in/View/Register/register.dart';
 import 'package:easy_dine_in/View/home/booking.dart';
 import 'package:easy_dine_in/View/home/bottomnav.dart';
 import 'package:easy_dine_in/View/home/cart.dart';
+import 'package:easy_dine_in/View/home/drawer/settings.dart';
 import 'package:easy_dine_in/View/home/home.dart';
 import 'package:easy_dine_in/View/home/profile.dart';
 import 'package:easy_dine_in/View/home/tabs/All.dart';
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
         "/lunch": (context) => const lunchItem(),
         "/snack": (context) => const snackItem(),
         "/dinner": (context) => const dinnerItem(),
+        "/settings": (context) => const accountSetting(),
       },
       initialRoute: "/splash",
     );

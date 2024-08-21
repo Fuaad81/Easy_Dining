@@ -6,6 +6,7 @@ import 'package:easy_dine_in/View/home/tabs/dinner.dart';
 import 'package:easy_dine_in/View/home/tabs/lunch.dart';
 import 'package:easy_dine_in/View/home/tabs/snack.dart';
 import 'package:easy_dine_in/model/style/color.dart';
+import 'package:easy_dine_in/model/widget/customtext.dart';
 import 'package:easy_dine_in/model/widget/cutomtextfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,9 @@ class _HomeState extends State<Home> {
           backgroundColor: myColor.background,
           titleSpacing: -5,
           toolbarHeight: ScreenUtil().setHeight(70),
+          leading: IconButton(onPressed: (){
+            Scaffold.of(context).openDrawer();
+          }, icon: Icon(CupertinoIcons.line_horizontal_3_decrease)),
           title: Text.rich(TextSpan(children: [
             TextSpan(
                 text: "Hello",
@@ -40,11 +44,12 @@ class _HomeState extends State<Home> {
                 )),
             TextSpan(text: " "),
             TextSpan(
-                text: "Name",
-                style: GoogleFonts.poppins(
-                    fontSize: 24,
-                    color: myColor.maincolor,
-                    fontWeight: FontWeight.w400)),
+              text: "Name",
+              style: GoogleFonts.poppins(
+                  fontSize: 24,
+                  color: myColor.maincolor,
+                  fontWeight: FontWeight.w400),
+            ),
             TextSpan(text: ","),
           ])),
           actions: [
@@ -66,7 +71,14 @@ class _HomeState extends State<Home> {
                   height: ScreenUtil().setHeight(45),
                   child: CustomTextFormField(
                       controller: _search,
-                      labelText: Text("search.."),
+                      labelText: CustomText(
+                        text: "search..",
+                        size: 18,
+                        color: myColor.textcolor,
+                        weight: FontWeight.w400,
+                        textAlign: TextAlign.center,
+                        textStyle: TextStyle(),
+                      ),
                       labelStyle: GoogleFonts.poppins(
                           fontSize: 18,
                           fontWeight: FontWeight.w400,
@@ -76,12 +88,11 @@ class _HomeState extends State<Home> {
               ],
             ),
             TabBar(
-                padding: EdgeInsets.only(left: 20, top: 15),
+                padding: EdgeInsets.only(left: 15, top: 15),
                 dividerColor: myColor.background,
                 indicatorSize: TabBarIndicatorSize.tab,
                 isScrollable: true,
                 labelStyle: GoogleFonts.poppins(
-                  fontSize: 20,
                   color: myColor.background,
                 ),
                 tabAlignment: TabAlignment.center,
@@ -89,21 +100,51 @@ class _HomeState extends State<Home> {
                     color: myColor.maincolor,
                     borderRadius: BorderRadius.circular(10)),
                 tabs: [
-                  Text("All"),
-                  Text("Breake Fast"),
-                  Text("Lunch"),
-                  Text("Snack"),
-                  Text("Dinner"),
+                  CustomText(
+                    text: "All",
+                    size: 18,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  CustomText(
+                    text: "Break Fast",
+                    size: 18,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  CustomText(
+                    text: "Lunch",
+                    size: 18,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  CustomText(
+                    text: "Snack",
+                    size: 18,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  CustomText(
+                    text: "Dinner",
+                    size: 18,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
                 ]),
-                Expanded(
-                  child: TabBarView(children: [
-                    allItem(),
-                    breakFast(),
-                    lunchItem(),
-                    snackItem(),
-                    dinnerItem()
-                  ]),
-                )
+            Expanded(
+              child: TabBarView(children: [
+                allItem(),
+                breakFast(),
+                lunchItem(),
+                snackItem(),
+                dinnerItem()
+              ]),
+            )
           ],
         ),
         drawer: Drawer(
@@ -111,117 +152,154 @@ class _HomeState extends State<Home> {
           backgroundColor: myColor.background,
           child: ListView(children: [
             UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: myColor.maincolor),
-                otherAccountsPictures: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      CupertinoIcons.moon_stars,
+              decoration: BoxDecoration(color: myColor.maincolor),
+              otherAccountsPictures: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    CupertinoIcons.moon_stars,
+                    color: myColor.background,
+                    size: 35,
+                  ),
+                )
+              ],
+              currentAccountPicture: Container(
+                  width: ScreenUtil().setWidth(100),
+                  height: ScreenUtil().setHeight(50),
+                  decoration: BoxDecoration(
                       color: myColor.background,
-                      size: 35,
-                    ),
-                  )
-                ],
-                currentAccountPicture: Container(
-                    width: ScreenUtil().setWidth(100),
-                    height: ScreenUtil().setHeight(50),
-                    decoration: BoxDecoration(
-                        color: myColor.background,
-                        borderRadius: BorderRadius.circular(50)),
-                    child: Icon(IconlyBold.profile)),
-                accountName: Text(
-                  'Fuaad',
-                  style: GoogleFonts.poppins(
-                      fontSize: 20, fontWeight: FontWeight.w500),
+                      borderRadius: BorderRadius.circular(50)),
+                  child: Icon(IconlyBold.profile)),
+              accountName: CustomText(
+                text: "Name",
+                size: 20,
+                color: myColor.background,
+                weight: FontWeight.w500,
+                textAlign: TextAlign.center,
+                textStyle: TextStyle(),
+              ),
+              accountEmail: CustomText(
+                text: "sample@gmail.com",
+                size: 20,
+                color: myColor.background,
+                weight: FontWeight.w400,
+                textAlign: TextAlign.center,
+                textStyle: TextStyle(),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListTile(
+                leading: Icon(
+                  IconlyLight.setting,
+                  size: 30,
                 ),
-                accountEmail: Text(
-                  'sample@gmail.com',
-                  style: GoogleFonts.poppins(
-                      fontSize: 18, fontWeight: FontWeight.w400),
-                )),
-            ListTile(
-              leading: Icon(
-                IconlyLight.setting,
-                size: 30,
+                title: CustomText(
+                  text: "Account Settings",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, "/settings");
+                },
               ),
-              title: Text(
-                'Account Settings',
-                style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w400),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-              },
             ),
-            ListTile(
-              leading: Icon(
-                IconlyLight.heart,
-                size: 30,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListTile(
+                leading: Icon(
+                  IconlyLight.heart,
+                  size: 30,
+                ),
+                title: CustomText(
+                  text: "Favorite",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
-              title: Text(
-                'Favorite',
-                style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w400),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-              },
             ),
-            ListTile(
-              leading: Icon(
-                CupertinoIcons.square_list,
-                size: 30,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListTile(
+                leading: Icon(
+                  CupertinoIcons.square_list,
+                  size: 30,
+                ),
+                title: CustomText(
+                  text: "Order List",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
-              title: Text(
-                'Order List',
-                style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w400),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-              },
             ),
-            ListTile(
-              leading: Icon(
-                IconlyLight.location,
-                size: 30,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListTile(
+                leading: Icon(
+                  IconlyLight.location,
+                  size: 30,
+                ),
+                title: CustomText(
+                  text: "Location",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
-              title: Text(
-                'Location',
-                style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w400),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-              },
             ),
-            ListTile(
-              leading: Icon(
-                CupertinoIcons.captions_bubble,
-                size: 30,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListTile(
+                leading: Icon(
+                  CupertinoIcons.captions_bubble,
+                  size: 30,
+                ),
+                title: CustomText(
+                  text: "Feedback",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
-              title: Text(
-                'Feedback',
-                style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w400),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-              },
             ),
-            ListTile(
-              leading: Icon(
-                IconlyLight.info_circle,
-                size: 30,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListTile(
+                leading: Icon(
+                  IconlyLight.info_circle,
+                  size: 30,
+                ),
+                title: CustomText(
+                  text: "About",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
-              title: Text(
-                'About',
-                style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w400),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-              },
             ),
           ]),
         ),

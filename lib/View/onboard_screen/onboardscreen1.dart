@@ -1,5 +1,7 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors
 
+import 'package:easy_dine_in/model/style/color.dart';
+import 'package:easy_dine_in/model/widget/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -66,7 +68,7 @@ class _First_OnboardingState extends State<First_Onboarding> {
           height: 0,
           letterSpacing: 0.36,
         ),
-        onFinish: (){
+        onFinish: () {
           Navigator.pushNamed(context, "/login");
         },
         speed: 1.8,
@@ -78,28 +80,28 @@ class _First_OnboardingState extends State<First_Onboarding> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 250),
-                  child: Text(
-                    "Fresh Food",
-                    style: GoogleFonts.poppins(
+                  child: CustomText(
+                    text: "Fresh Food",
+                    textStyle: GoogleFonts.poppins(
                       color: Colors.black,
-                      fontSize: 27,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.08,
                     ),
+                    size: 27,
+                    weight: FontWeight.w700,
+                    color: myColor.textcolor,
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: Text(
-                    'Order anytime you want.We\nguarantee to provide you quality\nfood.',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      color: Colors.black,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.only(top: 30),
+                    child: CustomText(
+                        text:
+                            "Order anytime you want.We\nguarantee to provide you quality\nfood.",
+                        size: 17,
+                        textStyle: TextStyle(),
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center)),
               ],
             ),
           ),
@@ -109,28 +111,28 @@ class _First_OnboardingState extends State<First_Onboarding> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 250),
-                  child: Text(
-                    "Order Your Food",
-                    style: GoogleFonts.poppins(
+                  child: CustomText(
+                    text: "Order Your Food",
+                    textStyle: GoogleFonts.poppins(
                       color: Colors.black,
-                      fontSize: 27,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.08,
                     ),
+                    size: 27,
+                    weight: FontWeight.w700,
+                    color: myColor.textcolor,
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: Text(
-                    'Browse the menu and order directly\nfrom the application.',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      color: Colors.black,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.only(top: 30),
+                    child: CustomText(
+                        text:
+                            "Browse the menu and order\ndirectly from the application.",
+                        size: 17,
+                        textStyle: TextStyle(),
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center)),
               ],
             ),
           ),
@@ -140,27 +142,28 @@ class _First_OnboardingState extends State<First_Onboarding> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 250),
-                  child: Text(
-                    "Fastest Delivery",
-                    style: GoogleFonts.poppins(
+                  child: CustomText(
+                    text: "Fastest Delivery",
+                    textStyle: GoogleFonts.poppins(
                       color: Colors.black,
-                      fontSize: 27,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.08,
                     ),
+                    size: 27,
+                    weight: FontWeight.w700,
+                    color: myColor.textcolor,
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 30),
-                  child: Text(
-                    'We will delivery your order as quickly\n and efficiently as possible',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      color: Colors.black,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  child: CustomText(
+                        text:
+                            "We will delivery your order as quickly\n and efficiently as possible.",
+                        size: 17,
+                        textStyle: TextStyle(),
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center)
                 ),
               ],
             ),
