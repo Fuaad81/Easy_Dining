@@ -330,16 +330,16 @@ class _RegisterState extends State<Register> {
                 children: [
                   IconButton(
                       onPressed: () {},
-                      icon: Image.network(
-                        "https://img.icons8.com/?size=100&id=V5cGWnc9R4xj&format=png&color=000000",
-                        width: ScreenUtil().setWidth(40),
+                      icon: Image.asset(
+                        "assets/icons/ic_google.png",
+                        width: ScreenUtil().setWidth(50),
                         height: ScreenUtil().setHeight(40),
                       )),
                   IconButton(
                       onPressed: () {},
-                      icon: Image.network(
-                        "https://img.icons8.com/?size=100&id=118497&format=png&color=000000",
-                        width: ScreenUtil().setWidth(40),
+                      icon: Image.asset(
+                        "assets/icons/ic_facebook.png",
+                        width: ScreenUtil().setWidth(50),
                         height: ScreenUtil().setHeight(40),
                       ))
                 ],
