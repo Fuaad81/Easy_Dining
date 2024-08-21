@@ -22,19 +22,21 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final _search = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
+        key: _scaffoldKey,
         backgroundColor: myColor.background,
         appBar: AppBar(
           backgroundColor: myColor.background,
           titleSpacing: -5,
           toolbarHeight: ScreenUtil().setHeight(70),
           leading: IconButton(onPressed: (){
-            Scaffold.of(context).openDrawer();
+            _scaffoldKey.currentState?.openDrawer();
           }, icon: Icon(CupertinoIcons.line_horizontal_3_decrease)),
           title: Text.rich(TextSpan(children: [
             TextSpan(
