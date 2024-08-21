@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer__ructors
 
 import 'package:easy_dine_in/model/style/color.dart';
 import 'package:easy_dine_in/model/widget/customtext.dart';
@@ -11,7 +11,7 @@ import 'package:iconly/iconly.dart';
 import 'package:lottie/lottie.dart';
 
 class Register extends StatefulWidget {
-  const Register({super.key});
+    const Register({super.key});
 
   @override
   State<Register> createState() => _RegisterState();
@@ -34,174 +34,179 @@ class _RegisterState extends State<Register> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding:  EdgeInsets.only(top: 10.h),
               child: Center(
                 child: Lottie.network(
                   "https://lottie.host/6cc1ba76-c106-47c8-848e-283e6896bb34/r6lsx72mm2.json",
-                  width: ScreenUtil().setWidth(250),
-                  height: ScreenUtil().setHeight(250),
+                  width: 250.w,
+                  height: 250.h,
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20),
+              padding:  EdgeInsets.only(left: 20.w),
               child: CustomText(
                 text: "Sign Up",
-                size: 28,
+                size: 28.sp,
                 color: myColor.textcolor,
                 weight: FontWeight.w700,
                 textAlign: TextAlign.center,
-                textStyle: TextStyle(),
+                textStyle:  const TextStyle(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
+              padding:  EdgeInsets.only(left: 20.w, top: 10.h),
               child: CustomText(
                 text: "create your account",
-                size: 20,
+                size: 20.sp,
                 color: myColor.textcolor,
                 weight: FontWeight.w300,
                 textAlign: TextAlign.center,
-                textStyle: TextStyle(),
+                textStyle:  const TextStyle(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
+              padding:  EdgeInsets.only(left: 20.w, top: 10.h),
               child: SizedBox(
-                width: ScreenUtil().setWidth(315),
-                height: ScreenUtil().setHeight(44),
+                width: 315.w,
+                height: 60.h,
                 child: CustomTextFormField(
                   controller: _namecontroller,
+                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
                   labelText: CustomText(
                     text: "name",
-                    size: 20,
+                    size: 20.sp,
                     color: myColor.textcolor,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
+                    textStyle:  const TextStyle(),
                   ),
                   labelStyle: GoogleFonts.poppins(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
                       color: myColor.textcolor),
-                  prefixIcon: Icon(
+                  prefixIcon:  Icon(
                     CupertinoIcons.person,
-                    size: 30,
+                    size: 20.w,
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
+              padding:  EdgeInsets.only(left: 20.w, top: 10.h),
               child: SizedBox(
-                width: ScreenUtil().setWidth(315),
-                height: ScreenUtil().setHeight(44),
+                width: 315.w,
+                height: 60.h,
                 child: CustomTextFormField(
                   controller: _emailcontroller,
+                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
                   labelText: CustomText(
                     text: "email",
-                    size: 18,
+                    size: 18.sp,
                     color: myColor.textcolor,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
+                    textStyle:  const TextStyle(),
                   ),
                   labelStyle: GoogleFonts.poppins(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
                       color: myColor.textcolor),
                   prefixIcon: Icon(
                     CupertinoIcons.mail,
                     color: myColor.textcolor,
-                    size: 30,
+                    size: 20.w,
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
+              padding:   EdgeInsets.only(left: 20.w, top: 10.h),
               child: SizedBox(
-                width: ScreenUtil().setWidth(315),
-                height: ScreenUtil().setHeight(44),
+                width: 315.w,
+                height: 60.h,
                 child: CustomTextFormField(
+                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
                   controller: _numbercontroller,
                   labelText: CustomText(
                     text: "number",
-                    size: 18,
+                    size: 18.sp,
                     color: myColor.textcolor,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
+                    textStyle:  const TextStyle(),
                   ),
                   labelStyle: GoogleFonts.poppins(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
                       color: myColor.textcolor),
                   prefixIcon: Icon(
                     CupertinoIcons.phone,
                     color: myColor.textcolor,
-                    size: 30,
+                    size: 20.w,
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
+              padding:   EdgeInsets.only(left: 20.w, top: 10.h),
               child: SizedBox(
-                width: ScreenUtil().setWidth(315),
-                height: ScreenUtil().setHeight(44),
+                width: 315.w,
+                height: 60.h,
                 child: CustomTextFormField(
                   controller: _passwordcontroller,
+                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
                   labelText: CustomText(
                     text: "password",
-                    size: 18,
+                    size: 18.sp,
                     color: myColor.textcolor,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
+                    textStyle:  const TextStyle(),
                   ),
                   labelStyle: GoogleFonts.poppins(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
                       color: myColor.textcolor),
                   prefixIcon: Icon(
                     IconlyLight.lock,
                     color: myColor.textcolor,
-                    size: 30,
+                    size: 20.w,
                   ),
-                  suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                  suffixIcon:  Icon(Icons.remove_red_eye_outlined,size: 20.w,),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
+              padding:   EdgeInsets.only(left: 20.w, top: 10.h),
               child: SizedBox(
-                width: ScreenUtil().setWidth(315),
-                height: ScreenUtil().setHeight(44),
+                width:315.w,
+                height:60.h,
                 child: CustomTextFormField(
+                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
                     controller: _cpasswordcontroller,
                     labelText: CustomText(
                       text: "confirm password",
-                      size: 18,
+                      size: 18.sp,
                       color: myColor.textcolor,
                       weight: FontWeight.w500,
                       textAlign: TextAlign.center,
-                      textStyle: TextStyle(),
+                      textStyle:  const TextStyle(),
                     ),
                     labelStyle: GoogleFonts.poppins(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w500,
                         color: myColor.textcolor),
                     prefixIcon: Icon(
                       IconlyLight.lock,
                       color: myColor.textcolor,
-                      size: 30,
+                      size: 20.w,
                     ),
-                    suffixIcon: Icon(Icons.remove_red_eye_outlined)),
+                    suffixIcon:  Icon(Icons.remove_red_eye_outlined,size: 20.w,)),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding:   EdgeInsets.only(left: 10.w),
               child: Row(
                 children: [
                   Checkbox(
@@ -210,21 +215,21 @@ class _RegisterState extends State<Register> {
                   ),
                   CustomText(
                     text: "I Agree with",
-                    size: 16,
+                    size: 16.sp,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
+                    textStyle:  const TextStyle(),
                   ),
-                  TextButton(
-                    onPressed: () {},
+                  InkWell(
+                    onTap: () {},
                     child: CustomText(
                       text: "Terms & Conditions",
-                      size: 16,
+                      size: 16.sp,
                       color: myColor.linktext,
                       weight: FontWeight.w500,
                       textAlign: TextAlign.center,
-                      textStyle: TextStyle(),
+                      textStyle:  const TextStyle(),
                     ),
                   )
                 ],
@@ -237,65 +242,65 @@ class _RegisterState extends State<Register> {
                     onPressed: () {
                       Navigator.pushNamed(context, "/createsuccess");
                     },
-                    child: CustomText(
-                        text: "Register",
-                        size: 20,
-                        color: myColor.background,
-                        weight: FontWeight.w500,
-                        textAlign: TextAlign.center,
-                        textStyle: TextStyle(),
-                      ),
                     style: ButtonStyle(
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10))),
+                          borderRadius: BorderRadius.circular(10.r))),
                       backgroundColor:
                           WidgetStatePropertyAll(myColor.maincolor),
                       foregroundColor:
                           WidgetStatePropertyAll(myColor.background),
-                      fixedSize: WidgetStatePropertyAll(Size(
-                          ScreenUtil().setWidth(200),
-                          ScreenUtil().setHeight(45))),
+                      minimumSize: WidgetStatePropertyAll(Size(
+                          200.w,
+                          50.h)),
                       textStyle: WidgetStatePropertyAll(
-                          GoogleFonts.poppins(fontSize: 18)),
-                    )),
+                          GoogleFonts.poppins(fontSize: 18.sp)),
+                    ),
+                    child: CustomText(
+                        text: "Register",
+                        size: 20.sp,
+                        color: myColor.background,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle:  const TextStyle(),
+                      )),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding:   EdgeInsets.only(top: 10.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomText(
                         text: "Allready have an account?",
-                        size: 18,
+                        size: 18.sp,
                         color: myColor.textcolor,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,
-                        textStyle: TextStyle(),
+                        textStyle:  const TextStyle(),
                       ),
-                  TextButton(
-                    onPressed: () {
+                  InkWell(
+                    onTap: () {
                       Navigator.pushNamed(context, '/login');
                     },
                     child: CustomText(
                         text: "Login",
-                        size: 18,
+                        size: 18.sp,
                         color: myColor.linktext,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,
-                        textStyle: TextStyle(),
+                        textStyle:  const TextStyle(),
                       ),
                   )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding:   EdgeInsets.only(top: 10.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: ScreenUtil().setWidth(120),
+                    width: 80.w,
                     child: Divider(
                       height: 20,
                       thickness: 2,
@@ -305,14 +310,14 @@ class _RegisterState extends State<Register> {
                   ),
                   CustomText(
                         text: "or login with",
-                        size: 18,
+                        size: 18.sp,
                         color: myColor.textcolor,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,
-                        textStyle: TextStyle(),
+                        textStyle:  const TextStyle(),
                       ),
                   SizedBox(
-                    width: ScreenUtil().setWidth(120),
+                    width: 80.w,
                     child: Divider(
                       height: 20,
                       thickness: 2,
@@ -324,7 +329,7 @@ class _RegisterState extends State<Register> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding:   const EdgeInsets.only(top: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -332,15 +337,13 @@ class _RegisterState extends State<Register> {
                       onPressed: () {},
                       icon: Image.asset(
                         "assets/icons/ic_google.png",
-                        width: ScreenUtil().setWidth(50),
-                        height: ScreenUtil().setHeight(40),
+                        width: 50.w,
                       )),
                   IconButton(
                       onPressed: () {},
                       icon: Image.asset(
                         "assets/icons/ic_facebook.png",
-                        width: ScreenUtil().setWidth(50),
-                        height: ScreenUtil().setHeight(40),
+                        width: 50.w
                       ))
                 ],
               ),

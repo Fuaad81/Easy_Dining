@@ -1,11 +1,13 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer__ructors
 
+import 'package:easy_dine_in/main.dart';
 import 'package:easy_dine_in/model/style/color.dart';
 import 'package:easy_dine_in/model/widget/customtext.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class accountSetting extends StatefulWidget {
-  const accountSetting({super.key});
+   const accountSetting({super.key});
 
   @override
   State<accountSetting> createState() => _accountSettingState();
@@ -20,47 +22,47 @@ class _accountSettingState extends State<accountSetting> {
         backgroundColor: myColor.background,
         title: CustomText(
           text: "Account Settings",
-          size: 24,
+          size: 24.sp,
           color: myColor.textcolor,
           weight: FontWeight.w400,
-          textStyle: TextStyle(),
+          textStyle: const TextStyle(),
         ),
         centerTitle: true,
       ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding:  EdgeInsets.only(top: 20.h),
             child: Center(
               child: CircleAvatar(
                 backgroundColor: myColor.tabcolor,
-                radius: 50,
+                radius: 50.r,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 5),
+            padding:  EdgeInsets.only(top: 5.h),
             child: Center(
               child:CustomText(
                         text: "Name",
-                        size: 22,
+                        size: 22.sp,
                         color: myColor.textcolor,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,
-                        textStyle: TextStyle(),
+                        textStyle: const TextStyle(),
                       ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 5),
+            padding:  EdgeInsets.only(top: 5.h),
             child: Center(
               child:CustomText(
                         text: "sample@gmail.com",
-                        size: 18,
+                        size: 18.sp,
                         color: myColor.textcolor,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
-                        textStyle: TextStyle(),
+                        textStyle: const TextStyle(),
                       ),
             ),
           ),

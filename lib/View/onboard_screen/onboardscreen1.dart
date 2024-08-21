@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors
+// ignore_for_file: camel_case_types, prefer__ructors
 
 import 'package:easy_dine_in/model/style/color.dart';
 import 'package:easy_dine_in/model/widget/customtext.dart';
@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class First_Onboarding extends StatefulWidget {
-  const First_Onboarding({super.key});
+    const First_Onboarding({super.key});
 
   @override
   State<First_Onboarding> createState() => _First_OnboardingState();
@@ -19,51 +19,51 @@ class _First_OnboardingState extends State<First_Onboarding> {
   Widget build(BuildContext context) {
     return OnBoardingSlider(
         totalPage: 3,
-        headerBackgroundColor: Color(0xffffffff),
-        pageBackgroundColor: Color(0xffffffff),
+        headerBackgroundColor: const Color(0xffffffff),
+        pageBackgroundColor: const Color(0xffffffff),
         centerBackground: true,
         background: [
           Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20, top: 100),
+            padding:  EdgeInsets.only(right: 20.w, left: 20.w, top: 20.h),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               child: Image.asset(
                 "assets/images/image.png",
-                width: ScreenUtil().setWidth(300),
+                width: 300.w,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20, top: 50),
+            padding: EdgeInsets.only(right: 20.w, left: 20.w, top: 50.h),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               child: Image.asset(
                 "assets/images/orderfood.jpg",
-                width: ScreenUtil().setWidth(300),
+                width: 300.w,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20, top: 50),
+            padding: EdgeInsets.only(right: 20.w, left: 20.w, top: 50.h),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               child: Image.asset(
                 "assets/images/fast_delivery.jpg",
-                width: ScreenUtil().setWidth(300),
+                width: 300.w,
               ),
             ),
           ),
         ],
         skipTextButton: Text(
           "skip",
-          style: GoogleFonts.poppins(color: Colors.black, fontSize: 15),
+          style: GoogleFonts.poppins(color: Colors.black, fontSize: 15.sp),
         ),
         finishButtonText: "Get Start",
-        finishButtonStyle: FinishButtonStyle(
+        finishButtonStyle:  const FinishButtonStyle(
             backgroundColor: Color(0xFFFF5B00), foregroundColor: Colors.white),
         finishButtonTextStyle: GoogleFonts.poppins(
           color: Colors.white,
-          fontSize: 20,
+          fontSize: 20.sp,
           fontWeight: FontWeight.w500,
           height: 0,
           letterSpacing: 0.36,
@@ -72,14 +72,14 @@ class _First_OnboardingState extends State<First_Onboarding> {
           Navigator.pushNamed(context, "/login");
         },
         speed: 1.8,
-        controllerColor: Color(0xFFFF5B00),
+        controllerColor:  const Color(0xFFFF5B00),
         pageBodies: [
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 250),
+                  padding: EdgeInsets.only(top: 200.h),
                   child: CustomText(
                     text: "Fresh Food",
                     textStyle: GoogleFonts.poppins(
@@ -87,19 +87,19 @@ class _First_OnboardingState extends State<First_Onboarding> {
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.08,
                     ),
-                    size: 27,
+                    size: 27.sp,
                     weight: FontWeight.w700,
                     color: myColor.textcolor,
                     textAlign: TextAlign.center,
                   ),
                 ),
                 Padding(
-                    padding: const EdgeInsets.only(top: 30),
+                    padding: EdgeInsets.only(top: 30.h),
                     child: CustomText(
                         text:
                             "Order anytime you want.We\nguarantee to provide you quality\nfood.",
-                        size: 17,
-                        textStyle: TextStyle(),
+                        size: 17.sp,
+                        textStyle:  const TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)),
               ],
@@ -110,7 +110,7 @@ class _First_OnboardingState extends State<First_Onboarding> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 250),
+                  padding: EdgeInsets.only(top: 250.h),
                   child: CustomText(
                     text: "Order Your Food",
                     textStyle: GoogleFonts.poppins(
@@ -118,19 +118,19 @@ class _First_OnboardingState extends State<First_Onboarding> {
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.08,
                     ),
-                    size: 27,
+                    size: 27.sp,
                     weight: FontWeight.w700,
                     color: myColor.textcolor,
                     textAlign: TextAlign.center,
                   ),
                 ),
                 Padding(
-                    padding: const EdgeInsets.only(top: 30),
+                    padding: EdgeInsets.only(top: 30.h),
                     child: CustomText(
                         text:
                             "Browse the menu and order\ndirectly from the application.",
-                        size: 17,
-                        textStyle: TextStyle(),
+                        size: 17.sp,
+                        textStyle:  const TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)),
               ],
@@ -141,27 +141,25 @@ class _First_OnboardingState extends State<First_Onboarding> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 250),
+                  padding: EdgeInsets.only(top: 250.h),
                   child: CustomText(
                     text: "Fastest Delivery",
                     textStyle: GoogleFonts.poppins(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w700,
                       letterSpacing: 1.08,
                     ),
-                    size: 27,
+                    size: 27.sp,
                     weight: FontWeight.w700,
                     color: myColor.textcolor,
                     textAlign: TextAlign.center,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 30),
+                  padding: EdgeInsets.only(top: 30.h),
                   child: CustomText(
                         text:
                             "We will delivery your order as quickly\n and efficiently as possible.",
-                        size: 17,
-                        textStyle: TextStyle(),
+                        size: 17.sp,
+                        textStyle:  const TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)
                 ),

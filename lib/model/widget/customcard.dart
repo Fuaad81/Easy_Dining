@@ -1,9 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer__ructors
 
 import 'package:flutter/material.dart';
 
 class customCard extends StatefulWidget {
-  const customCard({super.key});
+   customCard({super.key});
 
   @override
   State<customCard> createState() => _customCardState();

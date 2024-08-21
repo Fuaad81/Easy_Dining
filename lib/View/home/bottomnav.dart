@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: prefer__ructors, sized_box_for_whitespace
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:easy_dine_in/View/home/booking.dart';
@@ -12,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 
 class bottomNavbar extends StatefulWidget {
-  const bottomNavbar({super.key});
+   bottomNavbar({super.key});
 
   @override
   State<bottomNavbar> createState() => _bottomNavbarState();

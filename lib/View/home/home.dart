@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: prefer__ructors, avoid_unnecessary_containers
 
 import 'package:easy_dine_in/View/home/tabs/All.dart';
 import 'package:easy_dine_in/View/home/tabs/breakfast.dart';
@@ -15,7 +15,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+   Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -190,7 +190,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding:  EdgeInsets.only(top: 10),
               child: ListTile(
                 leading: Icon(
                   IconlyLight.setting,
@@ -209,7 +209,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding:  EdgeInsets.only(top: 10),
               child: ListTile(
                 leading: Icon(
                   IconlyLight.heart,
@@ -228,7 +228,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding:  EdgeInsets.only(top: 10),
               child: ListTile(
                 leading: Icon(
                   CupertinoIcons.square_list,
@@ -247,7 +247,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding:  EdgeInsets.only(top: 10),
               child: ListTile(
                 leading: Icon(
                   IconlyLight.location,
@@ -266,7 +266,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding:  EdgeInsets.only(top: 10),
               child: ListTile(
                 leading: Icon(
                   CupertinoIcons.captions_bubble,
@@ -285,7 +285,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding:  EdgeInsets.only(top: 10),
               child: ListTile(
                 leading: Icon(
                   IconlyLight.info_circle,

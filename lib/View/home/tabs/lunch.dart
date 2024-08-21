@@ -1,10 +1,10 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer__ructors
 
 import 'package:easy_dine_in/model/style/color.dart';
 import 'package:flutter/material.dart';
 
 class lunchItem extends StatefulWidget {
-  const lunchItem({super.key});
+   const lunchItem({super.key});
 
   @override
   State<lunchItem> createState() => _lunchItemState();

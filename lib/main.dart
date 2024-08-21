@@ -1,5 +1,4 @@
-// ignore_for_file: prefer_const_constructors
-
+import 'package:easy_dine_in/Providers/suffixicon_provider.dart';
 import 'package:easy_dine_in/View/Login/confirmpassword.dart';
 import 'package:easy_dine_in/View/Login/forgotpassword.dart';
 import 'package:easy_dine_in/View/Login/login.dart';
@@ -21,9 +20,14 @@ import 'package:easy_dine_in/View/onboard_screen/onboardscreen1.dart';
 import 'package:easy_dine_in/View/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => UserProvider(),)
+    ],
+    child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -32,40 +36,46 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(
-      context,
-      splitScreenMode: true,
-      minTextAdapt: true
-    );
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      routes: {
-        "/splash": (context) => const Splash_screeen(),
-        "/firstonboard": (context) => const First_Onboarding(),
-        "/login": (context) => const Login_Page(),
-        "/forgot": (context) => const forgotPassword(),
-        "/otp": (context) => const Otp(),
-        "/confirmpass": (context) => const changePassword(),
-        "/register": (context) => const Register(),
-        "/createsuccess": (context) => const createdSucces(),
-        "/bottomnav": (context) => const bottomNavbar(),
-        "/home": (context) => const Home(),
-        "/tablebooking": (context) => const Booking(),
-        "/cart": (context) => const Cart(),
-        "/profile": (context) => const Profile(),
-        "/all": (context) => const allItem(),
-        "/breakfast": (context) => const breakFast(),
-        "/lunch": (context) => const lunchItem(),
-        "/snack": (context) => const snackItem(),
-        "/dinner": (context) => const dinnerItem(),
-        "/settings": (context) => const accountSetting(),
+    final size = MediaQuery.of(context).size;
+    final height = size.height;
+    final width = size.width;
+    ScreenUtil.init(context,
+        designSize: Size(width, height),
+        splitScreenMode: true,
+        minTextAdapt: true);
+    return ScreenUtilInit(
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          routes: {
+            "/splash": (context) => const Splash_screeen(),
+            "/firstonboard": (context) => const First_Onboarding(),
+            "/login": (context) => const Login_Page(),
+            "/forgot": (context) => const forgotPassword(),
+            "/otp": (context) => const Otp(),
+            "/confirmpass": (context) => const changePassword(),
+            "/register": (context) => const Register(),
+            "/createsuccess": (context) => const createdSucces(),
+            "/bottomnav": (context) => const bottomNavbar(),
+            "/home": (context) => const Home(),
+            "/tablebooking": (context) => const Booking(),
+            "/cart": (context) => const Cart(),
+            "/profile": (context) => const Profile(),
+            "/all": (context) => const allItem(),
+            "/breakfast": (context) => const breakFast(),
+            "/lunch": (context) => const lunchItem(),
+            "/snack": (context) => const snackItem(),
+            "/dinner": (context) => const dinnerItem(),
+            "/settings": (context) => const accountSetting(),
+          },
+          initialRoute: "/splash",
+        );
       },
-      initialRoute: "/splash",
     );
   }
 }

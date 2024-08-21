@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer__ructors
 
 import 'package:easy_dine_in/model/style/color.dart';
 import 'package:easy_dine_in/model/widget/customtext.dart';
@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 
 class Otp extends StatefulWidget {
-  const Otp({super.key});
+   const Otp({super.key});
 
   @override
   State<Otp> createState() => _OtpState();
@@ -22,11 +22,11 @@ class _OtpState extends State<Otp> {
       appBar: AppBar(
         title: CustomText(
           text: "Confirm OTP",
-          size: 21,
+          size: 21.sp,
           color: myColor.textcolor,
           weight: FontWeight.w500,
           textAlign: TextAlign.center,
-          textStyle: TextStyle(),
+          textStyle: const TextStyle(),
         ),
         centerTitle: true,
       ),
@@ -34,40 +34,40 @@ class _OtpState extends State<Otp> {
           child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding:  EdgeInsets.only(top: 20.h),
             child: Center(
               child: CustomText(
                 text: "Enter your otp here,\nand conform",
-                size: 20,
+                size: 20.sp,
                 color: myColor.textcolor,
-                weight: FontWeight.w500,
+                weight: FontWeight.w400,
                 textAlign: TextAlign.center,
-                textStyle: TextStyle(),
+                textStyle: const TextStyle(),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding:  EdgeInsets.only(top: 20.h),
             child: Pinput(
               showCursor: true,
               cursor: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    width: ScreenUtil().setWidth(15),
-                    height: ScreenUtil().setHeight(1),
+                    width: 15.w,
+                    height: 1.h,
                     color: myColor.textcolor,
-                    margin: EdgeInsets.only(bottom: 12),
+                    margin: EdgeInsets.only(bottom: 12.h),
                   ),
                 ],
               ),
               defaultPinTheme: PinTheme(
-                  margin: EdgeInsets.only(left: 10),
-                  width: ScreenUtil().setWidth(50),
-                  height: ScreenUtil().setHeight(50),
+                  margin: EdgeInsets.only(left: 10.w),
+                  width: 50.w,
+                  height: 50.h,
                   decoration: BoxDecoration(
                       color: myColor.fieldbackground,
-                      borderRadius: BorderRadius.circular(10))),
+                      borderRadius: BorderRadius.circular(10.r))),
               controller: _otp,
               errorPinTheme: PinTheme(
                   decoration: BoxDecoration(
@@ -82,7 +82,7 @@ class _OtpState extends State<Otp> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 40),
+            padding:  EdgeInsets.only(top: 40.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -90,27 +90,27 @@ class _OtpState extends State<Otp> {
                     onPressed: () {
                       Navigator.pushNamed(context, "/confirmpass");
                     },
-                    child: CustomText(
-                        text: "Verify",
-                        size: 20,
-                        color: myColor.background,
-                        weight: FontWeight.w500,
-                        textAlign: TextAlign.center,
-                        textStyle: TextStyle(),
-                      ),
                     style: ButtonStyle(
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10))),
+                          borderRadius: BorderRadius.circular(10.r))),
                       backgroundColor:
                           WidgetStatePropertyAll(myColor.maincolor),
                       foregroundColor:
                           WidgetStatePropertyAll(myColor.background),
-                      fixedSize: WidgetStatePropertyAll(Size(
-                          ScreenUtil().setWidth(150),
-                          ScreenUtil().setHeight(45))),
+                      minimumSize: WidgetStatePropertyAll(Size(
+                          150.w,
+                          45.h)),
                       textStyle: WidgetStatePropertyAll(
-                          GoogleFonts.poppins(fontSize: 18)),
-                    )),
+                          GoogleFonts.poppins(fontSize: 18.sp)),
+                    ),
+                    child: CustomText(
+                        text: "Verify",
+                        size: 20.sp,
+                        color: myColor.background,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: const TextStyle(),
+                      )),
               ],
             ),
           ),

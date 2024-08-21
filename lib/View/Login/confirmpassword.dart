@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer__ructors
 
 import 'package:easy_dine_in/model/style/color.dart';
 import 'package:easy_dine_in/model/widget/customtext.dart';
@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
 class changePassword extends StatefulWidget {
-  const changePassword({super.key});
+   const changePassword({super.key});
 
   @override
   State<changePassword> createState() => _changePasswordState();
@@ -24,11 +24,11 @@ class _changePasswordState extends State<changePassword> {
       appBar: AppBar(
         title: CustomText(
           text: "Change Password",
-          size: 21,
+          size: 21.sp,
           color: myColor.textcolor,
           weight: FontWeight.w500,
           textAlign: TextAlign.center,
-          textStyle: TextStyle(),
+          textStyle: const TextStyle(),
         ),
         centerTitle: true,
       ),
@@ -36,66 +36,68 @@ class _changePasswordState extends State<changePassword> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 30),
+              padding:  EdgeInsets.only(top: 30.h),
               child: Center(
                 child: CustomText(
                   text: "Enter new password and\nconform",
-                  size: 22,
+                  size: 22.sp,
                   color: myColor.textcolor,
                   weight: FontWeight.w500,
                   textAlign: TextAlign.center,
-                  textStyle: TextStyle(),
+                  textStyle: const TextStyle(),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding:  EdgeInsets.only(top: 20.h),
               child: SizedBox(
-                width: ScreenUtil().setWidth(315),
-                height: ScreenUtil().setHeight(44),
+                width: 315.w,
+                height: 60.h,
                 child: CustomTextFormField(
                   controller: _newpass,
                   labelText: CustomText(
                     text: "new password",
-                    size: 18,
+                    size: 18.sp,
                     color: myColor.textcolor,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
+                    textStyle: const TextStyle(),
                   ),
+                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
                   labelStyle: GoogleFonts.poppins(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
                       color: myColor.textcolor),
-                  prefixIcon: Icon(IconlyLight.lock),
+                  prefixIcon: Icon(IconlyLight.lock,size: 20.w,),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding:  EdgeInsets.only(top: 10.h),
               child: SizedBox(
-                width: ScreenUtil().setWidth(315),
-                height: ScreenUtil().setHeight(44),
+                width:315.w,
+                height: 60.h,
                 child: CustomTextFormField(
                   controller: _newconfirmpass,
+                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
                   labelText: CustomText(
                     text: "confirm password",
-                    size: 18,
+                    size: 18.sp,
                     color: myColor.textcolor,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
+                    textStyle: const TextStyle(),
                   ),
                   labelStyle: GoogleFonts.poppins(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
                       color: myColor.textcolor),
-                  prefixIcon: Icon(IconlyLight.lock),
+                  prefixIcon: Icon(IconlyLight.lock,size: 20.w,),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 30),
+              padding:  EdgeInsets.only(top: 20.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -103,14 +105,6 @@ class _changePasswordState extends State<changePassword> {
                       onPressed: () {
                         Navigator.pushNamed(context, "/login");
                       },
-                      child: CustomText(
-                        text: "change password",
-                        size: 20,
-                        color: myColor.background,
-                        weight: FontWeight.w500,
-                        textAlign: TextAlign.center,
-                        textStyle: TextStyle(),
-                      ),
                       style: ButtonStyle(
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
@@ -118,11 +112,19 @@ class _changePasswordState extends State<changePassword> {
                             WidgetStatePropertyAll(myColor.maincolor),
                         foregroundColor:
                             WidgetStatePropertyAll(myColor.background),
-                        fixedSize: WidgetStatePropertyAll(Size(
-                            ScreenUtil().setWidth(200),
-                            ScreenUtil().setHeight(45))),
+                        minimumSize: WidgetStatePropertyAll(Size(
+                            200.w,
+                            50.h)),
                         textStyle: WidgetStatePropertyAll(
-                            GoogleFonts.poppins(fontSize: 18)),
+                            GoogleFonts.poppins(fontSize: 18.sp)),
+                      ),
+                      child: CustomText(
+                        text: "change password",
+                        size: 20.sp,
+                        color: myColor.background,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: const TextStyle(),
                       )),
                 ],
               ),
