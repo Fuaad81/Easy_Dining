@@ -1,18 +1,30 @@
-// ignore_for_file: prefer__ructors
-
 import 'package:flutter/material.dart';
 
-class customCard extends StatefulWidget {
-   const customCard({super.key});
+class customCard extends StatelessWidget {
+  final Widget child;
+  final Color? color;
+  final double? elevation;
+  final Color? shadowColor;
+  final EdgeInsetsGeometry? margin;
+  final ShapeBorder? shape;
+  const customCard(
+      {super.key,
+      required this.child,
+      this.color,
+      this.elevation,
+      this.shadowColor,
+      this.margin,
+      this.shape});
 
-  @override
-  State<customCard> createState() => _customCardState();
-}
-
-class _customCardState extends State<customCard> {
   @override
   Widget build(BuildContext context) {
-    return const Card(
+    return Card(
+      child: child,
+      color: color,
+      elevation: elevation,
+      shadowColor: shadowColor,
+      margin: margin,
+      shape: shape,
       
     );
   }

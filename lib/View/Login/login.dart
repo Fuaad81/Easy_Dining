@@ -24,7 +24,6 @@ class _Login_PageState extends State<Login_Page> {
   Widget build(BuildContext context) {
     final suffixicons = Provider.of<UserProvider>(context);
     return Scaffold(
-      backgroundColor: myColor.background,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -36,8 +35,8 @@ class _Login_PageState extends State<Login_Page> {
                     child: LottieBuilder.network(
                   repeat: false,
                   "https://lottie.host/fbc237c1-ec53-435f-9575-2f31013f6120/Z9dkIXS2kG.json",
-                  width: 350.w,
-                  height: 350.h,
+                  width: 300.w,
+                  height: 300.h,
                 )),
               ),
               Padding(
@@ -68,11 +67,11 @@ class _Login_PageState extends State<Login_Page> {
                 padding: EdgeInsets.only(left: 20.w, top: 20.h),
                 child: SizedBox(
                   width: 315.w,
-                  height: 60.h,
+                  height: 50.h,
                   child: CustomTextFormField(
                     controller: emailcontroller,
                     contentPadding:
-                        EdgeInsets.symmetric(vertical: 15.h, horizontal: 20.w),
+                        EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                     labelText: Padding(
                       padding: EdgeInsets.only(left: 5.w),
                       child: CustomText(
@@ -106,12 +105,12 @@ class _Login_PageState extends State<Login_Page> {
                 padding: EdgeInsets.only(left: 20.w, top: 20.h),
                 child: SizedBox(
                   width: 315.w,
-                  height: 60.h,
+                  height: 50.h,
                   child: CustomTextFormField(
                     obscureText: suffixicons.checked,
                     controller: passwordcontroler,
                     contentPadding:
-                        EdgeInsets.symmetric(vertical: 15.h, horizontal: 20.w),
+                        EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                     labelText: Padding(
                       padding: EdgeInsets.only(left: 5.w),
                       child: CustomText(
@@ -185,7 +184,7 @@ class _Login_PageState extends State<Login_Page> {
                             WidgetStateProperty.all(myColor.maincolor),
                         foregroundColor:
                             WidgetStateProperty.all(myColor.background),
-                            minimumSize: WidgetStateProperty.all(Size(200.w, 50.h)),
+                            minimumSize: WidgetStateProperty.all(Size(200.w, 45.h)),
                         textStyle: WidgetStateProperty.all(
                           GoogleFonts.poppins(fontSize: 18.sp),
                         ),

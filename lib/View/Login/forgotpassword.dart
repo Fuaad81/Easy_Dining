@@ -52,7 +52,7 @@ class _forgotPasswordState extends State<forgotPassword> {
             padding:  EdgeInsets.only(top: 20.h),
             child: SizedBox(
               width: 315.w,
-              height: 60.h,
+              height: 50.h,
               child: CustomTextFormField(
                 controller: _forgotpass,
                 labelText: CustomText(
@@ -68,7 +68,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                     fontWeight: FontWeight.w500,
                     color: myColor.textcolor),
                 prefixIcon: Icon(CupertinoIcons.mail,size: 20.w,),
-                contentPadding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 15.h),
+                contentPadding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 10.h),
               ),
             ),
           ),
@@ -88,7 +88,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                           WidgetStatePropertyAll(myColor.maincolor),
                       foregroundColor:
                           WidgetStatePropertyAll(myColor.background),
-                      minimumSize: WidgetStateProperty.all(Size(200.w, 50.h)),
+                      minimumSize: WidgetStateProperty.all(Size(200.w, 45.h)),
                       textStyle: WidgetStatePropertyAll(
                           GoogleFonts.poppins(fontSize: 18)),
                     ),

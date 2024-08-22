@@ -69,7 +69,7 @@ class _createdSuccesState extends State<createdSucces> {
                             WidgetStatePropertyAll(myColor.background),
                         minimumSize: WidgetStatePropertyAll(Size(
                             200.w,
-                            50.h)),
+                            45.h)),
                         textStyle: WidgetStatePropertyAll(
                             GoogleFonts.poppins(fontSize: 18.r)),
                       ),

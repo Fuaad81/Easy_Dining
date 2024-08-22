@@ -27,7 +27,6 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
@@ -69,10 +68,10 @@ class _RegisterState extends State<Register> {
               padding:  EdgeInsets.only(left: 20.w, top: 10.h),
               child: SizedBox(
                 width: 315.w,
-                height: 60.h,
+                height: 50.h,
                 child: CustomTextFormField(
                   controller: _namecontroller,
-                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
                   labelText: CustomText(
                     text: "name",
                     size: 20.sp,
@@ -96,10 +95,10 @@ class _RegisterState extends State<Register> {
               padding:  EdgeInsets.only(left: 20.w, top: 10.h),
               child: SizedBox(
                 width: 315.w,
-                height: 60.h,
+                height: 50.h,
                 child: CustomTextFormField(
                   controller: _emailcontroller,
-                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
                   labelText: CustomText(
                     text: "email",
                     size: 18.sp,
@@ -124,9 +123,9 @@ class _RegisterState extends State<Register> {
               padding:   EdgeInsets.only(left: 20.w, top: 10.h),
               child: SizedBox(
                 width: 315.w,
-                height: 60.h,
+                height: 50.h,
                 child: CustomTextFormField(
-                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
                   controller: _numbercontroller,
                   labelText: CustomText(
                     text: "number",
@@ -152,10 +151,10 @@ class _RegisterState extends State<Register> {
               padding:   EdgeInsets.only(left: 20.w, top: 10.h),
               child: SizedBox(
                 width: 315.w,
-                height: 60.h,
+                height: 50.h,
                 child: CustomTextFormField(
                   controller: _passwordcontroller,
-                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
                   labelText: CustomText(
                     text: "password",
                     size: 18.sp,
@@ -181,9 +180,9 @@ class _RegisterState extends State<Register> {
               padding:   EdgeInsets.only(left: 20.w, top: 10.h),
               child: SizedBox(
                 width:315.w,
-                height:60.h,
+                height:50.h,
                 child: CustomTextFormField(
-                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
                     controller: _cpasswordcontroller,
                     labelText: CustomText(
                       text: "confirm password",
@@ -210,6 +209,7 @@ class _RegisterState extends State<Register> {
               child: Row(
                 children: [
                   Checkbox(
+                    activeColor: myColor.maincolor,
                     value: check,
                     onChanged: (value) {},
                   ),
@@ -221,15 +221,18 @@ class _RegisterState extends State<Register> {
                     textAlign: TextAlign.center,
                     textStyle:  const TextStyle(),
                   ),
-                  InkWell(
-                    onTap: () {},
-                    child: CustomText(
-                      text: "Terms & Conditions",
-                      size: 16.sp,
-                      color: myColor.linktext,
-                      weight: FontWeight.w500,
-                      textAlign: TextAlign.center,
-                      textStyle:  const TextStyle(),
+                  Padding(
+                    padding: EdgeInsets.only(left: 5.w),
+                    child: InkWell(
+                      onTap: () {},
+                      child: CustomText(
+                        text: "Terms & Conditions",
+                        size: 16.sp,
+                        color: myColor.linktext,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle:  const TextStyle(),
+                      ),
                     ),
                   )
                 ],
@@ -251,7 +254,7 @@ class _RegisterState extends State<Register> {
                           WidgetStatePropertyAll(myColor.background),
                       minimumSize: WidgetStatePropertyAll(Size(
                           200.w,
-                          50.h)),
+                          45.h)),
                       textStyle: WidgetStatePropertyAll(
                           GoogleFonts.poppins(fontSize: 18.sp)),
                     ),
@@ -278,18 +281,21 @@ class _RegisterState extends State<Register> {
                         textAlign: TextAlign.center,
                         textStyle:  const TextStyle(),
                       ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/login');
-                    },
-                    child: CustomText(
-                        text: "Login",
-                        size: 18.sp,
-                        color: myColor.linktext,
-                        weight: FontWeight.w500,
-                        textAlign: TextAlign.center,
-                        textStyle:  const TextStyle(),
-                      ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 5.w),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/login');
+                      },
+                      child: CustomText(
+                          text: "Login",
+                          size: 18.sp,
+                          color: myColor.linktext,
+                          weight: FontWeight.w500,
+                          textAlign: TextAlign.center,
+                          textStyle:  const TextStyle(),
+                        ),
+                    ),
                   )
                 ],
               ),

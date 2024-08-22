@@ -52,7 +52,7 @@ class _changePasswordState extends State<changePassword> {
               padding:  EdgeInsets.only(top: 20.h),
               child: SizedBox(
                 width: 315.w,
-                height: 60.h,
+                height: 50.h,
                 child: CustomTextFormField(
                   controller: _newpass,
                   labelText: CustomText(
@@ -63,7 +63,7 @@ class _changePasswordState extends State<changePassword> {
                     textAlign: TextAlign.center,
                     textStyle: const TextStyle(),
                   ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
                   labelStyle: GoogleFonts.poppins(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
@@ -76,10 +76,10 @@ class _changePasswordState extends State<changePassword> {
               padding:  EdgeInsets.only(top: 10.h),
               child: SizedBox(
                 width:315.w,
-                height: 60.h,
+                height: 50.h,
                 child: CustomTextFormField(
                   controller: _newconfirmpass,
-                  contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 20.w),
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
                   labelText: CustomText(
                     text: "confirm password",
                     size: 18.sp,
@@ -114,7 +114,7 @@ class _changePasswordState extends State<changePassword> {
                             WidgetStatePropertyAll(myColor.background),
                         minimumSize: WidgetStatePropertyAll(Size(
                             200.w,
-                            50.h)),
+                            45.h)),
                         textStyle: WidgetStatePropertyAll(
                             GoogleFonts.poppins(fontSize: 18.sp)),
                       ),

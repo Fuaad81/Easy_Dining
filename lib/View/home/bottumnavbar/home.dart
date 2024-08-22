@@ -30,9 +30,7 @@ class _HomeState extends State<Home> {
       length: 5,
       child: Scaffold(
         key: _scaffoldKey,
-        backgroundColor: myColor.background,
         appBar: AppBar(
-          backgroundColor: myColor.background,
           titleSpacing: -5,
           toolbarHeight: 70.h,
           leading: IconButton(
@@ -71,16 +69,16 @@ class _HomeState extends State<Home> {
         body: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 10.h),
+              padding: EdgeInsets.only(top: 5.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: 330.w,
-                    height: 60.h,
+                    height: 50.h,
                     child: CustomTextFormField(
                         contentPadding: EdgeInsets.symmetric(
-                            vertical: 15.h, horizontal: 20.w),
+                            vertical: 10.h, horizontal: 20.w),
                         controller: _search,
                         labelText: CustomText(
                           text: "search..",
@@ -94,13 +92,13 @@ class _HomeState extends State<Home> {
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w400,
                             color: myColor.textcolor),
-                        suffixIcon: const Icon(IconlyLight.search)),
+                        suffixIcon: Icon(IconlyLight.search,size: 25.w,)),
                   ),
                 ],
               ),
             ),
             TabBar(
-                padding: EdgeInsets.only(left: 15.w, top: 15.h),
+                padding: EdgeInsets.only(left: 15.w, top: 10.h),
                 dividerColor: myColor.background,
                 indicatorSize: TabBarIndicatorSize.tab,
                 isScrollable: true,
@@ -156,12 +154,11 @@ class _HomeState extends State<Home> {
                 snackItem(),
                 dinnerItem()
               ]),
-            )
+            ),
           ],
         ),
         drawer: Drawer(
           shape: const BeveledRectangleBorder(),
-          backgroundColor: myColor.background,
           child: ListView(children: [
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: myColor.maincolor),
@@ -171,7 +168,7 @@ class _HomeState extends State<Home> {
                   icon: Icon(
                     CupertinoIcons.moon_stars,
                     color: myColor.background,
-                    size: 35,
+                    size: 35.w,
                   ),
                 )
               ],
@@ -181,7 +178,7 @@ class _HomeState extends State<Home> {
                   decoration: BoxDecoration(
                       color: myColor.background,
                       borderRadius: BorderRadius.circular(100.r)),
-                  child: const Icon(IconlyBold.profile)),
+                  child: Icon(IconlyBold.profile,size: 30.w,)),
               accountName: CustomText(
                 text: "Name",
                 size: 20.sp,
@@ -202,9 +199,9 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: const Icon(
+                leading: Icon(
                   IconlyLight.setting,
-                  size: 30,
+                  size: 25.w,
                 ),
                 title: CustomText(
                   text: "Account Settings",
@@ -221,9 +218,9 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: const Icon(
+                leading: Icon(
                   IconlyLight.heart,
-                  size: 30,
+                  size: 25.w,
                 ),
                 title: CustomText(
                   text: "Favorite",
@@ -240,9 +237,9 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: const Icon(
+                leading: Icon(
                   CupertinoIcons.square_list,
-                  size: 30,
+                  size: 25.w,
                 ),
                 title: CustomText(
                   text: "Order List",
@@ -259,9 +256,9 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: const Icon(
+                leading: Icon(
                   IconlyLight.location,
-                  size: 30,
+                  size: 25.w,
                 ),
                 title: CustomText(
                   text: "Location",
@@ -278,9 +275,9 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: const Icon(
+                leading:  Icon(
                   CupertinoIcons.captions_bubble,
-                  size: 30,
+                  size: 25.w,
                 ),
                 title: CustomText(
                   text: "Feedback",
@@ -297,9 +294,9 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: const Icon(
+                leading: Icon(
                   IconlyLight.info_circle,
-                  size: 30,
+                  size: 25.w,
                 ),
                 title: CustomText(
                   text: "About",

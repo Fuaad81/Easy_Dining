@@ -8,6 +8,7 @@ import 'package:easy_dine_in/View/Register/register.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/booking.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/bottomnav.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/cart.dart';
+import 'package:easy_dine_in/View/home/bottumnavbar/editprofile.dart';
 import 'package:easy_dine_in/View/home/drawer/settings.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/home.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/profile.dart';
@@ -66,6 +67,7 @@ class MyApp extends StatelessWidget {
             "/tablebooking": (context) => const Booking(),
             "/cart": (context) => const Cart(),
             "/profile": (context) => const Profile(),
+            "/editprofile": (context) => const editProfile(),
             "/all": (context) => const allItem(),
             "/breakfast": (context) => const breakFast(),
             "/lunch": (context) => const lunchItem(),
