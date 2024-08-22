@@ -1,6 +1,5 @@
 // ignore_for_file: prefer__ructors
 
-import 'package:easy_dine_in/model/style/color.dart';
 import 'package:flutter/material.dart';
 
 class dinnerItem extends StatefulWidget {
@@ -13,8 +12,8 @@ class dinnerItem extends StatefulWidget {
 class _dinnerItemState extends State<dinnerItem> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: myColor.background,
+    return const Scaffold(
+      
     );
   }
 }

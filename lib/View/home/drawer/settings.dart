@@ -1,6 +1,5 @@
 // ignore_for_file: prefer__ructors
 
-import 'package:easy_dine_in/main.dart';
 import 'package:easy_dine_in/model/style/color.dart';
 import 'package:easy_dine_in/model/widget/customtext.dart';
 import 'package:flutter/material.dart';

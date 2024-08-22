@@ -6,10 +6,8 @@ import 'package:easy_dine_in/View/home/bottumnavbar/cart.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/home.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/profile.dart';
 import 'package:easy_dine_in/model/style/color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconly/iconly.dart';
 
 class bottomNavbar extends StatefulWidget {
    const bottomNavbar({super.key});
@@ -32,16 +30,17 @@ class _bottomNavbarState extends State<bottomNavbar> {
       bottomNavigationBar: CurvedNavigationBar(
         height: 50.h,
         buttonBackgroundColor: myColor.maincolor,
-        color: myColor.tabcolor,
+        color: myColor.background,
         
         backgroundColor: Colors.transparent,
         onTap: itemTap,
         index: index,
         items: [
-        const Icon(IconlyLight.home,size: 30,),
-        Image.asset("assets/icons/ic_table.png",width: 25.w,),
-        const Icon(CupertinoIcons.shopping_cart,size: 30,),
-        const Icon(IconlyLight.profile,size: 30,),
+        Image.asset("assets/icons/ic_home.png",width: 25.w,color: index == 0 ? myColor.background : myColor.textcolor,),
+        Image.asset("assets/icons/ic_table.png",width: 25.w,color: index == 1 ? myColor.background : myColor.textcolor,),
+        Image.asset("assets/icons/ic_cart.png",width: 25.w,color: index == 2 ? myColor.background : myColor.textcolor,),
+        Image.asset("assets/icons/ic_profile.png",width: 25.w,color: index == 3 ? myColor.background : myColor.textcolor,),
+        
       ]),
       body: pages.elementAt(index),
     );

@@ -1,6 +1,5 @@
 // ignore_for_file: prefer__ructors
 
-import 'package:easy_dine_in/model/style/color.dart';
 import 'package:flutter/material.dart';
 
 class breakFast extends StatefulWidget {
@@ -13,8 +12,8 @@ class breakFast extends StatefulWidget {
 class _breakFastState extends State<breakFast> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: myColor.background,
+    return const Scaffold(
+      
     );
   }
 }

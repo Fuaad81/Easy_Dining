@@ -148,7 +148,7 @@ class _HomeState extends State<Home> {
                     textStyle: const TextStyle(),
                   ),
                 ]),
-            Expanded(
+            const Expanded(
               child: TabBarView(children: [
                 allItem(),
                 breakFast(),

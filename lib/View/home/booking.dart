@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Booking extends StatefulWidget {
-   Booking({super.key});
+   const Booking({super.key});
 
   @override
   State<Booking> createState() => _BookingState();
@@ -10,7 +10,7 @@ class Booking extends StatefulWidget {
 class _BookingState extends State<Booking> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  const Scaffold(
       body: Center(
         child: Text("booking"),
       ),

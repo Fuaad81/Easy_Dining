@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class customCard extends StatefulWidget {
-   customCard({super.key});
+   const customCard({super.key});
 
   @override
   State<customCard> createState() => _customCardState();
@@ -12,7 +12,7 @@ class customCard extends StatefulWidget {
 class _customCardState extends State<customCard> {
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return const Card(
       
     );
   }
