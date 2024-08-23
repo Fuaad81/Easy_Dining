@@ -99,7 +99,7 @@ class _HomeState extends State<Home> {
             ),
             TabBar(
                 padding: EdgeInsets.only(left: 15.w, top: 10.h),
-                dividerColor: myColor.background,
+                dividerColor: Colors.transparent,
                 indicatorSize: TabBarIndicatorSize.tab,
                 isScrollable: true,
                 labelStyle: GoogleFonts.poppins(

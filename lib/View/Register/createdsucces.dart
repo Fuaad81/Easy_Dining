@@ -46,7 +46,7 @@ class _createdSuccesState extends State<createdSucces> {
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textAlign: TextAlign.center,
-                  letterSpacing: 2,
+                  letterSpacing: 1,
                   textStyle: const TextStyle(),
                 ),
               ),
@@ -70,8 +70,7 @@ class _createdSuccesState extends State<createdSucces> {
                         minimumSize: WidgetStatePropertyAll(Size(
                             200.w,
                             45.h)),
-                        textStyle: WidgetStatePropertyAll(
-                            GoogleFonts.poppins(fontSize: 18.r)),
+                        
                       ),
                       child: CustomText(
                         text: "Done",

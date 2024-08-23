@@ -29,16 +29,13 @@ class _Login_PageState extends State<Login_Page> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 20.h),
-                child: Center(
-                    child: LottieBuilder.network(
-                  repeat: false,
-                  "https://lottie.host/fbc237c1-ec53-435f-9575-2f31013f6120/Z9dkIXS2kG.json",
-                  width: 300.w,
-                  height: 300.h,
-                )),
-              ),
+              Center(
+                  child: LottieBuilder.network(
+                repeat: false,
+                "https://lottie.host/fbc237c1-ec53-435f-9575-2f31013f6120/Z9dkIXS2kG.json",
+                width: 300.w,
+                height: 300.h,
+              )),
               Padding(
                 padding: EdgeInsets.only(left: 20.w),
                 child: CustomText(
@@ -78,7 +75,7 @@ class _Login_PageState extends State<Login_Page> {
                         text: "email or phone",
                         size: 18.sp,
                         color: myColor.textcolor,
-                        weight: FontWeight.w500,
+                        weight: FontWeight.w400,
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(),
                       ),
@@ -102,7 +99,7 @@ class _Login_PageState extends State<Login_Page> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 20.w, top: 20.h),
+                padding: EdgeInsets.only(left: 20.w, top: 10.h),
                 child: SizedBox(
                   width: 315.w,
                   height: 50.h,
@@ -117,7 +114,7 @@ class _Login_PageState extends State<Login_Page> {
                         text: "password",
                         size: 18.sp,
                         color: myColor.textcolor,
-                        weight: FontWeight.w500,
+                        weight: FontWeight.w400,
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(),
                       ),
@@ -157,10 +154,10 @@ class _Login_PageState extends State<Login_Page> {
                         Navigator.pushNamed(context, "/forgot");
                       },
                       child: CustomText(
-                        text: "forgot password?",
+                        text: "Forgot Password?",
                         size: 18.sp,
                         color: myColor.linktext,
-                        weight: FontWeight.w500,
+                        weight: FontWeight.w400,
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(),
                       ),
@@ -185,9 +182,6 @@ class _Login_PageState extends State<Login_Page> {
                         foregroundColor:
                             WidgetStateProperty.all(myColor.background),
                             minimumSize: WidgetStateProperty.all(Size(200.w, 45.h)),
-                        textStyle: WidgetStateProperty.all(
-                          GoogleFonts.poppins(fontSize: 18.sp),
-                        ),
                       ),
                       child: CustomText(
                         text: "Submit",
@@ -208,12 +202,12 @@ class _Login_PageState extends State<Login_Page> {
                       text: "i don't have any account!",
                       size: 18.sp,
                       color: myColor.textcolor,
-                      weight: FontWeight.w500,
+                      weight: FontWeight.w400,
                       textAlign: TextAlign.center,
                       textStyle: const TextStyle(),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 5.w),
+                      padding: EdgeInsets.only(left: 4.w),
                       child: InkWell(
                         onTap: () {
                           Navigator.pushNamed(context, '/register');
@@ -222,7 +216,7 @@ class _Login_PageState extends State<Login_Page> {
                           text: "sign up",
                           size: 20.sp,
                           color: myColor.linktext,
-                          weight: FontWeight.w500,
+                          weight: FontWeight.w400,
                           textAlign: TextAlign.center,
                           textStyle: const TextStyle(),
                         ),
@@ -249,7 +243,7 @@ class _Login_PageState extends State<Login_Page> {
                       text: "or login with",
                       size: 18.sp,
                       color: myColor.textcolor,
-                      weight: FontWeight.w500,
+                      weight: FontWeight.w400,
                       textAlign: TextAlign.center,
                       textStyle: const TextStyle(),
                     ),

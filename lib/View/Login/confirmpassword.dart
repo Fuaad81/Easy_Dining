@@ -42,7 +42,7 @@ class _changePasswordState extends State<changePassword> {
                   text: "Enter new password and\nconform",
                   size: 22.sp,
                   color: myColor.textcolor,
-                  weight: FontWeight.w500,
+                  weight: FontWeight.w400,
                   textAlign: TextAlign.center,
                   textStyle: const TextStyle(),
                 ),
@@ -59,7 +59,7 @@ class _changePasswordState extends State<changePassword> {
                     text: "new password",
                     size: 18.sp,
                     color: myColor.textcolor,
-                    weight: FontWeight.w500,
+                    weight: FontWeight.w400,
                     textAlign: TextAlign.center,
                     textStyle: const TextStyle(),
                   ),
@@ -84,7 +84,7 @@ class _changePasswordState extends State<changePassword> {
                     text: "confirm password",
                     size: 18.sp,
                     color: myColor.textcolor,
-                    weight: FontWeight.w500,
+                    weight: FontWeight.w400,
                     textAlign: TextAlign.center,
                     textStyle: const TextStyle(),
                   ),
@@ -115,8 +115,7 @@ class _changePasswordState extends State<changePassword> {
                         minimumSize: WidgetStatePropertyAll(Size(
                             200.w,
                             45.h)),
-                        textStyle: WidgetStatePropertyAll(
-                            GoogleFonts.poppins(fontSize: 18.sp)),
+                       
                       ),
                       child: CustomText(
                         text: "change password",

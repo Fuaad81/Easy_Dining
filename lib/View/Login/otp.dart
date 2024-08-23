@@ -100,8 +100,6 @@ class _OtpState extends State<Otp> {
                       minimumSize: WidgetStatePropertyAll(Size(
                           150.w,
                           45.h)),
-                      textStyle: WidgetStatePropertyAll(
-                          GoogleFonts.poppins(fontSize: 18.sp)),
                     ),
                     child: CustomText(
                         text: "Verify",
