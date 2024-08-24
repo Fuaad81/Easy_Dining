@@ -3,7 +3,6 @@
 import 'package:easy_dine_in/model/style/color.dart';
 import 'package:easy_dine_in/model/widget/customcard.dart';
 import 'package:easy_dine_in/model/widget/customtext.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
@@ -61,7 +60,7 @@ class _allItemState extends State<allItem> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(
-                        height: 170.h,
+                        height: 180.h,
                         width: 160.w,
                         child: customCard(
                           elevation: 5,
@@ -129,7 +128,7 @@ class _allItemState extends State<allItem> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     CustomText(
-                                      text: "25-",
+                                      text: "\$25",
                                       size: 16.sp,
                                       textStyle: TextStyle(),
                                       weight: FontWeight.w600,
@@ -138,10 +137,7 @@ class _allItemState extends State<allItem> {
                                       padding:  EdgeInsets.only(right: 2.w),
                                       child: InkWell(
                                           onTap: () {},
-                                          child: Icon(
-                                            CupertinoIcons.cart,
-                                            size: 20.w,
-                                          )),
+                                          child: Image.asset("assets/icons/ic_cart_outline.png",width: 20.w,color: myColor.textcolor,)),
                                     )
                                   ],
                                 ),
@@ -150,7 +146,7 @@ class _allItemState extends State<allItem> {
                           ),
                         )),
                     SizedBox(
-                        height: 170.h,
+                        height: 180.h,
                         width: 160.w,
                         child: customCard(
                           elevation: 5,
@@ -218,7 +214,7 @@ class _allItemState extends State<allItem> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     CustomText(
-                                      text: "25-",
+                                      text: "\$25",
                                       size: 16.sp,
                                       textStyle: TextStyle(),
                                       weight: FontWeight.w600,
@@ -227,10 +223,7 @@ class _allItemState extends State<allItem> {
                                       padding:  EdgeInsets.only(right: 2.w),
                                       child: InkWell(
                                           onTap: () {},
-                                          child: Icon(
-                                            CupertinoIcons.cart,
-                                            size: 20.w,
-                                          )),
+                                          child: Image.asset("assets/icons/ic_cart_outline.png",width: 20.w,color: myColor.textcolor,)),
                                     )
                                   ],
                                 ),
@@ -247,7 +240,7 @@ class _allItemState extends State<allItem> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(
-                        height: 170.h,
+                        height: 180.h,
                         width: 160.w,
                         child: customCard(
                           elevation: 5,
@@ -315,7 +308,7 @@ class _allItemState extends State<allItem> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     CustomText(
-                                      text: "25-/",
+                                      text: "\$25",
                                       size: 16.sp,
                                       textStyle: TextStyle(),
                                       weight: FontWeight.w600,
@@ -324,10 +317,7 @@ class _allItemState extends State<allItem> {
                                       padding:  EdgeInsets.only(right: 2.w),
                                       child: InkWell(
                                           onTap: () {},
-                                          child: Icon(
-                                            CupertinoIcons.cart,
-                                            size: 20.w,
-                                          )),
+                                          child: Image.asset("assets/icons/ic_cart_outline.png",width: 20.w,color: myColor.textcolor,)),
                                     )
                                   ],
                                 ),
@@ -336,7 +326,7 @@ class _allItemState extends State<allItem> {
                           ),
                         )),
                     SizedBox(
-                        height: 170.h,
+                        height: 180.h,
                         width: 160.w,
                         child: customCard(
                           elevation: 5,
@@ -404,7 +394,7 @@ class _allItemState extends State<allItem> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     CustomText(
-                                      text: "25-/",
+                                      text: "\$25",
                                       size: 16.sp,
                                       textStyle: TextStyle(),
                                       weight: FontWeight.w600,
@@ -413,10 +403,7 @@ class _allItemState extends State<allItem> {
                                       padding:  EdgeInsets.only(right: 2.w),
                                       child: InkWell(
                                           onTap: () {},
-                                          child: Icon(
-                                            CupertinoIcons.cart,
-                                            size: 20.w,
-                                          )),
+                                          child: Image.asset("assets/icons/ic_cart_outline.png",width: 20.w,color: myColor.textcolor,)),
                                     )
                                   ],
                                 ),

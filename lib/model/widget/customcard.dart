@@ -19,12 +19,12 @@ class customCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: child,
       color: color,
       elevation: elevation,
       shadowColor: shadowColor,
       margin: margin,
       shape: shape,
+      child: child,
       
     );
   }

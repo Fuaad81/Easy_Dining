@@ -9,6 +9,9 @@ import 'package:easy_dine_in/View/home/bottumnavbar/booking.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/bottomnav.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/cart.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/editprofile.dart';
+import 'package:easy_dine_in/View/home/bottumnavbar/notification.dart';
+import 'package:easy_dine_in/View/home/bottumnavbar/search.dart';
+import 'package:easy_dine_in/View/home/drawer/favorite.dart';
 import 'package:easy_dine_in/View/home/drawer/settings.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/home.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/profile.dart';
@@ -52,7 +55,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData.light(),
           routes: {
             "/splash": (context) => const Splash_screeen(),
-            "/firstonboard": (context) => const First_Onboarding(),
+            "/firstonboard": (context) => const Onboarding(),
             "/login": (context) => const Login_Page(),
             "/forgot": (context) => const forgotPassword(),
             "/otp": (context) => const Otp(),
@@ -71,6 +74,9 @@ class MyApp extends StatelessWidget {
             "/snack": (context) => const snackItem(),
             "/dinner": (context) => const dinnerItem(),
             "/settings": (context) => const accountSetting(),
+            "/favorite": (context) => const Favorite(),
+            "/notification": (context) => const notification(),
+            "/search": (context) => const Search(),
           },
           initialRoute: "/splash",
         );

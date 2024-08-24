@@ -32,159 +32,161 @@ class _editProfileState extends State<editProfile> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 30.h),
-            child: Center(
-              child: CircleAvatar(
-                  backgroundColor: myColor.fieldbackground,
-                  radius: 50.w,
-                  child: Stack(children: [
-                    Align(
-                      alignment: Alignment.bottomRight,
-
-                      child: IconButton(
-                          onPressed: () {}, icon: Icon(IconlyLight.image_2)),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 30.h),
+              child: Center(
+                child: CircleAvatar(
+                    backgroundColor: myColor.fieldbackground,
+                    radius: 50.w,
+                    child: Stack(children: [
+                      Align(
+                        alignment: Alignment.bottomRight,
+        
+                        child: IconButton(
+                            onPressed: () {}, icon: const Icon(IconlyLight.image_2)),
+                      ),
+                    ])),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20.h),
+              child: SizedBox(
+                width: 300.w,
+                height: 50.h,
+                child: CustomTextFormField(
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                    controller: nameController,
+                    prefixIcon: Icon(
+                      IconlyLight.profile,
+                      size: 20.w,
                     ),
-                  ])),
+                    labelText: CustomText(
+                      text: "Name",
+                      size: 18.sp,
+                    ),
+                    labelStyle: const TextStyle()),
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.h),
-            child: SizedBox(
-              width: 300.w,
-              height: 50.h,
-              child: CustomTextFormField(
-                contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
-                  controller: nameController,
-                  prefixIcon: Icon(
-                    IconlyLight.profile,
-                    size: 20.w,
-                  ),
-                  labelText: CustomText(
-                    text: "Name",
-                    size: 18.sp,
-                  ),
-                  labelStyle: TextStyle()),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: SizedBox(
+                width: 300.w,
+                height: 50.h,
+                child: CustomTextFormField(
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                    controller: emailController,
+                    prefixIcon: Icon(
+                      CupertinoIcons.mail,
+                      size: 20.w,
+                    ),
+                    labelText: CustomText(
+                      text: "Email",
+                      size: 18.sp,
+                    ),
+                    labelStyle: const TextStyle()),
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.h),
-            child: SizedBox(
-              width: 300.w,
-              height: 50.h,
-              child: CustomTextFormField(
-                contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
-                  controller: emailController,
-                  prefixIcon: Icon(
-                    CupertinoIcons.mail,
-                    size: 20.w,
-                  ),
-                  labelText: CustomText(
-                    text: "Email",
-                    size: 18.sp,
-                  ),
-                  labelStyle: TextStyle()),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: SizedBox(
+                width: 300.w,
+                height: 50.h,
+                child: CustomTextFormField(
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                    controller: numberController,
+                    prefixIcon: Icon(
+                      IconlyLight.call,
+                      size: 20.w,
+                    ),
+                    labelText: CustomText(
+                      text: "Number",
+                      size: 18.sp,
+                    ),
+                    labelStyle: const TextStyle()),
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.h),
-            child: SizedBox(
-              width: 300.w,
-              height: 50.h,
-              child: CustomTextFormField(
-                contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
-                  controller: numberController,
-                  prefixIcon: Icon(
-                    IconlyLight.call,
-                    size: 20.w,
-                  ),
-                  labelText: CustomText(
-                    text: "Number",
-                    size: 18.sp,
-                  ),
-                  labelStyle: TextStyle()),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: SizedBox(
+                width: 300.w,
+                height: 50.h,
+                child: CustomTextFormField(
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                    controller: addressController,
+                    prefixIcon: Icon(
+                      IconlyLight.location,
+                      size: 20.w,
+                    ),
+                    labelText: CustomText(
+                      text: "Address",
+                      size: 18.sp,
+                    ),
+                    labelStyle: const TextStyle()),
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.h),
-            child: SizedBox(
-              width: 300.w,
-              height: 50.h,
-              child: CustomTextFormField(
-                contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
-                  controller: addressController,
-                  prefixIcon: Icon(
-                    IconlyLight.location,
-                    size: 20.w,
-                  ),
-                  labelText: CustomText(
-                    text: "Address",
-                    size: 18.sp,
-                  ),
-                  labelStyle: TextStyle()),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 40.h),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      style: ButtonStyle(
-                        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.r))),
-                        backgroundColor:
-                            WidgetStatePropertyAll(myColor.tabcolor),
-                        foregroundColor:
-                            WidgetStatePropertyAll(myColor.background),
-                        minimumSize: WidgetStatePropertyAll(Size(
-                            120.w,
-                            40.h)),
-                        textStyle: WidgetStatePropertyAll(
-                            GoogleFonts.poppins(fontSize: 18.sp)),
-                      ),
-                      child: CustomText(
-                          text: "cancel",
-                          size: 18.sp,
-                          color: myColor.textcolor,
-                          weight: FontWeight.w500,
-                          textAlign: TextAlign.center,
-                          textStyle:  const TextStyle(),
-                        )),
-                ElevatedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      style: ButtonStyle(
-                        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.r))),
-                        backgroundColor:
-                            WidgetStatePropertyAll(myColor.maincolor),
-                        foregroundColor:
-                            WidgetStatePropertyAll(myColor.background),
-                        minimumSize: WidgetStatePropertyAll(Size(
-                            120.w,
-                            40.h)),
-                        textStyle: WidgetStatePropertyAll(
-                            GoogleFonts.poppins(fontSize: 18.sp)),
-                      ),
-                      child: CustomText(
-                          text: "save",
-                          size: 18.sp,
-                          color: myColor.background,
-                          weight: FontWeight.w500,
-                          textAlign: TextAlign.center,
-                          textStyle:  const TextStyle(),
-                        )),
-              ],
-            ),
-          )
-        ],
+            Padding(
+              padding: EdgeInsets.only(top: 30.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        style: ButtonStyle(
+                          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.r))),
+                          backgroundColor:
+                              WidgetStatePropertyAll(myColor.tabcolor),
+                          foregroundColor:
+                              WidgetStatePropertyAll(myColor.background),
+                          minimumSize: WidgetStatePropertyAll(Size(
+                              120.w,
+                              40.h)),
+                          textStyle: WidgetStatePropertyAll(
+                              GoogleFonts.poppins(fontSize: 18.sp)),
+                        ),
+                        child: CustomText(
+                            text: "cancel",
+                            size: 18.sp,
+                            color: myColor.textcolor,
+                            weight: FontWeight.w500,
+                            textAlign: TextAlign.center,
+                            textStyle:  const TextStyle(),
+                          )),
+                  ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        style: ButtonStyle(
+                          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.r))),
+                          backgroundColor:
+                              WidgetStatePropertyAll(myColor.maincolor),
+                          foregroundColor:
+                              WidgetStatePropertyAll(myColor.background),
+                          minimumSize: WidgetStatePropertyAll(Size(
+                              120.w,
+                              40.h)),
+                          textStyle: WidgetStatePropertyAll(
+                              GoogleFonts.poppins(fontSize: 18.sp)),
+                        ),
+                        child: CustomText(
+                            text: "save",
+                            size: 18.sp,
+                            color: myColor.background,
+                            weight: FontWeight.w500,
+                            textAlign: TextAlign.center,
+                            textStyle:  const TextStyle(),
+                          )),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

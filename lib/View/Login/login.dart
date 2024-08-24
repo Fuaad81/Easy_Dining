@@ -31,9 +31,9 @@ class _Login_PageState extends State<Login_Page> {
             children: [
               Center(
                   child: LottieBuilder.network(
-                repeat: false,
-                "https://lottie.host/fbc237c1-ec53-435f-9575-2f31013f6120/Z9dkIXS2kG.json",
-                width: 300.w,
+                
+                "https://lottie.host/1c05a212-6f39-4406-9bf9-9d854c49dabd/CDPw9UpUsd.json",
+                width: 350.w,
                 height: 300.h,
               )),
               Padding(
@@ -184,10 +184,10 @@ class _Login_PageState extends State<Login_Page> {
                             minimumSize: WidgetStateProperty.all(Size(200.w, 45.h)),
                       ),
                       child: CustomText(
-                        text: "Submit",
+                        text: "login",
                         size: 20.sp,
                         color: myColor.background,
-                        weight: FontWeight.w500,
+                        weight: FontWeight.w400,
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(),
                       )),

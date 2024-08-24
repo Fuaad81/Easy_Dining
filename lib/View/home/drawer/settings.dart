@@ -159,7 +159,7 @@ class _accountSettingState extends State<accountSetting> {
               padding: EdgeInsets.only(left: 20.w, top: 20.h),
               child: Row(
                 children: [
-                  Icon(Icons.logout_rounded),
+                  const Icon(Icons.logout_rounded),
                   CustomText(
                     text: "Log Out",
                     size: 20.sp,

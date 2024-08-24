@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
         key: _scaffoldKey,
         appBar: AppBar(
           titleSpacing: -5,
-          toolbarHeight: 70.h,
+          toolbarHeight: 60.h,
           leading: IconButton(
               onPressed: () {
                 _scaffoldKey.currentState?.openDrawer();
@@ -45,13 +45,13 @@ class _HomeState extends State<Home> {
             TextSpan(
                 text: "Hello",
                 style: GoogleFonts.pacifico(
-                  fontSize: 24.sp,
+                  fontSize: 22.sp,
                 )),
             const TextSpan(text: " "),
             TextSpan(
               text: "Name",
               style: GoogleFonts.poppins(
-                  fontSize: 24.sp,
+                  fontSize: 22.sp,
                   color: myColor.maincolor,
                   fontWeight: FontWeight.w400),
             ),
@@ -59,7 +59,9 @@ class _HomeState extends State<Home> {
           ])),
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, "/notification");
+                },
                 icon: Image.asset(
                   "assets/icons/ic_notification.png",
                   width: 25.w,
@@ -68,37 +70,34 @@ class _HomeState extends State<Home> {
         ),
         body: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.only(top: 5.h),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 330.w,
-                    height: 50.h,
-                    child: CustomTextFormField(
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 10.h, horizontal: 20.w),
-                        controller: _search,
-                        labelText: CustomText(
-                          text: "search..",
-                          size: 18.sp,
-                          color: myColor.textcolor,
-                          weight: FontWeight.w400,
-                          textAlign: TextAlign.center,
-                          textStyle: const TextStyle(),
-                        ),
-                        labelStyle: GoogleFonts.poppins(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w400,
-                            color: myColor.textcolor),
-                        suffixIcon: Icon(IconlyLight.search,size: 25.w,)),
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 330.w,
+                  height: 50.h,
+                  child: CustomTextFormField(
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.h, horizontal: 20.w),
+                      controller: _search,
+                      labelText: CustomText(
+                        text: "search..",
+                        size: 18.sp,
+                        color: myColor.textcolor,
+                        weight: FontWeight.w400,
+                        textAlign: TextAlign.center,
+                        textStyle: const TextStyle(),
+                      ),
+                      labelStyle: GoogleFonts.poppins(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w400,
+                          color: myColor.textcolor),
+                      suffixIcon: Icon(IconlyLight.search,size: 25.w,)),
+                ),
+              ],
             ),
             TabBar(
-                padding: EdgeInsets.only(left: 15.w, top: 10.h),
+                padding: EdgeInsets.only(left: 15.w, top: 5.h),
                 dividerColor: Colors.transparent,
                 indicatorSize: TabBarIndicatorSize.tab,
                 isScrollable: true,
@@ -230,7 +229,7 @@ class _HomeState extends State<Home> {
                   textStyle: const TextStyle(),
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pushNamed(context, "/favorite");
                 },
               ),
             ),

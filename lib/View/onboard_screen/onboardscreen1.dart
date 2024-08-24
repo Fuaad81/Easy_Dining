@@ -7,14 +7,14 @@ import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class First_Onboarding extends StatefulWidget {
-    const First_Onboarding({super.key});
+class Onboarding extends StatefulWidget {
+    const Onboarding({super.key});
 
   @override
-  State<First_Onboarding> createState() => _First_OnboardingState();
+  State<Onboarding> createState() => _OnboardingState();
 }
 
-class _First_OnboardingState extends State<First_Onboarding> {
+class _OnboardingState extends State<Onboarding> {
   @override
   Widget build(BuildContext context) {
     return OnBoardingSlider(
@@ -69,7 +69,7 @@ class _First_OnboardingState extends State<First_Onboarding> {
           letterSpacing: 0.36,
         ),
         onFinish: () {
-          Navigator.pushNamed(context, "/login");
+          Navigator.pushReplacementNamed(context, "/login");
         },
         speed: 1.8,
         controllerColor:  const Color(0xFFFF5B00),

@@ -26,9 +26,9 @@ class _ProfileState extends State<Profile> {
           centerTitle: true,
           title: CustomText(
             text: "Profile",
-            size: 20.sp,
+            size: 21.sp,
             color: myColor.textcolor,
-            letterSpacing: 2,
+            letterSpacing: 1,
             weight: FontWeight.w500,
             textStyle: const TextStyle(),
           ),
@@ -61,77 +61,70 @@ class _ProfileState extends State<Profile> {
                   width: 300.w,
                   height: 50.h,
                   child: CustomTextFormField(
-                    readOnly: true,
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                      readOnly: true,
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.h, horizontal: 20.w),
                       controller: nameController,
                       prefixIcon: Icon(
                         IconlyLight.profile,
                         size: 20.w,
                       ),
-                      hintText:"Name",
-                      hintStyle: TextStyle(
-                        fontSize: 18.sp
-                      )),
+                      hintText: "Name",
+                      hintStyle: TextStyle(fontSize: 18.sp)),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 20.h),
+                padding: EdgeInsets.only(top: 10.h),
                 child: SizedBox(
                   width: 300.w,
                   height: 50.h,
                   child: CustomTextFormField(
-                    readOnly: true,
-                    contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                      readOnly: true,
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.h, horizontal: 20.w),
                       controller: emailController,
                       prefixIcon: Icon(
                         CupertinoIcons.mail,
                         size: 20.w,
                       ),
-                      hintText:"Email",
-                      hintStyle: TextStyle(
-                        fontSize: 18.sp
-                      )),
+                      hintText: "Email",
+                      hintStyle: TextStyle(fontSize: 18.sp)),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 20.h),
+                padding: EdgeInsets.only(top: 10.h),
                 child: SizedBox(
                   width: 300.w,
                   height: 50.h,
                   child: CustomTextFormField(
-                    readOnly: true,
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                      readOnly: true,
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.h, horizontal: 20.w),
                       controller: numberController,
                       prefixIcon: Icon(
                         IconlyLight.call,
                         size: 20.w,
                       ),
-                      hintText:"Number",
-                      hintStyle: TextStyle(
-                        fontSize: 18.sp
-                      )),
+                      hintText: "Number",
+                      hintStyle: TextStyle(fontSize: 18.sp)),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 20.h),
+                padding: EdgeInsets.only(top: 10.h),
                 child: SizedBox(
                   width: 300.w,
                   height: 50.h,
                   child: CustomTextFormField(
-                    readOnly: true,
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                      readOnly: true,
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.h, horizontal: 20.w),
                       controller: addressController,
                       prefixIcon: Icon(
                         IconlyLight.location,
                         size: 20.w,
                       ),
-                      hintText:"Address",
-                      hintStyle: TextStyle(
-                        fontSize: 18.sp
-                      )),
+                      hintText: "Address",
+                      hintStyle: TextStyle(fontSize: 18.sp)),
                 ),
               ),
             ],
