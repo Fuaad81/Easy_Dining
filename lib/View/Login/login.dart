@@ -1,13 +1,12 @@
 import 'package:easy_dine_in/Providers/suffixicon_provider.dart';
-import 'package:easy_dine_in/model/style/color.dart';
-import 'package:easy_dine_in/model/widget/customtext.dart';
-import 'package:easy_dine_in/model/widget/cutomtextfield.dart';
+import 'package:easy_dine_in/model/Utils/style/color.dart';
+import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
+import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class Login_Page extends StatefulWidget {
@@ -30,21 +29,20 @@ class _Login_PageState extends State<Login_Page> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                  child: LottieBuilder.network(
-                
-                "https://lottie.host/1c05a212-6f39-4406-9bf9-9d854c49dabd/CDPw9UpUsd.json",
+                  child: Image.asset(
+                "assets/images/login.png",
                 width: 350.w,
                 height: 300.h,
               )),
               Padding(
                 padding: EdgeInsets.only(left: 20.w),
                 child: CustomText(
-                  text: 'Wellcome Back!',
+                  text: 'Welcome Back!',
                   textAlign: TextAlign.center,
                   textStyle: GoogleFonts.poppins(
                     letterSpacing: 1.05,
                   ),
-                  size: 27.sp,
+                  size: 27,
                   weight: FontWeight.w700,
                   color: myColor.textcolor,
                 ),
@@ -55,7 +53,7 @@ class _Login_PageState extends State<Login_Page> {
                   text: 'Sign in to continue...',
                   textAlign: TextAlign.center,
                   textStyle: GoogleFonts.poppins(),
-                  size: 20.sp,
+                  size: 20,
                   weight: FontWeight.w300,
                   color: myColor.textcolor,
                 ),
@@ -64,7 +62,6 @@ class _Login_PageState extends State<Login_Page> {
                 padding: EdgeInsets.only(left: 20.w, top: 20.h),
                 child: SizedBox(
                   width: 315.w,
-                  height: 50.h,
                   child: CustomTextFormField(
                     controller: emailcontroller,
                     contentPadding:
@@ -73,7 +70,7 @@ class _Login_PageState extends State<Login_Page> {
                       padding: EdgeInsets.only(left: 5.w),
                       child: CustomText(
                         text: "email or phone",
-                        size: 18.sp,
+                        size: 18,
                         color: myColor.textcolor,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
@@ -89,10 +86,10 @@ class _Login_PageState extends State<Login_Page> {
                     prefixIcon: Icon(
                       CupertinoIcons.mail,
                       color: myColor.textcolor,
-                      size: 20.w,
+                      size: 20,
                     ),
                     labelStyle: GoogleFonts.poppins(
-                        fontSize: 18.sp,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: myColor.textcolor),
                   ),
@@ -102,7 +99,6 @@ class _Login_PageState extends State<Login_Page> {
                 padding: EdgeInsets.only(left: 20.w, top: 10.h),
                 child: SizedBox(
                   width: 315.w,
-                  height: 50.h,
                   child: CustomTextFormField(
                     obscureText: suffixicons.checked,
                     controller: passwordcontroler,
@@ -112,7 +108,7 @@ class _Login_PageState extends State<Login_Page> {
                       padding: EdgeInsets.only(left: 5.w),
                       child: CustomText(
                         text: "password",
-                        size: 18.sp,
+                        size: 18,
                         color: myColor.textcolor,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
@@ -128,10 +124,10 @@ class _Login_PageState extends State<Login_Page> {
                     prefixIcon: Icon(
                       IconlyLight.lock,
                       color: myColor.textcolor,
-                      size: 20.w,
+                      size: 25,
                     ),
                     labelStyle: GoogleFonts.poppins(
-                        fontSize: 18.sp,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: myColor.textcolor),
                     suffixIcon: IconButton(
@@ -139,8 +135,14 @@ class _Login_PageState extends State<Login_Page> {
                           suffixicons.checking();
                         },
                         icon: suffixicons.checked
-                            ? Icon(Icons.visibility_off_outlined,size: 20.w,)
-                            : Icon(Icons.visibility_outlined,size: 20.w,)),
+                            ? const Icon(
+                                Icons.visibility_off_outlined,
+                                size: 25,
+                              )
+                            : Icon(
+                                Icons.visibility_outlined,
+                                size: 20.w,
+                              )),
                   ),
                 ),
               ),
@@ -155,7 +157,7 @@ class _Login_PageState extends State<Login_Page> {
                       },
                       child: CustomText(
                         text: "Forgot Password?",
-                        size: 18.sp,
+                        size: 18,
                         color: myColor.linktext,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
@@ -181,11 +183,11 @@ class _Login_PageState extends State<Login_Page> {
                             WidgetStateProperty.all(myColor.maincolor),
                         foregroundColor:
                             WidgetStateProperty.all(myColor.background),
-                            minimumSize: WidgetStateProperty.all(Size(200.w, 45.h)),
+                        minimumSize: WidgetStateProperty.all(Size(200.w, 45.h)),
                       ),
                       child: CustomText(
                         text: "login",
-                        size: 20.sp,
+                        size: 20,
                         color: myColor.background,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
@@ -194,13 +196,13 @@ class _Login_PageState extends State<Login_Page> {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.only(top: 20.h),
+                padding: EdgeInsets.only(top: 25.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomText(
                       text: "i don't have any account!",
-                      size: 18.sp,
+                      size: 18,
                       color: myColor.textcolor,
                       weight: FontWeight.w400,
                       textAlign: TextAlign.center,
@@ -214,7 +216,7 @@ class _Login_PageState extends State<Login_Page> {
                         },
                         child: CustomText(
                           text: "sign up",
-                          size: 20.sp,
+                          size: 20,
                           color: myColor.linktext,
                           weight: FontWeight.w400,
                           textAlign: TextAlign.center,
@@ -226,7 +228,7 @@ class _Login_PageState extends State<Login_Page> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 10.h),
+                padding: EdgeInsets.only(top: 25.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -241,7 +243,7 @@ class _Login_PageState extends State<Login_Page> {
                     ),
                     CustomText(
                       text: "or login with",
-                      size: 18.sp,
+                      size: 18,
                       color: myColor.textcolor,
                       weight: FontWeight.w400,
                       textAlign: TextAlign.center,
@@ -269,14 +271,12 @@ class _Login_PageState extends State<Login_Page> {
                         icon: Image.asset(
                           "assets/icons/ic_google.png",
                           width: 50.w,
-                         
                         )),
                     IconButton(
                         onPressed: () {},
                         icon: Image.asset(
                           "assets/icons/ic_facebook.png",
                           width: 50.w,
-                          
                         ))
                   ],
                 ),

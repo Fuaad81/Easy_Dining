@@ -1,6 +1,6 @@
-import 'package:easy_dine_in/model/style/color.dart';
-import 'package:easy_dine_in/model/widget/customtext.dart';
-import 'package:easy_dine_in/model/widget/cutomtextfield.dart';
+import 'package:easy_dine_in/model/Utils/style/color.dart';
+import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
+import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

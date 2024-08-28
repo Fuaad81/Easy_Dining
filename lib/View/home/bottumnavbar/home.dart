@@ -5,9 +5,10 @@ import 'package:easy_dine_in/View/home/tabs/breakfast.dart';
 import 'package:easy_dine_in/View/home/tabs/dinner.dart';
 import 'package:easy_dine_in/View/home/tabs/lunch.dart';
 import 'package:easy_dine_in/View/home/tabs/snack.dart';
-import 'package:easy_dine_in/model/style/color.dart';
-import 'package:easy_dine_in/model/widget/customtext.dart';
-import 'package:easy_dine_in/model/widget/cutomtextfield.dart';
+import 'package:easy_dine_in/model/Utils/style/color.dart';
+import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
+import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,13 +46,13 @@ class _HomeState extends State<Home> {
             TextSpan(
                 text: "Hello",
                 style: GoogleFonts.pacifico(
-                  fontSize: 22.sp,
+                  fontSize: 22,
                 )),
             const TextSpan(text: " "),
             TextSpan(
               text: "Name",
               style: GoogleFonts.poppins(
-                  fontSize: 22.sp,
+                  fontSize: 22,
                   color: myColor.maincolor,
                   fontWeight: FontWeight.w400),
             ),
@@ -82,14 +83,14 @@ class _HomeState extends State<Home> {
                       controller: _search,
                       labelText: CustomText(
                         text: "search..",
-                        size: 18.sp,
+                        size: 18,
                         color: myColor.textcolor,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(),
                       ),
                       labelStyle: GoogleFonts.poppins(
-                          fontSize: 18.sp,
+                          fontSize: 18,
                           fontWeight: FontWeight.w400,
                           color: myColor.textcolor),
                       suffixIcon: Icon(IconlyLight.search,size: 25.w,)),
@@ -108,41 +109,41 @@ class _HomeState extends State<Home> {
                 indicator: BoxDecoration(
                     color: myColor.maincolor,
                     borderRadius: BorderRadius.circular(10.r)),
-                tabs: [
+                tabs: const [
                   CustomText(
                     text: "All",
-                    size: 18.sp,
+                    size: 18,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: const TextStyle(),
+                    textStyle: TextStyle(),
                   ),
                   CustomText(
                     text: "Break Fast",
-                    size: 18.sp,
+                    size: 18,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: const TextStyle(),
+                    textStyle: TextStyle(),
                   ),
                   CustomText(
                     text: "Lunch",
-                    size: 18.sp,
+                    size: 18,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: const TextStyle(),
+                    textStyle: TextStyle(),
                   ),
                   CustomText(
                     text: "Snack",
-                    size: 18.sp,
+                    size: 18,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: const TextStyle(),
+                    textStyle: TextStyle(),
                   ),
                   CustomText(
                     text: "Dinner",
-                    size: 18.sp,
+                    size: 18,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: const TextStyle(),
+                    textStyle: TextStyle(),
                   ),
                 ]),
             const Expanded(
@@ -167,7 +168,7 @@ class _HomeState extends State<Home> {
                   icon: Icon(
                     CupertinoIcons.moon_stars,
                     color: myColor.background,
-                    size: 35.w,
+                    size: 35,
                   ),
                 )
               ],
@@ -177,10 +178,10 @@ class _HomeState extends State<Home> {
                   decoration: BoxDecoration(
                       color: myColor.background,
                       borderRadius: BorderRadius.circular(100.r)),
-                  child: Icon(IconlyBold.profile,size: 30.w,)),
+                  child: const Icon(IconlyBold.profile,size: 30,)),
               accountName: CustomText(
                 text: "Name",
-                size: 20.sp,
+                size: 20,
                 color: myColor.background,
                 weight: FontWeight.w500,
                 textAlign: TextAlign.center,
@@ -188,7 +189,7 @@ class _HomeState extends State<Home> {
               ),
               accountEmail: CustomText(
                 text: "sample@gmail.com",
-                size: 20.sp,
+                size: 20,
                 color: myColor.background,
                 weight: FontWeight.w400,
                 textAlign: TextAlign.center,
@@ -198,13 +199,13 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   IconlyLight.setting,
-                  size: 25.w,
+                  size: 25,
                 ),
                 title: CustomText(
                   text: "Account Settings",
-                  size: 20.sp,
+                  size: 20,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textStyle: const TextStyle(),
@@ -217,13 +218,13 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   IconlyLight.heart,
-                  size: 25.w,
+                  size: 25,
                 ),
                 title: CustomText(
                   text: "Favorite",
-                  size: 20.sp,
+                  size: 20,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textStyle: const TextStyle(),
@@ -236,13 +237,13 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   CupertinoIcons.square_list,
-                  size: 25.w,
+                  size: 25,
                 ),
                 title: CustomText(
                   text: "Order List",
-                  size: 20.sp,
+                  size: 20,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textStyle: const TextStyle(),
@@ -255,13 +256,13 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   IconlyLight.location,
-                  size: 25.w,
+                  size: 25,
                 ),
                 title: CustomText(
                   text: "Location",
-                  size: 20.sp,
+                  size: 20,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textStyle: const TextStyle(),
@@ -274,32 +275,32 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading:  Icon(
+                leading:  const Icon(
                   CupertinoIcons.captions_bubble,
-                  size: 25.w,
+                  size: 25,
                 ),
                 title: CustomText(
                   text: "Feedback",
-                  size: 20.sp,
+                  size: 20,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textStyle: const TextStyle(),
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pushNamed(context, "/feedback");
                 },
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   IconlyLight.info_circle,
-                  size: 25.w,
+                  size: 25,
                 ),
                 title: CustomText(
                   text: "About",
-                  size: 20.sp,
+                  size: 20,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textStyle: const TextStyle(),

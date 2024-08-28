@@ -12,6 +12,7 @@ import 'package:easy_dine_in/View/home/bottumnavbar/editprofile.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/notification.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/search.dart';
 import 'package:easy_dine_in/View/home/drawer/favorite.dart';
+import 'package:easy_dine_in/View/home/drawer/feedback.dart';
 import 'package:easy_dine_in/View/home/drawer/settings.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/home.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/profile.dart';
@@ -23,15 +24,15 @@ import 'package:easy_dine_in/View/home/tabs/snack.dart';
 import 'package:easy_dine_in/View/onboard_screen/onboardscreen1.dart';
 import 'package:easy_dine_in/View/splash.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (context) => UserProvider())
-    ],
-    child: const MyApp()));
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -40,45 +41,47 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final height = size.height;
-    final width = size.width;
-    ScreenUtil.init(context,
-        designSize: Size(width, height),
-        splitScreenMode: true,
-        minTextAdapt: true);
     return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          theme: ThemeData.light(),
-          routes: {
-            "/splash": (context) => const Splash_screeen(),
-            "/firstonboard": (context) => const Onboarding(),
-            "/login": (context) => const Login_Page(),
-            "/forgot": (context) => const forgotPassword(),
-            "/otp": (context) => const Otp(),
-            "/confirmpass": (context) => const changePassword(),
-            "/register": (context) => const Register(),
-            "/createsuccess": (context) => const createdSucces(),
-            "/bottomnav": (context) => const bottomNavbar(),
-            "/home": (context) => const Home(),
-            "/tablebooking": (context) => const Booking(),
-            "/cart": (context) => const Cart(),
-            "/profile": (context) => const Profile(),
-            "/editprofile": (context) => const editProfile(),
-            "/all": (context) => const allItem(),
-            "/breakfast": (context) => const breakFast(),
-            "/lunch": (context) => const lunchItem(),
-            "/snack": (context) => const snackItem(),
-            "/dinner": (context) => const dinnerItem(),
-            "/settings": (context) => const accountSetting(),
-            "/favorite": (context) => const Favorite(),
-            "/notification": (context) => const notification(),
-            "/search": (context) => const Search(),
-          },
-          initialRoute: "/splash",
+        return MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (context) => UserProvider())
+          ],
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            theme: ThemeData.light(),
+            routes: {
+              "/splash": (context) => const Splash_screeen(),
+              "/firstonboard": (context) => const Onboarding(),
+              "/login": (context) => const Login_Page(),
+              "/forgot": (context) => const forgotPassword(),
+              "/otp": (context) => const Otp(),
+              "/confirmpass": (context) => const changePassword(),
+              "/register": (context) => const Register(),
+              "/createsuccess": (context) => const createdSucces(),
+              "/bottomnav": (context) => const bottomNavbar(),
+              "/home": (context) => const Home(),
+              "/tablebooking": (context) => const Booking(),
+              "/cart": (context) => const Cart(),
+              "/profile": (context) => const Profile(),
+              "/editprofile": (context) => const editProfile(),
+              "/all": (context) => const allItem(),
+              "/breakfast": (context) => const breakFast(),
+              "/lunch": (context) => const lunchItem(),
+              "/snack": (context) => const snackItem(),
+              "/dinner": (context) => const dinnerItem(),
+              "/settings": (context) => const accountSetting(),
+              "/favorite": (context) => const Favorite(),
+              "/notification": (context) => const notification(),
+              "/search": (context) => const Search(),
+              "/feedback": (context) => const feedback(),
+            },
+            initialRoute: "/splash",
+          ),
         );
       },
     );

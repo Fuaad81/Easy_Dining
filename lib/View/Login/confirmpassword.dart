@@ -1,8 +1,8 @@
 // ignore_for_file: prefer__ructors
 
-import 'package:easy_dine_in/model/style/color.dart';
-import 'package:easy_dine_in/model/widget/customtext.dart';
-import 'package:easy_dine_in/model/widget/cutomtextfield.dart';
+import 'package:easy_dine_in/model/Utils/style/color.dart';
+import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
+import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +24,7 @@ class _changePasswordState extends State<changePassword> {
       appBar: AppBar(
         title: CustomText(
           text: "Change Password",
-          size: 21.sp,
+          size: 21,
           color: myColor.textcolor,
           weight: FontWeight.w500,
           textAlign: TextAlign.center,
@@ -40,7 +40,7 @@ class _changePasswordState extends State<changePassword> {
               child: Center(
                 child: CustomText(
                   text: "Enter new password and\nconform",
-                  size: 22.sp,
+                  size: 22,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textAlign: TextAlign.center,
@@ -57,7 +57,7 @@ class _changePasswordState extends State<changePassword> {
                   controller: _newpass,
                   labelText: CustomText(
                     text: "new password",
-                    size: 18.sp,
+                    size: 18,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
@@ -65,10 +65,10 @@ class _changePasswordState extends State<changePassword> {
                   ),
                   contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
                   labelStyle: GoogleFonts.poppins(
-                      fontSize: 18.sp,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: myColor.textcolor),
-                  prefixIcon: Icon(IconlyLight.lock,size: 20.w,),
+                  prefixIcon: const Icon(IconlyLight.lock,size: 25,),
                 ),
               ),
             ),
@@ -82,17 +82,17 @@ class _changePasswordState extends State<changePassword> {
                   contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
                   labelText: CustomText(
                     text: "confirm password",
-                    size: 18.sp,
+                    size: 18,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
                     textStyle: const TextStyle(),
                   ),
                   labelStyle: GoogleFonts.poppins(
-                      fontSize: 18.sp,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: myColor.textcolor),
-                  prefixIcon: Icon(IconlyLight.lock,size: 20.w,),
+                  prefixIcon: const Icon(IconlyLight.lock,size: 25,),
                 ),
               ),
             ),
@@ -119,7 +119,7 @@ class _changePasswordState extends State<changePassword> {
                       ),
                       child: CustomText(
                         text: "change password",
-                        size: 20.sp,
+                        size: 20,
                         color: myColor.background,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer__ructors
 
-import 'package:easy_dine_in/model/style/color.dart';
-import 'package:easy_dine_in/model/widget/customtext.dart';
+import 'package:easy_dine_in/model/Utils/style/color.dart';
+import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
@@ -29,7 +29,7 @@ class _createdSuccesState extends State<createdSucces> {
             Center(
               child: CustomText(
                 text: "Account Created",
-                size: 24.sp,
+                size: 24,
                 color: myColor.textcolor,
                 weight: FontWeight.w700,
                 textAlign: TextAlign.center,
@@ -41,7 +41,7 @@ class _createdSuccesState extends State<createdSucces> {
               child: Center(
                 child: CustomText(
                   text: "Your account has been\ncreated succesfully",
-                  size: 22.sp,
+                  size: 22,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textAlign: TextAlign.center,
@@ -73,7 +73,7 @@ class _createdSuccesState extends State<createdSucces> {
                       ),
                       child: CustomText(
                         text: "Done",
-                        size: 20.sp,
+                        size: 20,
                         color: myColor.background,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,

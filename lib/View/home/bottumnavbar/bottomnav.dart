@@ -4,7 +4,7 @@ import 'package:easy_dine_in/View/home/bottumnavbar/booking.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/cart.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/home.dart';
 import 'package:easy_dine_in/View/home/bottumnavbar/profile.dart';
-import 'package:easy_dine_in/model/style/color.dart';
+import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

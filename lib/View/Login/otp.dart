@@ -1,7 +1,7 @@
 // ignore_for_file: prefer__ructors
 
-import 'package:easy_dine_in/model/style/color.dart';
-import 'package:easy_dine_in/model/widget/customtext.dart';
+import 'package:easy_dine_in/model/Utils/style/color.dart';
+import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
@@ -21,7 +21,7 @@ class _OtpState extends State<Otp> {
       appBar: AppBar(
         title: CustomText(
           text: "Confirm OTP",
-          size: 21.sp,
+          size: 21,
           color: myColor.textcolor,
           weight: FontWeight.w500,
           textAlign: TextAlign.center,
@@ -37,7 +37,7 @@ class _OtpState extends State<Otp> {
             child: Center(
               child: CustomText(
                 text: "Enter your otp here,\nand conform",
-                size: 20.sp,
+                size: 20,
                 color: myColor.textcolor,
                 weight: FontWeight.w400,
                 textAlign: TextAlign.center,
@@ -102,7 +102,7 @@ class _OtpState extends State<Otp> {
                     ),
                     child: CustomText(
                         text: "Verify",
-                        size: 20.sp,
+                        size: 20,
                         color: myColor.background,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,
