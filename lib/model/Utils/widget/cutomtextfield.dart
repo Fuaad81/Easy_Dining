@@ -12,11 +12,15 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final bool obscureText;
+  final bool? filled;
   final EdgeInsetsGeometry? contentPadding;
   final FormFieldValidator<String>? validator;
   final bool readOnly;
   final String? hintText;
   final TextStyle? hintStyle;
+  final int? maxLines;
+  final InputBorder? border;
+  final Color? fillColor;
 
   const CustomTextFormField({
     super.key,
@@ -30,7 +34,7 @@ class CustomTextFormField extends StatelessWidget {
     this.contentPadding,
     this.readOnly = false,
     this.hintText,
-    this.hintStyle
+    this.hintStyle, this.maxLines =1, this.border, this.fillColor, this.filled
   });
 
   @override
@@ -40,19 +44,18 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscureText,
       validator: validator,
       readOnly: readOnly,
-
+      maxLines: maxLines,
       decoration: InputDecoration(
+
         suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: hintStyle,
         label: labelText,
         labelStyle: labelStyle,
         prefixIcon: prefixIcon,
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
-            borderSide: BorderSide.none),
-        filled: true,
-        fillColor: myColor.fieldbackground,
+        border: border,
+        filled: filled,
+        fillColor: fillColor,
         contentPadding: contentPadding,
       ),
     );

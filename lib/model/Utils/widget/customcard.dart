@@ -25,7 +25,6 @@ class customCard extends StatelessWidget {
       margin: margin,
       shape: shape,
       child: child,
-      
     );
   }
 }

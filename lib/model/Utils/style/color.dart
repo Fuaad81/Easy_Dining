@@ -8,4 +8,5 @@ class myColor{
   static  Color errortext = const Color(0xFFFF0000);
   static  Color textcolor = const Color(0xFF000000);
   static  Color tabcolor = const Color(0xFFB6B7B7);
+  static  Color notification = const Color(0xFFD9D9D9);
 }

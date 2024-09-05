@@ -56,20 +56,20 @@ class _OnboardingState extends State<Onboarding> {
         ],
         skipTextButton: Text(
           "skip",
-          style: GoogleFonts.poppins(color: Colors.black, fontSize: 15.sp),
+          style: GoogleFonts.poppins(color: Colors.black, fontSize: 15),
         ),
         finishButtonText: "Get Start",
         finishButtonStyle:  const FinishButtonStyle(
             backgroundColor: Color(0xFFFF5B00), foregroundColor: Colors.white),
         finishButtonTextStyle: GoogleFonts.poppins(
           color: Colors.white,
-          fontSize: 20.sp,
+          fontSize: 20,
           fontWeight: FontWeight.w500,
           height: 0,
           letterSpacing: 0.36,
         ),
         onFinish: () {
-          Navigator.pushReplacementNamed(context, "/login");
+          Navigator.pushReplacementNamed(context, "/allfile");
         },
         speed: 1.8,
         controllerColor:  const Color(0xFFFF5B00),
@@ -87,7 +87,7 @@ class _OnboardingState extends State<Onboarding> {
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.08,
                     ),
-                    size: 27.sp,
+                    size: 27,
                     weight: FontWeight.w700,
                     color: myColor.textcolor,
                     textAlign: TextAlign.center,
@@ -95,11 +95,11 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: 30.h),
-                    child: CustomText(
+                    child: const CustomText(
                         text:
                             "Order anytime you want.We\nguarantee to provide you quality\nfood.",
-                        size: 17.sp,
-                        textStyle:  const TextStyle(),
+                        size: 17,
+                        textStyle:  TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)),
               ],
@@ -118,7 +118,7 @@ class _OnboardingState extends State<Onboarding> {
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.08,
                     ),
-                    size: 27.sp,
+                    size: 27,
                     weight: FontWeight.w700,
                     color: myColor.textcolor,
                     textAlign: TextAlign.center,
@@ -126,11 +126,11 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: 30.h),
-                    child: CustomText(
+                    child: const CustomText(
                         text:
                             "Browse the menu and order\ndirectly from the application.",
-                        size: 17.sp,
-                        textStyle:  const TextStyle(),
+                        size: 17,
+                        textStyle:  TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)),
               ],
@@ -147,7 +147,7 @@ class _OnboardingState extends State<Onboarding> {
                     textStyle: GoogleFonts.poppins(
                       letterSpacing: 1.08,
                     ),
-                    size: 27.sp,
+                    size: 27,
                     weight: FontWeight.w700,
                     color: myColor.textcolor,
                     textAlign: TextAlign.center,
@@ -155,11 +155,11 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 30.h),
-                  child: CustomText(
+                  child: const CustomText(
                         text:
                             "We will delivery your order as quickly\n and efficiently as possible.",
-                        size: 17.sp,
-                        textStyle:  const TextStyle(),
+                        size: 17,
+                        textStyle:  TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)
                 ),

@@ -1,0 +1,300 @@
+// ignore_for_file: prefer__ructors, avoid_unnecessary_containers
+
+
+import 'package:easy_dine_in/View/user/user_home/user_tabs/user_all.dart';
+import 'package:easy_dine_in/View/user/user_home/user_tabs/user_breakfast.dart';
+import 'package:easy_dine_in/View/user/user_home/user_tabs/user_dinner.dart';
+import 'package:easy_dine_in/View/user/user_home/user_tabs/user_lunch.dart';
+import 'package:easy_dine_in/View/user/user_home/user_tabs/user_snack.dart';
+import 'package:easy_dine_in/model/Utils/style/color.dart';
+import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:iconly/iconly.dart';
+
+class user_Home extends StatefulWidget {
+  const user_Home({super.key});
+
+  @override
+  State<user_Home> createState() => _user_HomeState();
+}
+
+class _user_HomeState extends State<user_Home> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _search = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 5,
+      child: Scaffold(
+        backgroundColor: myColor.background,
+        key: _scaffoldKey,
+        appBar: AppBar(
+          backgroundColor: myColor.background,
+          titleSpacing: -5,
+          toolbarHeight: 60.h,
+          leading: IconButton(
+              onPressed: () {
+                _scaffoldKey.currentState?.openDrawer();
+              },
+              icon: Image.asset(
+                "assets/icons/ic_drawer.png",
+                width: 25.w,
+              )),
+          title: Text.rich(TextSpan(children: [
+            TextSpan(
+                text: "Hello",
+                style: GoogleFonts.pacifico(
+                  fontSize: 22,
+                )),
+            const TextSpan(text: " "),
+            TextSpan(
+              text: "Name",
+              style: GoogleFonts.poppins(
+                  fontSize: 22,
+                  color: myColor.maincolor,
+                  fontWeight: FontWeight.w400),
+            ),
+            const TextSpan(text: ","),
+          ])),
+          actions: [
+            IconButton(
+              onPressed: (){
+                Navigator.pushNamed(context, "/user_search");
+              },
+              icon: const Icon(IconlyLight.search,size: 25,),),
+            IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "/user_notification");
+                },
+                icon: Image.asset(
+                  "assets/icons/ic_notification.png",
+                  width: 25.w,
+                ))
+          ],
+        ),
+        body: Column(
+          children: [
+            
+            TabBar(
+                padding: EdgeInsets.only(left: 15.w, top: 5.h),
+                dividerColor: Colors.transparent,
+                indicatorSize: TabBarIndicatorSize.tab,
+                isScrollable: true,
+                labelStyle: GoogleFonts.poppins(
+                  color: myColor.background,
+                ),
+                tabAlignment: TabAlignment.center,
+                indicator: BoxDecoration(
+                    color: myColor.maincolor,
+                    borderRadius: BorderRadius.circular(10.r)),
+                tabs: const [
+                  CustomText(
+                    text: "All",
+                    size: 18,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  CustomText(
+                    text: "Break Fast",
+                    size: 18,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  CustomText(
+                    text: "Lunch",
+                    size: 18,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  CustomText(
+                    text: "Snack",
+                    size: 18,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                  CustomText(
+                    text: "Dinner",
+                    size: 18,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(),
+                  ),
+                ]),
+            const Expanded(
+              child: TabBarView(children: [
+                user_allItem(),
+                user_breakFast(),
+                user_lunchItem(),
+                user_snackItem(),
+                user_dinnerItem()
+              ]),
+            ),
+          ],
+        ),
+        drawer: Drawer(
+          backgroundColor: myColor.background,
+          shape: const BeveledRectangleBorder(),
+          child: ListView(children: [
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(color: myColor.maincolor),
+              otherAccountsPictures: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    CupertinoIcons.moon_stars,
+                    color: myColor.background,
+                    size: 35,
+                  ),
+                )
+              ],
+              currentAccountPicture: Container(
+                  width:100.w,
+                  height: 50.h,
+                  decoration: BoxDecoration(
+                      color: myColor.background,
+                      borderRadius: BorderRadius.circular(100.r)),
+                  child: const Icon(IconlyBold.profile,size: 30,)),
+              accountName: CustomText(
+                text: "Name",
+                size: 20,
+                color: myColor.background,
+                weight: FontWeight.w500,
+                textAlign: TextAlign.center,
+                textStyle: const TextStyle(),
+              ),
+              accountEmail: CustomText(
+                text: "sample@gmail.com",
+                size: 20,
+                color: myColor.background,
+                weight: FontWeight.w400,
+                textAlign: TextAlign.center,
+                textStyle: const TextStyle(),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: ListTile(
+                leading: const Icon(
+                  IconlyLight.setting,
+                  size: 25,
+                ),
+                title: CustomText(
+                  text: "Account Settings",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: const TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, "/user_settings");
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: ListTile(
+                leading: const Icon(
+                  IconlyLight.heart,
+                  size: 25,
+                ),
+                title: CustomText(
+                  text: "Favorite",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: const TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, "/user_favorite");
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: ListTile(
+                leading: const Icon(
+                  CupertinoIcons.square_list,
+                  size: 25,
+                ),
+                title: CustomText(
+                  text: "Order List",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: const TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: ListTile(
+                leading: const Icon(
+                  IconlyLight.location,
+                  size: 25,
+                ),
+                title: CustomText(
+                  text: "Location",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: const TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: ListTile(
+                leading:  const Icon(
+                  CupertinoIcons.captions_bubble,
+                  size: 25,
+                ),
+                title: CustomText(
+                  text: "Feedback",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: const TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, "/user_feedback");
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: ListTile(
+                leading: const Icon(
+                  IconlyLight.info_circle,
+                  size: 25,
+                ),
+                title: CustomText(
+                  text: "About",
+                  size: 20,
+                  color: myColor.textcolor,
+                  weight: FontWeight.w400,
+                  textStyle: const TextStyle(),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, "/user_about");
+                },
+              ),
+            ),
+          ]),
+        ),
+      ),
+    );
+  }
+}
