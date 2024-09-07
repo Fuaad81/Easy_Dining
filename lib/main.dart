@@ -5,6 +5,9 @@ import 'package:easy_dine_in/View/admin/admin_home/admin_add_food.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_notification.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_offer.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_table.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_db_accepted.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_db_requested.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_delivery_boy.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_home.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_new_food.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_new_table.dart';
@@ -106,6 +109,9 @@ class MyApp extends StatelessWidget {
               "/admin_review": (context) => const admin_Review(),
               "/admin_newfood": (context) => const admin_newFood(),
               "/admin_newtable": (context) => const admin_newTable(),
+              "/admin_deliveryboy": (context) => const admin_deliveryBoy(),
+              "/admin_dbaccepted": (context) => const admin_db_Accepted(),
+              "/admin_dbrequested": (context) => const admin_db_Requested(),
             },
             initialRoute: "/splash",
           ),

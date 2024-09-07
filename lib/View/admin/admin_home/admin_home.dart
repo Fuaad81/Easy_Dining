@@ -63,21 +63,21 @@ class _admin_homeState extends State<admin_home> {
                   "assets/icons/ic_add_notification.png",
                   width: 25,
                 )),
-            Padding(
-              padding: EdgeInsets.only(right: 10.w),
-              child: InkWell(
-                onTap: (){},
-                child: CircleAvatar(
+            // Padding(
+            //   padding: EdgeInsets.only(right: 10.w),
+            //   child: InkWell(
+            //     onTap: (){},
+            //     child: CircleAvatar(
                   
-                  backgroundColor: myColor.fieldbackground,
-                  child: Icon(
-                        IconlyBold.profile,
-                        color: myColor.textcolor,
-                        size: 30,
-                      ),
-                ),
-              ),
-            ),
+            //       backgroundColor: myColor.fieldbackground,
+            //       child: Icon(
+            //             IconlyBold.profile,
+            //             color: myColor.textcolor,
+            //             size: 30,
+            //           ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
         backgroundColor: myColor.background,
@@ -192,7 +192,9 @@ class _admin_homeState extends State<admin_home> {
                   Padding(
                     padding: EdgeInsets.only(left: 20.w),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, "/admin_deliveryboy");
+                      },
                       child: Container(
                         width: 100.w,
                         height: 80.h,
@@ -235,6 +237,34 @@ class _admin_homeState extends State<admin_home> {
                                 width: 35),
                             const CustomText(
                               text: "Reviews",
+                              size: 16,
+                              weight: FontWeight.w500,
+                            ),
+                          ],
+                        )),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20.w),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "");
+                      },
+                      child: Container(
+                        width: 100.w,
+                        height: 80.h,
+                        decoration: BoxDecoration(
+                            border: Border.all(),
+                            borderRadius: BorderRadius.circular(10.r)),
+                        child: Center(
+                            child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset("assets/icons/ic_users.png",
+                                width: 35),
+                            const CustomText(
+                              text: "Users",
                               size: 16,
                               weight: FontWeight.w500,
                             ),

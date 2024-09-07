@@ -44,12 +44,12 @@ class _admin_BottombarState extends State<admin_Bottombar> {
               label: "History"),
           BottomNavigationBarItem(
               icon: Icon(
-                IconlyBold.user_3,
+                IconlyBold.profile,
                 color: adminnavProvider.currentIndex == 2
                     ? myColor.maincolor
                     : myColor.tabcolor,
               ),
-              label: "Users"),
+              label: "Profile"),
         ],
         currentIndex: adminnavProvider.currentIndex,
         onTap: adminnavProvider.adminIndex,
