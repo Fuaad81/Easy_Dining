@@ -4,20 +4,22 @@ import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class admin_Add_Notification extends StatefulWidget {
-  const admin_Add_Notification({super.key});
+class admin_addNotification extends StatefulWidget {
+  const admin_addNotification({super.key});
 
   @override
-  State<admin_Add_Notification> createState() => _admin_Add_NotificationState();
+  State<admin_addNotification> createState() => _admin_addNotificationState();
 }
 
-class _admin_Add_NotificationState extends State<admin_Add_Notification> {
+class _admin_addNotificationState extends State<admin_addNotification> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController titlecontroller = TextEditingController();
     final TextEditingController discriptioncontroller = TextEditingController();
     return Scaffold(
+      backgroundColor: myColor.background,
       appBar: AppBar(
+        backgroundColor: myColor.background,
         title: const CustomText(text: "Add Notification", size: 21),
         centerTitle: true,
       ),
@@ -30,8 +32,9 @@ class _admin_Add_NotificationState extends State<admin_Add_Notification> {
                   width: 320.w,
                   child: CustomTextFormField(
                     controller: titlecontroller,
-                    border:
-                        const OutlineInputBorder(borderSide: BorderSide.none),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                        borderSide: BorderSide.none),
                     filled: true,
                     fillColor: myColor.fieldbackground,
                     hintText: "Title",
@@ -42,20 +45,29 @@ class _admin_Add_NotificationState extends State<admin_Add_Notification> {
                     width: 320.w,
                     child: CustomTextFormField(
                       controller: discriptioncontroller,
-                      border:
-                          const OutlineInputBorder(borderSide: BorderSide.none),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                          borderSide: BorderSide.none),
                       filled: true,
                       fillColor: myColor.fieldbackground,
-                      hintText: "Desription",
+                      hintText: "Desription...",
                       maxLines: 10,
                     )),
               ),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(myColor.maincolor),
-                  foregroundColor: WidgetStatePropertyAll(myColor.background),
-                ),
-                onPressed: (){}, child: CustomText(text: "Submit", size: 18))
+              Padding(
+                padding: EdgeInsets.only(top: 50.h),
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            WidgetStatePropertyAll(myColor.maincolor),
+                        foregroundColor:
+                            WidgetStatePropertyAll(myColor.background),
+                        minimumSize: WidgetStatePropertyAll(Size(300.w, 60.h)),
+                        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.r)))),
+                    onPressed: () {},
+                    child: const CustomText(text: "Submit", size: 18)),
+              )
             ],
           ),
         ),

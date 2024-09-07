@@ -10,13 +10,18 @@ class CustomText extends StatelessWidget {
   final double? letterSpacing;
   final TextStyle? textStyle;
   final TextAlign? textAlign;
+  final TextDecoration? decoration;
+  final Color? decorationColor;
+  final TextDecorationStyle? decorationStyle;
+  final double? decorationThickness;
+  final List<Shadow>? shadow;
    const CustomText({
     required this.text,
     required this.size,
     this.weight,
     this.color,
     this.letterSpacing,
-    super.key,this.textAlign, this.textStyle, this.textOverflow,
+    super.key,this.textAlign, this.textStyle, this.textOverflow, this.decoration, this.decorationColor, this.decorationStyle, this.decorationThickness, this.shadow,
    });
 
   @override
@@ -31,8 +36,11 @@ class CustomText extends StatelessWidget {
           fontWeight: weight,
           color: color,
           letterSpacing: letterSpacing,
-          
-          
+          decoration: decoration,
+          decorationColor: decorationColor,
+          decorationStyle: decorationStyle,
+          decorationThickness: decorationThickness,
+          shadows: shadow
         )
       ),
       

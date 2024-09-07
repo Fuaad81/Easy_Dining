@@ -26,33 +26,30 @@ class _admin_BottombarState extends State<admin_Bottombar> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: adminnavProvider.currentIndex == 0
-                ? Icon(
-                    IconlyBold.home,
-                    color: myColor.maincolor,
-                  )
-                : Icon(
-                    IconlyLight.home,
-                    color: myColor.tabcolor,
-                  ),
+            icon: Icon(
+              IconlyBold.home,
+              color: adminnavProvider.currentIndex == 0
+                  ? myColor.maincolor
+                  : myColor.tabcolor,
+            ),
             label: "Home",
           ),
           BottomNavigationBarItem(
-              icon: adminnavProvider.currentIndex == 1
-                  ? Icon(
-                      IconlyBold.document,
-                      color: myColor.maincolor,
-                    )
-                  : Icon(IconlyLight.document,color: myColor.tabcolor,),
+              icon: Icon(
+                IconlyBold.document,
+                color: adminnavProvider.currentIndex == 1
+                    ? myColor.maincolor
+                    : myColor.tabcolor,
+              ),
               label: "History"),
           BottomNavigationBarItem(
-              icon: adminnavProvider.currentIndex == 2
-                  ? Icon(
-                      IconlyBold.profile,
-                      color: myColor.maincolor,
-                    )
-                  : Icon(IconlyLight.profile,color: myColor.tabcolor,),
-              label: "Profile"),
+              icon: Icon(
+                IconlyBold.user_3,
+                color: adminnavProvider.currentIndex == 2
+                    ? myColor.maincolor
+                    : myColor.tabcolor,
+              ),
+              label: "Users"),
         ],
         currentIndex: adminnavProvider.currentIndex,
         onTap: adminnavProvider.adminIndex,

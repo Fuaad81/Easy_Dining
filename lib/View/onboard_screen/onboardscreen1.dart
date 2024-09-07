@@ -69,7 +69,7 @@ class _OnboardingState extends State<Onboarding> {
           letterSpacing: 0.36,
         ),
         onFinish: () {
-          Navigator.pushReplacementNamed(context, "/allfile");
+          Navigator.pushReplacementNamed(context, "/user_login");
         },
         speed: 1.8,
         controllerColor:  const Color(0xFFFF5B00),

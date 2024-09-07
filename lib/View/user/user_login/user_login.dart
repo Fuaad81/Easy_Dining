@@ -29,6 +29,17 @@ class _user_loginPageState extends State<user_loginPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(
+                padding: EdgeInsets.only(right: 10.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(onPressed: (){
+                      Navigator.pushNamed(context, "/admin_login");
+                    }, child: CustomText(text: "Admin", size:16,decoration: TextDecoration.underline,color: myColor.linktext,weight: FontWeight.w400,))
+                  ],
+                ),
+              ),
               Center(
                   child: Image.asset(
                 "assets/images/login.png",

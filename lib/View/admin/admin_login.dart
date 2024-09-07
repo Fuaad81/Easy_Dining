@@ -30,9 +30,14 @@ class _admin_LoginState extends State<admin_Login> {
                   width: 300.w,
                   height: 280.h,
                   decoration: BoxDecoration(
-                    color: myColor.tabcolor,
-                    borderRadius: BorderRadius.all(Radius.circular(15.r))
-                  ),
+                      color: myColor.tabcolor,
+                      borderRadius: BorderRadius.all(Radius.circular(15.r))),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15.r),
+                      child: Image.asset(
+                        "assets/images/app_logo.png",
+                        fit: BoxFit.cover,
+                      )),
                 ),
               ),
             ),
@@ -84,11 +89,16 @@ class _admin_LoginState extends State<admin_Login> {
                           width: 300.w,
                           child: CustomTextFormField(
                             controller: _emailcontroller,
-                            
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 10.h, horizontal: 20.w),
-                            labelText: const CustomText(text: "email", size: 18,weight: FontWeight.w500),
-                            prefixIcon: const Icon(IconlyLight.message,size: 25,),
+                            labelText: const CustomText(
+                                text: "email",
+                                size: 18,
+                                weight: FontWeight.w500),
+                            prefixIcon: const Icon(
+                              IconlyLight.message,
+                              size: 25,
+                            ),
                           ),
                         ),
                       ),
@@ -97,12 +107,20 @@ class _admin_LoginState extends State<admin_Login> {
                         child: SizedBox(
                           width: 300.w,
                           child: CustomTextFormField(
-                            controller: _emailcontroller,
+                            controller: _passwordcontroller,
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 10.h, horizontal: 20.w),
-                            labelText: const CustomText(text: "password", size: 18,weight: FontWeight.w500),
-                            prefixIcon: const Icon(IconlyLight.lock,size: 25,),
-                            suffixIcon: IconButton(onPressed: (){}, icon: const Icon(IconlyLight.hide)),
+                            labelText: const CustomText(
+                                text: "password",
+                                size: 18,
+                                weight: FontWeight.w500),
+                            prefixIcon: const Icon(
+                              IconlyLight.lock,
+                              size: 25,
+                            ),
+                            suffixIcon: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(IconlyLight.hide)),
                           ),
                         ),
                       ),
@@ -112,15 +130,27 @@ class _admin_LoginState extends State<admin_Login> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ElevatedButton(
-                              style: ButtonStyle(
-                                shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r))),
-                                backgroundColor: WidgetStatePropertyAll(myColor.maincolor),
-                                foregroundColor: WidgetStatePropertyAll(myColor.background),
-                                minimumSize: WidgetStatePropertyAll(Size(200.w, 50.h))
-                              ),
-                              onPressed: () {
-                                Navigator.pushNamed(context, "/admin_bottombar");
-                            }, child: const CustomText(text: "Login", size: 25,weight: FontWeight.w600,)),
+                                style: ButtonStyle(
+                                    shape: WidgetStatePropertyAll(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15.r))),
+                                    backgroundColor: WidgetStatePropertyAll(
+                                        myColor.maincolor),
+                                    foregroundColor: WidgetStatePropertyAll(
+                                        myColor.background),
+                                    minimumSize: WidgetStatePropertyAll(
+                                        Size(200.w, 50.h))),
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                      context, "/admin_bottombar");
+                                  print("button clicked");
+                                },
+                                child: const CustomText(
+                                  text: "Login",
+                                  size: 25,
+                                  weight: FontWeight.w600,
+                                )),
                           ],
                         ),
                       )

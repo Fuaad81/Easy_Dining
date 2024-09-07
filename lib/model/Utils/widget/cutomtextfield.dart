@@ -1,8 +1,6 @@
 // ignore_for_file: use_key_in_widget_ructors
 
-import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class CustomTextFormField extends StatelessWidget {

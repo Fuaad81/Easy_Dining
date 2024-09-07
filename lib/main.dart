@@ -1,8 +1,14 @@
 import 'package:easy_dine_in/Providers/admin_provider.dart';
 import 'package:easy_dine_in/Providers/suffixicon_provider.dart';
 import 'package:easy_dine_in/View/admin/admin_bottumnavbar/admin_bottombar.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_add_food.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_notification.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_add_offer.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_add_table.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_home.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_new_food.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_new_table.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_review.dart';
 import 'package:easy_dine_in/View/user/user_home/user_tabs/user_all.dart';
 import 'package:easy_dine_in/View/user/user_login/user_confirmpassword.dart';
 import 'package:easy_dine_in/View/user/user_login/user_forgotpassword.dart';
@@ -62,7 +68,7 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Demo',
             theme: ThemeData.light(),
             routes: {
-              //User rotes
+              //User Rotes
               "/splash": (context) => const Splash_screeen(),
               "/firstonboard": (context) => const Onboarding(),
               "/user_login": (context) => const user_loginPage(),
@@ -87,12 +93,19 @@ class MyApp extends StatelessWidget {
               "/user_about": (context) => const user_About(),
               "/user_notification": (context) => const user_notification(),
               "/user_search": (context) => const user_Search(),
-              //Admin routes
+              //User Routs End
               "/allfile": (context) => const Allitems(),
+              //Admin Routes Start
               "/admin_login": (context) => const admin_Login(),
               "/admin_bottombar": (context) => const admin_Bottombar(),
               "/admin_home": (context) => const admin_home(),
-              "/admin_add_notification": (context) => const admin_Add_Notification(),
+              "/admin_add_notification": (context) => const admin_addNotification(),
+              "/admin_addfood": (context) => const admin_addFood(),
+              "/admin_addoffers": (context) => const admin_addOffer(),
+              "/admin_addtable": (context) => const admin_addTable(),
+              "/admin_review": (context) => const admin_Review(),
+              "/admin_newfood": (context) => const admin_newFood(),
+              "/admin_newtable": (context) => const admin_newTable(),
             },
             initialRoute: "/splash",
           ),

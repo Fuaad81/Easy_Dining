@@ -38,9 +38,9 @@ class _user_notificationState extends State<user_notification> {
                 padding: EdgeInsets.only(top:10),
                 child: CustomText(text: "⏳Limited-Time Deal", size: 20,weight: FontWeight.w500,),
               ),
-              subtitle: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: const CustomText(text: "hurry! enjoy 20% off salad items in this weakend.", size: 18,),
+              subtitle: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: CustomText(text: "hurry! enjoy 20% off salad items in this weakend.", size: 18,),
               ),
             ),
           );
