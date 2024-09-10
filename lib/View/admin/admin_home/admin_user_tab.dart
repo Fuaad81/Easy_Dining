@@ -1,18 +1,18 @@
-import 'package:easy_dine_in/View/admin/admin_home/admin_db_accepted.dart';
-import 'package:easy_dine_in/View/admin/admin_home/admin_db_requested.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_order_list.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_user_list.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class admin_deliveryBoy_Tab extends StatefulWidget {
-  const admin_deliveryBoy_Tab({super.key});
+class admin_User_Tab extends StatefulWidget {
+  const admin_User_Tab({super.key});
 
   @override
-  State<admin_deliveryBoy_Tab> createState() => _admin_deliveryBoy_TabState();
+  State<admin_User_Tab> createState() => _admin_User_TabState();
 }
 
-class _admin_deliveryBoy_TabState extends State<admin_deliveryBoy_Tab> {
+class _admin_User_TabState extends State<admin_User_Tab> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -22,7 +22,7 @@ class _admin_deliveryBoy_TabState extends State<admin_deliveryBoy_Tab> {
         appBar: AppBar(
           backgroundColor: myColor.background,
           title: const CustomText(
-            text: "Delivery Boy",
+            text: "Users",
             size: 21,
             weight: FontWeight.w500,
           ),
@@ -45,14 +45,14 @@ class _admin_deliveryBoy_TabState extends State<admin_deliveryBoy_Tab> {
                 labelColor: myColor.background,
                 tabs: const [
                   CustomText(
-                    text: "Accepted",
+                    text: "User List",
                     size: 20,
                   ),
-                  CustomText(text: "Requested", size: 20),
+                  CustomText(text: "Order List", size: 20),
                 ]),
             const Expanded(
               child: TabBarView(
-                  children: [admin_db_Accepted(), admin_db_Requested()]),
+                  children: [admin_User_List(),admin_Order_List()]),
             )
           ],
         ),

@@ -34,9 +34,19 @@ class _user_loginPageState extends State<user_loginPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    TextButton(onPressed: (){
-                      Navigator.pushNamed(context, "/admin_login");
-                    }, child: CustomText(text: "Admin", size:16,decoration: TextDecoration.underline,color: myColor.linktext,weight: FontWeight.w400,))
+                    Padding(
+                      padding: EdgeInsets.only(top: 5.h),
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, "/admin_login");
+                          },
+                          child: CustomText(
+                            text: "Admin",
+                            size: 16,
+                            color: myColor.linktext,
+                            weight: FontWeight.w500,
+                          )),
+                    )
                   ],
                 ),
               ),
@@ -78,9 +88,8 @@ class _user_loginPageState extends State<user_loginPage> {
                     filled: true,
                     fillColor: myColor.fieldbackground,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide.none
-                    ),
+                        borderRadius: BorderRadius.circular(10.r),
+                        borderSide: BorderSide.none),
                     controller: emailcontroller,
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
@@ -121,9 +130,8 @@ class _user_loginPageState extends State<user_loginPage> {
                     filled: true,
                     fillColor: myColor.fieldbackground,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide.none
-                    ),
+                        borderRadius: BorderRadius.circular(10.r),
+                        borderSide: BorderSide.none),
                     obscureText: suffixicons.checked,
                     controller: passwordcontroler,
                     contentPadding:

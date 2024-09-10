@@ -24,17 +24,8 @@ class _admin_homeState extends State<admin_home> {
           toolbarHeight: 70.h,
           backgroundColor: myColor.background,
           leading: Padding(
-            padding: EdgeInsets.only(top: 10.h,left: 10.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 10.w),
-                  child: const Icon(IconlyLight.location,size: 30,),
-                ),
-                const CustomText(text: "Location", size: 18),
-              ],
-            ),
+            padding: EdgeInsets.only(top: 30.h,left: 10.w),
+            child: const CustomText(text: "Location", size: 18),
           ),
           leadingWidth: 100.w,
           automaticallyImplyLeading: false,
@@ -193,7 +184,7 @@ class _admin_homeState extends State<admin_home> {
                     padding: EdgeInsets.only(left: 20.w),
                     child: InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, "/admin_deliveryboy");
+                        Navigator.pushNamed(context, "/admin_deliveryboy_tab");
                       },
                       child: Container(
                         width: 100.w,
@@ -249,7 +240,7 @@ class _admin_homeState extends State<admin_home> {
                     padding: EdgeInsets.only(left: 20.w),
                     child: InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, "");
+                        Navigator.pushNamed(context, "/admin_usertab");
                       },
                       child: Container(
                         width: 100.w,

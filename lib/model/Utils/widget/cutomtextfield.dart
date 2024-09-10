@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CustomTextFormField extends StatelessWidget {
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final Widget? labelText;
   final TextStyle? labelStyle;
   final Widget? prefixIcon;
@@ -22,7 +22,7 @@ class CustomTextFormField extends StatelessWidget {
 
   const CustomTextFormField({
     super.key,
-    required this.controller,
+    this.controller,
     this.labelText,
     this.labelStyle,
     this.prefixIcon,

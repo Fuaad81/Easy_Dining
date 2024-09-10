@@ -21,21 +21,26 @@ class _admin_db_AcceptedState extends State<admin_db_Accepted> {
         itemBuilder: (context, index) {
         return Padding(
           padding: EdgeInsets.only(top: 10.h,left: 10.w,right: 10.w),
-          child: ListTile(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.r)
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, "/admin_dbacptdet");
+            },
+            child: ListTile(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.r)
+              ),
+              tileColor: myColor.tabcolor,
+              leading: CircleAvatar(
+                radius: 30,
+                backgroundColor: myColor.background,
+                child: const Icon(IconlyBold.profile),
+              ),
+              title: const CustomText(text: "Name", size: 18),
+              subtitle: const CustomText(text: "Location", size: 14),
+              trailing: IconButton(onPressed: () {
+                
+              }, icon: const Icon(IconlyLight.arrow_right_2)),
             ),
-            tileColor: myColor.tabcolor,
-            leading: CircleAvatar(
-              radius: 30,
-              backgroundColor: myColor.background,
-              child: const Icon(IconlyBold.profile),
-            ),
-            title: const CustomText(text: "Name", size: 18),
-            subtitle: const CustomText(text: "Location", size: 14),
-            trailing: IconButton(onPressed: () {
-              
-            }, icon: const Icon(IconlyLight.arrow_right_2)),
           ),
         );
       },),

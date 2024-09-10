@@ -1,6 +1,6 @@
 // ignore_for_file: prefer__ructors, avoid_unnecessary_containers
 
-
+import 'package:easy_dine_in/Providers/theme_provider.dart';
 import 'package:easy_dine_in/View/user/user_home/user_tabs/user_all.dart';
 import 'package:easy_dine_in/View/user/user_home/user_tabs/user_breakfast.dart';
 import 'package:easy_dine_in/View/user/user_home/user_tabs/user_dinner.dart';
@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
+import 'package:provider/provider.dart';
 
 class user_Home extends StatefulWidget {
   const user_Home({super.key});
@@ -26,6 +27,7 @@ class _user_HomeState extends State<user_Home> {
   final _search = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final theme = Provider.of<ThemeProvider>(context);
     return DefaultTabController(
       length: 5,
       child: Scaffold(
@@ -61,10 +63,14 @@ class _user_HomeState extends State<user_Home> {
           ])),
           actions: [
             IconButton(
-              onPressed: (){
+              onPressed: () {
                 Navigator.pushNamed(context, "/user_search");
               },
-              icon: const Icon(IconlyLight.search,size: 25,),),
+              icon: const Icon(
+                IconlyLight.search,
+                size: 25,
+              ),
+            ),
             IconButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "/user_notification");
@@ -77,7 +83,6 @@ class _user_HomeState extends State<user_Home> {
         ),
         body: Column(
           children: [
-            
             TabBar(
                 padding: EdgeInsets.only(left: 15.w, top: 5.h),
                 dividerColor: Colors.transparent,
@@ -103,28 +108,24 @@ class _user_HomeState extends State<user_Home> {
                     size: 18,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
                   ),
                   CustomText(
                     text: "Lunch",
                     size: 18,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
                   ),
                   CustomText(
                     text: "Snack",
                     size: 18,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
                   ),
                   CustomText(
                     text: "Dinner",
                     size: 18,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
                   ),
                 ]),
             const Expanded(
@@ -136,6 +137,7 @@ class _user_HomeState extends State<user_Home> {
                 user_dinnerItem()
               ]),
             ),
+            //chips
           ],
         ),
         drawer: Drawer(
@@ -146,7 +148,9 @@ class _user_HomeState extends State<user_Home> {
               decoration: BoxDecoration(color: myColor.maincolor),
               otherAccountsPictures: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+
+                  },
                   icon: Icon(
                     CupertinoIcons.moon_stars,
                     color: myColor.background,
@@ -155,12 +159,15 @@ class _user_HomeState extends State<user_Home> {
                 )
               ],
               currentAccountPicture: Container(
-                  width:100.w,
+                  width: 100.w,
                   height: 50.h,
                   decoration: BoxDecoration(
                       color: myColor.background,
                       borderRadius: BorderRadius.circular(100.r)),
-                  child: const Icon(IconlyBold.profile,size: 30,)),
+                  child: const Icon(
+                    IconlyBold.profile,
+                    size: 30,
+                  )),
               accountName: CustomText(
                 text: "Name",
                 size: 20,
@@ -180,116 +187,131 @@ class _user_HomeState extends State<user_Home> {
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
-              child: ListTile(
-                leading: const Icon(
-                  IconlyLight.setting,
-                  size: 25,
-                ),
-                title: CustomText(
-                  text: "Account Settings",
-                  size: 20,
-                  color: myColor.textcolor,
-                  weight: FontWeight.w400,
-                  textStyle: const TextStyle(),
-                ),
+              child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, "/user_settings");
+                  Navigator.popAndPushNamed(context, "/user_settings");
+                  
                 },
+                child: ListTile(
+                  leading: const Icon(
+                    IconlyLight.setting,
+                    size: 25,
+                  ),
+                  title: CustomText(
+                    text: "Account Settings",
+                    size: 20,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w400,
+                    textStyle: const TextStyle(),
+                  ),
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
-              child: ListTile(
-                leading: const Icon(
-                  IconlyLight.heart,
-                  size: 25,
-                ),
-                title: CustomText(
-                  text: "Favorite",
-                  size: 20,
-                  color: myColor.textcolor,
-                  weight: FontWeight.w400,
-                  textStyle: const TextStyle(),
-                ),
+              child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, "/user_favorite");
+                  Navigator.popAndPushNamed(context, "/user_favorite");
                 },
+                child: ListTile(
+                  leading: const Icon(
+                    IconlyLight.heart,
+                    size: 25,
+                  ),
+                  title: CustomText(
+                    text: "Favorite",
+                    size: 20,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w400,
+                    textStyle: const TextStyle(),
+                  ),
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
-              child: ListTile(
-                leading: const Icon(
-                  CupertinoIcons.square_list,
-                  size: 25,
-                ),
-                title: CustomText(
-                  text: "Order List",
-                  size: 20,
-                  color: myColor.textcolor,
-                  weight: FontWeight.w400,
-                  textStyle: const TextStyle(),
-                ),
+              child: InkWell(
                 onTap: () {
                   Navigator.pop(context);
+
                 },
+                child: ListTile(
+                  leading: const Icon(
+                    CupertinoIcons.square_list,
+                    size: 25,
+                  ),
+                  title: CustomText(
+                    text: "Order List",
+                    size: 20,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w400,
+                    textStyle: const TextStyle(),
+                  ),
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
-              child: ListTile(
-                leading: const Icon(
-                  IconlyLight.location,
-                  size: 25,
-                ),
-                title: CustomText(
-                  text: "Location",
-                  size: 20,
-                  color: myColor.textcolor,
-                  weight: FontWeight.w400,
-                  textStyle: const TextStyle(),
-                ),
+              child: InkWell(
                 onTap: () {
                   Navigator.pop(context);
+
                 },
+                child: ListTile(
+                  leading: const Icon(
+                    IconlyLight.location,
+                    size: 25,
+                  ),
+                  title: CustomText(
+                    text: "Location",
+                    size: 20,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w400,
+                    textStyle: const TextStyle(),
+                  ),
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
-              child: ListTile(
-                leading:  const Icon(
-                  CupertinoIcons.captions_bubble,
-                  size: 25,
-                ),
-                title: CustomText(
-                  text: "Feedback",
-                  size: 20,
-                  color: myColor.textcolor,
-                  weight: FontWeight.w400,
-                  textStyle: const TextStyle(),
-                ),
+              child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, "/user_feedback");
+                  Navigator.popAndPushNamed(context, "/user_feedback");
                 },
+                child: ListTile(
+                  leading: const Icon(
+                    CupertinoIcons.captions_bubble,
+                    size: 25,
+                  ),
+                  title: CustomText(
+                    text: "Feedback",
+                    size: 20,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w400,
+                    textStyle: const TextStyle(),
+                  ),
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h),
-              child: ListTile(
-                leading: const Icon(
-                  IconlyLight.info_circle,
-                  size: 25,
-                ),
-                title: CustomText(
-                  text: "About",
-                  size: 20,
-                  color: myColor.textcolor,
-                  weight: FontWeight.w400,
-                  textStyle: const TextStyle(),
-                ),
+              child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, "/user_about");
+                  Navigator.popAndPushNamed(context, "/user_about");
                 },
+                child: ListTile(
+                  leading: const Icon(
+                    IconlyLight.info_circle,
+                    size: 25,
+                  ),
+                  title: CustomText(
+                    text: "About",
+                    size: 20,
+                    color: myColor.textcolor,
+                    weight: FontWeight.w400,
+                    textStyle: const TextStyle(),
+                  ),
+                ),
               ),
             ),
           ]),

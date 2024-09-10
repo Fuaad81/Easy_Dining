@@ -30,6 +30,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: EdgeInsets.only(top: 20.h),
@@ -68,123 +69,130 @@ class _user_accountSettingState extends State<user_accountSetting> {
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.w, top: 30.h),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/icons/ic_edit_profile.png",
-                    width: 30,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.w),
-                    child: CustomText(
-                      text: "Edit Profile",
-                      size: 20,
-                      weight: FontWeight.w400,
-                      color: myColor.textcolor,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/user_editprofile");
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      "assets/icons/ic_edit_profile.png",
+                      width: 30,
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: CustomText(
+                        text: "Edit Profile",
+                        size: 20,
+                        weight: FontWeight.w400,
+                        color: myColor.textcolor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Divider(
-              endIndent: 25.w,
-              indent: 25.w,
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.w, top: 20.h),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/icons/ic_change_password.png",
-                    width: 30,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.w),
-                    child: CustomText(
-                      text: "Change Password",
-                      size: 20,
-                      weight: FontWeight.w400,
-                      color: myColor.textcolor,
+              child: InkWell(
+                onTap: (){
+                  Navigator.pushNamed(context, "/user_forgot");
+                },
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/icons/ic_change_password.png",
+                      width: 30,
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: CustomText(
+                        text: "Change Password",
+                        size: 20,
+                        weight: FontWeight.w400,
+                        color: myColor.textcolor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Divider(
-              endIndent: 25.w,
-              indent: 25.w,
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.w, top: 20.h),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/icons/ic_payment.png",
-                    width: 30,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.w),
-                    child: CustomText(
-                      text: "Payment Method",
-                      size: 20,
-                      weight: FontWeight.w400,
-                      color: myColor.textcolor,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/user_paymethod");
+                },
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/icons/ic_payment.png",
+                      width: 30,
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: CustomText(
+                        text: "Payment Method",
+                        size: 20,
+                        weight: FontWeight.w400,
+                        color: myColor.textcolor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Divider(
-              endIndent: 25.w,
-              indent: 25.w,
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.w, top: 20.h),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/icons/ic_theme.png",
-                    width: 30,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.w),
-                    child: CustomText(
-                      text: "Theme",
-                      size: 20,
-                      weight: FontWeight.w400,
-                      color: myColor.textcolor,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/user_theme");
+                },
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/icons/ic_theme.png",
+                      width: 30,
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: CustomText(
+                        text: "Theme",
+                        size: 20,
+                        weight: FontWeight.w400,
+                        color: myColor.textcolor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            Divider(
-              endIndent: 25.w,
-              indent: 25.w,
-            ),
+            
             Padding(
               padding: EdgeInsets.only(left: 20.w, top: 20.h),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/icons/ic_about.png",
-                    width: 30,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.w),
-                    child: CustomText(
-                      text: "About",
-                      size: 20,
-                      weight: FontWeight.w400,
-                      color: myColor.textcolor,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/user_about");
+                },
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/icons/ic_about.png",
+                      width: 30,
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: CustomText(
+                        text: "About",
+                        size: 20,
+                        weight: FontWeight.w400,
+                        color: myColor.textcolor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Divider(
-              endIndent: 25.w,
-              indent: 25.w,
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.w, top: 20.h),
@@ -206,10 +214,6 @@ class _user_accountSettingState extends State<user_accountSetting> {
                 ],
               ),
             ),
-            Divider(
-              endIndent: 25.w,
-              indent: 25.w,
-            ),
             Padding(
               padding: EdgeInsets.only(left: 20.w, top: 20.h),
               child: Row(
@@ -229,10 +233,6 @@ class _user_accountSettingState extends State<user_accountSetting> {
                   ),
                 ],
               ),
-            ),
-            Divider(
-              endIndent: 25.w,
-              indent: 25.w,
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.w, top: 20.h),
@@ -254,10 +254,6 @@ class _user_accountSettingState extends State<user_accountSetting> {
                 ],
               ),
             ),
-            Divider(
-              endIndent: 25.w,
-              indent: 25.w,
-            ),
             Padding(
               padding: EdgeInsets.only(left: 20.w, top: 20.h),
               child: Row(
@@ -278,10 +274,6 @@ class _user_accountSettingState extends State<user_accountSetting> {
                 ],
               ),
             ),
-            Divider(
-              endIndent: 25.w,
-              indent: 25.w,
-            )
           ],
         ),
       ),

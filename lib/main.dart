@@ -1,17 +1,25 @@
 import 'package:easy_dine_in/Providers/admin_provider.dart';
 import 'package:easy_dine_in/Providers/suffixicon_provider.dart';
+import 'package:easy_dine_in/Providers/theme_provider.dart';
 import 'package:easy_dine_in/View/admin/admin_bottumnavbar/admin_bottombar.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_food.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_notification.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_offer.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_table.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_db_accepted.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_db_acpt_details.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_db_req_detail.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_db_requested.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_delivery_boy.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_home.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_new_food.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_new_table.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_order_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_review.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_user_list.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_user_tab.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_paymeth.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_theme.dart';
 import 'package:easy_dine_in/View/user/user_home/user_tabs/user_all.dart';
 import 'package:easy_dine_in/View/user/user_login/user_confirmpassword.dart';
 import 'package:easy_dine_in/View/user/user_login/user_forgotpassword.dart';
@@ -64,6 +72,7 @@ class MyApp extends StatelessWidget {
         return MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (context) => UserProvider()),
+            ChangeNotifierProvider(create: (context) => ThemeProvider()),
             ChangeNotifierProvider(create: (context) => AdminNavbarProvider(),)
           ],
           child: MaterialApp(
@@ -96,6 +105,8 @@ class MyApp extends StatelessWidget {
               "/user_about": (context) => const user_About(),
               "/user_notification": (context) => const user_notification(),
               "/user_search": (context) => const user_Search(),
+              "/user_paymethod": (context) => const user_PayMethod(),
+              "/user_theme": (context) => const user_Theme(),
               //User Routs End
               "/allfile": (context) => const Allitems(),
               //Admin Routes Start
@@ -109,9 +120,14 @@ class MyApp extends StatelessWidget {
               "/admin_review": (context) => const admin_Review(),
               "/admin_newfood": (context) => const admin_newFood(),
               "/admin_newtable": (context) => const admin_newTable(),
-              "/admin_deliveryboy": (context) => const admin_deliveryBoy(),
+              "/admin_deliveryboy_tab": (context) => const admin_deliveryBoy_Tab(),
               "/admin_dbaccepted": (context) => const admin_db_Accepted(),
               "/admin_dbrequested": (context) => const admin_db_Requested(),
+              "/admin_dbreqdet": (context) => const admin_Db_Req_Details(),
+              "/admin_dbacptdet": (context) => const admin_Db_Acpt_Details(),
+              "/admin_usertab": (context) => const admin_User_Tab(),
+              "/admin_userlist": (context) => const admin_User_List(),
+              "/admin_oredrlist": (context) => const admin_Order_List(),
             },
             initialRoute: "/splash",
           ),
