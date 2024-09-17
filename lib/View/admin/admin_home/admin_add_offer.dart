@@ -14,9 +14,9 @@ class _admin_addOfferState extends State<admin_addOffer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: const CustomText(
           text: "Add Offers",
           size: 21,

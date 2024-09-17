@@ -35,7 +35,7 @@ class _user_bottomNavbarState extends State<user_bottomNavbar> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor: myColor.background,
+            
               icon: Image.asset(
                 _currentindex == 0 ?
                 "assets/icons/ic_home_fill.png" :
@@ -47,7 +47,7 @@ class _user_bottomNavbarState extends State<user_bottomNavbar> {
               ),
               label: "home"),
           BottomNavigationBarItem(
-            backgroundColor: myColor.background,
+            
               icon: Image.asset(
                  _currentindex == 1 ?
                 "assets/icons/ic_table_fill.png" :
@@ -60,7 +60,7 @@ class _user_bottomNavbarState extends State<user_bottomNavbar> {
               ),
               label: "Book Table"),
           BottomNavigationBarItem(
-            backgroundColor: myColor.background,
+            
               icon: Image.asset(
                  _currentindex == 2 ?
                 "assets/icons/ic_cart_fill.png" :
@@ -73,7 +73,7 @@ class _user_bottomNavbarState extends State<user_bottomNavbar> {
               ),
               label: "Cart"),
           BottomNavigationBarItem(
-            backgroundColor: myColor.background,
+            
               icon: Image.asset(
                  _currentindex == 3 ?
                 "assets/icons/ic_profile_fill.png" :

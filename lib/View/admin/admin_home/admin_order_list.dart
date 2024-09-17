@@ -14,7 +14,7 @@ class _admin_Order_ListState extends State<admin_Order_List> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       body: ListView.builder(
         itemCount: 1,
         itemBuilder: (context,index){

@@ -16,9 +16,9 @@ class _user_accountSettingState extends State<user_accountSetting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: CustomText(
           text: "Account Settings",
           size: 24,

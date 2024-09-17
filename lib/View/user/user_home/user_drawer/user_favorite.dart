@@ -16,9 +16,9 @@ class _user_FavoriteState extends State<user_Favorite> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: const CustomText(text: "Favorite", size: 21),
         centerTitle: true,
       ),

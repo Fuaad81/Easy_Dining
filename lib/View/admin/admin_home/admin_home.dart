@@ -22,7 +22,7 @@ class _admin_homeState extends State<admin_home> {
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 70.h,
-          backgroundColor: myColor.background,
+          
           leading: Padding(
             padding: EdgeInsets.only(top: 30.h,left: 10.w),
             child: const CustomText(text: "Location", size: 18),
@@ -71,7 +71,7 @@ class _admin_homeState extends State<admin_home> {
             // ),
           ],
         ),
-        backgroundColor: myColor.background,
+        
         body: Column(
           children: [
             // const Row(

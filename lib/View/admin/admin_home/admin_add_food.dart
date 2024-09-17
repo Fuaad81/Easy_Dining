@@ -17,9 +17,9 @@ class _admin_addFoodState extends State<admin_addFood> {
     final TextEditingController namecontroller = TextEditingController();
     final TextEditingController descriptioncontroller = TextEditingController();
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: const CustomText(
           text: "Add Food Item",
           size: 21,

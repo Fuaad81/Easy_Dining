@@ -14,7 +14,7 @@ class _admin_newFoodState extends State<admin_newFood> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       body: ListView.builder(
         itemCount: 1,
         itemBuilder: (context, index) {

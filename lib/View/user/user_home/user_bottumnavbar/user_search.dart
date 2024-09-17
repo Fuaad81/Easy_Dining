@@ -18,9 +18,9 @@ class _user_SearchState extends State<user_Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: const CustomText(text: "Search", size: 21),
         centerTitle: true,
         bottom: PreferredSize(preferredSize: const Size(0, 50), child: Row(

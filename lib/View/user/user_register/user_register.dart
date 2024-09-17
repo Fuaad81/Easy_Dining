@@ -26,7 +26,7 @@ class _user_RegisterState extends State<user_Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(

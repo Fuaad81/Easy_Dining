@@ -21,9 +21,9 @@ class _user_changePasswordState extends State<user_changePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: CustomText(
           text: "Change Password",
           size: 21,

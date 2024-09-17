@@ -20,9 +20,9 @@ class _admin_ReviewState extends State<admin_Review> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: const CustomText(
           text: "Review",
           size: 21,

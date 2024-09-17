@@ -15,7 +15,7 @@ class _admin_User_ListState extends State<admin_User_List> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       body: ListView.builder(
         itemCount: 1,
         itemBuilder: (context, index) {
@@ -23,7 +23,7 @@ class _admin_User_ListState extends State<admin_User_List> {
           padding: EdgeInsets.only(left: 15.w,right: 15.w,top: 10.h),
           child: ListTile(
             leading: CircleAvatar(
-              backgroundColor: myColor.background,
+              
               radius: 30,
             ),
             title: const CustomText(text: "Name", size: 18,weight: FontWeight.w500,),

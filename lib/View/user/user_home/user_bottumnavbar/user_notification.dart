@@ -14,9 +14,9 @@ class _user_notificationState extends State<user_notification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         centerTitle: true,
         title: const CustomText(
           text: "Notification",

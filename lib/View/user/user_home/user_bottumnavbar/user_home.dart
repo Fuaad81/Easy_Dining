@@ -31,10 +31,8 @@ class _user_HomeState extends State<user_Home> {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        backgroundColor: myColor.background,
         key: _scaffoldKey,
         appBar: AppBar(
-          backgroundColor: myColor.background,
           titleSpacing: -5,
           toolbarHeight: 60.h,
           leading: IconButton(
@@ -89,7 +87,7 @@ class _user_HomeState extends State<user_Home> {
                 indicatorSize: TabBarIndicatorSize.tab,
                 isScrollable: true,
                 labelStyle: GoogleFonts.poppins(
-                  color: myColor.background,
+                  color: myColor.background
                 ),
                 tabAlignment: TabAlignment.center,
                 indicator: BoxDecoration(
@@ -101,7 +99,6 @@ class _user_HomeState extends State<user_Home> {
                     size: 18,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
-                    textStyle: TextStyle(),
                   ),
                   CustomText(
                     text: "Break Fast",
@@ -141,7 +138,6 @@ class _user_HomeState extends State<user_Home> {
           ],
         ),
         drawer: Drawer(
-          backgroundColor: myColor.background,
           shape: const BeveledRectangleBorder(),
           child: ListView(children: [
             UserAccountsDrawerHeader(
@@ -149,7 +145,7 @@ class _user_HomeState extends State<user_Home> {
               otherAccountsPictures: [
                 IconButton(
                   onPressed: () {
-
+                    theme.toggleTheme();
                   },
                   icon: Icon(
                     CupertinoIcons.moon_stars,
@@ -164,9 +160,10 @@ class _user_HomeState extends State<user_Home> {
                   decoration: BoxDecoration(
                       color: myColor.background,
                       borderRadius: BorderRadius.circular(100.r)),
-                  child: const Icon(
+                  child: Icon(
                     IconlyBold.profile,
                     size: 30,
+                    color: myColor.background,
                   )),
               accountName: CustomText(
                 text: "Name",
@@ -174,7 +171,6 @@ class _user_HomeState extends State<user_Home> {
                 color: myColor.background,
                 weight: FontWeight.w500,
                 textAlign: TextAlign.center,
-                textStyle: const TextStyle(),
               ),
               accountEmail: CustomText(
                 text: "sample@gmail.com",
@@ -182,7 +178,6 @@ class _user_HomeState extends State<user_Home> {
                 color: myColor.background,
                 weight: FontWeight.w400,
                 textAlign: TextAlign.center,
-                textStyle: const TextStyle(),
               ),
             ),
             Padding(
@@ -200,9 +195,7 @@ class _user_HomeState extends State<user_Home> {
                   title: CustomText(
                     text: "Account Settings",
                     size: 20,
-                    color: myColor.textcolor,
                     weight: FontWeight.w400,
-                    textStyle: const TextStyle(),
                   ),
                 ),
               ),
@@ -221,9 +214,7 @@ class _user_HomeState extends State<user_Home> {
                   title: CustomText(
                     text: "Favorite",
                     size: 20,
-                    color: myColor.textcolor,
                     weight: FontWeight.w400,
-                    textStyle: const TextStyle(),
                   ),
                 ),
               ),
@@ -243,9 +234,7 @@ class _user_HomeState extends State<user_Home> {
                   title: CustomText(
                     text: "Order List",
                     size: 20,
-                    color: myColor.textcolor,
                     weight: FontWeight.w400,
-                    textStyle: const TextStyle(),
                   ),
                 ),
               ),
@@ -265,9 +254,7 @@ class _user_HomeState extends State<user_Home> {
                   title: CustomText(
                     text: "Location",
                     size: 20,
-                    color: myColor.textcolor,
                     weight: FontWeight.w400,
-                    textStyle: const TextStyle(),
                   ),
                 ),
               ),
@@ -286,9 +273,7 @@ class _user_HomeState extends State<user_Home> {
                   title: CustomText(
                     text: "Feedback",
                     size: 20,
-                    color: myColor.textcolor,
                     weight: FontWeight.w400,
-                    textStyle: const TextStyle(),
                   ),
                 ),
               ),
@@ -307,9 +292,7 @@ class _user_HomeState extends State<user_Home> {
                   title: CustomText(
                     text: "About",
                     size: 20,
-                    color: myColor.textcolor,
                     weight: FontWeight.w400,
-                    textStyle: const TextStyle(),
                   ),
                 ),
               ),

@@ -13,7 +13,7 @@ class _user_AboutState extends State<user_About> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         
       ),
     );

@@ -15,7 +15,7 @@ class _admin_db_AcceptedState extends State<admin_db_Accepted> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       body: ListView.builder(
         itemCount: 2,
         itemBuilder: (context, index) {
@@ -32,7 +32,7 @@ class _admin_db_AcceptedState extends State<admin_db_Accepted> {
               tileColor: myColor.tabcolor,
               leading: CircleAvatar(
                 radius: 30,
-                backgroundColor: myColor.background,
+                
                 child: const Icon(IconlyBold.profile),
               ),
               title: const CustomText(text: "Name", size: 18),

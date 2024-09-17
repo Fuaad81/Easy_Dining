@@ -19,9 +19,9 @@ class _user_feedbackState extends State<user_feedback> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: const CustomText(text: "FeedBack", size: 21,weight: FontWeight.w500,textStyle: TextStyle(),),
         centerTitle: true,
       ),

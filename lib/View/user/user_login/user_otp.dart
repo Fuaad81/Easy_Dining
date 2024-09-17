@@ -18,9 +18,9 @@ class _user_OtpState extends State<user_Otp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: CustomText(
           text: "Confirm OTP",
           size: 21,

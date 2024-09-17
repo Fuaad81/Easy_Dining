@@ -14,7 +14,7 @@ class _user_dinnerItemState extends State<user_dinnerItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
     );
   }
 }

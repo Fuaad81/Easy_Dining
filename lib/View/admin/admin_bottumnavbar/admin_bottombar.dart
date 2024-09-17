@@ -53,7 +53,7 @@ class _admin_BottombarState extends State<admin_Bottombar> {
         ],
         currentIndex: adminnavProvider.currentIndex,
         onTap: adminnavProvider.adminIndex,
-        backgroundColor: myColor.background,
+        
         selectedLabelStyle: GoogleFonts.poppins(
           fontWeight: FontWeight.w500,
         ),

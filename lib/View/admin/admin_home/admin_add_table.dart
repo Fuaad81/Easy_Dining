@@ -17,9 +17,9 @@ class _admin_addTableState extends State<admin_addTable> {
     final TextEditingController namecontroller = TextEditingController();
 
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: const CustomText(
           text: "Add Table",
           size: 21,

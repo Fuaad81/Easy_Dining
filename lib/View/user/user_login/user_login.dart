@@ -1,4 +1,4 @@
-import 'package:easy_dine_in/Providers/suffixicon_provider.dart';
+import 'package:easy_dine_in/Providers/user_provider.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
@@ -23,7 +23,7 @@ class _user_loginPageState extends State<user_loginPage> {
   Widget build(BuildContext context) {
     final suffixicons = Provider.of<UserProvider>(context);
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

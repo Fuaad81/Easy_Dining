@@ -15,9 +15,9 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: CustomText(text: "Delivery Boy", size: 21,weight: FontWeight.w500,),
         centerTitle: true,
       ),

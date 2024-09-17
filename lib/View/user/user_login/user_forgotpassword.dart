@@ -20,9 +20,9 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: CustomText(
           text: "Forgot Password",
           size: 21,

@@ -18,7 +18,7 @@ class _admin_LoginState extends State<admin_Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       body: SafeArea(
         child: Stack(
           children: [

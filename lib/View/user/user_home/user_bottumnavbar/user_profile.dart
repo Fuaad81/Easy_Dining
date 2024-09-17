@@ -21,9 +21,9 @@ class _user_ProfileState extends State<user_Profile> {
     TextEditingController numberController = TextEditingController();
     TextEditingController addressController = TextEditingController();
     return Scaffold(
-      backgroundColor: myColor.background,
+      
         appBar: AppBar(
-          backgroundColor: myColor.background,
+          
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: CustomText(

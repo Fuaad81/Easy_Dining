@@ -18,9 +18,9 @@ class _admin_User_TabState extends State<admin_User_Tab> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: myColor.background,
+        
         appBar: AppBar(
-          backgroundColor: myColor.background,
+          
           title: const CustomText(
             text: "Users",
             size: 21,

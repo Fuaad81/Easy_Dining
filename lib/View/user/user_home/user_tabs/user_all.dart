@@ -18,7 +18,7 @@ class _user_allItemState extends State<user_allItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(top: 10.h),

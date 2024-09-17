@@ -22,9 +22,9 @@ class _user_editProfileState extends State<user_editProfile> {
     TextEditingController numberController = TextEditingController();
     TextEditingController addressController = TextEditingController();
 
-    return Scaffold(backgroundColor: myColor.background,
+    return Scaffold(
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: const CustomText(
           text: "Edit Profile",
           size: 20,

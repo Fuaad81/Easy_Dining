@@ -17,9 +17,9 @@ class _admin_addNotificationState extends State<admin_addNotification> {
     final TextEditingController titlecontroller = TextEditingController();
     final TextEditingController discriptioncontroller = TextEditingController();
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       appBar: AppBar(
-        backgroundColor: myColor.background,
+        
         title: const CustomText(text: "Add Notification", size: 21),
         centerTitle: true,
       ),

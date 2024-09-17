@@ -14,7 +14,7 @@ class _admin_newTableState extends State<admin_newTable> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       body: ListView.builder(
         itemCount: 1,
         itemBuilder: (context, index) {

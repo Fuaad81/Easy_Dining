@@ -17,7 +17,7 @@ class _user_createdSuccesState extends State<user_createdSucces> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myColor.background,
+      
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
