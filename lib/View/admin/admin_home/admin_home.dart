@@ -5,7 +5,6 @@ import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconly/iconly.dart';
 
 class admin_home extends StatefulWidget {
   const admin_home({super.key});
@@ -25,7 +24,7 @@ class _admin_homeState extends State<admin_home> {
           
           leading: Padding(
             padding: EdgeInsets.only(top: 30.h,left: 10.w),
-            child: const CustomText(text: "Location", size: 18),
+            child:   CustomText(text: "Location", size: 18.spMin),
           ),
           leadingWidth: 100.w,
           automaticallyImplyLeading: false,
@@ -34,14 +33,14 @@ class _admin_homeState extends State<admin_home> {
                 text: "EASY",
                 style: GoogleFonts.poppins(
                     color: myColor.textcolor,
-                    fontSize: 25,
+                    fontSize: 25.spMin,
                     fontWeight: FontWeight.w500)),
             const TextSpan(text: " "),
             TextSpan(
                 text: "DINING",
                 style: GoogleFonts.poppins(
                     color: myColor.maincolor,
-                    fontSize: 25,
+                    fontSize: 25.spMin,
                     fontWeight: FontWeight.w500)),
           ])),
           centerTitle: true,
@@ -107,9 +106,9 @@ class _admin_homeState extends State<admin_home> {
                           children: [
                             Image.asset("assets/icons/ic_add_food.png",
                                 width: 35),
-                            const CustomText(
+                              CustomText(
                               text: "Add Food",
-                              size: 16,
+                              size: 16.spMin,
                               weight: FontWeight.w500,
                             ),
                           ],
@@ -135,9 +134,9 @@ class _admin_homeState extends State<admin_home> {
                           children: [
                             Image.asset("assets/icons/ic_add_table.png",
                                 width: 35),
-                            const CustomText(
+                              CustomText(
                               text: "Add Table",
-                              size: 16,
+                              size: 16.spMin,
                               weight: FontWeight.w500,
                             ),
                           ],
@@ -163,9 +162,9 @@ class _admin_homeState extends State<admin_home> {
                           children: [
                             Image.asset("assets/icons/ic_add_offer.png",
                                 width: 35),
-                            const CustomText(
+                              CustomText(
                               text: "Add Offers",
-                              size: 16,
+                              size: 16.spMin,
                               weight: FontWeight.w500,
                             ),
                           ],
@@ -198,9 +197,9 @@ class _admin_homeState extends State<admin_home> {
                           children: [
                             Image.asset("assets/icons/ic_delivery_boy.png",
                                 width: 35),
-                            const CustomText(
+                              CustomText(
                               text: "Delivery Boy",
-                              size: 16,
+                              size: 16.spMin,
                               weight: FontWeight.w500,
                             ),
                           ],
@@ -226,9 +225,9 @@ class _admin_homeState extends State<admin_home> {
                           children: [
                             Image.asset("assets/icons/ic_user_review.png",
                                 width: 35),
-                            const CustomText(
+                              CustomText(
                               text: "Reviews",
-                              size: 16,
+                              size: 16.spMin,
                               weight: FontWeight.w500,
                             ),
                           ],
@@ -254,9 +253,9 @@ class _admin_homeState extends State<admin_home> {
                           children: [
                             Image.asset("assets/icons/ic_users.png",
                                 width: 35),
-                            const CustomText(
+                              CustomText(
                               text: "Users",
-                              size: 16,
+                              size: 16.spMin,
                               weight: FontWeight.w500,
                             ),
                           ],
@@ -270,9 +269,9 @@ class _admin_homeState extends State<admin_home> {
 
             Padding(
               padding: EdgeInsets.only(left: 20.w, top: 20.h),
-              child: const Row(
+              child:   Row(
                 children: [
-                  CustomText(text: "New Items Added", size: 18),
+                  CustomText(text: "New Items Added", size: 18.spMin),
                 ],
               ),
             ),
@@ -287,9 +286,9 @@ class _admin_homeState extends State<admin_home> {
                 indicator: BoxDecoration(
                     color: myColor.maincolor,
                     borderRadius: BorderRadius.circular(10.r)),
-                tabs: const [
-                  CustomText(text: "Food", size: 18),
-                  CustomText(text: "Table", size: 18),
+                tabs:   [
+                  CustomText(text: "Food", size: 18.spMin),
+                  CustomText(text: "Table", size: 18.spMin),
                 ]),
             const Expanded(
               child: TabBarView(children: [

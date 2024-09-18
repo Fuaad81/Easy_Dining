@@ -16,13 +16,13 @@ class user_Table_Details extends StatefulWidget {
 }
 
 class _user_Table_DetailsState extends State<user_Table_Details> {
-  
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // Start the fade animation after the widget is built
-      Provider.of<fadeAnimationProvider>(context, listen: false).startFadeAnimation();
+      Provider.of<fadeAnimationProvider>(context, listen: false)
+          .startFadeAnimation();
     });
   }
 
@@ -62,7 +62,7 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
                           children: [
                             CustomText(
                               text: "Book your table",
-                              size: 18,
+                              size: 18.spMin,
                               weight: FontWeight.w500,
                               color: myColor.textcolor.withOpacity(0.5),
                             ),
@@ -75,16 +75,16 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
                           ],
                         ),
                       ),
-                      const CustomText(
+                      CustomText(
                         text: "Table No",
-                        size: 24,
+                        size: 24.spMin,
                         weight: FontWeight.w500,
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 5.h),
-                        child: const CustomText(
+                        child: CustomText(
                           text: "₹150",
-                          size: 20,
+                          size: 20.spMin,
                           weight: FontWeight.w500,
                         ),
                       ),
@@ -152,9 +152,9 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
                                     )),
                               ),
                             ),
-                            const CustomText(
+                            CustomText(
                               text: "to",
-                              size: 18,
+                              size: 18.spMin,
                               weight: FontWeight.w500,
                             ),
                             SizedBox(
@@ -181,8 +181,11 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
                         padding: EdgeInsets.only(top: 10.h),
                         child: Row(
                           children: [
-                            const CustomText(
-                                text: "Number of Seats : ", size: 22,weight: FontWeight.w500,),
+                            CustomText(
+                              text: "Number of Seats : ",
+                              size: 22.spMin,
+                              weight: FontWeight.w500,
+                            ),
                             Padding(
                               padding: EdgeInsets.only(left: 20.w),
                               child: Row(
@@ -194,7 +197,7 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
                                         color: myColor.maincolor,
                                         size: 30,
                                       )),
-                                  const CustomText(text: "1", size: 22),
+                                  CustomText(text: "1", size: 22.spMin),
                                   IconButton(
                                       onPressed: () {},
                                       icon: Icon(
@@ -210,21 +213,24 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
                       ),
                       Row(
                         children: [
-                          const CustomText(text: "Occation", size: 22,weight: FontWeight.w500,),
+                          CustomText(
+                            text: "Occation",
+                            size: 22.spMin,
+                            weight: FontWeight.w500,
+                          ),
                           Padding(
                             padding: EdgeInsets.only(left: 20.w),
                             child: SizedBox(
-                                width: 200.w,
-                                child: CustomTextFormField(
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide.none,
-                                      borderRadius: BorderRadius.circular(10.r)),
-                                  filled: true,
-                                  fillColor: myColor.fieldbackground,
-                                  hintText: "occation..",
-                                  
-                                ),
+                              width: 200.w,
+                              child: CustomTextFormField(
+                                border: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(10.r)),
+                                filled: true,
+                                fillColor: myColor.fieldbackground,
+                                hintText: "occation..",
                               ),
+                            ),
                           ),
                         ],
                       ),
@@ -234,21 +240,35 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStatePropertyAll(myColor.tabcolor),
-                                foregroundColor: WidgetStatePropertyAll(myColor.background),
-                                minimumSize: WidgetStatePropertyAll(Size(150,45)),
-                                shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)))
-                              ),
-                              onPressed: (){}, child: CustomText(text: "Cancel", size: 20)),
+                                style: ButtonStyle(
+                                    backgroundColor: WidgetStatePropertyAll(
+                                        myColor.tabcolor),
+                                    foregroundColor: WidgetStatePropertyAll(
+                                        myColor.background),
+                                    minimumSize: const WidgetStatePropertyAll(
+                                        Size(150, 45)),
+                                    shape: WidgetStatePropertyAll(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10.r)))),
+                                onPressed: () {},
+                                child:
+                                    CustomText(text: "Cancel", size: 20.spMin)),
                             ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStatePropertyAll(myColor.maincolor),
-                                foregroundColor: WidgetStatePropertyAll(myColor.background),
-                                minimumSize: WidgetStatePropertyAll(Size(150,45)),
-                                shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)))
-                              ),
-                              onPressed: (){}, child: CustomText(text: "Book Now", size: 20))
+                                style: ButtonStyle(
+                                    backgroundColor: WidgetStatePropertyAll(
+                                        myColor.maincolor),
+                                    foregroundColor: WidgetStatePropertyAll(
+                                        myColor.background),
+                                    minimumSize: const WidgetStatePropertyAll(
+                                        Size(150, 45)),
+                                    shape: WidgetStatePropertyAll(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10.r)))),
+                                onPressed: () {},
+                                child: CustomText(
+                                    text: "Book Now", size: 20.spMin))
                           ],
                         ),
                       )
@@ -266,12 +286,11 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
   final _controller = DraggableScrollableController();
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        title: const CustomText(
+        title: CustomText(
           text: "Table Details",
-          size: 21,
+          size: 21.spMin,
           weight: FontWeight.w500,
         ),
         centerTitle: true,
@@ -287,92 +306,97 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/images/table_image.jpg"),fit: BoxFit.cover),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/table_image.jpg"),
+              fit: BoxFit.cover),
         ),
-         child:  Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                width: 380.w,
-                height: 180.h,
-                decoration: BoxDecoration(
-                    color: myColor.background,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15.r),
-                        topRight: Radius.circular(15.r))),
-                child: Padding(
-                  padding: EdgeInsets.only(left: 15.w, right: 15.w),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 5.h),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CustomText(
-                              text: "Book your table",
-                              size: 18,
-                              weight: FontWeight.w500,
-                              color: myColor.textcolor.withOpacity(0.5),
-                            ),
-                            IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  IconlyLight.heart,
-                                  size: 30,
-                                ))
-                          ],
-                        ),
-                      ),
-                      const CustomText(
-                        text: "Table No",
-                        size: 24,
-                        weight: FontWeight.w500,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 5.h),
-                        child: const CustomText(
-                          text: "₹150",
-                          size: 20,
-                          weight: FontWeight.w500,
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 380.w,
+              height: 180.h,
+              decoration: BoxDecoration(
+                  color: myColor.background,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15.r),
+                      topRight: Radius.circular(15.r))),
+              child: Padding(
+                padding: EdgeInsets.only(left: 15.w, right: 15.w),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 5.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // ElevatedButton(
-                          //     onPressed: () => details(),
-                          //     style: ButtonStyle(
-                          //         backgroundColor:
-                          //             WidgetStatePropertyAll(myColor.background),
-                          //         foregroundColor:
-                          //             WidgetStatePropertyAll(myColor.maincolor),
-                          //         minimumSize:
-                          //             WidgetStatePropertyAll(Size(160.w, 40.h))),
-                          //     child: CustomText(text: "View Details", size: 20)),
-                          Consumer<fadeAnimationProvider>(
-                            builder: (context,fadeAnimationProvider,child) {
-                              return TextButton(
-                                  onPressed: () => details(),
-                                  child: AnimatedOpacity(
-                                    opacity: fadeAnimationProvider.opacity,
-                                    duration: const Duration(seconds: 1),
-                                    child: CustomText(
-                                        text: "Click here for booking", size: 21,color: myColor.maincolor,weight: FontWeight.w500,),
-                                  ));
-                            }
-                          )
+                          CustomText(
+                            text: "Book your table",
+                            size: 18.spMin,
+                            weight: FontWeight.w500,
+                            color: myColor.textcolor.withOpacity(0.5),
+                          ),
+                          IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                IconlyLight.heart,
+                                size: 30,
+                              ))
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    CustomText(
+                      text: "Table No",
+                      size: 24.spMin,
+                      weight: FontWeight.w500,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 5.h),
+                      child: CustomText(
+                        text: "₹150",
+                        size: 20.spMin,
+                        weight: FontWeight.w500,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // ElevatedButton(
+                        //     onPressed: () => details(),
+                        //     style: ButtonStyle(
+                        //         backgroundColor:
+                        //             WidgetStatePropertyAll(myColor.background),
+                        //         foregroundColor:
+                        //             WidgetStatePropertyAll(myColor.maincolor),
+                        //         minimumSize:
+                        //             WidgetStatePropertyAll(Size(160.w, 40.h))),
+                        //     child: CustomText(text: "View Details", size: 20.spMin)),
+                        Consumer<fadeAnimationProvider>(
+                            builder: (context, fadeAnimationProvider, child) {
+                          return TextButton(
+                              onPressed: () => details(),
+                              child: AnimatedOpacity(
+                                opacity: fadeAnimationProvider.opacity,
+                                duration: const Duration(seconds: 1),
+                                child: CustomText(
+                                  text: "Click here for booking",
+                                  size: 21.spMin,
+                                  color: myColor.maincolor,
+                                  weight: FontWeight.w500,
+                                ),
+                              ));
+                        })
+                      ],
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
+        ),
       ),
     );
   }

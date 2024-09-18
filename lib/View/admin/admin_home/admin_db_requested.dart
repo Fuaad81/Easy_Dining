@@ -35,7 +35,7 @@ class _admin_db_RequestedState extends State<admin_db_Requested> {
                 
                 child: const Icon(IconlyBold.profile),
               ),
-              title: const CustomText(text: "Name", size: 18,weight: FontWeight.w500,),
+              title:   CustomText(text: "Name", size: 18.spMin,weight: FontWeight.w500,),
               trailing: IconButton(onPressed: () {
                 
               }, icon: const Icon(IconlyLight.arrow_right_2)),

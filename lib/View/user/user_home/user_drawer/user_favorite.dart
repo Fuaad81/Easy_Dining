@@ -16,10 +16,8 @@ class _user_FavoriteState extends State<user_Favorite> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
-        
-        title: const CustomText(text: "Favorite", size: 21),
+        title: CustomText(text: "Favorite", size: 21.spMin),
         centerTitle: true,
       ),
       body: Column(children: [
@@ -28,9 +26,8 @@ class _user_FavoriteState extends State<user_Favorite> {
           children: [
             customCard(
               elevation: 5,
-              shape:RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.r)
-              ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.r)),
               child: SizedBox(
                 width: 160.w,
                 child: Column(
@@ -55,9 +52,9 @@ class _user_FavoriteState extends State<user_Favorite> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CustomText(
+                          CustomText(
                             text: 'Name',
-                            size: 16,
+                            size: 16.spMin,
                             textStyle: TextStyle(),
                             weight: FontWeight.w600,
                           ),
@@ -67,7 +64,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                                 onTap: () {},
                                 child: Icon(
                                   IconlyBold.heart,
-                                  size: 20.w,
+                                  size: 20,
                                   color: myColor.maincolor,
                                 )),
                           )
@@ -76,13 +73,13 @@ class _user_FavoriteState extends State<user_Favorite> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 7.w, top: 2.h),
-                      child: const Row(
+                      child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CustomText(
                             text: 'quantity',
-                            size: 14,
+                            size: 14.spMin,
                             textStyle: TextStyle(),
                             weight: FontWeight.w400,
                           ),
@@ -94,9 +91,9 @@ class _user_FavoriteState extends State<user_Favorite> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CustomText(
-                            text: "\$25",
-                            size: 16,
+                          CustomText(
+                            text: "₹25",
+                            size: 16.spMin,
                             textStyle: TextStyle(),
                             weight: FontWeight.w600,
                           ),
@@ -104,7 +101,11 @@ class _user_FavoriteState extends State<user_Favorite> {
                             padding: EdgeInsets.only(right: 5.w),
                             child: InkWell(
                                 onTap: () {},
-                                child: Image.asset("assets/icons/ic_cart_outline.png",width: 20.w,color: myColor.textcolor,)),
+                                child: Image.asset(
+                                  "assets/icons/ic_cart_outline.png",
+                                  width: 20.w,
+                                  color: myColor.textcolor,
+                                )),
                           )
                         ],
                       ),
@@ -115,9 +116,8 @@ class _user_FavoriteState extends State<user_Favorite> {
             ),
             customCard(
               elevation: 5,
-              shape:RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.r)
-              ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.r)),
               child: SizedBox(
                 width: 160.w,
                 child: Column(
@@ -142,9 +142,9 @@ class _user_FavoriteState extends State<user_Favorite> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CustomText(
+                          CustomText(
                             text: 'Name',
-                            size: 16,
+                            size: 16.spMin,
                             textStyle: TextStyle(),
                             weight: FontWeight.w600,
                           ),
@@ -154,7 +154,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                                 onTap: () {},
                                 child: Icon(
                                   IconlyBold.heart,
-                                  size: 20.w,
+                                  size: 20,
                                   color: myColor.maincolor,
                                 )),
                           )
@@ -163,13 +163,13 @@ class _user_FavoriteState extends State<user_Favorite> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 7.w, top: 2.h),
-                      child: const Row(
+                      child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CustomText(
                             text: 'quantity',
-                            size: 14,
+                            size: 14.spMin,
                             textStyle: TextStyle(),
                             weight: FontWeight.w400,
                           ),
@@ -181,9 +181,9 @@ class _user_FavoriteState extends State<user_Favorite> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CustomText(
-                            text: "\$25",
-                            size: 16,
+                         CustomText(
+                            text: "₹25",
+                            size: 16.spMin,
                             textStyle: TextStyle(),
                             weight: FontWeight.w600,
                           ),
@@ -191,7 +191,11 @@ class _user_FavoriteState extends State<user_Favorite> {
                             padding: EdgeInsets.only(right: 5.w),
                             child: InkWell(
                                 onTap: () {},
-                                child: Image.asset("assets/icons/ic_cart_outline.png",width: 20.w,color: myColor.textcolor,)),
+                                child: Image.asset(
+                                  "assets/icons/ic_cart_outline.png",
+                                  width: 20.w,
+                                  color: myColor.textcolor,
+                                )),
                           )
                         ],
                       ),

@@ -1,4 +1,3 @@
-import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customcard.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +15,9 @@ class _user_BookingState extends State<user_Booking> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const CustomText(
+        title: CustomText(
           text: "Booking",
-          size: 21,
+          size: 21.spMin,
           weight: FontWeight.w500,
         ),
         centerTitle: true,
@@ -33,79 +32,88 @@ class _user_BookingState extends State<user_Booking> {
         ],
       ),
       body: ListView.builder(
-        itemCount: 2,
-        itemBuilder: (context,index) {
-          return Padding(
-            padding: EdgeInsets.only(top: 20.h),
-            child: InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, "/user_tabledetails");
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  customCard(
-                    shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10.r),
-                                  topRight: Radius.circular(10.r),
-                                  bottomLeft: Radius.circular(10.r),
-                                  bottomRight: Radius.circular(10.r))),
-                      child: SizedBox(
-                    width: 160.w,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                            width: 160.w,
-                            height: 120.h,
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10.r),
-                                    topRight: Radius.circular(10.r)),
-                                child: Image.asset(
-                                  "assets/images/table_image.jpg",
-                                  fit: BoxFit.cover,
-                                ))),
-                                Padding(
-                                  padding: EdgeInsets.only(top: 20.h,bottom: 10.h,left: 10.w),
-                                  child: const CustomText(text: "Table No : ", size: 18,weight: FontWeight.w500,),
-                                )
-                      ],
-                    ),
-                  )),
-                  customCard(
-                      child: SizedBox(
-                    width: 160.w,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                            width: 160.w,
-                            height: 120.h,
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10.r),
-                                    topRight: Radius.circular(10.r)),
-                                child: Image.asset(
-                                  "assets/images/table_image.jpg",
-                                  fit: BoxFit.cover,
-                                ))),
-                                Padding(
-                                  padding: EdgeInsets.only(top: 20.h,bottom: 10.h,left: 10.w),
-                                  child: const CustomText(text: "Table No : ", size: 18,weight: FontWeight.w500,),
-                                )
-                      ],
-                    ),
-                  )),
-                ],
+          itemCount: 2,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: EdgeInsets.only(top: 20.h),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/user_tabledetails");
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    customCard(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10.r),
+                                topRight: Radius.circular(10.r),
+                                bottomLeft: Radius.circular(10.r),
+                                bottomRight: Radius.circular(10.r))),
+                        child: SizedBox(
+                          width: 160.w,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                  width: 160.w,
+                                  height: 120.h,
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10.r),
+                                          topRight: Radius.circular(10.r)),
+                                      child: Image.asset(
+                                        "assets/images/table_image.jpg",
+                                        fit: BoxFit.cover,
+                                      ))),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: 20.h, bottom: 10.h, left: 10.w),
+                                child: CustomText(
+                                  text: "Table No : ",
+                                  size: 18.spMin,
+                                  weight: FontWeight.w500,
+                                ),
+                              )
+                            ],
+                          ),
+                        )),
+                    customCard(
+                        child: SizedBox(
+                      width: 160.w,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                              width: 160.w,
+                              height: 120.h,
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10.r),
+                                      topRight: Radius.circular(10.r)),
+                                  child: Image.asset(
+                                    "assets/images/table_image.jpg",
+                                    fit: BoxFit.cover,
+                                  ))),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: 20.h, bottom: 10.h, left: 10.w),
+                            child: CustomText(
+                              text: "Table No : ",
+                              size: 18.spMin,
+                              weight: FontWeight.w500,
+                            ),
+                          )
+                        ],
+                      ),
+                    )),
+                  ],
+                ),
               ),
-            ),
-          );
-        }
-      ),
+            );
+          }),
     );
   }
 }

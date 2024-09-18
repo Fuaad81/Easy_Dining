@@ -18,7 +18,7 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
       
       appBar: AppBar(
         
-        title: CustomText(text: "Delivery Boy", size: 21,weight: FontWeight.w500,),
+        title: CustomText(text: "Delivery Boy", size: 21.spMin,weight: FontWeight.w500,),
         centerTitle: true,
       ),
       body: Column(
@@ -54,9 +54,9 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                             mainAxisAlignment:
                                 MainAxisAlignment.spaceBetween,
                             children: [
-                              const CustomText(
+                                CustomText(
                                 text: "Name",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                               SizedBox(
@@ -80,9 +80,9 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                             mainAxisAlignment:
                                 MainAxisAlignment.spaceBetween,
                             children: [
-                              const CustomText(
+                                CustomText(
                                 text: "Email",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                               SizedBox(
@@ -106,9 +106,9 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                             mainAxisAlignment:
                                 MainAxisAlignment.spaceBetween,
                             children: [
-                              const CustomText(
+                                CustomText(
                                 text: "Phone No",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                               SizedBox(
@@ -132,9 +132,9 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                             mainAxisAlignment:
                                 MainAxisAlignment.spaceBetween,
                             children: [
-                              const CustomText(
+                                CustomText(
                                 text: "License",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                               SizedBox(
@@ -159,7 +159,7 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                                           color: myColor.maincolor,
                                           borderRadius: BorderRadius.circular(10.r)
                                         ),
-                                        child: Center(child: CustomText(text: "open", size: 14,color: myColor.background,)),
+                                        child: Center(child: CustomText(text: "open", size: 14.spMin,color: myColor.background,)),
                                       ),
                                     ),
                                   ),
@@ -174,9 +174,9 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                             mainAxisAlignment:
                                 MainAxisAlignment.spaceBetween,
                             children: [
-                              const CustomText(
+                                CustomText(
                                 text: "Location",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                               SizedBox(

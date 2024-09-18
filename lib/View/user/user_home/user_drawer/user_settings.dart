@@ -21,7 +21,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
         
         title: CustomText(
           text: "Account Settings",
-          size: 24,
+          size: 24.spMin,
           color: myColor.textcolor,
           weight: FontWeight.w400,
           textStyle: const TextStyle(),
@@ -46,7 +46,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
               child: Center(
                 child: CustomText(
                   text: "Name",
-                  size: 22,
+                  size: 22.spMin,
                   color: myColor.textcolor,
                   weight: FontWeight.w500,
                   textAlign: TextAlign.center,
@@ -59,7 +59,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
               child: Center(
                 child: CustomText(
                   text: "sample@gmail.com",
-                  size: 20,
+                  size: 20.spMin,
                   color: myColor.textcolor,
                   weight: FontWeight.w300,
                   textAlign: TextAlign.center,
@@ -84,7 +84,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
                       padding: EdgeInsets.only(left: 10.w),
                       child: CustomText(
                         text: "Edit Profile",
-                        size: 20,
+                        size: 20.spMin,
                         weight: FontWeight.w400,
                         color: myColor.textcolor,
                       ),
@@ -109,7 +109,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
                       padding: EdgeInsets.only(left: 10.w),
                       child: CustomText(
                         text: "Change Password",
-                        size: 20,
+                        size: 20.spMin,
                         weight: FontWeight.w400,
                         color: myColor.textcolor,
                       ),
@@ -134,7 +134,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
                       padding: EdgeInsets.only(left: 10.w),
                       child: CustomText(
                         text: "Payment Method",
-                        size: 20,
+                        size: 20.spMin,
                         weight: FontWeight.w400,
                         color: myColor.textcolor,
                       ),
@@ -159,7 +159,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
                       padding: EdgeInsets.only(left: 10.w),
                       child: CustomText(
                         text: "Theme",
-                        size: 20,
+                        size: 20.spMin,
                         weight: FontWeight.w400,
                         color: myColor.textcolor,
                       ),
@@ -185,7 +185,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
                       padding: EdgeInsets.only(left: 10.w),
                       child: CustomText(
                         text: "About",
-                        size: 20,
+                        size: 20.spMin,
                         weight: FontWeight.w400,
                         color: myColor.textcolor,
                       ),
@@ -206,7 +206,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
                     padding: EdgeInsets.only(left: 10.w),
                     child: CustomText(
                       text: "Terms & Condition",
-                      size: 20,
+                      size: 20.spMin,
                       weight: FontWeight.w400,
                       color: myColor.textcolor,
                     ),
@@ -226,7 +226,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
                     padding: EdgeInsets.only(left: 10.w),
                     child: CustomText(
                       text: "Invite Friends",
-                      size: 20,
+                      size: 20.spMin,
                       weight: FontWeight.w400,
                       color: myColor.textcolor,
                     ),
@@ -246,7 +246,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
                     padding: EdgeInsets.only(left: 10.w),
                     child: CustomText(
                       text: "Log Out",
-                      size: 20,
+                      size: 20.spMin,
                       weight: FontWeight.w400,
                       color: myColor.textcolor,
                     ),
@@ -266,7 +266,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
                     padding: EdgeInsets.only(left: 10.w),
                     child: CustomText(
                       text: "Delete Account",
-                      size: 20,
+                      size: 20.spMin,
                       weight: FontWeight.w400,
                       color: myColor.errortext,
                     ),

@@ -25,7 +25,7 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
         
         title: CustomText(
           text: "Forgot Password",
-          size: 21,
+          size: 21.spMin,
           color: myColor.textcolor,
           weight: FontWeight.w500,
           textAlign: TextAlign.center,
@@ -42,7 +42,7 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
               child: CustomText(
                 text:
                     "Please enter your email correctly\nand reset your password",
-                size: 20,
+                size: 20.spMin,
                 color: myColor.textcolor,
                 weight: FontWeight.w400,
                 textAlign: TextAlign.center,
@@ -64,7 +64,7 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
                 controller: _forgotpass,
                 labelText: CustomText(
                   text: "enter your email",
-                  size: 18,
+                  size: 18.spMin,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textAlign: TextAlign.center,
@@ -105,7 +105,7 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
                     ),
                     child: CustomText(
                       text: "send OTP",
-                      size: 20,
+                      size: 20.spMin,
                       color: myColor.background,
                       weight: FontWeight.w500,
                       textAlign: TextAlign.center,

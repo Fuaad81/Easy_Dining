@@ -15,10 +15,12 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
-        
-        title: CustomText(text: "Delivery Boy", size: 21,weight: FontWeight.w500,),
+        title: CustomText(
+          text: "Delivery Boy",
+          size: 21.spMin,
+          weight: FontWeight.w500,
+        ),
         centerTitle: true,
       ),
       body: Column(
@@ -49,14 +51,14 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h,right: 30.w,left: 30.w),
+                          padding: EdgeInsets.only(
+                              top: 20.h, right: 30.w, left: 30.w),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const CustomText(
+                              CustomText(
                                 text: "Name",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                               SizedBox(
@@ -75,14 +77,14 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h,right: 30.w,left: 30.w),
+                          padding: EdgeInsets.only(
+                              top: 20.h, right: 30.w, left: 30.w),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const CustomText(
+                              CustomText(
                                 text: "Email",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                               SizedBox(
@@ -101,14 +103,14 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h,right: 30.w,left: 30.w),
+                          padding: EdgeInsets.only(
+                              top: 20.h, right: 30.w, left: 30.w),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const CustomText(
+                              CustomText(
                                 text: "Phone No",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                               SizedBox(
@@ -127,14 +129,14 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h,right: 30.w,left: 30.w),
+                          padding: EdgeInsets.only(
+                              top: 20.h, right: 30.w, left: 30.w),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const CustomText(
+                              CustomText(
                                 text: "License",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                               SizedBox(
@@ -150,16 +152,19 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                   suffixIcon: Padding(
                                     padding: const EdgeInsets.all(5.0),
                                     child: InkWell(
-                                      onTap: () {
-                                        
-                                      },
+                                      onTap: () {},
                                       child: Container(
                                         width: 60.w,
                                         decoration: BoxDecoration(
-                                          color: myColor.maincolor,
-                                          borderRadius: BorderRadius.circular(10.r)
-                                        ),
-                                        child: Center(child: CustomText(text: "open", size: 14,color: myColor.background,)),
+                                            color: myColor.maincolor,
+                                            borderRadius:
+                                                BorderRadius.circular(10.r)),
+                                        child: Center(
+                                            child: CustomText(
+                                          text: "open",
+                                          size: 14.spMin,
+                                          color: myColor.background,
+                                        )),
                                       ),
                                     ),
                                   ),
@@ -169,14 +174,14 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h,right: 30.w,left: 30.w),
+                          padding: EdgeInsets.only(
+                              top: 20.h, right: 30.w, left: 30.w),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const CustomText(
+                              CustomText(
                                 text: "Location",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                               SizedBox(
@@ -195,7 +200,7 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 50.h,bottom: 20.h),
+                          padding: EdgeInsets.only(top: 50.h, bottom: 20.h),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -213,8 +218,8 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                                   BorderRadius.circular(
                                                       10.r)))),
                                   onPressed: () {},
-                                  child: const CustomText(
-                                      text: "Reject", size: 20)),
+                                  child: CustomText(
+                                      text: "Reject", size: 20.spMin)),
                               ElevatedButton(
                                   style: ButtonStyle(
                                       backgroundColor: WidgetStatePropertyAll(
@@ -229,8 +234,8 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                                   BorderRadius.circular(
                                                       10.r)))),
                                   onPressed: () {},
-                                  child: const CustomText(
-                                      text: "Accept", size: 20))
+                                  child: CustomText(
+                                      text: "Accept", size: 20.spMin))
                             ],
                           ),
                         )

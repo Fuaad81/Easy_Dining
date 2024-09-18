@@ -25,10 +25,10 @@ class _user_editProfileState extends State<user_editProfile> {
     return Scaffold(
       appBar: AppBar(
         
-        title: const CustomText(
+        title:   CustomText(
           text: "Edit Profile",
-          size: 20,
-          textStyle: TextStyle(),
+          size: 20.spMin,
+          textStyle: const TextStyle(),
           weight: FontWeight.w500,
         ),
         centerTitle: true,
@@ -66,13 +66,13 @@ class _user_editProfileState extends State<user_editProfile> {
                     ),
                   contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                     controller: nameController,
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       IconlyLight.profile,
-                      size: 20.w,
+                      size: 20,
                     ),
-                    labelText: const CustomText(
+                    labelText:   CustomText(
                       text: "Name",
-                      size: 18,
+                      size: 18.spMin,
                     ),
                     labelStyle: const TextStyle()),
               ),
@@ -91,13 +91,13 @@ class _user_editProfileState extends State<user_editProfile> {
                     ),
                   contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                     controller: emailController,
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       CupertinoIcons.mail,
-                      size: 20.w,
+                      size: 20,
                     ),
-                    labelText: const CustomText(
+                    labelText:   CustomText(
                       text: "Email",
-                      size: 18,
+                      size: 18.spMin,
                     ),
                     labelStyle: const TextStyle()),
               ),
@@ -116,13 +116,13 @@ class _user_editProfileState extends State<user_editProfile> {
                     ),
                   contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                     controller: numberController,
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       IconlyLight.call,
-                      size: 20.w,
+                      size: 20,
                     ),
-                    labelText: const CustomText(
+                    labelText:   CustomText(
                       text: "Number",
-                      size: 18,
+                      size: 18.spMin,
                     ),
                     labelStyle: const TextStyle()),
               ),
@@ -141,13 +141,13 @@ class _user_editProfileState extends State<user_editProfile> {
                     ),
                   contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                     controller: addressController,
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       IconlyLight.location,
-                      size: 20.w,
+                      size: 20,
                     ),
-                    labelText: const CustomText(
+                    labelText:   CustomText(
                       text: "Address",
-                      size: 18,
+                      size: 18.spMin,
                     ),
                     labelStyle: const TextStyle()),
               ),
@@ -176,7 +176,7 @@ class _user_editProfileState extends State<user_editProfile> {
                         ),
                         child: CustomText(
                             text: "cancel",
-                            size: 18,
+                            size: 18.spMin,
                             color: myColor.textcolor,
                             weight: FontWeight.w500,
                             textAlign: TextAlign.center,
@@ -201,7 +201,7 @@ class _user_editProfileState extends State<user_editProfile> {
                         ),
                         child: CustomText(
                             text: "save",
-                            size: 18,
+                            size: 18.spMin,
                             color: myColor.background,
                             weight: FontWeight.w500,
                             textAlign: TextAlign.center,

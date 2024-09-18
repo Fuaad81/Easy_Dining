@@ -21,7 +21,7 @@ class _user_SearchState extends State<user_Search> {
       
       appBar: AppBar(
         
-        title: const CustomText(text: "Search", size: 21),
+        title: CustomText(text: "Search", size: 21.spMin),
         centerTitle: true,
         bottom: PreferredSize(preferredSize: const Size(0, 50), child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -41,7 +41,7 @@ class _user_SearchState extends State<user_Search> {
                       controller: _search,
                       labelText: CustomText(
                         text: "search..",
-                        size: 18,
+                        size: 18.spMin,
                         color: myColor.textcolor,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
@@ -51,7 +51,7 @@ class _user_SearchState extends State<user_Search> {
                           fontSize: 18,
                           fontWeight: FontWeight.w400,
                           color: myColor.textcolor),
-                      suffixIcon: Icon(IconlyLight.search,size: 25.w,)),
+                      suffixIcon: const Icon(IconlyLight.search,size: 25,)),
                 ),
               ],
             ),),

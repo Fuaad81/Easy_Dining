@@ -26,7 +26,7 @@ class _user_changePasswordState extends State<user_changePassword> {
         
         title: CustomText(
           text: "Change Password",
-          size: 21,
+          size: 21.spMin,
           color: myColor.textcolor,
           weight: FontWeight.w500,
           textAlign: TextAlign.center,
@@ -42,7 +42,7 @@ class _user_changePasswordState extends State<user_changePassword> {
               child: Center(
                 child: CustomText(
                   text: "Enter new password and\nconform",
-                  size: 22,
+                  size: 22.spMin,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textAlign: TextAlign.center,
@@ -65,7 +65,7 @@ class _user_changePasswordState extends State<user_changePassword> {
                   controller: _newpass,
                   labelText: CustomText(
                     text: "new password",
-                    size: 18,
+                    size: 18.spMin,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
@@ -96,7 +96,7 @@ class _user_changePasswordState extends State<user_changePassword> {
                   contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
                   labelText: CustomText(
                     text: "confirm password",
-                    size: 18,
+                    size: 18.spMin,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
@@ -133,7 +133,7 @@ class _user_changePasswordState extends State<user_changePassword> {
                       ),
                       child: CustomText(
                         text: "change password",
-                        size: 20,
+                        size: 20.spMin,
                         color: myColor.background,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,

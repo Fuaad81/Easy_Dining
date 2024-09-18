@@ -42,7 +42,7 @@ class _user_loginPageState extends State<user_loginPage> {
                           },
                           child: CustomText(
                             text: "Admin",
-                            size: 16,
+                            size: 16.spMin,
                             color: myColor.linktext,
                             weight: FontWeight.w500,
                           )),
@@ -64,7 +64,7 @@ class _user_loginPageState extends State<user_loginPage> {
                   textStyle: GoogleFonts.poppins(
                     letterSpacing: 1.05,
                   ),
-                  size: 27,
+                  size: 27.spMin,
                   weight: FontWeight.w700,
                   color: myColor.textcolor,
                 ),
@@ -75,7 +75,7 @@ class _user_loginPageState extends State<user_loginPage> {
                   text: 'Sign in to continue...',
                   textAlign: TextAlign.center,
                   textStyle: GoogleFonts.poppins(),
-                  size: 20,
+                  size: 20.spMin,
                   weight: FontWeight.w300,
                   color: myColor.textcolor,
                 ),
@@ -97,7 +97,7 @@ class _user_loginPageState extends State<user_loginPage> {
                       padding: EdgeInsets.only(left: 5.w),
                       child: CustomText(
                         text: "email or phone",
-                        size: 18,
+                        size: 18.spMin,
                         color: myColor.textcolor,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
@@ -140,7 +140,7 @@ class _user_loginPageState extends State<user_loginPage> {
                       padding: EdgeInsets.only(left: 5.w),
                       child: CustomText(
                         text: "password",
-                        size: 18,
+                        size: 18.spMin,
                         color: myColor.textcolor,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
@@ -189,7 +189,7 @@ class _user_loginPageState extends State<user_loginPage> {
                       },
                       child: CustomText(
                         text: "Forgot Password?",
-                        size: 18,
+                        size: 18.spMin,
                         color: myColor.linktext,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
@@ -219,7 +219,7 @@ class _user_loginPageState extends State<user_loginPage> {
                       ),
                       child: CustomText(
                         text: "login",
-                        size: 20,
+                        size: 20.spMin,
                         color: myColor.background,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
@@ -234,7 +234,7 @@ class _user_loginPageState extends State<user_loginPage> {
                   children: [
                     CustomText(
                       text: "i don't have any account!",
-                      size: 18,
+                      size: 18.spMin,
                       color: myColor.textcolor,
                       weight: FontWeight.w400,
                       textAlign: TextAlign.center,
@@ -248,7 +248,7 @@ class _user_loginPageState extends State<user_loginPage> {
                         },
                         child: CustomText(
                           text: "sign up",
-                          size: 20,
+                          size: 20.spMin,
                           color: myColor.linktext,
                           weight: FontWeight.w400,
                           textAlign: TextAlign.center,
@@ -269,13 +269,13 @@ class _user_loginPageState extends State<user_loginPage> {
                       child: Divider(
                         height: 20.h,
                         thickness: 2,
-                        endIndent: 10,
+                        endIndent: 10.w,
                         color: myColor.textcolor,
                       ),
                     ),
                     CustomText(
                       text: "or login with",
-                      size: 18,
+                      size: 18.spMin,
                       color: myColor.textcolor,
                       weight: FontWeight.w400,
                       textAlign: TextAlign.center,
@@ -286,7 +286,7 @@ class _user_loginPageState extends State<user_loginPage> {
                       child: Divider(
                         height: 20.h,
                         thickness: 2,
-                        indent: 10,
+                        indent: 10.w,
                         color: myColor.textcolor,
                       ),
                     ),

@@ -40,11 +40,11 @@ class _admin_newTableState extends State<admin_newTable> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(left: 20.w),
-                          child: const Column(
+                          child:   Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              CustomText(text: "Table No", size: 19),
-                              CustomText(text: "Prize", size: 19),
+                              CustomText(text: "Table No", size: 19.spMin),
+                              CustomText(text: "Prize", size: 19.spMin),
                             ],
                           ),
                         ),

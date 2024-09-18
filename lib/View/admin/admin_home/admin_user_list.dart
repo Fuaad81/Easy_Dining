@@ -26,8 +26,8 @@ class _admin_User_ListState extends State<admin_User_List> {
               
               radius: 30,
             ),
-            title: const CustomText(text: "Name", size: 18,weight: FontWeight.w500,),
-            subtitle: const CustomText(text: "sample@gmail.com", size: 14,weight: FontWeight.w400,),
+            title:   CustomText(text: "Name", size: 18.spMin,weight: FontWeight.w500,),
+            subtitle:   CustomText(text: "sample@gmail.com", size: 14.spMin,weight: FontWeight.w400,),
             tileColor: myColor.tabcolor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.r)

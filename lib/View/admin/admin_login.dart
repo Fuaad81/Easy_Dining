@@ -65,9 +65,9 @@ class _admin_LoginState extends State<admin_Login> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 50.h),
-                        child: const CustomText(
+                        child:   CustomText(
                           text: "Welcome Back!",
-                          size: 27,
+                          size: 27.spMin,
                           weight: FontWeight.bold,
                           textStyle: TextStyle(),
                           letterSpacing: 1.4,
@@ -75,9 +75,9 @@ class _admin_LoginState extends State<admin_Login> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 5.h),
-                        child: const CustomText(
+                        child:   CustomText(
                           text: "Login to Continue...",
-                          size: 20,
+                          size: 20.spMin,
                           weight: FontWeight.w400,
                           textStyle: TextStyle(),
                           letterSpacing: 1.4,
@@ -91,9 +91,9 @@ class _admin_LoginState extends State<admin_Login> {
                             controller: _emailcontroller,
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 10.h, horizontal: 20.w),
-                            labelText: const CustomText(
+                            labelText:   CustomText(
                                 text: "email",
-                                size: 18,
+                                size: 18.spMin,
                                 weight: FontWeight.w500),
                             prefixIcon: const Icon(
                               IconlyLight.message,
@@ -110,9 +110,9 @@ class _admin_LoginState extends State<admin_Login> {
                             controller: _passwordcontroller,
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 10.h, horizontal: 20.w),
-                            labelText: const CustomText(
+                            labelText:   CustomText(
                                 text: "password",
-                                size: 18,
+                                size: 18.spMin,
                                 weight: FontWeight.w500),
                             prefixIcon: const Icon(
                               IconlyLight.lock,
@@ -146,9 +146,9 @@ class _admin_LoginState extends State<admin_Login> {
                                       context, "/admin_bottombar");
                                   print("button clicked");
                                 },
-                                child: const CustomText(
+                                child:   CustomText(
                                   text: "Login",
-                                  size: 25,
+                                  size: 25.spMin,
                                   weight: FontWeight.w600,
                                 )),
                           ],

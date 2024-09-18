@@ -63,7 +63,7 @@ class _OnboardingState extends State<Onboarding> {
             backgroundColor: Color(0xFFFF5B00), foregroundColor: Colors.white),
         finishButtonTextStyle: GoogleFonts.poppins(
           color: Colors.white,
-          fontSize: 20,
+          fontSize: 20.spMin,
           fontWeight: FontWeight.w500,
           height: 0,
           letterSpacing: 0.36,
@@ -87,7 +87,7 @@ class _OnboardingState extends State<Onboarding> {
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.08,
                     ),
-                    size: 27,
+                    size: 27.spMin,
                     weight: FontWeight.w700,
                     color: myColor.textcolor,
                     textAlign: TextAlign.center,
@@ -95,11 +95,11 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: 30.h),
-                    child: const CustomText(
+                    child:   CustomText(
                         text:
                             "Order anytime you want.We\nguarantee to provide you quality\nfood.",
-                        size: 17,
-                        textStyle:  TextStyle(),
+                        size: 17.spMin,
+                        textStyle:  const TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)),
               ],
@@ -118,7 +118,7 @@ class _OnboardingState extends State<Onboarding> {
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.08,
                     ),
-                    size: 27,
+                    size: 27.spMin,
                     weight: FontWeight.w700,
                     color: myColor.textcolor,
                     textAlign: TextAlign.center,
@@ -126,10 +126,10 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: 30.h),
-                    child: const CustomText(
+                    child: CustomText(
                         text:
                             "Browse the menu and order\ndirectly from the application.",
-                        size: 17,
+                        size: 17.spMin,
                         textStyle:  TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)),
@@ -147,7 +147,7 @@ class _OnboardingState extends State<Onboarding> {
                     textStyle: GoogleFonts.poppins(
                       letterSpacing: 1.08,
                     ),
-                    size: 27,
+                    size: 27.spMin,
                     weight: FontWeight.w700,
                     color: myColor.textcolor,
                     textAlign: TextAlign.center,
@@ -155,10 +155,10 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 30.h),
-                  child: const CustomText(
+                  child:   CustomText(
                         text:
                             "We will delivery your order as quickly\n and efficiently as possible.",
-                        size: 17,
+                        size: 17.spMin,
                         textStyle:  TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)

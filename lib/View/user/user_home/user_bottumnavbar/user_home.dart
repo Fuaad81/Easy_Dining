@@ -47,13 +47,13 @@ class _user_HomeState extends State<user_Home> {
             TextSpan(
                 text: "Hello",
                 style: GoogleFonts.pacifico(
-                  fontSize: 22,
+                  fontSize: 22.spMin,
                 )),
             const TextSpan(text: " "),
             TextSpan(
               text: "Name",
               style: GoogleFonts.poppins(
-                  fontSize: 22,
+                  fontSize: 22.spMin,
                   color: myColor.maincolor,
                   fontWeight: FontWeight.w400),
             ),
@@ -93,34 +93,34 @@ class _user_HomeState extends State<user_Home> {
                 indicator: BoxDecoration(
                     color: myColor.maincolor,
                     borderRadius: BorderRadius.circular(10.r)),
-                tabs: const [
+                tabs: [
                   CustomText(
                     text: "All",
-                    size: 18,
+                    size: 18.spMin,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
                   ),
                   CustomText(
                     text: "Break Fast",
-                    size: 18,
+                    size: 18.spMin,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
                   ),
                   CustomText(
                     text: "Lunch",
-                    size: 18,
+                    size: 18.spMin,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
                   ),
                   CustomText(
                     text: "Snack",
-                    size: 18,
+                    size: 18.spMin,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
                   ),
                   CustomText(
                     text: "Dinner",
-                    size: 18,
+                    size: 18.spMin,
                     weight: FontWeight.w500,
                     textAlign: TextAlign.center,
                   ),
@@ -167,14 +167,14 @@ class _user_HomeState extends State<user_Home> {
                   )),
               accountName: CustomText(
                 text: "Name",
-                size: 20,
+                size: 20.spMin,
                 color: myColor.background,
                 weight: FontWeight.w500,
                 textAlign: TextAlign.center,
               ),
               accountEmail: CustomText(
                 text: "sample@gmail.com",
-                size: 20,
+                size: 20.spMin,
                 color: myColor.background,
                 weight: FontWeight.w400,
                 textAlign: TextAlign.center,
@@ -194,7 +194,7 @@ class _user_HomeState extends State<user_Home> {
                   ),
                   title: CustomText(
                     text: "Account Settings",
-                    size: 20,
+                    size: 20.spMin,
                     weight: FontWeight.w400,
                   ),
                 ),
@@ -213,7 +213,7 @@ class _user_HomeState extends State<user_Home> {
                   ),
                   title: CustomText(
                     text: "Favorite",
-                    size: 20,
+                    size: 20.spMin,
                     weight: FontWeight.w400,
                   ),
                 ),
@@ -233,7 +233,7 @@ class _user_HomeState extends State<user_Home> {
                   ),
                   title: CustomText(
                     text: "Order List",
-                    size: 20,
+                    size: 20.spMin,
                     weight: FontWeight.w400,
                   ),
                 ),
@@ -253,7 +253,7 @@ class _user_HomeState extends State<user_Home> {
                   ),
                   title: CustomText(
                     text: "Location",
-                    size: 20,
+                    size: 20.spMin,
                     weight: FontWeight.w400,
                   ),
                 ),
@@ -272,7 +272,7 @@ class _user_HomeState extends State<user_Home> {
                   ),
                   title: CustomText(
                     text: "Feedback",
-                    size: 20,
+                    size: 20.spMin,
                     weight: FontWeight.w400,
                   ),
                 ),
@@ -291,7 +291,7 @@ class _user_HomeState extends State<user_Home> {
                   ),
                   title: CustomText(
                     text: "About",
-                    size: 20,
+                    size: 20.spMin,
                     weight: FontWeight.w400,
                   ),
                 ),

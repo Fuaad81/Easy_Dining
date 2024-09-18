@@ -20,7 +20,7 @@ class _admin_addNotificationState extends State<admin_addNotification> {
       
       appBar: AppBar(
         
-        title: const CustomText(text: "Add Notification", size: 21),
+        title:   CustomText(text: "Add Notification", size: 21.spMin),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -66,7 +66,7 @@ class _admin_addNotificationState extends State<admin_addNotification> {
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.r)))),
                     onPressed: () {},
-                    child: const CustomText(text: "Submit", size: 18)),
+                    child: CustomText(text: "Submit", size: 18.spMin)),
               )
             ],
           ),

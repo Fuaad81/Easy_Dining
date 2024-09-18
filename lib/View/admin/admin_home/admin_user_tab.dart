@@ -18,12 +18,10 @@ class _admin_User_TabState extends State<admin_User_Tab> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        
         appBar: AppBar(
-          
-          title: const CustomText(
+          title: CustomText(
             text: "Users",
-            size: 21,
+            size: 21.spMin,
             weight: FontWeight.w500,
           ),
           centerTitle: true,
@@ -43,16 +41,16 @@ class _admin_User_TabState extends State<admin_User_Tab> {
                 tabAlignment: TabAlignment.center,
                 isScrollable: true,
                 labelColor: myColor.background,
-                tabs: const [
+                tabs: [
                   CustomText(
                     text: "User List",
-                    size: 20,
+                    size: 20.spMin,
                   ),
-                  CustomText(text: "Order List", size: 20),
+                  CustomText(text: "Order List", size: 20.spMin),
                 ]),
             const Expanded(
-              child: TabBarView(
-                  children: [admin_User_List(),admin_Order_List()]),
+              child:
+                  TabBarView(children: [admin_User_List(), admin_Order_List()]),
             )
           ],
         ),

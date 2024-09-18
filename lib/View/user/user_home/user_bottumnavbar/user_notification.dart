@@ -14,13 +14,11 @@ class _user_notificationState extends State<user_notification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
-        
         centerTitle: true,
-        title: const CustomText(
+        title: CustomText(
           text: "Notification",
-          size: 21,
+          size: 21.spMin,
           weight: FontWeight.w500,
         ),
       ),
@@ -32,15 +30,21 @@ class _user_notificationState extends State<user_notification> {
             child: ListTile(
               tileColor: myColor.notification,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.r)
+                  borderRadius: BorderRadius.circular(10.r)),
+              title: Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: CustomText(
+                  text: "⏳Limited-Time Deal",
+                  size: 20.spMin,
+                  weight: FontWeight.w500,
+                ),
               ),
-              title: const Padding(
-                padding: EdgeInsets.only(top:10),
-                child: CustomText(text: "⏳Limited-Time Deal", size: 20,weight: FontWeight.w500,),
-              ),
-              subtitle: const Padding(
+              subtitle: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: CustomText(text: "hurry! enjoy 20% off salad items in this weakend.", size: 18,),
+                child: CustomText(
+                  text: "hurry! enjoy 20% off salad items in this weakend.",
+                  size: 18.spMin,
+                ),
               ),
             ),
           );

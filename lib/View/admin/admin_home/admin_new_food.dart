@@ -40,12 +40,12 @@ class _admin_newFoodState extends State<admin_newFood> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(left: 20.w),
-                          child: const Column(
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              CustomText(text: "Name", size: 19),
-                              CustomText(text: "Category", size: 19),
-                              CustomText(text: "Prize", size: 19),
+                              CustomText(text: "Name", size: 19.spMin),
+                              CustomText(text: "Category", size: 19.spMin),
+                              CustomText(text: "Prize", size: 19.spMin),
                             ],
                           ),
                         ),

@@ -35,8 +35,8 @@ class _admin_db_AcceptedState extends State<admin_db_Accepted> {
                 
                 child: const Icon(IconlyBold.profile),
               ),
-              title: const CustomText(text: "Name", size: 18),
-              subtitle: const CustomText(text: "Location", size: 14),
+              title:   CustomText(text: "Name", size: 18.spMin),
+              subtitle:   CustomText(text: "Location", size: 14.spMin),
               trailing: IconButton(onPressed: () {
                 
               }, icon: const Icon(IconlyLight.arrow_right_2)),

@@ -22,7 +22,7 @@ class _user_feedbackState extends State<user_feedback> {
       
       appBar: AppBar(
         
-        title: const CustomText(text: "FeedBack", size: 21,weight: FontWeight.w500,textStyle: TextStyle(),),
+        title: CustomText(text: "FeedBack", size: 21.spMin,weight: FontWeight.w500,textStyle: TextStyle(),),
         centerTitle: true,
       ),
       body: Column(
@@ -30,7 +30,7 @@ class _user_feedbackState extends State<user_feedback> {
         children: [
           Padding(
             padding: EdgeInsets.only(left: 25.w,top: 30.h),
-            child: const CustomText(text: "How do you rate this app?", size: 20),
+            child: CustomText(text: "How do you rate this app?", size: 20.spMin),
           ),
           Padding(
             padding: EdgeInsets.only(left: 15.w,top: 20.h),
@@ -50,12 +50,12 @@ class _user_feedbackState extends State<user_feedback> {
           ),
           Padding(
             padding: EdgeInsets.only(left: 25.w,top: 30.h),
-            child: const CustomText(text: "Comment your experience", size: 20),),
+            child: CustomText(text: "Comment your experience", size: 20.spMin),),
           Padding(
             padding: EdgeInsets.only(left: 25.w,top: 15.h),
             child: SizedBox(
-              width: 350,
-              height: 250,
+              width: 350.w,
+              height: 250.h,
               child: CustomTextFormField(
                 filled: true,
                     fillColor: myColor.fieldbackground,
@@ -93,7 +93,7 @@ class _user_feedbackState extends State<user_feedback> {
                       ),
                       child: CustomText(
                         text: "Cancel",
-                        size: 20,
+                        size: 20.spMin,
                         color: myColor.textcolor,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,
@@ -113,7 +113,7 @@ class _user_feedbackState extends State<user_feedback> {
                       ),
                       child: CustomText(
                         text: "send",
-                        size: 20,
+                        size: 20.spMin,
                         color: myColor.background,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,

@@ -47,19 +47,19 @@ class _admin_Order_ListState extends State<admin_Order_List> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CustomText(text: "Name", size: 20,weight: FontWeight.w500,),
-                            CustomText(text: "sample@gmail.com", size: 16,weight: FontWeight.w500,),
+                            CustomText(text: "Name", size: 20.spMin,weight: FontWeight.w500,),
+                            CustomText(text: "sample@gmail.com", size: 16.spMin,weight: FontWeight.w500,),
                             Padding(
                               padding: EdgeInsets.only(top: 20.h),
-                              child: CustomText(text: "Food Name", size: 20,weight: FontWeight.w500,),
+                              child: CustomText(text: "Food Name", size: 20.spMin,weight: FontWeight.w500,),
                             ),
                             Padding(
                               padding: EdgeInsets.only(top: 5.h),
-                              child: CustomText(text: "Quantity", size: 20,weight: FontWeight.w500,),
+                              child: CustomText(text: "Quantity", size: 20.spMin,weight: FontWeight.w500,),
                             ),
                             Padding(
                               padding: EdgeInsets.only(top: 5.h,bottom: 5.h),
-                              child: CustomText(text: "Prize", size: 20,weight: FontWeight.w500,),
+                              child: CustomText(text: "Prize", size: 20.spMin,weight: FontWeight.w500,),
                             ),
                           ],
                         ),
@@ -70,7 +70,7 @@ class _admin_Order_ListState extends State<admin_Order_List> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            CustomText(text: "Location", size: 20),
+                            CustomText(text: "Location", size: 20.spMin),
                             Padding(
                               padding: EdgeInsets.only(top: 15.h),
                               child: Container(
@@ -81,7 +81,7 @@ class _admin_Order_ListState extends State<admin_Order_List> {
                                   borderRadius: BorderRadius.circular(10.r)
                                 ),
                                 child: Center(
-                                  child: CustomText(text: "Item Image", size: 14,textAlign: TextAlign.center,),
+                                  child: CustomText(text: "Item Image", size: 14.spMin,textAlign: TextAlign.center,),
                                 ),
                               ),
                             )

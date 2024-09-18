@@ -46,7 +46,7 @@ class _user_RegisterState extends State<user_Register> {
               padding: EdgeInsets.only(left: 20.w),
               child: CustomText(
                 text: "Sign Up",
-                size: 28,
+                size: 28.spMin,
                 color: myColor.textcolor,
                 weight: FontWeight.w700,
                 textAlign: TextAlign.center,
@@ -57,7 +57,7 @@ class _user_RegisterState extends State<user_Register> {
               padding: EdgeInsets.only(left: 20.w, top: 10.h),
               child: CustomText(
                 text: "create your account",
-                size: 20,
+                size: 20.spMin,
                 color: myColor.textcolor,
                 weight: FontWeight.w300,
                 textAlign: TextAlign.center,
@@ -81,7 +81,7 @@ class _user_RegisterState extends State<user_Register> {
                       EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                   labelText: CustomText(
                     text: "name",
-                    size: 18,
+                    size: 18.spMin,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
@@ -114,7 +114,7 @@ class _user_RegisterState extends State<user_Register> {
                       EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                   labelText: CustomText(
                     text: "email",
-                    size: 18,
+                    size: 18.spMin,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
@@ -148,7 +148,7 @@ class _user_RegisterState extends State<user_Register> {
                   controller: _numbercontroller,
                   labelText: CustomText(
                     text: "number",
-                    size: 18,
+                    size: 18.spMin,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
@@ -182,7 +182,7 @@ class _user_RegisterState extends State<user_Register> {
                       EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                   labelText: CustomText(
                     text: "password",
-                    size: 18,
+                    size: 18.spMin,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
@@ -220,7 +220,7 @@ class _user_RegisterState extends State<user_Register> {
                     controller: _cpasswordcontroller,
                     labelText: CustomText(
                       text: "confirm password",
-                      size: 18,
+                      size: 18.spMin,
                       color: myColor.textcolor,
                       weight: FontWeight.w400,
                       textAlign: TextAlign.center,
@@ -246,13 +246,14 @@ class _user_RegisterState extends State<user_Register> {
               child: Row(
                 children: [
                   Checkbox(
+                    
                     activeColor: myColor.maincolor,
                     value: check,
                     onChanged: (value) {},
                   ),
                   CustomText(
                     text: "I Agree with",
-                    size: 16,
+                    size: 16.spMin,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
@@ -264,7 +265,7 @@ class _user_RegisterState extends State<user_Register> {
                       onTap: () {},
                       child: CustomText(
                         text: "Terms & Conditions",
-                        size: 16,
+                        size: 16.spMin,
                         color: myColor.linktext,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,
@@ -293,7 +294,7 @@ class _user_RegisterState extends State<user_Register> {
                     ),
                     child: CustomText(
                       text: "Register",
-                      size: 20,
+                      size: 20.spMin,
                       color: myColor.background,
                       weight: FontWeight.w500,
                       textAlign: TextAlign.center,
@@ -308,7 +309,7 @@ class _user_RegisterState extends State<user_Register> {
                 children: [
                   CustomText(
                     text: "Allready have an account?",
-                    size: 18,
+                    size: 18.spMin,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
@@ -322,7 +323,7 @@ class _user_RegisterState extends State<user_Register> {
                       },
                       child: CustomText(
                         text: "Login",
-                        size: 18,
+                        size: 18.spMin,
                         color: myColor.linktext,
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
@@ -343,13 +344,13 @@ class _user_RegisterState extends State<user_Register> {
                     child: Divider(
                       height: 20,
                       thickness: 2,
-                      endIndent: 10,
+                      endIndent: 10.w,
                       color: myColor.textcolor,
                     ),
                   ),
                   CustomText(
                     text: "or login with",
-                    size: 18,
+                    size: 18.spMin,
                     color: myColor.textcolor,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,
@@ -360,7 +361,7 @@ class _user_RegisterState extends State<user_Register> {
                     child: Divider(
                       height: 20,
                       thickness: 2,
-                      indent: 10,
+                      indent: 10.w,
                       color: myColor.textcolor,
                     ),
                   ),

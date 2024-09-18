@@ -20,9 +20,9 @@ class _admin_addTableState extends State<admin_addTable> {
       
       appBar: AppBar(
         
-        title: const CustomText(
+        title: CustomText(
           text: "Add Table",
-          size: 21,
+          size: 21.spMin,
           weight: FontWeight.w500,
         ),
         centerTitle: true,
@@ -98,7 +98,7 @@ class _admin_addTableState extends State<admin_addTable> {
                            shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                                borderRadius: BorderRadius.circular(10.r)))),
                        onPressed: () {},
-                       child: const CustomText(text: "Submit", size: 20)),
+                       child: CustomText(text: "Submit", size: 20.spMin)),
                  ],
                ),
              )

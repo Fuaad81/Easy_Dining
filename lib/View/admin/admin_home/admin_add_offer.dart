@@ -17,9 +17,9 @@ class _admin_addOfferState extends State<admin_addOffer> {
       
       appBar: AppBar(
         
-        title: const CustomText(
+        title:   CustomText(
           text: "Add Offers",
-          size: 21,
+          size: 21.spMin,
           weight: FontWeight.w500,
         ),
         centerTitle: true,
@@ -64,7 +64,7 @@ class _admin_addOfferState extends State<admin_addOffer> {
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.r)))),
                   onPressed: () {},
-                  child: const CustomText(text: "Submit", size: 20)))
+                  child:   CustomText(text: "Submit", size: 20.spMin)))
         ],
       ),
     );

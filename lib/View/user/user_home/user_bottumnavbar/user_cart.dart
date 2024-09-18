@@ -18,9 +18,9 @@ class _user_CartState extends State<user_Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const CustomText(
+          title: CustomText(
             text: "Cart",
-            size: 21,
+            size: 21.spMin,
             weight: FontWeight.w600,
           ),
           automaticallyImplyLeading: false,
@@ -41,102 +41,98 @@ class _user_CartState extends State<user_Cart> {
               child: ListView.builder(
                 itemCount: 2,
                 itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10.h,right: 10.w,left: 10.w),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: customCard(
-                                  color: myColor.background,
-                                  elevation: 6,
-                                  child: SizedBox(
-                                    width: 320.w,
-                                    height: 100.h,
-                                    child: Row(
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10.r),
-                                              bottomLeft: Radius.circular(10.r)),
-                                          child: Image.asset(
-                                            "assets/images/image.png",
-                                            width: 120.w,
-                                            height: 100.h,
-                                            fit: BoxFit.cover,
+                  return Padding(
+                    padding: EdgeInsets.only(top: 10.h,right: 10.w,left: 10.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: customCard(
+                              color: myColor.background,
+                              elevation: 6,
+                              child: SizedBox(
+                                width: 320.w,
+                                height: 100.h,
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10.r),
+                                          bottomLeft: Radius.circular(10.r)),
+                                      child: Image.asset(
+                                        "assets/images/image.png",
+                                        width: 120.w,
+                                        height: 100.h,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 10.w),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                           CustomText(
+                                            text: "Name",
+                                            size: 20.spMin,
+                                            weight: FontWeight.w500,
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 10.w),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                          CustomText(
+                                            text: "catagory",
+                                            size: 20.spMin,
+                                            weight: FontWeight.w400,
+                                          ),
+                                          Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
+                                                MainAxisAlignment.start,
                                             children: [
-                                              const CustomText(
-                                                text: "Name",
-                                                size: 20,
-                                                weight: FontWeight.w500,
+                                              InkWell(
+                                                  onTap: () {},
+                                                  child: Icon(
+                                                    CupertinoIcons
+                                                        .minus_square_fill,
+                                                    color: myColor.maincolor,
+                                                  )),
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: 5.w),
+                                                child: CustomText(
+                                                    text: "1", size: 18.spMin),
                                               ),
-                                              const CustomText(
-                                                text: "catagory",
-                                                size: 20,
-                                                weight: FontWeight.w400,
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: 5.w),
+                                                child: InkWell(
+                                                    onTap: () {},
+                                                    child: Icon(
+                                                      IconlyBold.plus,
+                                                      color:
+                                                          myColor.maincolor,
+                                                    )),
                                               ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  InkWell(
-                                                      onTap: () {},
-                                                      child: Icon(
-                                                        CupertinoIcons
-                                                            .minus_square_fill,
-                                                        color: myColor.maincolor,
-                                                      )),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 5.w),
-                                                    child: CustomText(
-                                                        text: "1", size: 18.w),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 5.w),
-                                                    child: InkWell(
-                                                        onTap: () {},
-                                                        child: Icon(
-                                                          IconlyBold.plus,
-                                                          color:
-                                                              myColor.maincolor,
-                                                        )),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 40.w),
-                                                    child: const CustomText(
-                                                      text: "₹15",
-                                                      size: 20,
-                                                      weight: FontWeight.w500,
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: 40.w),
+                                                child: CustomText(
+                                                  text: "₹15",
+                                                  size: 16.spMin,
+                                                  weight: FontWeight.w500,
+                                                ),
+                                              )
                                             ],
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  )),
-                            ),
-                          ],
+                                  ],
+                                ),
+                              )),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   );
                 },
               ),
@@ -159,17 +155,17 @@ class _user_CartState extends State<user_Cart> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(left: 20.w),
-                              child: const CustomText(
+                              child: CustomText(
                                 text: "Subtotal",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(right: 20.w),
-                              child: const CustomText(
+                              child:  CustomText(
                                 text: "\$30",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w600,
                               ),
                             ),
@@ -183,17 +179,17 @@ class _user_CartState extends State<user_Cart> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(left: 20.w),
-                              child: const CustomText(
+                              child:   CustomText(
                                 text: "Delivery",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w400,
                               ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(right: 20.w),
-                              child: const CustomText(
+                              child:  CustomText(
                                 text: "\$1.84",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w400,
                               ),
                             ),
@@ -207,17 +203,17 @@ class _user_CartState extends State<user_Cart> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(left: 20.w),
-                              child: const CustomText(
+                              child:   CustomText(
                                 text: "Total",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w500,
                               ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(right: 20.w),
-                              child: const CustomText(
+                              child:   CustomText(
                                 text: "\$31.84",
-                                size: 20,
+                                size: 20.spMin,
                                 weight: FontWeight.w600,
                               ),
                             ),
@@ -247,7 +243,7 @@ class _user_CartState extends State<user_Cart> {
                   ),
                   child: CustomText(
                     text: "Check Out",
-                    size: 20,
+                    size: 20.spMin,
                     color: myColor.background,
                     weight: FontWeight.w400,
                     textAlign: TextAlign.center,

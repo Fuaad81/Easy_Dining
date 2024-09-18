@@ -35,63 +35,47 @@ class _user_bottomNavbarState extends State<user_bottomNavbar> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            
               icon: Image.asset(
-                _currentindex == 0 ?
-                "assets/icons/ic_home_fill.png" :
-                "assets/icons/ic_home_outline.png" 
-                ,
-               width:20.w,
-                height: 20.h,
-                color: _currentindex == 0 ? myColor.maincolor : myColor.textcolor,
+                "assets/icons/ic_home_fill.png",
+                width: 25.w,
+                height: 25.h,
+                color:
+                    _currentindex == 0 ? myColor.maincolor : myColor.tabcolor,
               ),
               label: "home"),
           BottomNavigationBarItem(
-            
               icon: Image.asset(
-                 _currentindex == 1 ?
-                "assets/icons/ic_table_fill.png" :
-                "assets/icons/ic_table_outline.png" 
-                ,
-                width:20.w,
-                height: 20.h,
+                "assets/icons/ic_table_fill.png",
+                width: 25.w,
+                height: 25.h,
                 color:
-                    _currentindex == 1 ? myColor.maincolor : myColor.textcolor,
+                    _currentindex == 1 ? myColor.maincolor : myColor.tabcolor,
               ),
               label: "Book Table"),
           BottomNavigationBarItem(
-            
               icon: Image.asset(
-                 _currentindex == 2 ?
-                "assets/icons/ic_cart_fill.png" :
-                "assets/icons/ic_cart_outline.png" 
-                ,
-                width:20.w,
-                height: 20.h,
+                "assets/icons/ic_cart_fill.png",
+                width: 25.w,
+                height: 25.h,
                 color:
-                    _currentindex == 2 ? myColor.maincolor : myColor.textcolor,
+                    _currentindex == 2 ? myColor.maincolor : myColor.tabcolor,
               ),
               label: "Cart"),
           BottomNavigationBarItem(
-            
               icon: Image.asset(
-                 _currentindex == 3 ?
-                "assets/icons/ic_profile_fill.png" :
-                "assets/icons/ic_profile_outline.png" 
-                ,
-                width:20.w,
-                height: 20.h,
+                "assets/icons/ic_profile_fill.png",
+                width: 25.w,
+                height: 25.h,
                 color:
-                    _currentindex == 3 ? myColor.maincolor : myColor.textcolor,
+                    _currentindex == 3 ? myColor.maincolor : myColor.tabcolor,
               ),
               label: "Profile")
         ],
         selectedItemColor: myColor.maincolor,
         unselectedItemColor: myColor.textcolor,
         currentIndex: _currentindex,
-        
         onTap: itemTap,
-        type: BottomNavigationBarType.shifting,
+        type: BottomNavigationBarType.fixed,
       ),
       // bottomNavigationBar: CurvedNavigationBar(
       //   height: 50.h,

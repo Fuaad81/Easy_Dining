@@ -20,9 +20,9 @@ class _admin_addFoodState extends State<admin_addFood> {
       
       appBar: AppBar(
         
-        title: const CustomText(
+        title:   CustomText(
           text: "Add Food Item",
-          size: 21,
+          size: 21.spMin,
           weight: FontWeight.w500,
         ),
         centerTitle: true,
@@ -138,9 +138,9 @@ class _admin_addFoodState extends State<admin_addFood> {
                       onPressed: () {
                         Navigator.pushNamed(context, "");
                       },
-                      child: const CustomText(
+                      child:   CustomText(
                         text: "Submit",
-                        size: 25,
+                        size: 25.spMin,
                         weight: FontWeight.w600,
                       )),
                 ],

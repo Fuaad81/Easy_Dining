@@ -23,9 +23,9 @@ class _admin_ReviewState extends State<admin_Review> {
       
       appBar: AppBar(
         
-        title: const CustomText(
+        title:   CustomText(
           text: "Review",
-          size: 21,
+          size: 21.spMin,
           weight: FontWeight.w500,
         ),
         centerTitle: true,
@@ -68,16 +68,16 @@ class _admin_ReviewState extends State<admin_Review> {
                                   children: [
                                     Row(
                                       children: [
-                                        const CustomText(
+                                          CustomText(
                                           text: "Name",
-                                          size: 18,
+                                          size: 18.spMin,
                                           weight: FontWeight.w400,
                                         ),
                                         Padding(
                                           padding: EdgeInsets.only(left: 10.w),
-                                          child: const CustomText(
+                                          child:   CustomText(
                                             text: "14-2-24",
-                                            size: 10,
+                                            size: 10.spMin,
                                             weight: FontWeight.w400,
                                           ),
                                         ),
@@ -109,13 +109,13 @@ class _admin_ReviewState extends State<admin_Review> {
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: 10.w, top: 10.h),
-                          child: const Row(
+                          child:   Row(
                             children: [
                               Expanded(
                                   child: CustomText(
                                       text:
                                           "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
-                                      size: 14))
+                                      size: 14.spMin))
                             ],
                           ),
                         ),

@@ -21,14 +21,12 @@ class _user_ProfileState extends State<user_Profile> {
     TextEditingController numberController = TextEditingController();
     TextEditingController addressController = TextEditingController();
     return Scaffold(
-      
         appBar: AppBar(
-          
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: CustomText(
             text: "Profile",
-            size: 21,
+            size: 21.spMin,
             color: myColor.textcolor,
             letterSpacing: 1,
             weight: FontWeight.w500,
@@ -39,9 +37,9 @@ class _user_ProfileState extends State<user_Profile> {
                 onPressed: () {
                   Navigator.pushNamed(context, "/user_editprofile");
                 },
-                icon: Icon(
+                icon: const Icon(
                   IconlyLight.edit_square,
-                  size: 25.w,
+                  size: 25,
                 ))
           ],
         ),
@@ -63,22 +61,21 @@ class _user_ProfileState extends State<user_Profile> {
                   width: 300.w,
                   height: 50.h,
                   child: CustomTextFormField(
-                    filled: true,
-                    fillColor: myColor.fieldbackground,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide.none
-                    ),
+                      filled: true,
+                      fillColor: myColor.fieldbackground,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.r),
+                          borderSide: BorderSide.none),
                       readOnly: true,
                       contentPadding: EdgeInsets.symmetric(
                           vertical: 10.h, horizontal: 20.w),
                       controller: nameController,
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         IconlyLight.profile,
-                        size: 20.w,
+                        size: 20,
                       ),
                       hintText: "Name",
-                      hintStyle: const TextStyle(fontSize: 18)),
+                      hintStyle: TextStyle(fontSize: 18.spMin)),
                 ),
               ),
               Padding(
@@ -87,22 +84,21 @@ class _user_ProfileState extends State<user_Profile> {
                   width: 300.w,
                   height: 50.h,
                   child: CustomTextFormField(
-                    filled: true,
-                    fillColor: myColor.fieldbackground,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide.none
-                    ),
+                      filled: true,
+                      fillColor: myColor.fieldbackground,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.r),
+                          borderSide: BorderSide.none),
                       readOnly: true,
                       contentPadding: EdgeInsets.symmetric(
                           vertical: 10.h, horizontal: 20.w),
                       controller: emailController,
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         CupertinoIcons.mail,
-                        size: 20.w,
+                        size: 20,
                       ),
                       hintText: "Email",
-                      hintStyle: const TextStyle(fontSize: 18)),
+                      hintStyle: TextStyle(fontSize: 18.spMin)),
                 ),
               ),
               Padding(
@@ -111,22 +107,21 @@ class _user_ProfileState extends State<user_Profile> {
                   width: 300.w,
                   height: 50.h,
                   child: CustomTextFormField(
-                    filled: true,
-                    fillColor: myColor.fieldbackground,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide.none
-                    ),
+                      filled: true,
+                      fillColor: myColor.fieldbackground,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.r),
+                          borderSide: BorderSide.none),
                       readOnly: true,
                       contentPadding: EdgeInsets.symmetric(
                           vertical: 10.h, horizontal: 20.w),
                       controller: numberController,
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         IconlyLight.call,
-                        size: 20.w,
+                        size: 20,
                       ),
                       hintText: "Number",
-                      hintStyle: const TextStyle(fontSize: 18)),
+                      hintStyle: TextStyle(fontSize: 18.spMin)),
                 ),
               ),
               Padding(
@@ -135,22 +130,21 @@ class _user_ProfileState extends State<user_Profile> {
                   width: 300.w,
                   height: 50.h,
                   child: CustomTextFormField(
-                    filled: true,
-                    fillColor: myColor.fieldbackground,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide.none
-                    ),
+                      filled: true,
+                      fillColor: myColor.fieldbackground,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.r),
+                          borderSide: BorderSide.none),
                       readOnly: true,
                       contentPadding: EdgeInsets.symmetric(
                           vertical: 10.h, horizontal: 20.w),
                       controller: addressController,
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         IconlyLight.location,
-                        size: 20.w,
+                        size: 20,
                       ),
                       hintText: "Address",
-                      hintStyle: const TextStyle(fontSize: 18)),
+                      hintStyle: TextStyle(fontSize: 18.spMin)),
                 ),
               ),
             ],

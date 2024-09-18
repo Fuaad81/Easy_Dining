@@ -21,9 +21,9 @@ class _admin_deliveryBoy_TabState extends State<admin_deliveryBoy_Tab> {
         
         appBar: AppBar(
           
-          title: const CustomText(
+          title:   CustomText(
             text: "Delivery Boy",
-            size: 21,
+            size: 21.spMin,
             weight: FontWeight.w500,
           ),
           centerTitle: true,
@@ -43,12 +43,12 @@ class _admin_deliveryBoy_TabState extends State<admin_deliveryBoy_Tab> {
                 tabAlignment: TabAlignment.center,
                 isScrollable: true,
                 labelColor: myColor.background,
-                tabs: const [
+                tabs: [
                   CustomText(
                     text: "Accepted",
-                    size: 20,
+                    size: 20.spMin,
                   ),
-                  CustomText(text: "Requested", size: 20),
+                  CustomText(text: "Requested", size: 20.spMin),
                 ]),
             const Expanded(
               child: TabBarView(

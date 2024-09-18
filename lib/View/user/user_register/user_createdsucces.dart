@@ -30,7 +30,7 @@ class _user_createdSuccesState extends State<user_createdSucces> {
             Center(
               child: CustomText(
                 text: "Account Created",
-                size: 24,
+                size: 24.spMin,
                 color: myColor.textcolor,
                 weight: FontWeight.w700,
                 textAlign: TextAlign.center,
@@ -42,7 +42,7 @@ class _user_createdSuccesState extends State<user_createdSucces> {
               child: Center(
                 child: CustomText(
                   text: "Your account has been\ncreated succesfully",
-                  size: 22,
+                  size: 22.spMin,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textAlign: TextAlign.center,
@@ -74,7 +74,7 @@ class _user_createdSuccesState extends State<user_createdSucces> {
                       ),
                       child: CustomText(
                         text: "Done",
-                        size: 20,
+                        size: 20.spMin,
                         color: myColor.background,
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center,

@@ -39,7 +39,7 @@ class _user_allItemState extends State<user_allItem> {
                           borderRadius:
                               BorderRadius.all(Radius.circular(10.r))),
                       child: Center(
-                          child: CustomText(text: "Offers", size: 30)),
+                          child: CustomText(text: "Offers", size: 30.spMin)),
                     ),
                   ),
                   Padding(
@@ -52,7 +52,7 @@ class _user_allItemState extends State<user_allItem> {
                           borderRadius:
                               BorderRadius.all(Radius.circular(10.r))),
                       child: Center(
-                          child: CustomText(text: "Offers", size: 30)),
+                          child: CustomText(text: "Offers", size: 30.spMin)),
                     ),
                   ),
                 ]),
@@ -101,7 +101,7 @@ class _user_allItemState extends State<user_allItem> {
                                 children: [
                                   CustomText(
                                     text: 'Name',
-                                    size: 18,
+                                    size: 18.spMin,
                                     textStyle: TextStyle(),
                                     weight: FontWeight.w600,
                                   ),
@@ -122,10 +122,10 @@ class _user_allItemState extends State<user_allItem> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: const [
+                                children: [
                                   CustomText(
                                     text: 'quantity',
-                                    size: 14,
+                                    size: 14.spMin,
                                     textStyle: TextStyle(),
                                     weight: FontWeight.w400,
                                   ),
@@ -140,7 +140,7 @@ class _user_allItemState extends State<user_allItem> {
                                 children: [
                                   CustomText(
                                     text: "₹25",
-                                    size: 18,
+                                    size: 18.spMin,
                                     textStyle: TextStyle(),
                                     weight: FontWeight.w600,
                                   ),
@@ -200,7 +200,7 @@ class _user_allItemState extends State<user_allItem> {
                                 children: [
                                   CustomText(
                                     text: 'Name',
-                                    size: 18,
+                                    size: 18.spMin,
                                     textStyle: TextStyle(),
                                     weight: FontWeight.w600,
                                   ),
@@ -221,10 +221,10 @@ class _user_allItemState extends State<user_allItem> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: const [
+                                children: [
                                   CustomText(
                                     text: 'quantity',
-                                    size: 14,
+                                    size: 14.spMin,
                                     textStyle: TextStyle(),
                                     weight: FontWeight.w400,
                                   ),
@@ -238,8 +238,8 @@ class _user_allItemState extends State<user_allItem> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   CustomText(
-                                    text: "\$25",
-                                    size: 18,
+                                    text: "₹25",
+                                    size: 18.spMin,
                                     textStyle: TextStyle(),
                                     weight: FontWeight.w600,
                                   ),
