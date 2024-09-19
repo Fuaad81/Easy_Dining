@@ -1,4 +1,3 @@
-import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:flutter/material.dart';
 
 class user_About extends StatefulWidget {

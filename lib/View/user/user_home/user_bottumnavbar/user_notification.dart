@@ -32,7 +32,7 @@ class _user_notificationState extends State<user_notification> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.r)),
               title: Padding(
-                padding: EdgeInsets.only(top: 10),
+                padding: const EdgeInsets.only(top: 10),
                 child: CustomText(
                   text: "⏳Limited-Time Deal",
                   size: 20.spMin,
@@ -40,7 +40,7 @@ class _user_notificationState extends State<user_notification> {
                 ),
               ),
               subtitle: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: CustomText(
                   text: "hurry! enjoy 20% off salad items in this weakend.",
                   size: 18.spMin,

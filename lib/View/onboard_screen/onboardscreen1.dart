@@ -130,7 +130,7 @@ class _OnboardingState extends State<Onboarding> {
                         text:
                             "Browse the menu and order\ndirectly from the application.",
                         size: 17.spMin,
-                        textStyle:  TextStyle(),
+                        textStyle:  const TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)),
               ],
@@ -159,7 +159,7 @@ class _OnboardingState extends State<Onboarding> {
                         text:
                             "We will delivery your order as quickly\n and efficiently as possible.",
                         size: 17.spMin,
-                        textStyle:  TextStyle(),
+                        textStyle:  const TextStyle(),
                         weight: FontWeight.w500,
                         textAlign: TextAlign.center)
                 ),

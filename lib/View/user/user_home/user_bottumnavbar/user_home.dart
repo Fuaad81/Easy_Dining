@@ -55,7 +55,8 @@ class _user_HomeState extends State<user_Home> {
               style: GoogleFonts.poppins(
                   fontSize: 22.spMin,
                   color: myColor.maincolor,
-                  fontWeight: FontWeight.w400),
+                  fontWeight: FontWeight.w500
+                  ),
             ),
             const TextSpan(text: ","),
           ])),
@@ -148,7 +149,8 @@ class _user_HomeState extends State<user_Home> {
                     theme.toggleTheme();
                   },
                   icon: Icon(
-                    CupertinoIcons.moon_stars,
+                    theme.isDarkMode == false ? 
+                    CupertinoIcons.moon_stars : CupertinoIcons.sun_max,
                     color: myColor.background,
                     size: 35,
                   ),

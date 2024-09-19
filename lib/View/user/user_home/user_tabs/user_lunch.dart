@@ -1,6 +1,5 @@
 // ignore_for_file: prefer__ructors
 
-import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:flutter/material.dart';
 
 class user_lunchItem extends StatefulWidget {
@@ -13,7 +12,7 @@ class user_lunchItem extends StatefulWidget {
 class _user_lunchItemState extends State<user_lunchItem> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  const Scaffold(
       
       
     );

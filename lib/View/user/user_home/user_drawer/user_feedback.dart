@@ -22,7 +22,7 @@ class _user_feedbackState extends State<user_feedback> {
       
       appBar: AppBar(
         
-        title: CustomText(text: "FeedBack", size: 21.spMin,weight: FontWeight.w500,textStyle: TextStyle(),),
+        title: CustomText(text: "FeedBack", size: 21.spMin,weight: FontWeight.w500,textStyle: const TextStyle(),),
         centerTitle: true,
       ),
       body: Column(

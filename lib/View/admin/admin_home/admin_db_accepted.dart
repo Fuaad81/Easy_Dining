@@ -30,10 +30,10 @@ class _admin_db_AcceptedState extends State<admin_db_Accepted> {
                 borderRadius: BorderRadius.circular(10.r)
               ),
               tileColor: myColor.tabcolor,
-              leading: CircleAvatar(
+              leading: const CircleAvatar(
                 radius: 30,
                 
-                child: const Icon(IconlyBold.profile),
+                child: Icon(IconlyBold.profile),
               ),
               title:   CustomText(text: "Name", size: 18.spMin),
               subtitle:   CustomText(text: "Location", size: 14.spMin),

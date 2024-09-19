@@ -55,7 +55,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                           CustomText(
                             text: 'Name',
                             size: 16.spMin,
-                            textStyle: TextStyle(),
+                            textStyle: const TextStyle(),
                             weight: FontWeight.w600,
                           ),
                           Padding(
@@ -80,7 +80,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                           CustomText(
                             text: 'quantity',
                             size: 14.spMin,
-                            textStyle: TextStyle(),
+                            textStyle: const TextStyle(),
                             weight: FontWeight.w400,
                           ),
                         ],
@@ -94,7 +94,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                           CustomText(
                             text: "₹25",
                             size: 16.spMin,
-                            textStyle: TextStyle(),
+                            textStyle: const TextStyle(),
                             weight: FontWeight.w600,
                           ),
                           Padding(
@@ -145,7 +145,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                           CustomText(
                             text: 'Name',
                             size: 16.spMin,
-                            textStyle: TextStyle(),
+                            textStyle: const TextStyle(),
                             weight: FontWeight.w600,
                           ),
                           Padding(
@@ -170,7 +170,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                           CustomText(
                             text: 'quantity',
                             size: 14.spMin,
-                            textStyle: TextStyle(),
+                            textStyle: const TextStyle(),
                             weight: FontWeight.w400,
                           ),
                         ],
@@ -184,7 +184,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                          CustomText(
                             text: "₹25",
                             size: 16.spMin,
-                            textStyle: TextStyle(),
+                            textStyle: const TextStyle(),
                             weight: FontWeight.w600,
                           ),
                           Padding(

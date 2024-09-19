@@ -375,11 +375,11 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
                         //             WidgetStatePropertyAll(Size(160.w, 40.h))),
                         //     child: CustomText(text: "View Details", size: 20.spMin)),
                         Consumer<fadeAnimationProvider>(
-                            builder: (context, fadeAnimationProvider, child) {
+                            builder: (context, fadeanimationProvider, child) {
                           return TextButton(
                               onPressed: () => details(),
                               child: AnimatedOpacity(
-                                opacity: fadeAnimationProvider.opacity,
+                                opacity: fadeanimationProvider.opacity,
                                 duration: const Duration(seconds: 1),
                                 child: CustomText(
                                   text: "Click here for booking",
