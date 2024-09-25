@@ -19,6 +19,8 @@ class CustomTextFormField extends StatelessWidget {
   final int? maxLines;
   final InputBorder? border;
   final Color? fillColor;
+  final InputBorder? errorBorder;
+  final InputBorder? focusedBorder;
 
   const CustomTextFormField({
     super.key,
@@ -32,7 +34,7 @@ class CustomTextFormField extends StatelessWidget {
     this.contentPadding,
     this.readOnly = false,
     this.hintText,
-    this.hintStyle, this.maxLines =1, this.border, this.fillColor, this.filled
+    this.hintStyle, this.maxLines =1, this.border, this.fillColor, this.filled, this.errorBorder, this.focusedBorder
   });
 
   @override
@@ -52,6 +54,8 @@ class CustomTextFormField extends StatelessWidget {
         labelStyle: labelStyle,
         prefixIcon: prefixIcon,
         border: border,
+        errorBorder: errorBorder,
+        focusedBorder: focusedBorder,
         filled: filled,
         fillColor: fillColor,
         contentPadding: contentPadding,

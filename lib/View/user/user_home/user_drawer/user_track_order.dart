@@ -133,7 +133,7 @@ class _user_Track_OrderState extends State<user_Track_Order> {
                         borderRadius: BorderRadius.circular(10.r))),
                     minimumSize: WidgetStatePropertyAll(Size(300.w, 50.h))),
                 onPressed: () {
-                  
+                  Navigator.pop(context);
                 },
                 child: CustomText(text: "Done", size: 20.spMin)),
           )

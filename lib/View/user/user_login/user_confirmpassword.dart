@@ -8,14 +8,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
-class user_changePassword extends StatefulWidget {
-   const user_changePassword({super.key});
+class user_confirmPassword extends StatefulWidget {
+   const user_confirmPassword({super.key});
 
   @override
-  State<user_changePassword> createState() => _user_changePasswordState();
+  State<user_confirmPassword> createState() => _user_confirmPasswordState();
 }
 
-class _user_changePasswordState extends State<user_changePassword> {
+class _user_confirmPasswordState extends State<user_confirmPassword> {
   final _newpass = TextEditingController();
   final _newconfirmpass = TextEditingController();
   @override

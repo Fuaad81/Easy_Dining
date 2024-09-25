@@ -78,7 +78,7 @@ class Allitems extends StatelessWidget {
                 children: [
                   ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, "");
+                        Navigator.pushNamed(context, "/db_login");
                       },
                       style: ButtonStyle(
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(

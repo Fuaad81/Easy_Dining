@@ -18,6 +18,10 @@ import 'package:easy_dine_in/View/admin/admin_home/admin_order_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_review.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_tab.dart';
+import 'package:easy_dine_in/View/delivery_boy/login/dboy_login.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_checkout.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_changepassword.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_location.dart';
 import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_table_details.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_order_list.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_paymeth.dart';
@@ -52,110 +56,114 @@ import 'package:easy_dine_in/allfile.dart';
 import 'package:easy_dine_in/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  runApp(const MyApp());
+  );
+  // SystemChrome.setPreferredOrientations(
+  //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => UserProvider()),
+    ChangeNotifierProvider(create: (context) => fadeAnimationProvider()),
+    ChangeNotifierProvider(create: (context) => ThemeProvider()),
+    ChangeNotifierProvider(create: (context) => AdminNavbarProvider())
+  ], child: const MyApp()));
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MultiProvider(
-          providers: [
-            ChangeNotifierProvider(create: (context) => UserProvider()),
-            ChangeNotifierProvider(create: (context) => fadeAnimationProvider()),
-            ChangeNotifierProvider(create: (context) => ThemeProvider()),
-            ChangeNotifierProvider(create: (context) => AdminNavbarProvider())
-          ],
-          child: Consumer<ThemeProvider>(
-            builder: (context, themeprovider,child) {
-              return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                title: 'Flutter Demo',
-                theme: ThemeData.light(),
-                darkTheme: ThemeData.dark(),
-                themeMode: themeprovider.themeMode,
-                routes: {
-                  /*
-                  ?User Rotes
-                  */
-                  "/splash": (context) => const Splash_screeen(),
-                  "/firstonboard": (context) => const Onboarding(),
-                  "/user_login": (context) => const user_loginPage(),
-                  "/user_forgot": (context) => const user_forgotPassword(),
-                  "/user_otp": (context) => const user_Otp(),
-                  "/user_confirmpass": (context) => const user_changePassword(),
-                  "/user_register": (context) => const user_Register(),
-                  "/user_createsuccess": (context) => const user_createdSucces(),
-                  "/user_bottomnav": (context) => const user_bottomNavbar(),
-                  "/user_home": (context) => const user_Home(),
-                  "/user_tablebooking": (context) => const user_Booking(),
-                  "/user_tabledetails": (context) => const user_Table_Details(),
-                  "/user_cart": (context) => const user_Cart(),
-                  "/user_profile": (context) => const user_Profile(),
-                  "/user_editprofile": (context) => const user_editProfile(),
-                  "/user_all": (context) => const user_allItem(),
-                  "/user_lunch": (context) => const user_lunchItem(),
-                  "/user_snack": (context) => const user_snackItem(),
-                  "/user_dinner": (context) => const user_dinnerItem(),
-                  "/user_settings": (context) => const user_accountSetting(),
-                  "/user_favorite": (context) => const user_Favorite(),
-                  "/user_feedback": (context) => const user_feedback(),
-                  "/user_about": (context) => const user_About(),
-                  "/user_orderlist": (context) => const user_order_list(),
-                  "/user_trackorder": (context) => const user_Track_Order(),
-                  "/user_notification": (context) => const user_notification(),
-                  "/user_search": (context) => const user_Search(),
-                  "/user_paymethod": (context) => const user_PayMethod(),
-                  "/user_theme": (context) => const user_Theme(),
-                  
-                  /*
-                  ! User Routs End
-                  */
-                  "/allfile": (context) => const Allitems(),
-                  /*
-                  ? Admin Routes Start
-                  */
-                  "/admin_login": (context) => const admin_Login(),
-                  "/admin_bottombar": (context) => const admin_Bottombar(),
-                  "/admin_home": (context) => const admin_home(),
-                  "/admin_add_notification": (context) => const admin_addNotification(),
-                  "/admin_addfood": (context) => const admin_addFood(),
-                  "/admin_addoffers": (context) => const admin_addOffer(),
-                  "/admin_addtable": (context) => const admin_addTable(),
-                  "/admin_review": (context) => const admin_Review(),
-                  "/admin_newfood": (context) => const admin_newFood(),
-                  "/admin_newtable": (context) => const admin_newTable(),
-                  "/admin_deliveryboy_tab": (context) => const admin_deliveryBoy_Tab(),
-                  "/admin_dbaccepted": (context) => const admin_db_Accepted(),
-                  "/admin_dbrequested": (context) => const admin_db_Requested(),
-                  "/admin_dbreqdet": (context) => const admin_Db_Req_Details(),
-                  "/admin_dbacptdet": (context) => const admin_Db_Acpt_Details(),
-                  "/admin_usertab": (context) => const admin_User_Tab(),
-                  "/admin_userlist": (context) => const admin_User_List(),
-                  "/admin_oredrlist": (context) => const admin_Order_List(),
-                  /*
-                  ! Admin Routes Start
-                  */
-                },
-                initialRoute: "/splash",
-              );
-            }
-          ),
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData.light(),
+          darkTheme: ThemeData.dark(),
+          themeMode: themeProvider.themeMode,
+          routes: {
+            /*
+            ? User Rotes
+            */
+            "/splash": (context) => const Splash_screeen(),
+            "/firstonboard": (context) => const Onboarding(),
+            "/user_login": (context) => const user_loginPage(),
+            "/user_forgot": (context) => const user_forgotPassword(),
+            "/user_otp": (context) => const user_Otp(),
+            "/user_confirmpass": (context) => const user_confirmPassword(),
+            "/user_register": (context) => const user_Register(),
+            "/user_createsuccess": (context) => const user_createdSucces(),
+            "/user_bottomnav": (context) => const user_bottomNavbar(),
+            "/user_home": (context) => const user_Home(),
+            "/user_tablebooking": (context) => const user_Booking(),
+            "/user_tabledetails": (context) => const user_Table_Details(),
+            "/user_cart": (context) => const user_Cart(),
+            "/user_checkout": (context) => const user_Check_Out(),
+            "/user_location": (context) => const user_Location(),
+            "/user_profile": (context) => const user_Profile(),
+            "/user_editprofile": (context) => const user_editProfile(),
+            "/user_all": (context) => const user_allItem(),
+            "/user_lunch": (context) => const user_lunchItem(),
+            "/user_snack": (context) => const user_snackItem(),
+            "/user_dinner": (context) => const user_dinnerItem(),
+            "/user_settings": (context) => const user_accountSetting(),
+            "/user_changepassword": (context) => const user_Change_Password(),
+            "/user_favorite": (context) => const user_Favorite(),
+            "/user_feedback": (context) => const user_feedback(),
+            "/user_about": (context) => const user_About(),
+            "/user_orderlist": (context) => const user_order_list(),
+            "/user_trackorder": (context) => const user_Track_Order(),
+            "/user_notification": (context) => const user_notification(),
+            "/user_search": (context) => const user_Search(),
+            "/user_paymethod": (context) => const user_PayMethod(),
+            "/user_theme": (context) => const user_Theme(),
+
+            /*
+            ! User Routs End
+            */
+            "/allfile": (context) => const Allitems(),
+            /*
+            ? Admin Routes Start
+            */
+            "/admin_login": (context) => const admin_Login(),
+            "/admin_bottombar": (context) => const admin_Bottombar(),
+            "/admin_home": (context) => const admin_home(),
+            "/admin_add_notification": (context) =>
+                const admin_addNotification(),
+            "/admin_addfood": (context) => const admin_addFood(),
+            "/admin_addoffers": (context) => const admin_addOffer(),
+            "/admin_addtable": (context) => const admin_addTable(),
+            "/admin_review": (context) => const admin_Review(),
+            "/admin_newfood": (context) => const admin_newFood(),
+            "/admin_newtable": (context) => const admin_newTable(),
+            "/admin_deliveryboy_tab": (context) =>
+                const admin_deliveryBoy_Tab(),
+            "/admin_dbaccepted": (context) => const admin_db_Accepted(),
+            "/admin_dbrequested": (context) => const admin_db_Requested(),
+            "/admin_dbreqdet": (context) => const admin_Db_Req_Details(),
+            "/admin_dbacptdet": (context) => const admin_Db_Acpt_Details(),
+            "/admin_usertab": (context) => const admin_User_Tab(),
+            "/admin_userlist": (context) => const admin_User_List(),
+            "/admin_oredrlist": (context) => const admin_Order_List(),
+            /*
+            ! Admin Routes End
+            */
+            /*
+            ? Delivery Boy Routes Start
+            */
+            "/db_login": (context) => const dboy_Login(),
+          },
+          initialRoute: "/splash",
         );
       },
     );

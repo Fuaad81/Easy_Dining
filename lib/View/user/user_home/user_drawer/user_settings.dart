@@ -97,7 +97,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
             ),
             ListTile(
               onTap: () {
-                Navigator.pushNamed(context, "/user_forgot");
+                Navigator.pushNamed(context, "/user_changepassword");
               },
               leading: CircleAvatar(
                 backgroundColor: myColor.tabcolor.withOpacity(0.4),
@@ -134,9 +134,6 @@ class _user_accountSettingState extends State<user_accountSetting> {
               trailing: const Icon(IconlyLight.arrow_right_2),
             ),
             ListTile(
-              onTap: () {
-                // Navigator.pushNamed(context, "/user_theme");
-              },
               leading: CircleAvatar(
                 radius: 20.r,
                 backgroundColor: myColor.tabcolor.withOpacity(0.4),
@@ -150,13 +147,15 @@ class _user_accountSettingState extends State<user_accountSetting> {
                 size: 20.spMin,
                 weight: FontWeight.w400,
               ),
-              trailing: IconButton(
-                  onPressed: () {
-                    theme.toggleTheme();
-                  },
-                  icon: theme.isDarkMode == false
-                      ? const Icon(CupertinoIcons.moon_fill)
-                      : const Icon(CupertinoIcons.sun_max_fill)),
+              trailing: Switch(
+                inactiveTrackColor: myColor.tabcolor,
+                inactiveThumbColor: myColor.textcolor,
+                trackOutlineWidth: const WidgetStatePropertyAll(0),
+                activeTrackColor: myColor.maincolor,
+                activeColor: myColor.background,
+                value: theme.isDarkMode, onChanged: (value) {
+                theme.toggleTheme();
+              },)
             ),
             ListTile(
               onTap: () {
