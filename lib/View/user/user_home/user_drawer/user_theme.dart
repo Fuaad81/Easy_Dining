@@ -25,7 +25,11 @@ class _user_ThemeState extends State<user_Theme> {
               
               title: CustomText(text: "Light Mode", size: 20.spMin,),
             ),
-            TextButton(onPressed: (){}, child: CustomText(text: "Light Mode", size: 20.spMin,)),
+            ListTile(
+              
+              title: CustomText(text: "Dark Mode", size: 20.spMin,),
+            ),
+            
             
           ],
         ),

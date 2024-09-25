@@ -35,14 +35,14 @@ class _user_HomeState extends State<user_Home> {
         appBar: AppBar(
           titleSpacing: -5,
           toolbarHeight: 60.h,
-          leading: IconButton(
-              onPressed: () {
-                _scaffoldKey.currentState?.openDrawer();
-              },
-              icon: Image.asset(
-                "assets/icons/ic_drawer.png",
-                width: 25.w,
-              )),
+          // leading: IconButton(
+          //     onPressed: () {
+          //       _scaffoldKey.currentState?.openDrawer();
+          //     },
+          //     icon: Image.asset(
+          //       "assets/icons/ic_drawer.png",
+          //       width: 25.w,
+          //     )),
           title: Text.rich(TextSpan(children: [
             TextSpan(
                 text: "Hello",
@@ -55,8 +55,7 @@ class _user_HomeState extends State<user_Home> {
               style: GoogleFonts.poppins(
                   fontSize: 22.spMin,
                   color: myColor.maincolor,
-                  fontWeight: FontWeight.w500
-                  ),
+                  fontWeight: FontWeight.w500),
             ),
             const TextSpan(text: ","),
           ])),
@@ -87,9 +86,7 @@ class _user_HomeState extends State<user_Home> {
                 dividerColor: Colors.transparent,
                 indicatorSize: TabBarIndicatorSize.tab,
                 isScrollable: true,
-                labelStyle: GoogleFonts.poppins(
-                  color: myColor.background
-                ),
+                labelStyle: GoogleFonts.poppins(color: myColor.background),
                 tabAlignment: TabAlignment.center,
                 indicator: BoxDecoration(
                     color: myColor.maincolor,
@@ -149,8 +146,9 @@ class _user_HomeState extends State<user_Home> {
                     theme.toggleTheme();
                   },
                   icon: Icon(
-                    theme.isDarkMode == false ? 
-                    CupertinoIcons.moon_stars : CupertinoIcons.sun_max,
+                    theme.isDarkMode == false
+                        ? CupertinoIcons.moon_stars
+                        : CupertinoIcons.sun_max,
                     color: myColor.background,
                     size: 35,
                   ),
@@ -187,7 +185,6 @@ class _user_HomeState extends State<user_Home> {
               child: InkWell(
                 onTap: () {
                   Navigator.popAndPushNamed(context, "/user_settings");
-                  
                 },
                 child: ListTile(
                   leading: const Icon(
@@ -225,8 +222,7 @@ class _user_HomeState extends State<user_Home> {
               padding: EdgeInsets.only(top: 10.h),
               child: InkWell(
                 onTap: () {
-                  Navigator.pop(context);
-
+                  Navigator.popAndPushNamed(context, "/user_orderlist");
                 },
                 child: ListTile(
                   leading: const Icon(
@@ -246,7 +242,6 @@ class _user_HomeState extends State<user_Home> {
               child: InkWell(
                 onTap: () {
                   Navigator.pop(context);
-
                 },
                 child: ListTile(
                   leading: const Icon(

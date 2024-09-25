@@ -27,7 +27,7 @@ class _user_ProfileState extends State<user_Profile> {
           title: CustomText(
             text: "Profile",
             size: 21.spMin,
-            color: myColor.textcolor,
+            
             letterSpacing: 1,
             weight: FontWeight.w500,
             textStyle: const TextStyle(),

@@ -66,7 +66,7 @@ class _user_loginPageState extends State<user_loginPage> {
                   ),
                   size: 27.spMin,
                   weight: FontWeight.w700,
-                  color: myColor.textcolor,
+                  
                 ),
               ),
               Padding(
@@ -77,7 +77,7 @@ class _user_loginPageState extends State<user_loginPage> {
                   textStyle: GoogleFonts.poppins(),
                   size: 20.spMin,
                   weight: FontWeight.w300,
-                  color: myColor.textcolor,
+                  
                 ),
               ),
               Padding(
@@ -98,7 +98,7 @@ class _user_loginPageState extends State<user_loginPage> {
                       child: CustomText(
                         text: "email or phone",
                         size: 18.spMin,
-                        color: myColor.textcolor,
+                        
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(),
@@ -141,7 +141,7 @@ class _user_loginPageState extends State<user_loginPage> {
                       child: CustomText(
                         text: "password",
                         size: 18.spMin,
-                        color: myColor.textcolor,
+                        
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(),
@@ -163,6 +163,7 @@ class _user_loginPageState extends State<user_loginPage> {
                         fontWeight: FontWeight.w500,
                         color: myColor.textcolor),
                     suffixIcon: IconButton(
+                      color: myColor.textcolor,
                         onPressed: () {
                           suffixicons.checking();
                         },
@@ -235,7 +236,7 @@ class _user_loginPageState extends State<user_loginPage> {
                     CustomText(
                       text: "i don't have any account!",
                       size: 18.spMin,
-                      color: myColor.textcolor,
+                      
                       weight: FontWeight.w400,
                       textAlign: TextAlign.center,
                       textStyle: const TextStyle(),
@@ -270,13 +271,13 @@ class _user_loginPageState extends State<user_loginPage> {
                         height: 20.h,
                         thickness: 2,
                         endIndent: 10.w,
-                        color: myColor.textcolor,
+                        
                       ),
                     ),
                     CustomText(
                       text: "or login with",
                       size: 18.spMin,
-                      color: myColor.textcolor,
+                      
                       weight: FontWeight.w400,
                       textAlign: TextAlign.center,
                       textStyle: const TextStyle(),
@@ -287,7 +288,7 @@ class _user_loginPageState extends State<user_loginPage> {
                         height: 20.h,
                         thickness: 2,
                         indent: 10.w,
-                        color: myColor.textcolor,
+                        
                       ),
                     ),
                   ],

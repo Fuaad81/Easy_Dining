@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "436011505012",
+    "project_id": "easy-dining-24380",
+    "storage_bucket": "easy-dining-24380.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436011505012:android:c18f22c6b5036ca536c821",
+        "android_client_info": {
+          "package_name": "com.example.easy_dine_in"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTmyna2S_8U-ynaAv7LiWUwSCRHf9-WJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

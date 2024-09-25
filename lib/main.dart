@@ -19,8 +19,10 @@ import 'package:easy_dine_in/View/admin/admin_home/admin_review.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_tab.dart';
 import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_table_details.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_order_list.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_paymeth.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_theme.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_track_order.dart';
 import 'package:easy_dine_in/View/user/user_home/user_tabs/user_all.dart';
 import 'package:easy_dine_in/View/user/user_login/user_confirmpassword.dart';
 import 'package:easy_dine_in/View/user/user_login/user_forgotpassword.dart';
@@ -47,13 +49,18 @@ import 'package:easy_dine_in/View/onboard_screen/onboardscreen1.dart';
 import 'package:easy_dine_in/View/splash.dart';
 import 'package:easy_dine_in/View/admin/admin_login.dart';
 import 'package:easy_dine_in/allfile.dart';
+import 'package:easy_dine_in/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(const MyApp());
@@ -72,9 +79,7 @@ class MyApp extends StatelessWidget {
             ChangeNotifierProvider(create: (context) => UserProvider()),
             ChangeNotifierProvider(create: (context) => fadeAnimationProvider()),
             ChangeNotifierProvider(create: (context) => ThemeProvider()),
-            ChangeNotifierProvider(
-              create: (context) => AdminNavbarProvider(),
-            )
+            ChangeNotifierProvider(create: (context) => AdminNavbarProvider())
           ],
           child: Consumer<ThemeProvider>(
             builder: (context, themeprovider,child) {
@@ -85,7 +90,9 @@ class MyApp extends StatelessWidget {
                 darkTheme: ThemeData.dark(),
                 themeMode: themeprovider.themeMode,
                 routes: {
-                  //User Rotes
+                  /*
+                  ?User Rotes
+                  */
                   "/splash": (context) => const Splash_screeen(),
                   "/firstonboard": (context) => const Onboarding(),
                   "/user_login": (context) => const user_loginPage(),
@@ -109,28 +116,31 @@ class MyApp extends StatelessWidget {
                   "/user_favorite": (context) => const user_Favorite(),
                   "/user_feedback": (context) => const user_feedback(),
                   "/user_about": (context) => const user_About(),
+                  "/user_orderlist": (context) => const user_order_list(),
+                  "/user_trackorder": (context) => const user_Track_Order(),
                   "/user_notification": (context) => const user_notification(),
                   "/user_search": (context) => const user_Search(),
                   "/user_paymethod": (context) => const user_PayMethod(),
                   "/user_theme": (context) => const user_Theme(),
+                  
                   /*
-                  User Routs End
+                  ! User Routs End
                   */
                   "/allfile": (context) => const Allitems(),
-                  //Admin Routes Start
+                  /*
+                  ? Admin Routes Start
+                  */
                   "/admin_login": (context) => const admin_Login(),
                   "/admin_bottombar": (context) => const admin_Bottombar(),
                   "/admin_home": (context) => const admin_home(),
-                  "/admin_add_notification": (context) =>
-                      const admin_addNotification(),
+                  "/admin_add_notification": (context) => const admin_addNotification(),
                   "/admin_addfood": (context) => const admin_addFood(),
                   "/admin_addoffers": (context) => const admin_addOffer(),
                   "/admin_addtable": (context) => const admin_addTable(),
                   "/admin_review": (context) => const admin_Review(),
                   "/admin_newfood": (context) => const admin_newFood(),
                   "/admin_newtable": (context) => const admin_newTable(),
-                  "/admin_deliveryboy_tab": (context) =>
-                      const admin_deliveryBoy_Tab(),
+                  "/admin_deliveryboy_tab": (context) => const admin_deliveryBoy_Tab(),
                   "/admin_dbaccepted": (context) => const admin_db_Accepted(),
                   "/admin_dbrequested": (context) => const admin_db_Requested(),
                   "/admin_dbreqdet": (context) => const admin_Db_Req_Details(),
@@ -138,6 +148,9 @@ class MyApp extends StatelessWidget {
                   "/admin_usertab": (context) => const admin_User_Tab(),
                   "/admin_userlist": (context) => const admin_User_List(),
                   "/admin_oredrlist": (context) => const admin_Order_List(),
+                  /*
+                  ! Admin Routes Start
+                  */
                 },
                 initialRoute: "/splash",
               );

@@ -15,14 +15,22 @@ class CustomText extends StatelessWidget {
   final TextDecorationStyle? decorationStyle;
   final double? decorationThickness;
   final List<Shadow>? shadow;
-   const CustomText({
+  const CustomText({
     required this.text,
     required this.size,
     this.weight,
     this.color,
     this.letterSpacing,
-    super.key,this.textAlign, this.textStyle, this.textOverflow, this.decoration, this.decorationColor, this.decorationStyle, this.decorationThickness, this.shadow,
-   });
+    super.key,
+    this.textAlign,
+    this.textStyle,
+    this.textOverflow,
+    this.decoration,
+    this.decorationColor,
+    this.decorationStyle,
+    this.decorationThickness,
+    this.shadow,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,19 +39,16 @@ class CustomText extends StatelessWidget {
       text,
       textAlign: textAlign,
       style: GoogleFonts.poppins(
-        textStyle: TextStyle(
-          fontSize: size,
-          fontWeight: weight,
-          color: color,
-          letterSpacing: letterSpacing,
-          decoration: decoration,
-          decorationColor: decorationColor,
-          decorationStyle: decorationStyle,
-          decorationThickness: decorationThickness,
-          shadows: shadow
-        )
-      ),
-      
+          textStyle: TextStyle(
+              fontSize: size,
+              fontWeight: weight,
+              color: color,
+              letterSpacing: letterSpacing,
+              decoration: decoration,
+              decorationColor: decorationColor,
+              decorationStyle: decorationStyle,
+              decorationThickness: decorationThickness,
+              shadows: shadow)),
     );
   }
 }

@@ -24,7 +24,7 @@ class _user_OtpState extends State<user_Otp> {
         title: CustomText(
           text: "Confirm OTP",
           size: 21.spMin,
-          color: myColor.textcolor,
+          
           weight: FontWeight.w500,
           textAlign: TextAlign.center,
           textStyle: const TextStyle(),
@@ -40,7 +40,7 @@ class _user_OtpState extends State<user_Otp> {
               child: CustomText(
                 text: "Enter your otp here,\nand conform",
                 size: 20.spMin,
-                color: myColor.textcolor,
+                
                 weight: FontWeight.w400,
                 textAlign: TextAlign.center,
                 textStyle: const TextStyle(),

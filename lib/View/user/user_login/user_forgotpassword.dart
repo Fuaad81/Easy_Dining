@@ -26,7 +26,6 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
         title: CustomText(
           text: "Forgot Password",
           size: 21.spMin,
-          color: myColor.textcolor,
           weight: FontWeight.w500,
           textAlign: TextAlign.center,
           textStyle: const TextStyle(),
@@ -43,7 +42,6 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
                 text:
                     "Please enter your email correctly\nand reset your password",
                 size: 20.spMin,
-                color: myColor.textcolor,
                 weight: FontWeight.w400,
                 textAlign: TextAlign.center,
                 textStyle: const TextStyle(),
@@ -65,7 +63,6 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
                 labelText: CustomText(
                   text: "enter your email",
                   size: 18.spMin,
-                  color: myColor.textcolor,
                   weight: FontWeight.w400,
                   textAlign: TextAlign.center,
                   textStyle: const TextStyle(),
@@ -74,8 +71,9 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                     color: myColor.textcolor),
-                prefixIcon: const Icon(
+                prefixIcon: Icon(
                   CupertinoIcons.mail,
+                  color: myColor.textcolor,
                   size: 20,
                 ),
                 contentPadding:
@@ -106,7 +104,6 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
                     child: CustomText(
                       text: "send OTP",
                       size: 20.spMin,
-                      color: myColor.background,
                       weight: FontWeight.w500,
                       textAlign: TextAlign.center,
                       textStyle: const TextStyle(),

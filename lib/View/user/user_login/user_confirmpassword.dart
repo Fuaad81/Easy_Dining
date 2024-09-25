@@ -27,7 +27,7 @@ class _user_changePasswordState extends State<user_changePassword> {
         title: CustomText(
           text: "Change Password",
           size: 21.spMin,
-          color: myColor.textcolor,
+          
           weight: FontWeight.w500,
           textAlign: TextAlign.center,
           textStyle: const TextStyle(),
@@ -43,7 +43,7 @@ class _user_changePasswordState extends State<user_changePassword> {
                 child: CustomText(
                   text: "Enter new password and\nconform",
                   size: 22.spMin,
-                  color: myColor.textcolor,
+                  
                   weight: FontWeight.w400,
                   textAlign: TextAlign.center,
                   textStyle: const TextStyle(),
@@ -72,10 +72,10 @@ class _user_changePasswordState extends State<user_changePassword> {
                     textStyle: const TextStyle(),
                   ),
                   contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
-                  labelStyle: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: myColor.textcolor),
+                  // labelStyle: GoogleFonts.poppins(
+                  //     fontSize: 18,
+                  //     fontWeight: FontWeight.w500,
+                  //     color: myColor.textcolor),
                   prefixIcon: const Icon(IconlyLight.lock,size: 25,),
                 ),
               ),
