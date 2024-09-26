@@ -1,4 +1,4 @@
-class userModel{
+class user_Register_Model{
   String? name;
   String? email;
   String? number;
@@ -7,7 +7,7 @@ class userModel{
   String? uid;
   bool? terms;
 
-  userModel({
+  user_Register_Model({
     this.name,
     this.email,
     this.number,

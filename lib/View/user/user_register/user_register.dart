@@ -1,10 +1,10 @@
 // ignore_for_file: prefer__ructors
 
-import 'package:easy_dine_in/Controllers/user_controller.dart';
+import 'package:easy_dine_in/Controllers/user_register_controller.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
-import 'package:easy_dine_in/model/service_model/user_model.dart';
+import 'package:easy_dine_in/model/service_model/user_register_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,17 +25,16 @@ class _user_RegisterState extends State<user_Register> {
   final _numbercontroller = TextEditingController();
   final _passwordcontroller = TextEditingController();
   final _cpasswordcontroller = TextEditingController();
-  final UserController _userController = UserController();
-  var terms = true;
+  final User_RegisterController _userController = User_RegisterController();
+  var terms = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: SafeArea(
           child: Form(
-            key: _formkey,
-            child: SingleChildScrollView(
-                    child: Column(
+        key: _formkey,
+        child: SingleChildScrollView(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
@@ -74,14 +73,12 @@ class _user_RegisterState extends State<user_Register> {
                 padding: EdgeInsets.only(left: 20.w, top: 15.h),
                 child: SizedBox(
                   width: 315.w,
-                  
                   child: CustomTextFormField(
                     filled: true,
-                      fillColor: myColor.fieldbackground,
-                      border: OutlineInputBorder(
+                    fillColor: myColor.fieldbackground,
+                    border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.r),
-                        borderSide: BorderSide.none
-                      ),
+                        borderSide: BorderSide.none),
                     controller: _namecontroller,
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
@@ -116,11 +113,10 @@ class _user_RegisterState extends State<user_Register> {
                   width: 315.w,
                   child: CustomTextFormField(
                     filled: true,
-                      fillColor: myColor.fieldbackground,
-                      border: OutlineInputBorder(
+                    fillColor: myColor.fieldbackground,
+                    border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.r),
-                        borderSide: BorderSide.none
-                      ),
+                        borderSide: BorderSide.none),
                     controller: _emailcontroller,
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
@@ -133,7 +129,9 @@ class _user_RegisterState extends State<user_Register> {
                       textStyle: const TextStyle(),
                     ),
                     validator: (value) {
-                      if (value == null || value.isEmpty ||!value.contains('@')) {
+                      if (value == null ||
+                          value.isEmpty ||
+                          !value.contains('@')) {
                         return "enter email correctly";
                       }
                       return null;
@@ -156,11 +154,10 @@ class _user_RegisterState extends State<user_Register> {
                   width: 315.w,
                   child: CustomTextFormField(
                     filled: true,
-                      fillColor: myColor.fieldbackground,
-                      border: OutlineInputBorder(
+                    fillColor: myColor.fieldbackground,
+                    border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.r),
-                        borderSide: BorderSide.none
-                      ),
+                        borderSide: BorderSide.none),
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                     controller: _numbercontroller,
@@ -196,11 +193,10 @@ class _user_RegisterState extends State<user_Register> {
                   width: 315.w,
                   child: CustomTextFormField(
                     filled: true,
-                      fillColor: myColor.fieldbackground,
-                      border: OutlineInputBorder(
+                    fillColor: myColor.fieldbackground,
+                    border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.r),
-                        borderSide: BorderSide.none
-                      ),
+                        borderSide: BorderSide.none),
                     controller: _passwordcontroller,
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
@@ -239,14 +235,13 @@ class _user_RegisterState extends State<user_Register> {
                 child: SizedBox(
                   width: 315.w,
                   child: CustomTextFormField(
-                    filled: true,
+                      filled: true,
                       fillColor: myColor.fieldbackground,
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
-                        borderSide: BorderSide.none
-                      ),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                          borderRadius: BorderRadius.circular(10.r),
+                          borderSide: BorderSide.none),
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.h, horizontal: 20.w),
                       controller: _cpasswordcontroller,
                       labelText: CustomText(
                         text: "confirm password",
@@ -257,15 +252,15 @@ class _user_RegisterState extends State<user_Register> {
                         textStyle: const TextStyle(),
                       ),
                       validator: (value) {
-                      if (_cpasswordcontroller == value) {
-                        return "password do not match";
-                      }
-                      
-                      if (value == null || value.isEmpty) {
-                        return "enter valid password";
-                      }
-                      return null;
-                    },
+                        if (_cpasswordcontroller == value) {
+                          return "password do not match";
+                        }
+
+                        if (value == null || value.isEmpty) {
+                          return "enter valid password";
+                        }
+                        return null;
+                      },
                       labelStyle: GoogleFonts.poppins(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
@@ -290,8 +285,14 @@ class _user_RegisterState extends State<user_Register> {
                       value: terms,
                       onChanged: (value) {
                         setState(() {
-                          terms =value!;
+                          terms = value!;
                         });
+                        if (terms == false) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: CustomText(
+                                  text: "you must accept terms & condition",
+                                  size: 18.spMin)));
+                        }
                       },
                     ),
                     CustomText(
@@ -325,15 +326,21 @@ class _user_RegisterState extends State<user_Register> {
                   ElevatedButton(
                       onPressed: () {
                         if (_formkey.currentState!.validate() && terms) {
-                          userModel user = userModel(
+                          user_Register_Model userreg = user_Register_Model(
                             name: _namecontroller.text,
                             email: _emailcontroller.text,
                             number: _numbercontroller.text,
                             password: _passwordcontroller.text,
                             confirmPassword: _cpasswordcontroller.text,
-                            terms: terms
+                            terms: terms,
                           );
-                          _userController.registerUser(user,context);
+
+                          _userController.registerUser(userreg, context);
+                          _namecontroller.clear();
+                          _emailcontroller.clear();
+                          _numbercontroller.clear();
+                          _passwordcontroller.clear();
+                          _cpasswordcontroller.clear();
                         }
                       },
                       style: ButtonStyle(
@@ -440,9 +447,9 @@ class _user_RegisterState extends State<user_Register> {
                 ),
               )
             ],
-                    ),
-                  ),
-          )),
+          ),
+        ),
+      )),
     );
   }
 }
