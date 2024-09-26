@@ -4,6 +4,7 @@ class userModel{
   String? number;
   String? password;
   String? confirmPassword;
+  String? uid;
   bool? terms;
 
   userModel({
@@ -13,6 +14,7 @@ class userModel{
     this.password,
     this.confirmPassword,
     this.terms,
+    this.uid
   });
 
 
@@ -23,7 +25,8 @@ class userModel{
       "number" : number,
       "password" : password,
       "confirmpassword" : confirmPassword,
-      "terms" : terms
+      "terms" : terms,
+      "uid" : uid
     };
   }
 }

@@ -36,6 +36,8 @@ class UserController {
         "number" : user.number,
         "password" : user.password,
         "confirmpassword" : user.confirmPassword,
+        "terms" : user.terms,
+        "uid": userCredential.user!.uid
       });
       Navigator.pushNamed(context, "/user_bottomnav");
 
