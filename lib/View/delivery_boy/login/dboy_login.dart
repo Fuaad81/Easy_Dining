@@ -142,7 +142,7 @@ class _dboy_LoginState extends State<dboy_Login> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, "/user_forgot");
+                          Navigator.pushNamed(context, "/db_forgotpassword");
                         },
                         child: CustomText(
                           text: "forgot password?",
@@ -161,7 +161,7 @@ class _dboy_LoginState extends State<dboy_Login> {
                     children: [
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, "");
+                            Navigator.pushNamed(context, "/db_bottombar");
                           },
                           style: ButtonStyle(
                             shape: WidgetStateProperty.all(
@@ -199,7 +199,7 @@ class _dboy_LoginState extends State<dboy_Login> {
                         padding: EdgeInsets.only(left: 4.w),
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, '/user_register');
+                            Navigator.pushNamed(context, '/db_register');
                           },
                           child: CustomText(
                             text: "sign up",

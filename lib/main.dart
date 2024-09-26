@@ -18,7 +18,13 @@ import 'package:easy_dine_in/View/admin/admin_home/admin_order_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_review.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_tab.dart';
+import 'package:easy_dine_in/View/delivery_boy/home/bottomnavigation/dboy_bottombar.dart';
+import 'package:easy_dine_in/View/delivery_boy/login/dboy_confirmpassword.dart';
+import 'package:easy_dine_in/View/delivery_boy/login/dboy_forgotpassword.dart';
 import 'package:easy_dine_in/View/delivery_boy/login/dboy_login.dart';
+import 'package:easy_dine_in/View/delivery_boy/login/dboy_otp.dart';
+import 'package:easy_dine_in/View/delivery_boy/register/dboy_accountcreated.dart';
+import 'package:easy_dine_in/View/delivery_boy/register/dboy_register.dart';
 import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_checkout.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_changepassword.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_location.dart';
@@ -162,6 +168,12 @@ class MyApp extends StatelessWidget {
             ? Delivery Boy Routes Start
             */
             "/db_login": (context) => const dboy_Login(),
+            "/db_forgotpassword": (context) => const dboy_Forgot_Password(),
+            "/db_otp": (context) => const dboy_Otp(),
+            "/db_confirmpassword": (context) => const dboy_Confirm_Password(),
+            "/db_register": (context) => const dboy_Register(),
+            "/db_accountcreated": (context) => const dboy_Account_Created(),
+            "/db_bottombar": (context) => const dboy_Bottom_Bar(),
           },
           initialRoute: "/splash",
         );
