@@ -51,7 +51,7 @@ class _user_ProfileState extends State<user_Profile> {
                 child: Center(
                   child: CircleAvatar(
                     backgroundColor: myColor.tabcolor,
-                    radius: 50.w,
+                    radius: 50,
                   ),
                 ),
               ),

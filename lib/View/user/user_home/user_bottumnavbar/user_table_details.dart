@@ -324,74 +324,76 @@ class _user_Table_DetailsState extends State<user_Table_Details> {
                       topRight: Radius.circular(15.r))),
               child: Padding(
                 padding: EdgeInsets.only(left: 15.w, right: 15.w),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 5.h),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomText(
-                            text: "Book your table",
-                            size: 18.spMin,
-                            weight: FontWeight.w500,
-                            color: myColor.textcolor.withOpacity(0.5),
-                          ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                IconlyLight.heart,
-                                size: 30,
-                              ))
-                        ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 5.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomText(
+                              text: "Book your table",
+                              size: 18.spMin,
+                              weight: FontWeight.w500,
+                              color: myColor.textcolor.withOpacity(0.5),
+                            ),
+                            IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  IconlyLight.heart,
+                                  size: 30,
+                                ))
+                          ],
+                        ),
                       ),
-                    ),
-                    CustomText(
-                      text: "Table No",
-                      size: 24.spMin,
-                      weight: FontWeight.w500,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 5.h),
-                      child: CustomText(
-                        text: "₹150",
-                        size: 20.spMin,
+                      CustomText(
+                        text: "Table No",
+                        size: 24.spMin,
                         weight: FontWeight.w500,
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        // ElevatedButton(
-                        //     onPressed: () => details(),
-                        //     style: ButtonStyle(
-                        //         backgroundColor:
-                        //             WidgetStatePropertyAll(myColor.background),
-                        //         foregroundColor:
-                        //             WidgetStatePropertyAll(myColor.maincolor),
-                        //         minimumSize:
-                        //             WidgetStatePropertyAll(Size(160.w, 40.h))),
-                        //     child: CustomText(text: "View Details", size: 20.spMin)),
-                        Consumer<fadeAnimationProvider>(
-                            builder: (context, fadeanimationProvider, child) {
-                          return TextButton(
-                              onPressed: () => details(),
-                              child: AnimatedOpacity(
-                                opacity: fadeanimationProvider.opacity,
-                                duration: const Duration(seconds: 1),
-                                child: CustomText(
-                                  text: "Click here for booking",
-                                  size: 21.spMin,
-                                  color: myColor.maincolor,
-                                  weight: FontWeight.w500,
-                                ),
-                              ));
-                        })
-                      ],
-                    ),
-                  ],
+                      Padding(
+                        padding: EdgeInsets.only(top: 5.h),
+                        child: CustomText(
+                          text: "₹150",
+                          size: 20.spMin,
+                          weight: FontWeight.w500,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // ElevatedButton(
+                          //     onPressed: () => details(),
+                          //     style: ButtonStyle(
+                          //         backgroundColor:
+                          //             WidgetStatePropertyAll(myColor.background),
+                          //         foregroundColor:
+                          //             WidgetStatePropertyAll(myColor.maincolor),
+                          //         minimumSize:
+                          //             WidgetStatePropertyAll(Size(160.w, 40.h))),
+                          //     child: CustomText(text: "View Details", size: 20.spMin)),
+                          Consumer<fadeAnimationProvider>(
+                              builder: (context, fadeanimationProvider, child) {
+                            return TextButton(
+                                onPressed: () => details(),
+                                child: AnimatedOpacity(
+                                  opacity: fadeanimationProvider.opacity,
+                                  duration: const Duration(seconds: 1),
+                                  child: CustomText(
+                                    text: "Click here for booking",
+                                    size: 21.spMin,
+                                    color: myColor.maincolor,
+                                    weight: FontWeight.w500,
+                                  ),
+                                ));
+                          })
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

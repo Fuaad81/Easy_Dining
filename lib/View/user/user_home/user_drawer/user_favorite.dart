@@ -54,7 +54,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                         children: [
                           CustomText(
                             text: 'Name',
-                            size: 16.spMin,
+                            size: 20.spMin,
                             textStyle: const TextStyle(),
                             weight: FontWeight.w600,
                           ),
@@ -64,7 +64,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                                 onTap: () {},
                                 child: Icon(
                                   IconlyBold.heart,
-                                  size: 20,
+                                  size: 30,
                                   color: myColor.maincolor,
                                 )),
                           )
@@ -79,7 +79,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                         children: [
                           CustomText(
                             text: 'quantity',
-                            size: 14.spMin,
+                            size: 16.spMin,
                             textStyle: const TextStyle(),
                             weight: FontWeight.w400,
                           ),
@@ -93,7 +93,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                         children: [
                           CustomText(
                             text: "₹25",
-                            size: 16.spMin,
+                            size: 20.spMin,
                             textStyle: const TextStyle(),
                             weight: FontWeight.w600,
                           ),
@@ -103,7 +103,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                                 onTap: () {},
                                 child: Image.asset(
                                   "assets/icons/ic_cart_outline.png",
-                                  width: 20.w,
+                                  width: 30,
                                   color: myColor.textcolor,
                                 )),
                           )
@@ -144,7 +144,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                         children: [
                           CustomText(
                             text: 'Name',
-                            size: 16.spMin,
+                            size: 20.spMin,
                             textStyle: const TextStyle(),
                             weight: FontWeight.w600,
                           ),
@@ -154,7 +154,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                                 onTap: () {},
                                 child: Icon(
                                   IconlyBold.heart,
-                                  size: 20,
+                                  size: 30,
                                   color: myColor.maincolor,
                                 )),
                           )
@@ -169,7 +169,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                         children: [
                           CustomText(
                             text: 'quantity',
-                            size: 14.spMin,
+                            size: 16.spMin,
                             textStyle: const TextStyle(),
                             weight: FontWeight.w400,
                           ),
@@ -183,7 +183,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                         children: [
                          CustomText(
                             text: "₹25",
-                            size: 16.spMin,
+                            size: 20.spMin,
                             textStyle: const TextStyle(),
                             weight: FontWeight.w600,
                           ),
@@ -193,7 +193,7 @@ class _user_FavoriteState extends State<user_Favorite> {
                                 onTap: () {},
                                 child: Image.asset(
                                   "assets/icons/ic_cart_outline.png",
-                                  width: 20.w,
+                                  width: 30,
                                   color: myColor.textcolor,
                                 )),
                           )

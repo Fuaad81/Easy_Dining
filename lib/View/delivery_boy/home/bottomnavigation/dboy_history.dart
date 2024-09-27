@@ -2,48 +2,27 @@ import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-class dboy_Home extends StatefulWidget {
-  const dboy_Home({super.key});
+class dboy_History extends StatefulWidget {
+  const dboy_History({super.key});
 
   @override
-  State<dboy_Home> createState() => _dboy_HomeState();
+  State<dboy_History> createState() => _dboy_HistoryState();
 }
 
-class _dboy_HomeState extends State<dboy_Home> {
+class _dboy_HistoryState extends State<dboy_History> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text.rich(TextSpan(children: [
-          TextSpan(
-            text: "Hi ",
-            style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w500, fontSize: 25.spMin),
-          ),
-          // TextSpan(
-          //   text: " ",
-          //   style: GoogleFonts.poppins(
-          //     fontWeight: FontWeight.w500,
-          //     fontSize: 25.spMin
-          //   ),
-          // ),
-          TextSpan(
-            text: "Name,",
-            style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w500,
-                fontSize: 25.spMin,
-                color: myColor.maincolor),
-          ),
-        ])),
       ),
       body: ListView.builder(
         itemCount: 1,
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 10.h,bottom: 5.h),
+            padding: EdgeInsets.only(
+                left: 16.w, right: 16.w, top: 10.h, bottom: 5.h),
             child: Row(
               children: [
                 Expanded(
@@ -63,11 +42,25 @@ class _dboy_HomeState extends State<dboy_Home> {
                       children: [
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsets.only(left: 15.w, bottom: 10.h),
+                              padding: EdgeInsets.only(
+                                left: 15.w,
+                                bottom: 10.h,
+                                top: 20.h
+                              ),
+                              child: Container(
+                                width: 130.w,
+                                height: 130.h,
+                                decoration: BoxDecoration(
+                                    color: myColor.tabcolor,
+                                    borderRadius:
+                                        BorderRadius.circular(10.r)),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 10.w),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -94,66 +87,33 @@ class _dboy_HomeState extends State<dboy_Home> {
                                 ],
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(right: 16.w),
-                              child: Container(
-                                width: 140.w,
-                                height: 100.h,
-                                decoration: BoxDecoration(
-                                    color: myColor.tabcolor,
-                                    borderRadius: BorderRadius.circular(10.r)),
-                              ),
-                            )
                           ],
                         ),
                         Padding(
-                          padding: EdgeInsets.only(right: 10.w, bottom: 10.h),
+                          padding: EdgeInsets.only(right: 5.w, bottom: 10.h),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Padding(
-                                padding: EdgeInsets.only(right: 10.w),
-                                child: InkWell(
-                                  onTap: () {
-                                    print("clicked");
-                                  },
-                                  child: Container(
-                                    width: 100.w,
-                                    height: 35.h,
-                                    decoration: BoxDecoration(
-                                        color: myColor.errortext,
-                                        borderRadius:
-                                            BorderRadius.circular(10.r)),
-                                    child: Center(
-                                      child: CustomText(
-                                        text: "Ignore",
-                                        size: 18.spMin,
-                                        color: myColor.background,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
                               InkWell(
                                 onTap: () {
                                   print("clicked");
                                 },
                                 child: Container(
-                                  width: 100.w,
-                                  height: 35.h,
+                                  width: 80.w,
+                                  height: 30.h,
                                   decoration: BoxDecoration(
                                       color: myColor.successcolor,
                                       borderRadius:
                                           BorderRadius.circular(10.r)),
                                   child: Center(
                                     child: CustomText(
-                                      text: "Take Order",
+                                      text: "Placed",
                                       size: 18.spMin,
                                       color: myColor.background,
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         )

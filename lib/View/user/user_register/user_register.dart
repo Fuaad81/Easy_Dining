@@ -437,12 +437,12 @@ class _user_RegisterState extends State<user_Register> {
                         onPressed: () {},
                         icon: Image.asset(
                           "assets/icons/ic_google.png",
-                          width: 50.w,
+                          width: 50,
                         )),
                     IconButton(
                         onPressed: () {},
                         icon: Image.asset("assets/icons/ic_facebook.png",
-                            width: 50.w))
+                            width: 50))
                   ],
                 ),
               )

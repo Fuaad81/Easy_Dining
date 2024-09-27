@@ -178,9 +178,9 @@ class _user_loginPageState extends State<user_loginPage> {
                                   Icons.visibility_off_outlined,
                                   size: 25,
                                 )
-                              : Icon(
+                              : const Icon(
                                   Icons.visibility_outlined,
-                                  size: 20.w,
+                                  size: 25,
                                 )),
                     ),
                   ),
@@ -318,13 +318,13 @@ class _user_loginPageState extends State<user_loginPage> {
                           onPressed: () {},
                           icon: Image.asset(
                             "assets/icons/ic_google.png",
-                            width: 50.w,
+                            width: 50,
                           )),
                       IconButton(
                           onPressed: () {},
                           icon: Image.asset(
                             "assets/icons/ic_facebook.png",
-                            width: 50.w,
+                            width: 50,
                           ))
                     ],
                   ),

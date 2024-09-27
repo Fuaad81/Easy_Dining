@@ -41,15 +41,8 @@ class _user_editProfileState extends State<user_editProfile> {
               child: Center(
                 child: CircleAvatar(
                     backgroundColor: myColor.fieldbackground,
-                    radius: 50.w,
-                    child: Stack(children: [
-                      Align(
-                        alignment: Alignment.bottomRight,
-        
-                        child: IconButton(
-                            onPressed: () {}, icon: const Icon(IconlyLight.image_2)),
-                      ),
-                    ])),
+                    radius: 50,
+                    ),
               ),
             ),
             Padding(
