@@ -18,7 +18,7 @@ class dboy_Forgot_Password extends StatefulWidget {
 
 class _dboy_Forgot_PasswordState extends State<dboy_Forgot_Password> {
 
-  var _forgotpass = TextEditingController();
+  final _forgotpass = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
