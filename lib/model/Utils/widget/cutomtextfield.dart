@@ -16,26 +16,35 @@ class CustomTextFormField extends StatelessWidget {
   final bool readOnly;
   final String? hintText;
   final TextStyle? hintStyle;
+  final TextStyle? style;
+  final TextStyle? errorStyle;
   final int? maxLines;
   final InputBorder? border;
   final Color? fillColor;
   final InputBorder? errorBorder;
   final InputBorder? focusedBorder;
 
-  const CustomTextFormField({
-    super.key,
-    this.controller,
-    this.labelText,
-    this.labelStyle,
-    this.prefixIcon,
-    this.suffixIcon,
-    this.obscureText = false,
-    this.validator,
-    this.contentPadding,
-    this.readOnly = false,
-    this.hintText,
-    this.hintStyle, this.maxLines =1, this.border, this.fillColor, this.filled, this.errorBorder, this.focusedBorder
-  });
+  const CustomTextFormField(
+      {super.key,
+      this.controller,
+      this.labelText,
+      this.labelStyle,
+      this.prefixIcon,
+      this.suffixIcon,
+      this.obscureText = false,
+      this.validator,
+      this.contentPadding,
+      this.readOnly = false,
+      this.hintText,
+      this.hintStyle,
+      this.maxLines = 1,
+      this.border,
+      this.fillColor,
+      this.filled,
+      this.errorBorder,
+      this.focusedBorder,
+      this.style,
+      this.errorStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +54,9 @@ class CustomTextFormField extends StatelessWidget {
       validator: validator,
       readOnly: readOnly,
       maxLines: maxLines,
+      style: style,
       decoration: InputDecoration(
-
+        errorStyle: errorStyle,
         suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: hintStyle,

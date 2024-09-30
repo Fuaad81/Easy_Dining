@@ -15,20 +15,22 @@ class _admin_User_ListState extends State<admin_User_List> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      appBar: AppBar(
+        title:CustomText(text:"User List",size:21.spMin)
+      ),
       body: ListView.builder(
         itemCount: 1,
         itemBuilder: (context, index) {
         return Padding(
           padding: EdgeInsets.only(left: 15.w,right: 15.w,top: 10.h),
           child: ListTile(
-            leading: const CircleAvatar(
-              
+            leading: CircleAvatar(
               radius: 30,
+              backgroundColor: myColor.background,
             ),
             title:   CustomText(text: "Name", size: 18.spMin,weight: FontWeight.w500,),
             subtitle:   CustomText(text: "sample@gmail.com", size: 14.spMin,weight: FontWeight.w400,),
-            tileColor: myColor.tabcolor,
+            tileColor: myColor.fieldbackground,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.r)
             ),

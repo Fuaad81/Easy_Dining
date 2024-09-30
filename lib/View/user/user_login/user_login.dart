@@ -1,9 +1,9 @@
-import 'package:easy_dine_in/Controllers/user_login_controller.dart';
+import 'package:easy_dine_in/Controllers/userController/user_login_controller.dart';
 import 'package:easy_dine_in/Providers/user_provider.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
-import 'package:easy_dine_in/model/service_model/user_login_model.dart';
+import 'package:easy_dine_in/model/service_model/userModel/user_login_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -91,6 +91,9 @@ class _user_loginPageState extends State<user_loginPage> {
                   child: SizedBox(
                     width: 315.w,
                     child: CustomTextFormField(
+                      style: GoogleFonts.poppins(
+                        color: myColor.textcolor
+                      ),
                       filled: true,
                       fillColor: myColor.fieldbackground,
                       border: OutlineInputBorder(
@@ -135,6 +138,9 @@ class _user_loginPageState extends State<user_loginPage> {
                     child: CustomTextFormField(
                       filled: true,
                       fillColor: myColor.fieldbackground,
+                      style: GoogleFonts.poppins(
+                        color: myColor.textcolor
+                      ),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
                           borderSide: BorderSide.none),
@@ -214,12 +220,10 @@ class _user_loginPageState extends State<user_loginPage> {
                         onPressed: () {
                           if (_formkey.currentState!.validate()) {
                             User_Login_Model userlogin = User_Login_Model(
-                              email: emailcontroller.text,
-                              password: passwordcontroler.text
+                              email: emailcontroller.text.trim(),
+                              password: passwordcontroler.text.trim()
                             );
                             _user_loginController.loginUser(userlogin, context);
-                            emailcontroller.clear();
-                            passwordcontroler.clear();
                           }
                         },
                         style: ButtonStyle(

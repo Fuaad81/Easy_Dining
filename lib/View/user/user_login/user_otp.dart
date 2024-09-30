@@ -4,6 +4,7 @@ import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 
 class user_Otp extends StatefulWidget {
@@ -66,6 +67,9 @@ class _user_OtpState extends State<user_Otp> {
                   margin: EdgeInsets.only(left: 10.w),
                   width: 50.w,
                   height: 50.h,
+                  textStyle:  GoogleFonts.poppins(
+                        color: myColor.textcolor
+                      ),
                   decoration: BoxDecoration(
                       color: myColor.fieldbackground,
                       borderRadius: BorderRadius.circular(10.r))),

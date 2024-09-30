@@ -3,6 +3,7 @@ import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconly/iconly.dart';
 
 class admin_addFood extends StatefulWidget {
   const admin_addFood({super.key});
@@ -12,15 +13,16 @@ class admin_addFood extends StatefulWidget {
 }
 
 class _admin_addFoodState extends State<admin_addFood> {
+  final TextEditingController namecontroller = TextEditingController();
+  final TextEditingController descriptioncontroller = TextEditingController();
+
+  String? selectedCategory;
+  final List<String> category = ["Break Fast", "Lunch", "Snack", "Dinner"];
   @override
   Widget build(BuildContext context) {
-    final TextEditingController namecontroller = TextEditingController();
-    final TextEditingController descriptioncontroller = TextEditingController();
     return Scaffold(
-      
       appBar: AppBar(
-        
-        title:   CustomText(
+        title: CustomText(
           text: "Add Food Item",
           size: 21.spMin,
           weight: FontWeight.w500,
@@ -90,14 +92,28 @@ class _admin_addFoodState extends State<admin_addFood> {
                 children: [
                   SizedBox(
                       width: 320.w,
-                      child: CustomTextFormField(
-                          filled: true,
-                          fillColor: myColor.fieldbackground,
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(10.r)),
-                          hintText: "Category",
-                          controller: namecontroller))
+                      child: DropdownButtonFormField(
+                        items: category.map((String category) {
+                          return DropdownMenuItem<String>(
+                            value: category,
+                            child: Text(category),
+                          );
+                        }).toList(),
+                        onChanged: (String? newvalue) {
+                          setState(() {
+                            selectedCategory = newvalue;
+                          });
+                        },
+                        decoration: InputDecoration(
+                            filled: true,
+                            fillColor: myColor.fieldbackground,
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(10.r)),
+                            hintText: "Category",
+                            
+                            ),
+                      ))
                 ],
               ),
             ),
@@ -138,7 +154,7 @@ class _admin_addFoodState extends State<admin_addFood> {
                       onPressed: () {
                         Navigator.pushNamed(context, "");
                       },
-                      child:   CustomText(
+                      child: CustomText(
                         text: "Submit",
                         size: 25.spMin,
                         weight: FontWeight.w600,

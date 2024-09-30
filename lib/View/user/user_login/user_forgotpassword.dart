@@ -1,6 +1,7 @@
 // ignore_for_file: prefer__ructors
 
 import 'package:easy_dine_in/model/Utils/style/color.dart';
+import 'package:easy_dine_in/model/Utils/style/customtheme.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,9 +21,7 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
-        
         title: CustomText(
           text: "Forgot Password",
           size: 21.spMin,
@@ -54,11 +53,11 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
               width: 315.w,
               child: CustomTextFormField(
                 filled: true,
-                    fillColor: myColor.fieldbackground,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide.none
-                    ),
+                style: GoogleFonts.poppins(color: myColor.textcolor),
+                fillColor: lightTheme.scaffoldBackgroundColor,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide: BorderSide.none),
                 controller: _forgotpass,
                 labelText: CustomText(
                   text: "enter your email",

@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
 class user_confirmPassword extends StatefulWidget {
-   const user_confirmPassword({super.key});
+  const user_confirmPassword({super.key});
 
   @override
   State<user_confirmPassword> createState() => _user_confirmPasswordState();
@@ -21,13 +21,10 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
-        
         title: CustomText(
           text: "Change Password",
           size: 21.spMin,
-          
           weight: FontWeight.w500,
           textAlign: TextAlign.center,
           textStyle: const TextStyle(),
@@ -38,12 +35,11 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
         child: Column(
           children: [
             Padding(
-              padding:  EdgeInsets.only(top: 30.h),
+              padding: EdgeInsets.only(top: 30.h),
               child: Center(
                 child: CustomText(
                   text: "Enter new password and\nconform",
                   size: 22.spMin,
-                  
                   weight: FontWeight.w400,
                   textAlign: TextAlign.center,
                   textStyle: const TextStyle(),
@@ -51,17 +47,17 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(top: 20.h),
+              padding: EdgeInsets.only(top: 20.h),
               child: SizedBox(
                 width: 315.w,
                 height: 50.h,
                 child: CustomTextFormField(
                   filled: true,
-                    fillColor: myColor.fieldbackground,
-                    border: OutlineInputBorder(
+                  style: GoogleFonts.poppins(color: myColor.textcolor),
+                  fillColor: myColor.fieldbackground,
+                  border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide.none
-                    ),
+                      borderSide: BorderSide.none),
                   controller: _newpass,
                   labelText: CustomText(
                     text: "new password",
@@ -71,29 +67,34 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
                     textAlign: TextAlign.center,
                     textStyle: const TextStyle(),
                   ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                   // labelStyle: GoogleFonts.poppins(
                   //     fontSize: 18,
                   //     fontWeight: FontWeight.w500,
                   //     color: myColor.textcolor),
-                  prefixIcon: const Icon(IconlyLight.lock,size: 25,),
+                  prefixIcon: const Icon(
+                    IconlyLight.lock,
+                    size: 25,
+                  ),
                 ),
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(top: 10.h),
+              padding: EdgeInsets.only(top: 10.h),
               child: SizedBox(
-                width:315.w,
+                width: 315.w,
                 height: 50.h,
                 child: CustomTextFormField(
                   filled: true,
-                    fillColor: myColor.fieldbackground,
-                    border: OutlineInputBorder(
+                  style: GoogleFonts.poppins(color: myColor.textcolor),
+                  fillColor: myColor.fieldbackground,
+                  border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide.none
-                    ),
+                      borderSide: BorderSide.none),
                   controller: _newconfirmpass,
-                  contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 20.w),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                   labelText: CustomText(
                     text: "confirm password",
                     size: 18.spMin,
@@ -106,12 +107,15 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: myColor.textcolor),
-                  prefixIcon: const Icon(IconlyLight.lock,size: 25,),
+                  prefixIcon: const Icon(
+                    IconlyLight.lock,
+                    size: 25,
+                  ),
                 ),
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(top: 20.h),
+              padding: EdgeInsets.only(top: 20.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -126,10 +130,7 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
                             WidgetStatePropertyAll(myColor.maincolor),
                         foregroundColor:
                             WidgetStatePropertyAll(myColor.background),
-                        minimumSize: WidgetStatePropertyAll(Size(
-                            200.w,
-                            45.h)),
-                       
+                        minimumSize: WidgetStatePropertyAll(Size(200.w, 45.h)),
                       ),
                       child: CustomText(
                         text: "change password",

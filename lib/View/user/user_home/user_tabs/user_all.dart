@@ -19,7 +19,6 @@ class _user_allItemState extends State<user_allItem> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        
         child: Padding(
           padding: EdgeInsets.only(top: 10.h),
           child: Column(
@@ -57,214 +56,115 @@ class _user_allItemState extends State<user_allItem> {
                   ),
                 ]),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 10.h),
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: 2,
-                  padding: EdgeInsets.only(top: 10.h),
-                  itemBuilder:(context, index) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      customCard(
-                          color: myColor.background,
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10.r),
-                                  topRight: Radius.circular(10.r),
-                                  bottomLeft: Radius.circular(10.r),
-                                  bottomRight: Radius.circular(10.r))),
-                          child: SizedBox(
-                            width: 160.w,
-                            // decoration: BoxDecoration(
-                            //     border: Border.all(color: myColor.textcolor),
-                            //     borderRadius: BorderRadius.circular(10.r)),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding:  EdgeInsets.only(top: 5.h),
-                                  child: SizedBox(
-                                    width: 150.w,
-                                    height: 120.h,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                                      child: Image.asset(
-                                        "assets/images/image.png",
-                                        fit: BoxFit.cover,
-                                      ),
+              GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 5,
+                  mainAxisExtent: 200.h,
+                ),
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: 6,
+                padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 10.h),
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.only(top: 10.h),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "/user_fooddetails");
+                      },
+                      child: customCard(
+                        elevation: 4,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Padding(
+                                padding: EdgeInsets.only(top: 5.h),
+                                child: SizedBox(
+                                  width: 150.w,
+                                  height: 120.h,
+                                  child: ClipRRect(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.r)),
+                                    child: Image.asset(
+                                      "assets/images/image.png",
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 7.w, top: 2.h),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      CustomText(
-                                        text: 'Name',
-                                        size: 20.spMin,
-                                        weight: FontWeight.w600,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(right: 2.w),
-                                        child: InkWell(
-                                            onTap: () {},
-                                            child: Icon(
-                                              IconlyLight.heart,
-                                              size: 22,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 7.w, top: 2.h),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      CustomText(
-                                        text: 'quantity',
-                                        size: 16.spMin,
-                                        textStyle: TextStyle(),
-                                        weight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 7.w, top: 2.h),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      CustomText(
-                                        text: "₹25",
-                                        size: 20.spMin,
-                                        textStyle: TextStyle(),
-                                        weight: FontWeight.w600,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(right: 2.w),
-                                        child: InkWell(
-                                            onTap: () {},
-                                            child: Image.asset(
-                                              "assets/icons/ic_cart_outline.png",
-                                              width: 22,
-                                              color: myColor.textcolor,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
-                        ),
-                      customCard(
-                          color: myColor.background,
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10.r),
-                                  topRight: Radius.circular(10.r),
-                                  bottomLeft: Radius.circular(10.r),
-                                  bottomRight: Radius.circular(10.r))),
-                          child: SizedBox(
-                            width: 160.w,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding:  EdgeInsets.only(top: 5.h),
-                                  child: SizedBox(
-                                    width: 150.w,
-                                    height: 120.h,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                                      child: Image.asset(
-                                        "assets/images/image.png",
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: 7.w,
+                                top: 3.h
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  CustomText(
+                                    text: 'Name',
+                                    size: 18.spMin,
+                                    weight: FontWeight.w600,
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 7.w, top: 2.h),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      CustomText(
-                                        text: 'Name',
-                                        size: 20.spMin,
-                                        weight: FontWeight.w600,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(right: 2.w),
-                                        child: InkWell(
-                                            onTap: () {},
-                                            child: Icon(
-                                              IconlyLight.heart,
-                                              size: 22,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 7.w, top: 2.h),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      CustomText(
-                                        text: 'quantity',
-                                        size: 16.spMin,
-                                        textStyle: TextStyle(),
-                                        weight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 7.w, top: 2.h),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      CustomText(
-                                        text: "₹25",
-                                        size: 20.spMin,
-                                        textStyle: TextStyle(),
-                                        weight: FontWeight.w600,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(right: 2.w),
-                                        child: InkWell(
-                                            onTap: () {},
-                                            child: Image.asset(
-                                              "assets/icons/ic_cart_outline.png",
-                                              width: 22,
-                                              color: myColor.textcolor,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: EdgeInsets.only(right: 2.w),
+                                    child: InkWell(
+                                        onTap: () {},
+                                        child: const Icon(
+                                          IconlyLight.heart,
+                                          size: 22,
+                                        )),
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 7.w,top: 3.h),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  CustomText(
+                                    text: 'quantity',
+                                    size: 14.spMin,
+                                    textStyle: const TextStyle(),
+                                    weight: FontWeight.w400,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: 7.w,
+                                bottom: 3.h
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  CustomText(
+                                    text: "₹25",
+                                    size: 18.spMin,
+                                    textStyle: const TextStyle(),
+                                    weight: FontWeight.w600,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(right: 2.w),
+                                    child: InkWell(
+                                        onTap: () {},
+                                        child: Icon(IconlyLight.bag,size: 22,)),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                    ],
+                      ),
+                    ),
                   );
-                },),
-              ),              
+                },
+              ),
             ],
           ),
         ),

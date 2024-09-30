@@ -26,6 +26,7 @@ import 'package:easy_dine_in/View/delivery_boy/login/dboy_otp.dart';
 import 'package:easy_dine_in/View/delivery_boy/register/dboy_accountcreated.dart';
 import 'package:easy_dine_in/View/delivery_boy/register/dboy_register.dart';
 import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_checkout.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_food_details.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_changepassword.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_location.dart';
 import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_table_details.dart';
@@ -111,6 +112,7 @@ class MyApp extends StatelessWidget {
             "/user_createsuccess": (context) => const user_createdSucces(),
             "/user_bottomnav": (context) => const user_bottomNavbar(),
             "/user_home": (context) => const user_Home(),
+            "/user_fooddetails": (context) => const user_Food_Details(),  
             "/user_tablebooking": (context) => const user_Booking(),
             "/user_tabledetails": (context) => const user_Table_Details(),
             "/user_cart": (context) => const user_Cart(),

@@ -14,7 +14,9 @@ class _admin_Order_ListState extends State<admin_Order_List> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      appBar: AppBar(
+        title: CustomText(text: "Order List", size: 21.spMin),
+      ),
       body: ListView.builder(
         itemCount: 1,
         itemBuilder: (context,index){
@@ -35,7 +37,7 @@ class _admin_Order_ListState extends State<admin_Order_List> {
                 child: Container(
                   width: 300.w,
                   decoration: BoxDecoration(
-                    color: myColor.tabcolor.withOpacity(0.6),
+                    color: myColor.fieldbackground,
                     borderRadius: BorderRadius.circular(10.r)
                   ),
                   child: Row(

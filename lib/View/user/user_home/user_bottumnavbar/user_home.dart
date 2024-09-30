@@ -1,5 +1,6 @@
 // ignore_for_file: prefer__ructors, avoid_unnecessary_containers
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/Providers/theme_provider.dart';
 import 'package:easy_dine_in/View/user/user_home/user_tabs/user_all.dart';
 import 'package:easy_dine_in/View/user/user_home/user_tabs/user_breakfast.dart';
@@ -14,6 +15,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class user_Home extends StatefulWidget {
   const user_Home({super.key});
@@ -25,6 +27,35 @@ class user_Home extends StatefulWidget {
 class _user_HomeState extends State<user_Home> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final _search = TextEditingController();
+  String name = "";
+
+  Future<void> fetchName() async {
+    SharedPreferences sharedpref = await SharedPreferences.getInstance();
+    String? userid = sharedpref.getString("UserId");
+    if (userid != null && userid.isNotEmpty) {
+      try {
+        
+      DocumentSnapshot usersnap = await FirebaseFirestore.instance
+          .collection("Users")
+          .doc(userid)
+          .get();
+
+          if (usersnap.exists) {
+            setState(() {
+            name = usersnap["name"] ?? "null";
+            });
+          }
+      } 
+      catch (e) {
+        print(e);
+      }
+    }
+  }
+  @override
+  void initState() {
+    super.initState();
+    fetchName();
+  }
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeProvider>(context);
@@ -51,7 +82,7 @@ class _user_HomeState extends State<user_Home> {
                 )),
             const TextSpan(text: " "),
             TextSpan(
-              text: "Name",
+              text: name,
               style: GoogleFonts.poppins(
                   fontSize: 22.spMin,
                   color: myColor.maincolor,
@@ -73,9 +104,9 @@ class _user_HomeState extends State<user_Home> {
                 onPressed: () {
                   Navigator.pushNamed(context, "/user_notification");
                 },
-                icon: Image.asset(
-                  "assets/icons/ic_notification.png",
-                  width: 25.w,
+                icon: const Icon(
+                  IconlyLight.notification,
+                  size: 25,
                 ))
           ],
         ),

@@ -44,7 +44,6 @@ class _user_CartState extends State<user_Cart> {
                   return Padding(
                     padding: EdgeInsets.only(top: 10.h,right: 10.w,left: 10.w),
                     child: Row(
-
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

@@ -17,7 +17,7 @@ final ThemeData lightTheme = ThemeData(
     onTertiary: Color(0xffffffff),
     tertiaryContainer: Color(0xffbfc0c0),
     onTertiaryContainer: Color(0xff303232),
-    error: Color(0xff790007),
+    error: Color.fromARGB(255, 255, 0, 0),
     onError: Color(0xffffffff),
     errorContainer: Color(0xffb61919),
     onErrorContainer: Color(0xffffffff),
@@ -55,11 +55,11 @@ final ThemeData lightTheme = ThemeData(
     foregroundColor: Color(0xffffffff),
   ),
   buttonTheme: const ButtonThemeData(
-    buttonColor: Color(0xffa73a00),
+    buttonColor: Color(0xFFFF5B00),
     textTheme: ButtonTextTheme.primary,
   ),
   
-  scaffoldBackgroundColor: const Color(0xfffcf8f8),
+  scaffoldBackgroundColor: const Color(0xFFFFFFFF),
 );
 
 // Define your dark theme using ColorScheme
@@ -79,7 +79,7 @@ final ThemeData darkTheme = ThemeData(
     onTertiary: Color(0xff2f3131),
     tertiaryContainer: Color(0xffb0b1b1),
     onTertiaryContainer: Color(0xff242626),
-    error: Color(0xffffb4ab),
+    error: Color.fromARGB(255, 255, 25, 0),
     onError: Color(0xff690005),
     errorContainer: Color(0xff8f0009),
     onErrorContainer: Color(0xffffd3cd),
@@ -117,7 +117,7 @@ final ThemeData darkTheme = ThemeData(
     foregroundColor: Color(0xff5a1b00),
   ),
   buttonTheme: const ButtonThemeData(
-    buttonColor: Color(0xffffb59a),
+    buttonColor: Color(0xFFFF5B00),
     textTheme: ButtonTextTheme.primary,
   ),
   

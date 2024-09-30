@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class user_Profile extends StatefulWidget {
   const user_Profile({super.key});
@@ -14,12 +16,42 @@ class user_Profile extends StatefulWidget {
 }
 
 class _user_ProfileState extends State<user_Profile> {
+  Future<void> fetchProfile() async {
+    SharedPreferences sharedpref = await SharedPreferences.getInstance();
+    String? userid = sharedpref.getString("UserId");
+    if (userid != null && userid.isNotEmpty) {
+      try {
+        DocumentSnapshot usersnap = await FirebaseFirestore.instance
+            .collection("Users")
+            .doc(userid)
+            .get();
+
+        if (usersnap.exists) {
+          setState(() {
+            nameController.text = usersnap["name"] ?? "null";
+            emailController.text = usersnap["email"] ?? "null";
+            numberController.text = usersnap["number"] ?? "null";
+            // emailController = usersnap["email"] ?? "null";
+          });
+        }
+      } catch (e) {
+        print(e);
+      }
+    }
+  }
+  
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    fetchProfile();
+  }
   @override
   Widget build(BuildContext context) {
-    TextEditingController nameController = TextEditingController();
-    TextEditingController emailController = TextEditingController();
-    TextEditingController numberController = TextEditingController();
-    TextEditingController addressController = TextEditingController();
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -27,7 +59,6 @@ class _user_ProfileState extends State<user_Profile> {
           title: CustomText(
             text: "Profile",
             size: 21.spMin,
-            
             letterSpacing: 1,
             weight: FontWeight.w500,
             textStyle: const TextStyle(),

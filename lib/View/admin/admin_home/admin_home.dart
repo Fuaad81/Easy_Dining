@@ -239,7 +239,7 @@ class _admin_homeState extends State<admin_home> {
                     padding: EdgeInsets.only(left: 20.w),
                     child: InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, "/admin_usertab");
+                        Navigator.pushNamed(context, "/admin_userlist");
                       },
                       child: Container(
                         width: 100.w,

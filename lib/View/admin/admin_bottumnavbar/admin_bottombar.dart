@@ -1,6 +1,10 @@
 import 'package:easy_dine_in/Providers/admin_provider.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_history.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_home.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_order_list.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_profile.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
@@ -19,8 +23,9 @@ class _admin_BottombarState extends State<admin_Bottombar> {
     final adminnavProvider = Provider.of<AdminNavbarProvider>(context);
     List<dynamic> homePages = [
       const admin_home(),
-      const admin_home(),
-      const admin_home(),
+      const admin_Order_List(),
+      const admin_History(),
+      const admin_Profile(),
     ];
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
@@ -35,9 +40,18 @@ class _admin_BottombarState extends State<admin_Bottombar> {
             label: "Home",
           ),
           BottomNavigationBarItem(
+            icon: Icon(
+              IconlyBold.document,
+              color: adminnavProvider.currentIndex == 1
+                  ? myColor.maincolor
+                  : myColor.tabcolor,
+            ),
+            label: "Order List",
+          ),
+          BottomNavigationBarItem(
               icon: Icon(
-                IconlyBold.document,
-                color: adminnavProvider.currentIndex == 1
+                Icons.history,
+                color: adminnavProvider.currentIndex == 2
                     ? myColor.maincolor
                     : myColor.tabcolor,
               ),
@@ -45,7 +59,7 @@ class _admin_BottombarState extends State<admin_Bottombar> {
           BottomNavigationBarItem(
               icon: Icon(
                 IconlyBold.profile,
-                color: adminnavProvider.currentIndex == 2
+                color: adminnavProvider.currentIndex == 3
                     ? myColor.maincolor
                     : myColor.tabcolor,
               ),
