@@ -5,7 +5,7 @@ import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/style/customtheme.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
-import 'package:easy_dine_in/model/service_model/userModel/user_register_model.dart';
+import 'package:easy_dine_in/model/service_model/userModel/auth/user_register_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,6 +24,7 @@ class _user_RegisterState extends State<user_Register> {
   final _namecontroller = TextEditingController();
   final _emailcontroller = TextEditingController();
   final _numbercontroller = TextEditingController();
+  final _locationcontroller = TextEditingController();
   final _passwordcontroller = TextEditingController();
   final _cpasswordcontroller = TextEditingController();
   final User_RegisterController _userController = User_RegisterController();
@@ -53,7 +54,6 @@ class _user_RegisterState extends State<user_Register> {
                 child: CustomText(
                   text: "Sign Up",
                   size: 28.spMin,
-                  
                   weight: FontWeight.w700,
                 ),
               ),
@@ -191,9 +191,50 @@ class _user_RegisterState extends State<user_Register> {
                 child: SizedBox(
                   width: 315.w,
                   child: CustomTextFormField(
-                    style: GoogleFonts.poppins(
-                        color: myColor.textcolor
-                      ),
+                    style: GoogleFonts.poppins(color: myColor.textcolor),
+                    filled: true,
+                    fillColor: myColor.fieldbackground,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.r),
+                        borderSide: BorderSide.none),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                    controller: _locationcontroller,
+                    labelText: CustomText(
+                      text: "Address",
+                      size: 18.spMin,
+                      color: myColor.textcolor,
+                      weight: FontWeight.w400,
+                      textAlign: TextAlign.center,
+                      textStyle: const TextStyle(),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "enter valid address";
+                      }
+                      return null;
+                    },
+                    labelStyle: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: myColor.textcolor),
+                    prefixIcon: Icon(
+                      CupertinoIcons.phone,
+                      color: myColor.textcolor,
+                      size: 20,
+                    ),
+                    suffixIcon: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(IconlyLight.location)),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 20.w, top: 15.h),
+                child: SizedBox(
+                  width: 315.w,
+                  child: CustomTextFormField(
+                    style: GoogleFonts.poppins(color: myColor.textcolor),
                     filled: true,
                     fillColor: myColor.fieldbackground,
                     border: OutlineInputBorder(
@@ -225,9 +266,7 @@ class _user_RegisterState extends State<user_Register> {
                       color: myColor.textcolor,
                       size: 25,
                     ),
-                    errorStyle: GoogleFonts.poppins(
-                        color: myColor.errortext
-                      ),
+                    errorStyle: GoogleFonts.poppins(color: myColor.errortext),
                     suffixIcon: Icon(
                       Icons.remove_red_eye_outlined,
                       size: 25,
@@ -241,9 +280,7 @@ class _user_RegisterState extends State<user_Register> {
                 child: SizedBox(
                   width: 315.w,
                   child: CustomTextFormField(
-                    style: GoogleFonts.poppins(
-                        color: myColor.textcolor
-                      ),
+                      style: GoogleFonts.poppins(color: myColor.textcolor),
                       filled: true,
                       fillColor: myColor.fieldbackground,
                       border: OutlineInputBorder(
@@ -252,9 +289,7 @@ class _user_RegisterState extends State<user_Register> {
                       contentPadding: EdgeInsets.symmetric(
                           vertical: 10.h, horizontal: 20.w),
                       controller: _cpasswordcontroller,
-                      errorStyle: GoogleFonts.poppins(
-                        color: myColor.errortext
-                      ),
+                      errorStyle: GoogleFonts.poppins(color: myColor.errortext),
                       labelText: CustomText(
                         text: "confirm password",
                         size: 18.spMin,
@@ -263,7 +298,6 @@ class _user_RegisterState extends State<user_Register> {
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(),
                       ),
-                      
                       validator: (value) {
                         if (_cpasswordcontroller == value) {
                           return "password do not match";
@@ -341,17 +375,18 @@ class _user_RegisterState extends State<user_Register> {
                             name: _namecontroller.text,
                             email: _emailcontroller.text,
                             number: _numbercontroller.text,
+                            address: _locationcontroller.text,
                             password: _passwordcontroller.text,
                             confirmPassword: _cpasswordcontroller.text,
                             terms: terms,
                           );
 
                           _userController.registerUser(userreg, context);
-                          _namecontroller.clear();
-                          _emailcontroller.clear();
-                          _numbercontroller.clear();
-                          _passwordcontroller.clear();
-                          _cpasswordcontroller.clear();
+                          // _namecontroller.clear();
+                          // _emailcontroller.clear();
+                          // _numbercontroller.clear();
+                          // _passwordcontroller.clear();
+                          // _cpasswordcontroller.clear();
                         }
                       },
                       style: ButtonStyle(
@@ -380,7 +415,6 @@ class _user_RegisterState extends State<user_Register> {
                   children: [
                     CustomText(
                       text: "Allready have an account?",
-                      
                       size: 18.spMin,
                       weight: FontWeight.w400,
                     ),

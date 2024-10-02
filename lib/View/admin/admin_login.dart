@@ -147,12 +147,12 @@ class _admin_LoginState extends State<admin_Login> {
                                           Size(200.w, 50.h))),
                                   onPressed: () {
                                     if (_formkey.currentState!.validate()) {
-                                      admin_LoginController().adminLogin(
-                                          context,
-                                          _emailcontroller.text.trim(),
-                                          _passwordcontroller.text.trim());
+                                      // admin_LoginController().adminLogin(
+                                      //     context,
+                                      //     _emailcontroller.text.trim(),
+                                      //     _passwordcontroller.text.trim());
                                     }
-                                    // Navigator.pushNamed(context, "/admin_bottombar");
+                                    Navigator.pushNamed(context, "/admin_bottombar");
                                     print("button clicked");
                                   },
                                   child: CustomText(

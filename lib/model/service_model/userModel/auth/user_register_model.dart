@@ -3,6 +3,7 @@ class user_Register_Model{
   String? email;
   String? number;
   String? password;
+  String? address;
   String? confirmPassword;
   String? uid;
   bool? terms;
@@ -12,6 +13,7 @@ class user_Register_Model{
     this.email,
     this.number,
     this.password,
+    this.address,
     this.confirmPassword,
     this.terms,
     this.uid
@@ -23,6 +25,7 @@ class user_Register_Model{
       "name" : name,
       "email" : email,
       "number" : number,
+      "address" : address,
       "password" : password,
       "confirmpassword" : confirmPassword,
       "terms" : terms,

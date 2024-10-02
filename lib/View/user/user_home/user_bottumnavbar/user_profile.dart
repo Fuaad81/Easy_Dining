@@ -16,6 +16,11 @@ class user_Profile extends StatefulWidget {
 }
 
 class _user_ProfileState extends State<user_Profile> {
+  @override
+  void initState() {
+    super.initState();
+    fetchProfile();
+  }
   Future<void> fetchProfile() async {
     SharedPreferences sharedpref = await SharedPreferences.getInstance();
     String? userid = sharedpref.getString("UserId");
@@ -31,7 +36,7 @@ class _user_ProfileState extends State<user_Profile> {
             nameController.text = usersnap["name"] ?? "null";
             emailController.text = usersnap["email"] ?? "null";
             numberController.text = usersnap["number"] ?? "null";
-            // emailController = usersnap["email"] ?? "null";
+            addressController = usersnap["address"] ?? "null";
           });
         }
       } catch (e) {
@@ -45,11 +50,7 @@ class _user_ProfileState extends State<user_Profile> {
   TextEditingController emailController = TextEditingController();
   TextEditingController numberController = TextEditingController();
   TextEditingController addressController = TextEditingController();
-  @override
-  void initState() {
-    super.initState();
-    fetchProfile();
-  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

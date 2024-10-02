@@ -1,9 +1,13 @@
+import 'dart:io';
+import 'dart:math';
+
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconly/iconly.dart';
+import 'package:image_picker/image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
 
 class admin_addFood extends StatefulWidget {
   const admin_addFood({super.key});
@@ -14,7 +18,26 @@ class admin_addFood extends StatefulWidget {
 
 class _admin_addFoodState extends State<admin_addFood> {
   final TextEditingController namecontroller = TextEditingController();
+  final TextEditingController foodprizecontroller = TextEditingController();
   final TextEditingController descriptioncontroller = TextEditingController();
+
+  XFile? pick;
+  File? image;
+
+  Future<void> addImage() async {
+    try {
+      ImagePicker picked = ImagePicker();
+    pick = await picked.pickImage(source: ImageSource.gallery);
+    if (pick != null) {
+      setState(() {
+        image = File(pick!.path);
+      });
+    }
+    } catch (e) {
+      print("error : $e");
+    }
+    
+  }
 
   String? selectedCategory;
   final List<String> category = ["Break Fast", "Lunch", "Snack", "Dinner"];
@@ -35,16 +58,24 @@ class _admin_addFoodState extends State<admin_addFood> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 320.w,
-                  height: 230.h,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.r),
-                      color: myColor.fieldbackground),
-                  child: Icon(
-                    Icons.add_a_photo_outlined,
-                    size: 50,
-                    color: myColor.tabcolor,
+                InkWell(
+                  onTap: () {
+                    addImage();
+                  },
+                  child: Container(
+                    width: 320.w,
+                    height: 230.h,
+                    decoration: BoxDecoration(
+                        // image: image == null ? null : Image.file(image!),
+                        borderRadius: BorderRadius.circular(15.r),
+                        color: myColor.fieldbackground),
+                    child: image == null
+                        ? Icon(
+                            Icons.add_a_photo_outlined,
+                            size: 80,
+                            color: myColor.tabcolor,
+                          )
+                        : Image.file(image!),
                   ),
                 ),
               ],
@@ -81,7 +112,7 @@ class _admin_addFoodState extends State<admin_addFood> {
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.circular(10.r)),
                           hintText: "Food Prize",
-                          controller: namecontroller))
+                          controller: foodprizecontroller))
                 ],
               ),
             ),
@@ -105,14 +136,13 @@ class _admin_addFoodState extends State<admin_addFood> {
                           });
                         },
                         decoration: InputDecoration(
-                            filled: true,
-                            fillColor: myColor.fieldbackground,
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(10.r)),
-                            hintText: "Category",
-                            
-                            ),
+                          filled: true,
+                          fillColor: myColor.fieldbackground,
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(10.r)),
+                          hintText: "Category",
+                        ),
                       ))
                 ],
               ),

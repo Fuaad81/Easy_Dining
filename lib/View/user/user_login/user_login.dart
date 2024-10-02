@@ -3,7 +3,7 @@ import 'package:easy_dine_in/Providers/user_provider.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
-import 'package:easy_dine_in/model/service_model/userModel/user_login_model.dart';
+import 'package:easy_dine_in/model/service_model/userModel/auth/user_login_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

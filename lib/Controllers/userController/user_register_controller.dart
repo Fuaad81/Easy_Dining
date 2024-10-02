@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
-import 'package:easy_dine_in/model/service_model/userModel/user_register_model.dart';
+import 'package:easy_dine_in/model/service_model/userModel/auth/user_register_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,12 +37,13 @@ class User_RegisterController {
         "name": userreg.name,
         "email": userreg.email,
         "number": userreg.number,
+        "address": userreg.address,
         "password": userreg.password,
         "confirmpassword": userreg.confirmPassword,
         "terms": userreg.terms,
         "uid": userCredential.user!.uid
       });
-      Navigator.pushNamed(context, "/user_createsuccess");
+      Navigator.pushNamed(context, "/user_login");
 
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: CustomText(text: "Registration success", size: 18.spMin)));
