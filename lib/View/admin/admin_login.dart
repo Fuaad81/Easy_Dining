@@ -1,4 +1,3 @@
-import 'package:easy_dine_in/Controllers/adminController/admin_login_controller.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
@@ -19,11 +18,11 @@ class _admin_LoginState extends State<admin_Login> {
 
   @override
   Widget build(BuildContext context) {
-    final _formkey = GlobalKey<FormState>();
+    final formkey = GlobalKey<FormState>();
     return Scaffold(
       body: SafeArea(
         child: Form(
-          key: _formkey,
+          key: formkey,
           child: Stack(
             children: [
               Padding(
@@ -146,7 +145,7 @@ class _admin_LoginState extends State<admin_Login> {
                                       minimumSize: WidgetStatePropertyAll(
                                           Size(200.w, 50.h))),
                                   onPressed: () {
-                                    if (_formkey.currentState!.validate()) {
+                                    if (formkey.currentState!.validate()) {
                                       // admin_LoginController().adminLogin(
                                       //     context,
                                       //     _emailcontroller.text.trim(),

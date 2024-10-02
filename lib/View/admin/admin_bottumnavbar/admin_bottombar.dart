@@ -4,7 +4,6 @@ import 'package:easy_dine_in/View/admin/admin_home/admin_home.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_order_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_profile.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';

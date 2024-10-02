@@ -10,6 +10,6 @@ class admin_History extends StatefulWidget {
 class _admin_HistoryState extends State<admin_History> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

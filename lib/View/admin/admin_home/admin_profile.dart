@@ -10,6 +10,6 @@ class admin_Profile extends StatefulWidget {
 class _admin_ProfileState extends State<admin_Profile> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }
