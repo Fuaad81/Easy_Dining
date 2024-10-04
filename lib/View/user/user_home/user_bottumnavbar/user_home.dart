@@ -9,13 +9,13 @@ import 'package:easy_dine_in/View/user/user_home/user_tabs/user_lunch.dart';
 import 'package:easy_dine_in/View/user/user_home/user_tabs/user_snack.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class user_Home extends StatefulWidget {
   const user_Home({super.key});
@@ -28,21 +28,25 @@ class _user_HomeState extends State<user_Home> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final _search = TextEditingController();
   String name = "";
+  String email = "";
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> fetchName() async {
-    SharedPreferences sharedpref = await SharedPreferences.getInstance();
-    String? userid = sharedpref.getString("UserId");
-    if (userid != null && userid.isNotEmpty) {
+    // SharedPreferences sharedpref = await SharedPreferences.getInstance();
+    // String? userid = sharedpref.getString("UserId");
+    User? user = _auth.currentUser;
+    if (user != null) {
       try {
         
       DocumentSnapshot usersnap = await FirebaseFirestore.instance
           .collection("Users")
-          .doc(userid)
+          .doc(user.uid)
           .get();
 
           if (usersnap.exists) {
             setState(() {
             name = usersnap["name"] ?? "null";
+            email = usersnap["email"] ?? "null";
             });
           }
       } 
@@ -197,14 +201,14 @@ class _user_HomeState extends State<user_Home> {
                     color: myColor.background,
                   )),
               accountName: CustomText(
-                text: "Name",
+                text: name,
                 size: 20.spMin,
                 color: myColor.background,
                 weight: FontWeight.w500,
                 textAlign: TextAlign.center,
               ),
               accountEmail: CustomText(
-                text: "sample@gmail.com",
+                text: email,
                 size: 20.spMin,
                 color: myColor.background,
                 weight: FontWeight.w400,

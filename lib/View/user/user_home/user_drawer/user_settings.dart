@@ -1,8 +1,10 @@
 // ignore_for_file: prefer__ructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/Providers/theme_provider.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
@@ -16,6 +18,34 @@ class user_accountSetting extends StatefulWidget {
 }
 
 class _user_accountSettingState extends State<user_accountSetting> {
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+  String name = "";
+  String email = "";
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<void> fetchData() async {
+    User? user = _auth.currentUser;
+    try {
+      if (user != null) {
+        DocumentSnapshot data = await FirebaseFirestore.instance
+            .collection("Users")
+            .doc(user.uid)
+            .get();
+        if (data.exists) {
+          setState(() {
+            name = data["name"] ?? "null";
+            email = data["email"] ?? "null";
+          });
+        }
+      }
+    } catch (e) {
+      print("error :$e");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeProvider>(context);
@@ -35,7 +65,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 10.w,top: 15.h),
+              padding: EdgeInsets.only(left: 10.w, top: 15.h),
               child: CustomText(
                 text: "Account",
                 size: 22.spMin,
@@ -43,32 +73,29 @@ class _user_accountSettingState extends State<user_accountSetting> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 10.h,left: 10.w,right: 10.w),
+              padding: EdgeInsets.only(top: 10.h, left: 10.w, right: 10.w),
               child: ListTile(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.r)
-                ),
+                    borderRadius: BorderRadius.circular(10.r)),
                 tileColor: myColor.tabcolor.withOpacity(0.6),
                 leading: CircleAvatar(
                   radius: 25.r,
                 ),
                 title: CustomText(
-                  text: "Name",
+                  text: name,
                   size: 22.spMin,
                   weight: FontWeight.w500,
-                  textStyle: const TextStyle(),
                 ),
                 subtitle: CustomText(
-                  text: "sample@gmail.com",
+                  text: email,
                   size: 20.spMin,
                   weight: FontWeight.w300,
-                  textStyle: const TextStyle(),
                 ),
               ),
             ),
             // const Divider(),
             Padding(
-              padding: EdgeInsets.only(left: 10.w,top: 15.h),
+              padding: EdgeInsets.only(left: 10.w, top: 15.h),
               child: CustomText(
                 text: "Other Settings",
                 size: 22.spMin,
@@ -133,29 +160,30 @@ class _user_accountSettingState extends State<user_accountSetting> {
               trailing: const Icon(IconlyLight.arrow_right_2),
             ),
             ListTile(
-              leading: CircleAvatar(
-                radius: 20.r,
-                backgroundColor: myColor.tabcolor.withOpacity(0.4),
-                child: Image.asset(
-                  "assets/icons/ic_theme.png",
-                  width: 30,
+                leading: CircleAvatar(
+                  radius: 20.r,
+                  backgroundColor: myColor.tabcolor.withOpacity(0.4),
+                  child: Image.asset(
+                    "assets/icons/ic_theme.png",
+                    width: 30,
+                  ),
                 ),
-              ),
-              title: CustomText(
-                text: "Theme",
-                size: 20.spMin,
-                weight: FontWeight.w400,
-              ),
-              trailing: Switch(
-                inactiveTrackColor: myColor.tabcolor,
-                inactiveThumbColor: myColor.textcolor,
-                trackOutlineWidth: const WidgetStatePropertyAll(0),
-                activeTrackColor: myColor.maincolor,
-                activeColor: myColor.background,
-                value: theme.isDarkMode, onChanged: (value) {
-                theme.toggleTheme();
-              },)
-            ),
+                title: CustomText(
+                  text: "Theme",
+                  size: 20.spMin,
+                  weight: FontWeight.w400,
+                ),
+                trailing: Switch(
+                  inactiveTrackColor: myColor.tabcolor,
+                  inactiveThumbColor: myColor.textcolor,
+                  trackOutlineWidth: const WidgetStatePropertyAll(0),
+                  activeTrackColor: myColor.maincolor,
+                  activeColor: myColor.background,
+                  value: theme.isDarkMode,
+                  onChanged: (value) {
+                    theme.toggleTheme();
+                  },
+                )),
             ListTile(
               onTap: () {
                 Navigator.pushNamed(context, "/user_about");

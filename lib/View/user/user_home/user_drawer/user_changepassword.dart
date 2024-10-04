@@ -14,6 +14,10 @@ class user_Change_Password extends StatefulWidget {
 }
 
 class _user_Change_PasswordState extends State<user_Change_Password> {
+  final passcontroller = TextEditingController();
+  final newpasscontroller = TextEditingController();
+  final confirmpasscontroller = TextEditingController();
+  bool passview = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,9 +62,16 @@ class _user_Change_PasswordState extends State<user_Change_Password> {
                         borderSide: BorderSide(color: myColor.textcolor)),
                     filled: true,
                     fillColor: myColor.fieldbackground,
+                    controller: passcontroller,
+                    obscureText: passview,
+
                     hintText: "current password",
                     suffixIcon: IconButton(
-                        onPressed: () {}, icon: const Icon(IconlyLight.show)),
+                        onPressed: () {
+                          setState(() {
+                            passview = !passview;
+                          });
+                        }, icon: passview == true ? Icon(IconlyLight.hide) : Icon(IconlyLight.show)),
                   ),
                 ),
               ),

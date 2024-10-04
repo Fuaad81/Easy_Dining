@@ -149,8 +149,8 @@ class MyApp extends StatelessWidget {
             "/admin_add_notification": (context) =>
                 const admin_addNotification(),
             "/admin_addfood": (context) => const admin_addFood(),
-            "/admin_addoffers": (context) => const admin_addOffer(),
             "/admin_addtable": (context) => const admin_addTable(),
+            "/admin_addoffers": (context) => const admin_addOffer(),
             "/admin_review": (context) => const admin_Review(),
             "/admin_newfood": (context) => const admin_newFood(),
             "/admin_newtable": (context) => const admin_newTable(),

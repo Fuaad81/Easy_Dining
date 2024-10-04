@@ -23,6 +23,7 @@ class CustomTextFormField extends StatelessWidget {
   final Color? fillColor;
   final InputBorder? errorBorder;
   final InputBorder? focusedBorder;
+  final TextInputType? keyboardType;
 
   const CustomTextFormField(
       {super.key,
@@ -44,7 +45,7 @@ class CustomTextFormField extends StatelessWidget {
       this.errorBorder,
       this.focusedBorder,
       this.style,
-      this.errorStyle});
+      this.errorStyle, this.keyboardType});
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +55,7 @@ class CustomTextFormField extends StatelessWidget {
       validator: validator,
       readOnly: readOnly,
       maxLines: maxLines,
+      keyboardType: keyboardType,
       style: style,
       decoration: InputDecoration(
         errorStyle: errorStyle,
@@ -69,6 +71,7 @@ class CustomTextFormField extends StatelessWidget {
         filled: filled,
         fillColor: fillColor,
         contentPadding: contentPadding,
+        
       ),
     );
   }

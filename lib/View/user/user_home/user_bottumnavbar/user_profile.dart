@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,36 +22,30 @@ class _user_ProfileState extends State<user_Profile> {
     super.initState();
     fetchProfile();
   }
-  Future<void> fetchProfile() async {
-    SharedPreferences sharedpref = await SharedPreferences.getInstance();
-    String? userid = sharedpref.getString("UserId");
-    if (userid != null && userid.isNotEmpty) {
-      try {
-        DocumentSnapshot usersnap = await FirebaseFirestore.instance
-            .collection("Users")
-            .doc(userid)
-            .get();
 
-        if (usersnap.exists) {
-          setState(() {
-            nameController.text = usersnap["name"] ?? "null";
-            emailController.text = usersnap["email"] ?? "null";
-            numberController.text = usersnap["number"] ?? "null";
-            addressController = usersnap["address"] ?? "null";
-          });
-        }
-      } catch (e) {
-        print(e);
-      }
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<void> fetchProfile() async {
+
+    User? user = _auth.currentUser;
+    if (user != null) {
+      DocumentSnapshot userdata = await FirebaseFirestore.instance
+          .collection("Users")
+          .doc(user.uid)
+          .get();
+      setState(() {
+        nameController.text = userdata["name"] ?? "null";
+        emailController.text = userdata["email"] ?? "null";
+        numberController.text = userdata["number"] ?? "null";
+        addressController.text = userdata["address"] ?? "null";
+      });
     }
   }
-  
 
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController numberController = TextEditingController();
   TextEditingController addressController = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

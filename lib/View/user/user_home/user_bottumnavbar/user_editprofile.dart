@@ -16,8 +16,13 @@ class user_editProfile extends StatefulWidget {
 }
 
 class _user_editProfileState extends State<user_editProfile> {
+  @override
+  void initState() {
+    super.initState();
+    fetchProfile();
+  }
+
   final _formkey = GlobalKey<FormState>();
-  // final user_editProfile editprof = user_editProfile();
   final userModel usermodel = userModel();
 
   TextEditingController nameController = TextEditingController();
@@ -31,13 +36,8 @@ class _user_editProfileState extends State<user_editProfile> {
       nameController.text = usermodel.name ?? '';
       emailController.text = usermodel.email ?? '';
       numberController.text = usermodel.number ?? '';
+      addressController.text = usermodel.address ?? '';
     });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    fetchProfile();
   }
 
   @override
@@ -151,7 +151,8 @@ class _user_editProfileState extends State<user_editProfile> {
                     ),
                     hintText: "Address",
                     suffixIcon: IconButton(
-                        onPressed: () {}, icon: const Icon(IconlyLight.location)),
+                        onPressed: () {},
+                        icon: const Icon(IconlyLight.location)),
                   ),
                 ),
               ),
