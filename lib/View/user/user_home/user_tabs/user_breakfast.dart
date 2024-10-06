@@ -68,6 +68,9 @@ class _user_breakFastState extends State<user_breakFast> {
                               child: Image.network(
                                 data["imageurl"],
                                 fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return const Icon(IconlyBroken.image,size: 30,);
+                                },
                               ),
                             ),
                           ),

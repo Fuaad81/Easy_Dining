@@ -10,19 +10,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 
-class admin_addTable extends StatefulWidget {
-  const admin_addTable({super.key});
+class AdminAddTable extends StatefulWidget {
+  const AdminAddTable({super.key});
 
   @override
-  State<admin_addTable> createState() => _admin_addTableState();
+  State<AdminAddTable> createState() => _AdminAddTableState();
 }
 
-class _admin_addTableState extends State<admin_addTable> {
+class _AdminAddTableState extends State<AdminAddTable> {
   XFile? pick;
   File? image;
-  String? imageUrl;
+  String? imagelink;
 
-  Future<void> addImage() async {
+  Future<void> pickimage() async {
     try {
       ImagePicker picked = ImagePicker();
       pick = await picked.pickImage(source: ImageSource.gallery);
@@ -35,13 +35,13 @@ class _admin_addTableState extends State<admin_addTable> {
       print("error : $e");
     }
   }
-
-  Future<void> savedata() async {
+  
+  Future<void> savedetails() async {
     try {
       await FirebaseFirestore.instance.collection("addTable").add({
         "table_no": namecontroller.text,
         "prize": prizecontroller.text,
-        "imageUrl": imageUrl.toString()
+        "imageUrl": imagelink.toString()
       });
     } catch (e) {
       print(e);
@@ -58,9 +58,9 @@ class _admin_addTableState extends State<admin_addTable> {
             .child("tableImage")
             .child(DateTime.now().microsecondsSinceEpoch.toString());
         await ref.putFile(image!);
-        var imgurl = await ref.getDownloadURL();
+        final imgurl = await ref.getDownloadURL();
         setState(() {
-          imageUrl = imgurl;
+          imagelink = imgurl;
         });
       } catch (e) {
         print(e);
@@ -90,7 +90,7 @@ class _admin_addTableState extends State<admin_addTable> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: addImage,
+                  onTap: pickimage,
                   child: Container(
                     width: 320.w,
                     height: 230.h,
@@ -164,7 +164,7 @@ class _admin_addTableState extends State<admin_addTable> {
                           shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.r)))),
                       onPressed: () {
-                        savedata();
+                        savedetails();
                         saveImage();
                       },
                       child: CustomText(text: "Submit", size: 20.spMin)),

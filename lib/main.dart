@@ -120,7 +120,7 @@ class MyApp extends StatelessWidget {
             "/user_location": (context) => const user_Location(),
             "/user_profile": (context) => const user_Profile(),
             "/user_editprofile": (context) => const user_editProfile(),
-            "/user_all": (context) => const user_allItem(),
+            "/user_all": (context) => const UserAllItem(),
             "/user_lunch": (context) => const user_lunchItem(),
             "/user_snack": (context) => const user_snackItem(),
             "/user_dinner": (context) => const user_dinnerItem(),
@@ -149,7 +149,7 @@ class MyApp extends StatelessWidget {
             "/admin_add_notification": (context) =>
                 const admin_addNotification(),
             "/admin_addfood": (context) => const admin_addFood(),
-            "/admin_addtable": (context) => const admin_addTable(),
+            "/admin_addtable": (context) => const AdminAddTable(),
             "/admin_addoffers": (context) => const admin_addOffer(),
             "/admin_review": (context) => const admin_Review(),
             "/admin_newfood": (context) => const admin_newFood(),

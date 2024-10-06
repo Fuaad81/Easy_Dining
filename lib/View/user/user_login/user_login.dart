@@ -1,4 +1,4 @@
-import 'package:easy_dine_in/Controllers/userController/user_login_controller.dart';
+import 'package:easy_dine_in/Controllers/userController/auth_controller/user_login_controller.dart';
 import 'package:easy_dine_in/Providers/user_provider.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';

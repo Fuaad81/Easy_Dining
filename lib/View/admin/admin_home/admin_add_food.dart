@@ -24,7 +24,7 @@ class _admin_addFoodState extends State<admin_addFood> {
   final formkey = GlobalKey<FormState>();
   XFile? pick;
   File? image;
-  String? imageUrl;
+  var imageUrl;
 
   Future<void> addImage() async {
     try {
@@ -45,7 +45,7 @@ class _admin_addFoodState extends State<admin_addFood> {
       await FirebaseFirestore.instance.collection("addFood").add({
         "foodname": namecontroller.text,
         "foodprize": foodprizecontroller.text,
-        "category": selectedCategory.toString(),
+        "category": selectedCategory,
         "discription": descriptioncontroller.text,
         "imageurl": imageUrl.toString()
       });
@@ -62,10 +62,11 @@ class _admin_addFoodState extends State<admin_addFood> {
             .child("foodImage")
             .child(DateTime.now().microsecondsSinceEpoch.toString());
         await ref.putFile(image!);
-        var imgurl = await ref.getDownloadURL();
+        // var imgurl = await ref.getDownloadURL();
         setState(() {
-          imageUrl = imgurl;
+          imageUrl = ref.getDownloadURL();
         });
+        print(imageUrl);
       } catch (e) {
         print(e);
       }
@@ -251,6 +252,7 @@ class _admin_addFoodState extends State<admin_addFood> {
                             saveImage();
                           }
                           print(selectedCategory);
+                          // print(img);
                         },
                         child: CustomText(
                           text: "Submit",

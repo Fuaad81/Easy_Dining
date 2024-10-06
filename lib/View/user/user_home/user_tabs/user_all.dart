@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 
-class user_allItem extends StatefulWidget {
-  const user_allItem({super.key});
+class UserAllItem extends StatefulWidget {
+  const UserAllItem({super.key});
 
   @override
-  State<user_allItem> createState() => _user_allItemState();
+  State<UserAllItem> createState() => _UserAllItemState();
 }
 
-class _user_allItemState extends State<user_allItem> {
+class _UserAllItemState extends State<UserAllItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +90,8 @@ class _user_allItemState extends State<user_allItem> {
                     itemBuilder: (context, index) {
                       var data = snapshot.data!.docs[index];
                       return Padding(
-                        padding: EdgeInsets.only(top: 10.h,left: 5.w,right: 5.w),
+                        padding:
+                            EdgeInsets.only(top: 10.h, left: 5.w, right: 5.w),
                         child: customCard(
                           elevation: 5,
                           child: Column(
@@ -108,6 +109,13 @@ class _user_allItemState extends State<user_allItem> {
                                       child: Image.network(
                                         data["imageurl"],
                                         fit: BoxFit.cover,
+                                        errorBuilder:
+                                            (context, error, stackTrace) {
+                                          return const Icon(
+                                            IconlyBroken.image,
+                                            size: 30,
+                                          );
+                                        },
                                       ),
                                     ),
                                   ),

@@ -1,6 +1,6 @@
 // ignore_for_file: prefer__ructors
 
-import 'package:easy_dine_in/Controllers/userController/user_register_controller.dart';
+import 'package:easy_dine_in/Controllers/userController/auth_controller/user_register_controller.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/style/customtheme.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
