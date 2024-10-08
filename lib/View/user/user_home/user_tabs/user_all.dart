@@ -68,12 +68,12 @@ class _UserAllItemState extends State<UserAllItem> {
                     );
                   } else if (snapshot.hasError) {
                     return Text('Error: ${snapshot.error}');
-                  } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: CustomText(
-                            text: "No Data Availabe", size: 20.spMin),
+                  }
+                  if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                    return Center(
+                      child: CustomText(
+                        text: "No Items Available!!",
+                        size: 20.spMin,
                       ),
                     );
                   }

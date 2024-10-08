@@ -30,11 +30,12 @@ class _user_lunchItemState extends State<user_lunchItem> {
             );
           } else if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
-          } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomText(text: "No Data Availabe", size: 20.spMin),
+          }
+          if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+            return Center(
+              child: CustomText(
+                text: "No Items Available!!",
+                size: 20.spMin,
               ),
             );
           }
@@ -50,7 +51,7 @@ class _user_lunchItemState extends State<user_lunchItem> {
             itemBuilder: (context, index) {
               var data = snapshot.data!.docs[index];
               return Padding(
-                padding: EdgeInsets.only(top: 10.h,left: 5.w,right: 5.w),
+                padding: EdgeInsets.only(top: 10.h, left: 5.w, right: 5.w),
                 child: customCard(
                   elevation: 5,
                   child: Column(
@@ -69,7 +70,10 @@ class _user_lunchItemState extends State<user_lunchItem> {
                                 data["imageurl"],
                                 fit: BoxFit.cover,
                                 errorBuilder: (context, error, stackTrace) {
-                                  return const Icon(IconlyBroken.image,size: 30,);
+                                  return const Icon(
+                                    IconlyBroken.image,
+                                    size: 30,
+                                  );
                                 },
                               ),
                             ),

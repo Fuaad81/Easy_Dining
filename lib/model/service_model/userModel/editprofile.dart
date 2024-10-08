@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class userModel {
   String? name;
@@ -15,7 +14,7 @@ class userModel {
     this.address,
   });
 
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> fetchProfile() async {
     // SharedPreferences sharedpref = await SharedPreferences.getInstance();

@@ -7,7 +7,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class user_Profile extends StatefulWidget {
   const user_Profile({super.key});

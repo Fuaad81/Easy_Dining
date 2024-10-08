@@ -62,11 +62,12 @@ class _admin_addFoodState extends State<admin_addFood> {
             .child("foodImage")
             .child(DateTime.now().microsecondsSinceEpoch.toString());
         await ref.putFile(image!);
-        // var imgurl = await ref.getDownloadURL();
+        var imgurl = await ref.getDownloadURL();
         setState(() {
-          imageUrl = ref.getDownloadURL();
+          imageUrl = imgurl;
         });
-        print(imageUrl);
+
+        print(imgurl);
       } catch (e) {
         print(e);
       }
@@ -252,7 +253,6 @@ class _admin_addFoodState extends State<admin_addFood> {
                             saveImage();
                           }
                           print(selectedCategory);
-                          // print(img);
                         },
                         child: CustomText(
                           text: "Submit",

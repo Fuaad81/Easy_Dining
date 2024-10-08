@@ -25,19 +25,20 @@ class _user_breakFastState extends State<user_breakFast> {
             .snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (snapshot.hasError) {
-            return Text('Error: ${snapshot.error}');
-          } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomText(text: "No Data Availabe", size: 20.spMin),
-              ),
-            );
-          }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            }
+            if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+              return Center(
+                child: CustomText(
+                  text: "No Items Available!!",
+                  size: 20.spMin,
+                ),
+              );
+            }
           return GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,

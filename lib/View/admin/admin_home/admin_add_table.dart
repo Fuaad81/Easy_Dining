@@ -57,7 +57,8 @@ class _AdminAddTableState extends State<AdminAddTable> {
             .ref()
             .child("tableImage")
             .child(DateTime.now().microsecondsSinceEpoch.toString());
-        await ref.putFile(image!);
+        firebase_storage.UploadTask uploadTask = ref.putFile(image!);
+        await uploadTask;
         final imgurl = await ref.getDownloadURL();
         setState(() {
           imagelink = imgurl;
