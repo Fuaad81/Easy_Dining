@@ -1,5 +1,6 @@
-import 'dart:io';
+// ignore_for_file: depend_on_referenced_packages
 
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
@@ -8,7 +9,7 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
-// import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as path;
 
 class admin_addFood extends StatefulWidget {
   const admin_addFood({super.key});
@@ -24,7 +25,7 @@ class _admin_addFoodState extends State<admin_addFood> {
   final formkey = GlobalKey<FormState>();
   XFile? pick;
   File? image;
-  var imageUrl;
+  String? imageUrl;
 
   Future<void> addImage() async {
     try {
@@ -40,6 +41,49 @@ class _admin_addFoodState extends State<admin_addFood> {
     }
   }
 
+  // Future<void> saveImage() async {
+  //   if (image != null) {
+  //     try {
+  //       final ref = firebase_storage.FirebaseStorage.instance
+  //           .ref()
+  //           .child("foodImage")
+  //           .child(DateTime.now().microsecondsSinceEpoch.toString());
+  //       await ref.putFile(image!);
+  //       var imgurl = await ref.getDownloadURL();
+  //       setState(() {
+  //         imageUrl = imgurl;
+  //       });
+
+  //       print(imgurl);
+  //     } catch (e) {
+  //       print(e);
+  //     }
+  //   }
+  // }
+  Future<void> saveImage() async {
+    if (image != null) {
+      try {
+        String fileExtension = path.extension(image!.path);
+        final ref = firebase_storage.FirebaseStorage.instance
+            .ref()
+            .child("foodImage")
+            .child("${DateTime.now().microsecondsSinceEpoch}$fileExtension");
+        firebase_storage.UploadTask uploadTask = ref.putFile(image!);
+        await uploadTask.whenComplete(() => print("Upload Complete"));
+
+        await uploadTask;
+        final imgurl = await ref.getDownloadURL();
+        setState(() {
+          imageUrl = imgurl;
+        });
+      } catch (e) {
+        print(e);
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: CustomText(text: "error: $e", size: 20.spMin)));
+      }
+    }
+  }
+
   Future<void> saveData() async {
     try {
       await FirebaseFirestore.instance.collection("addFood").add({
@@ -47,30 +91,10 @@ class _admin_addFoodState extends State<admin_addFood> {
         "foodprize": foodprizecontroller.text,
         "category": selectedCategory,
         "discription": descriptioncontroller.text,
-        "imageurl": imageUrl.toString()
+        "imageurl": imageUrl ?? ''
       });
     } catch (e) {
       print("Error : $e");
-    }
-  }
-
-  Future<void> saveImage() async {
-    if (image != null) {
-      try {
-        final ref = firebase_storage.FirebaseStorage.instance
-            .ref()
-            .child("foodImage")
-            .child(DateTime.now().microsecondsSinceEpoch.toString());
-        await ref.putFile(image!);
-        var imgurl = await ref.getDownloadURL();
-        setState(() {
-          imageUrl = imgurl;
-        });
-
-        print(imgurl);
-      } catch (e) {
-        print(e);
-      }
     }
   }
 

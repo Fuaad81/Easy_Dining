@@ -9,6 +9,7 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as path;
 
 class AdminAddTable extends StatefulWidget {
   const AdminAddTable({super.key});
@@ -18,6 +19,7 @@ class AdminAddTable extends StatefulWidget {
 }
 
 class _AdminAddTableState extends State<AdminAddTable> {
+  
   XFile? pick;
   File? image;
   String? imagelink;
@@ -35,29 +37,19 @@ class _AdminAddTableState extends State<AdminAddTable> {
       print("error : $e");
     }
   }
-  
-  Future<void> savedetails() async {
-    try {
-      await FirebaseFirestore.instance.collection("addTable").add({
-        "table_no": namecontroller.text,
-        "prize": prizecontroller.text,
-        "imageUrl": imagelink.toString()
-      });
-    } catch (e) {
-      print(e);
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: CustomText(text: "error: $e", size: 20.spMin)));
-    }
-  }
+
 
   Future<void> saveImage() async {
     if (image != null) {
       try {
+          String fileExtension = path.extension(image!.path);
         final ref = firebase_storage.FirebaseStorage.instance
             .ref()
             .child("tableImage")
-            .child(DateTime.now().microsecondsSinceEpoch.toString());
+            .child("${DateTime.now().microsecondsSinceEpoch}$fileExtension");
         firebase_storage.UploadTask uploadTask = ref.putFile(image!);
+              await uploadTask.whenComplete(() => print("Upload Complete"));
+
         await uploadTask;
         final imgurl = await ref.getDownloadURL();
         setState(() {
@@ -68,6 +60,19 @@ class _AdminAddTableState extends State<AdminAddTable> {
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: CustomText(text: "error: $e", size: 20.spMin)));
       }
+    }
+  }
+  Future<void> savedetails() async {
+    try {
+      await FirebaseFirestore.instance.collection("addTable").add({
+        "table_no": namecontroller.text,
+        "prize": prizecontroller.text,
+        "imageUrl": imagelink ?? ''
+      });
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: CustomText(text: "error: $e", size: 20.spMin)));
     }
   }
 

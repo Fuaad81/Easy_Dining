@@ -18,6 +18,7 @@ class user_confirmPassword extends StatefulWidget {
 class _user_confirmPasswordState extends State<user_confirmPassword> {
   final _newpass = TextEditingController();
   final _newconfirmpass = TextEditingController();
+  final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +32,8 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
         ),
         centerTitle: true,
       ),
-      body: SafeArea(
+      body: Form(
+        key: _formkey,
         child: Column(
           children: [
             Padding(
@@ -59,6 +61,20 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
                       borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide.none),
                   controller: _newpass,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'enter password';
+                    } else if (value.length < 6) {
+                      return 'Password must be at least 6 characters';
+                    } else if (!RegExp(r'^(?=.*[A-Z][a-z])(?=.*\d)')
+                        .hasMatch(value)) {
+                      return 'Password must use at least one uppercase letter and numbers';
+                    } else if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]')
+                        .hasMatch(value)) {
+                      return 'Password must contain at least one special character';
+                    }
+                    return null;
+                  },
                   labelText: CustomText(
                     text: "new password",
                     size: 18.spMin,
@@ -93,6 +109,14 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
                       borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide.none),
                   controller: _newconfirmpass,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'enter password';
+                    } else if (_newpass.text != _newconfirmpass.text) {
+                      return "password don't same";
+                    }
+                    return null;
+                  },
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                   labelText: CustomText(
@@ -121,7 +145,8 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
                 children: [
                   ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, "/user_login");
+                        if (_formkey.currentState!.validate()) {}
+                        // Navigator.pushNamed(context, "/user_login");
                       },
                       style: ButtonStyle(
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(

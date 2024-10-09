@@ -58,7 +58,6 @@ final ThemeData lightTheme = ThemeData(
     buttonColor: Color(0xFFFF5B00),
     textTheme: ButtonTextTheme.primary,
   ),
-  
   scaffoldBackgroundColor: const Color(0xFFFFFFFF),
 );
 
@@ -120,6 +119,5 @@ final ThemeData darkTheme = ThemeData(
     buttonColor: Color(0xFFFF5B00),
     textTheme: ButtonTextTheme.primary,
   ),
-  
   scaffoldBackgroundColor: const Color(0xff141313),
 );
