@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
@@ -14,11 +15,16 @@ class admin_Db_Acpt_Details extends StatefulWidget {
 class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic> args =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    DocumentSnapshot data = args['data'];
     return Scaffold(
-      
       appBar: AppBar(
-        
-        title: CustomText(text: "Delivery Boy", size: 21.spMin,weight: FontWeight.w500,),
+        title: CustomText(
+          text: "Delivery Boy",
+          size: 21.spMin,
+          weight: FontWeight.w500,
+        ),
         centerTitle: true,
       ),
       body: Column(
@@ -49,12 +55,12 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h,right: 30.w,left: 30.w),
+                          padding: EdgeInsets.only(
+                              top: 20.h, right: 30.w, left: 30.w),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                                CustomText(
+                              CustomText(
                                 text: "Name",
                                 size: 20.spMin,
                                 weight: FontWeight.w500,
@@ -75,12 +81,12 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h,right: 30.w,left: 30.w),
+                          padding: EdgeInsets.only(
+                              top: 20.h, right: 30.w, left: 30.w),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                                CustomText(
+                              CustomText(
                                 text: "Email",
                                 size: 20.spMin,
                                 weight: FontWeight.w500,
@@ -101,12 +107,12 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h,right: 30.w,left: 30.w),
+                          padding: EdgeInsets.only(
+                              top: 20.h, right: 30.w, left: 30.w),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                                CustomText(
+                              CustomText(
                                 text: "Phone No",
                                 size: 20.spMin,
                                 weight: FontWeight.w500,
@@ -127,12 +133,12 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h,right: 30.w,left: 30.w),
+                          padding: EdgeInsets.only(
+                              top: 20.h, right: 30.w, left: 30.w),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                                CustomText(
+                              CustomText(
                                 text: "License",
                                 size: 20.spMin,
                                 weight: FontWeight.w500,
@@ -150,16 +156,19 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                                   suffixIcon: Padding(
                                     padding: const EdgeInsets.all(5.0),
                                     child: InkWell(
-                                      onTap: () {
-                                        
-                                      },
+                                      onTap: () {},
                                       child: Container(
                                         width: 60.w,
                                         decoration: BoxDecoration(
-                                          color: myColor.maincolor,
-                                          borderRadius: BorderRadius.circular(10.r)
-                                        ),
-                                        child: Center(child: CustomText(text: "open", size: 14.spMin,color: myColor.background,)),
+                                            color: myColor.maincolor,
+                                            borderRadius:
+                                                BorderRadius.circular(10.r)),
+                                        child: Center(
+                                            child: CustomText(
+                                          text: "open",
+                                          size: 14.spMin,
+                                          color: myColor.background,
+                                        )),
                                       ),
                                     ),
                                   ),
@@ -169,12 +178,12 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h,right: 30.w,left: 30.w,bottom: 40.h),
+                          padding: EdgeInsets.only(
+                              top: 20.h, right: 30.w, left: 30.w, bottom: 40.h),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                                CustomText(
+                              CustomText(
                                 text: "Location",
                                 size: 20.spMin,
                                 weight: FontWeight.w500,
@@ -194,7 +203,6 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                             ],
                           ),
                         ),
-                      
                       ],
                     ),
                   ),

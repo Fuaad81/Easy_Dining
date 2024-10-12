@@ -29,6 +29,9 @@ class _user_RegisterState extends State<user_Register> {
   final _cpasswordcontroller = TextEditingController();
   final User_RegisterController _userController = User_RegisterController();
   var terms = false;
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

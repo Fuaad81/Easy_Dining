@@ -19,6 +19,7 @@ analyzer:
     non_constant_identifier_names: ignore
     unrelated_type_equality_checks: ignore
     prefer_typing_uninitialized_variables: ignore
+    depend_on_referenced_packages: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

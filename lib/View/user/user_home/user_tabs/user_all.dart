@@ -92,102 +92,107 @@ class _UserAllItemState extends State<UserAllItem> {
                       return Padding(
                         padding:
                             EdgeInsets.only(top: 10.h, left: 5.w, right: 5.w),
-                        child: customCard(
-                          elevation: 5,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Flexible(
-                                child: Padding(
-                                  padding: EdgeInsets.only(top: 5.h),
-                                  child: SizedBox(
-                                    width: 150.w,
-                                    height: 120.h,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10.r)),
-                                      child: Image.network(
-                                        data["imageurl"],
-                                        fit: BoxFit.cover,
-                                        errorBuilder:
-                                            (context, error, stackTrace) {
-                                          return const Icon(
-                                            IconlyBroken.image,
-                                            size: 30,
-                                          );
-                                        },
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, "/user_fooddetails",arguments: {"data" : data});
+                          },
+                          child: customCard(
+                            elevation: 5,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Flexible(
+                                  child: Padding(
+                                    padding: EdgeInsets.only(top: 5.h),
+                                    child: SizedBox(
+                                      width: 150.w,
+                                      height: 120.h,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10.r)),
+                                        child: Image.network(
+                                          data["imageurl"],
+                                          fit: BoxFit.cover,
+                                          errorBuilder:
+                                              (context, error, stackTrace) {
+                                            return const Icon(
+                                              IconlyBroken.image,
+                                              size: 30,
+                                            );
+                                          },
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  left: 7.w,
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    left: 7.w,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      CustomText(
+                                        text: data["foodname"],
+                                        size: 18.spMin,
+                                        weight: FontWeight.w600,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 2.w),
+                                        child: InkWell(
+                                            onTap: () {},
+                                            child: const Icon(
+                                              IconlyLight.heart,
+                                              size: 22,
+                                            )),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(
-                                      text: data["foodname"],
-                                      size: 18.spMin,
-                                      weight: FontWeight.w600,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 2.w),
-                                      child: InkWell(
-                                          onTap: () {},
-                                          child: const Icon(
-                                            IconlyLight.heart,
-                                            size: 22,
-                                          )),
-                                    )
-                                  ],
+                                Padding(
+                                  padding: EdgeInsets.only(left: 7.w),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      CustomText(
+                                        text: 'quantity',
+                                        size: 14.spMin,
+                                        textStyle: const TextStyle(),
+                                        weight: FontWeight.w400,
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 7.w),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(
-                                      text: 'quantity',
-                                      size: 14.spMin,
-                                      textStyle: const TextStyle(),
-                                      weight: FontWeight.w400,
-                                    ),
-                                  ],
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    left: 7.w,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      CustomText(
+                                        text: "₹${data["foodprize"]}",
+                                        size: 18.spMin,
+                                        textStyle: const TextStyle(),
+                                        weight: FontWeight.w600,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 2.w),
+                                        child: InkWell(
+                                            onTap: () {},
+                                            child: const Icon(
+                                              IconlyLight.bag,
+                                              size: 22,
+                                            )),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  left: 7.w,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(
-                                      text: "₹${data["foodprize"]}",
-                                      size: 18.spMin,
-                                      textStyle: const TextStyle(),
-                                      weight: FontWeight.w600,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 2.w),
-                                      child: InkWell(
-                                          onTap: () {},
-                                          child: const Icon(
-                                            IconlyLight.bag,
-                                            size: 22,
-                                          )),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       );

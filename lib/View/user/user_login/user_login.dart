@@ -27,7 +27,6 @@ class _user_loginPageState extends State<user_loginPage> {
   Widget build(BuildContext context) {
     final suffixicons = Provider.of<UserProvider>(context);
     return Scaffold(
-      
       body: SafeArea(
         child: Form(
           key: _formkey,
@@ -72,7 +71,6 @@ class _user_loginPageState extends State<user_loginPage> {
                     ),
                     size: 27.spMin,
                     weight: FontWeight.w700,
-                    
                   ),
                 ),
                 Padding(
@@ -83,7 +81,6 @@ class _user_loginPageState extends State<user_loginPage> {
                     textStyle: GoogleFonts.poppins(),
                     size: 20.spMin,
                     weight: FontWeight.w300,
-                    
                   ),
                 ),
                 Padding(
@@ -91,23 +88,20 @@ class _user_loginPageState extends State<user_loginPage> {
                   child: SizedBox(
                     width: 315.w,
                     child: CustomTextFormField(
-                      style: GoogleFonts.poppins(
-                        color: myColor.textcolor
-                      ),
+                      style: GoogleFonts.poppins(color: myColor.textcolor),
                       filled: true,
                       fillColor: myColor.fieldbackground,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
                           borderSide: BorderSide.none),
                       controller: emailcontroller,
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.h, horizontal: 20.w),
                       labelText: Padding(
                         padding: EdgeInsets.only(left: 5.w),
                         child: CustomText(
                           text: "email",
                           size: 18.spMin,
-                          
                           weight: FontWeight.w400,
                           textAlign: TextAlign.center,
                           textStyle: const TextStyle(),
@@ -138,22 +132,19 @@ class _user_loginPageState extends State<user_loginPage> {
                     child: CustomTextFormField(
                       filled: true,
                       fillColor: myColor.fieldbackground,
-                      style: GoogleFonts.poppins(
-                        color: myColor.textcolor
-                      ),
+                      style: GoogleFonts.poppins(color: myColor.textcolor),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r),
                           borderSide: BorderSide.none),
                       obscureText: suffixicons.checked,
                       controller: passwordcontroler,
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.h, horizontal: 20.w),
                       labelText: Padding(
                         padding: EdgeInsets.only(left: 5.w),
                         child: CustomText(
                           text: "password",
                           size: 18.spMin,
-                          
                           weight: FontWeight.w400,
                           textAlign: TextAlign.center,
                           textStyle: const TextStyle(),
@@ -175,7 +166,7 @@ class _user_loginPageState extends State<user_loginPage> {
                           fontWeight: FontWeight.w500,
                           color: myColor.textcolor),
                       suffixIcon: IconButton(
-                        color: myColor.textcolor,
+                          color: myColor.textcolor,
                           onPressed: () {
                             suffixicons.checking();
                           },
@@ -199,7 +190,6 @@ class _user_loginPageState extends State<user_loginPage> {
                       TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, "/user_forgot");
-
                         },
                         child: CustomText(
                           text: "Forgot Password?",
@@ -220,9 +210,8 @@ class _user_loginPageState extends State<user_loginPage> {
                         onPressed: () {
                           if (_formkey.currentState!.validate()) {
                             User_Login_Model userlogin = User_Login_Model(
-                              email: emailcontroller.text.trim(),
-                              password: passwordcontroler.text.trim()
-                            );
+                                email: emailcontroller.text.trim(),
+                                password: passwordcontroler.text.trim());
                             _user_loginController.loginUser(userlogin, context);
                           }
                         },
@@ -235,7 +224,8 @@ class _user_loginPageState extends State<user_loginPage> {
                               WidgetStateProperty.all(myColor.maincolor),
                           foregroundColor:
                               WidgetStateProperty.all(myColor.background),
-                          minimumSize: WidgetStateProperty.all(Size(200.w, 45.h)),
+                          minimumSize:
+                              WidgetStateProperty.all(Size(200.w, 45.h)),
                         ),
                         child: CustomText(
                           text: "login",
@@ -255,7 +245,6 @@ class _user_loginPageState extends State<user_loginPage> {
                       CustomText(
                         text: "i don't have any account!",
                         size: 18.spMin,
-                        
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(),
@@ -290,13 +279,11 @@ class _user_loginPageState extends State<user_loginPage> {
                           height: 20.h,
                           thickness: 2,
                           endIndent: 10.w,
-                          
                         ),
                       ),
                       CustomText(
                         text: "or login with",
                         size: 18.spMin,
-                        
                         weight: FontWeight.w400,
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(),
@@ -307,7 +294,6 @@ class _user_loginPageState extends State<user_loginPage> {
                           height: 20.h,
                           thickness: 2,
                           indent: 10.w,
-                          
                         ),
                       ),
                     ],

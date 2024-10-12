@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
@@ -14,6 +15,9 @@ class admin_Db_Req_Details extends StatefulWidget {
 class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic> args =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    DocumentSnapshot data = args['data'];
     return Scaffold(
       appBar: AppBar(
         title: CustomText(
@@ -70,7 +74,8 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                   border: OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.circular(10.r)),
-                                  hintText: "Name",
+                                  // hintText: "Name",
+                                  initialValue: data["name"],
                                 ),
                               )
                             ],
@@ -96,7 +101,8 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                   border: OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.circular(10.r)),
-                                  hintText: "sample@gmail.com",
+                                  // hintText: "sample@gmail.com",
+                                  initialValue: data["email"],
                                 ),
                               )
                             ],
@@ -122,7 +128,8 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                   border: OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.circular(10.r)),
-                                  hintText: "1234567890",
+                                  // hintText: "1234567890",\
+                                  initialValue: data["phone"],
                                 ),
                               )
                             ],
@@ -217,7 +224,9 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                               borderRadius:
                                                   BorderRadius.circular(
                                                       10.r)))),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    rejectRequest(data.id);
+                                  },
                                   child: CustomText(
                                       text: "Reject", size: 20.spMin)),
                               ElevatedButton(
@@ -233,7 +242,9 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                               borderRadius:
                                                   BorderRadius.circular(
                                                       10.r)))),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    approveRequest(data.id);
+                                  },
                                   child: CustomText(
                                       text: "Accept", size: 20.spMin))
                             ],
@@ -249,5 +260,52 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
         ],
       ),
     );
+  }
+}
+
+void approveRequest(String requestId) async {
+  try {
+    await FirebaseFirestore.instance
+        .collection("dboyRegisterrq")
+        .doc(requestId)
+        .update({
+      "status": "approved",
+    });
+    DocumentSnapshot details = await FirebaseFirestore.instance
+        .collection("dboyRegisterrq")
+        .doc(requestId)
+        .get();
+    await FirebaseFirestore.instance
+        .collection("approveddboy")
+        .doc(requestId)
+        .set(details.data() as Map<String, dynamic>)
+        .then((_) {
+      FirebaseFirestore.instance
+          .collection("dboyRegisterrq")
+          .doc(requestId)
+          .delete();
+    });
+
+    // Send a notification to the user
+    // await FirebaseFirestore.instance.collection("users").doc(requestId).update({
+    //   "isAdmin": true,
+    // });
+  } catch (e) {
+    // Handle error
+    print(e);
+  }
+}
+
+void rejectRequest(String requestId) async {
+  try {
+    await FirebaseFirestore.instance
+        .collection("dboyRegisterrq")
+        .doc(requestId)
+        .update({
+      "status": "rejected",
+    });
+  } catch (e) {
+    // Handle error
+    print(e);
   }
 }

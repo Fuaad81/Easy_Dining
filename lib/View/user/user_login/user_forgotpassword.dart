@@ -1,12 +1,10 @@
 // ignore_for_file: prefer__ructors
 
-import 'dart:math';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/style/customtheme.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -119,8 +117,8 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
                               Navigator.pushNamed(context, "/user_confirmpass");
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                    content: const Text("email not found")),
+                                const SnackBar(
+                                    content: Text("email not found")),
                               );
                             }
                           }

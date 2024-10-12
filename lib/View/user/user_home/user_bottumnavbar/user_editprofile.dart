@@ -1,21 +1,25 @@
+import 'dart:io';
+
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
 import 'package:easy_dine_in/model/service_model/userModel/editprofile.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
+import 'package:image_picker/image_picker.dart';
 
-class user_editProfile extends StatefulWidget {
-  const user_editProfile({super.key});
+class UserEditProfile extends StatefulWidget {
+  const UserEditProfile({super.key});
 
   @override
-  State<user_editProfile> createState() => _user_editProfileState();
+  State<UserEditProfile> createState() => _UserEditProfileState();
 }
 
-class _user_editProfileState extends State<user_editProfile> {
+class _UserEditProfileState extends State<UserEditProfile> {
   @override
   void initState() {
     super.initState();
@@ -29,6 +33,9 @@ class _user_editProfileState extends State<user_editProfile> {
   TextEditingController emailController = TextEditingController();
   TextEditingController numberController = TextEditingController();
   TextEditingController addressController = TextEditingController();
+  File? _imageFile;
+
+  final ImagePicker _picker = ImagePicker();
 
   Future<void> fetchProfile() async {
     await usermodel.fetchProfile();
@@ -38,6 +45,47 @@ class _user_editProfileState extends State<user_editProfile> {
       numberController.text = usermodel.number ?? '';
       addressController.text = usermodel.address ?? '';
     });
+  }
+
+  Future<void> _pickImage() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        _imageFile = File(pickedFile.path);
+      });
+    }
+  }
+
+  Future<String?> _uploadImage(File file) async {
+    try {
+      final storageRef = FirebaseStorage.instance.ref().child('profile_images');
+      UploadTask uploadTask = storageRef.putFile(file);
+      TaskSnapshot snapshot = await uploadTask;
+      return await snapshot.ref.getDownloadURL();
+    } catch (e) {
+      print("Image upload error: $e");
+      return null;
+    }
+  }
+
+  Future<void> _updateProfile() async {
+    if (_formkey.currentState!.validate()) {
+      // Upload image if selected
+      String? imageUrl;
+      if (_imageFile != null) {
+        imageUrl = await _uploadImage(_imageFile!);
+      }
+
+      usermodel.name = nameController.text;
+      usermodel.email = emailController.text;
+      usermodel.number = numberController.text;
+      usermodel.address = addressController.text;
+      usermodel.imageUrl = imageUrl; // Set the image URL in user model
+
+      await usermodel.updateUser().then((_) {
+        Navigator.pop(context);
+      });
+    }
   }
 
   @override
@@ -60,9 +108,20 @@ class _user_editProfileState extends State<user_editProfile> {
               Padding(
                 padding: EdgeInsets.only(top: 30.h),
                 child: Center(
-                  child: CircleAvatar(
-                    backgroundColor: myColor.fieldbackground,
-                    radius: 50,
+                  child: InkWell(
+                    onTap: _pickImage,
+                    child: CircleAvatar(
+                      backgroundColor: myColor.fieldbackground,
+                      radius: 50,
+                      backgroundImage: _imageFile != null
+                          ? FileImage(_imageFile!)
+                          : (usermodel.imageUrl != null
+                              ? NetworkImage(usermodel.imageUrl!)
+                              : null) as ImageProvider?,
+                          child: _imageFile == null && usermodel.imageUrl == null
+                            ? Icon(Icons.camera_alt, size: 30)
+                            : Icon(IconlyLight.edit,color: myColor.background,size: 30,),
+                    ),
                   ),
                 ),
               ),
@@ -186,14 +245,7 @@ class _user_editProfileState extends State<user_editProfile> {
                           textStyle: const TextStyle(),
                         )),
                     ElevatedButton(
-                        onPressed: () {
-                          usermodel.name = nameController.text;
-                          usermodel.email = emailController.text;
-                          usermodel.number = numberController.text;
-                          usermodel.updateUser().then((_) {
-                            Navigator.pop(context);
-                          });
-                        },
+                        onPressed: _updateProfile,
                         style: ButtonStyle(
                           shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.r))),

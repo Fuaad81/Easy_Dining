@@ -119,7 +119,7 @@ class MyApp extends StatelessWidget {
             "/user_checkout": (context) => const user_Check_Out(),
             "/user_location": (context) => const user_Location(),
             "/user_profile": (context) => const user_Profile(),
-            "/user_editprofile": (context) => const user_editProfile(),
+            "/user_editprofile": (context) => const UserEditProfile(),
             "/user_all": (context) => const UserAllItem(),
             "/user_lunch": (context) => const user_lunchItem(),
             "/user_snack": (context) => const user_snackItem(),

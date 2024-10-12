@@ -24,7 +24,6 @@ class _user_ProfileState extends State<user_Profile> {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> fetchProfile() async {
-
     User? user = _auth.currentUser;
     if (user != null) {
       DocumentSnapshot userdata = await FirebaseFirestore.instance
@@ -36,6 +35,7 @@ class _user_ProfileState extends State<user_Profile> {
         emailController.text = userdata["email"] ?? "null";
         numberController.text = userdata["number"] ?? "null";
         addressController.text = userdata["address"] ?? "null";
+        imageurl = userdata["imageUrl"] ?? "null";
       });
     }
   }
@@ -44,6 +44,7 @@ class _user_ProfileState extends State<user_Profile> {
   TextEditingController emailController = TextEditingController();
   TextEditingController numberController = TextEditingController();
   TextEditingController addressController = TextEditingController();
+  String? imageurl;
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +79,10 @@ class _user_ProfileState extends State<user_Profile> {
                   child: CircleAvatar(
                     backgroundColor: myColor.tabcolor,
                     radius: 50,
+                    backgroundImage: imageurl != null && imageurl != "null"
+                        ? NetworkImage(
+                            imageurl!) // Use the image URL from Firebase
+                        : null,
                   ),
                 ),
               ),

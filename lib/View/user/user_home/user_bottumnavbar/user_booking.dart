@@ -62,66 +62,71 @@ class _user_BookingState extends State<user_Booking> {
               var data = snapshot.data!.docs[index];
               return Padding(
                 padding: EdgeInsets.only(top: 10.h, left: 5.w, right: 5.w),
-                child: customCard(
-                  elevation: 5,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: Padding(
-                          padding: EdgeInsets.only(top: 5.h),
-                          child: SizedBox(
-                            width: 150.w,
-                            height: 120.h,
-                            child: ClipRRect(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.r)),
-                              child: Image.network(
-                                data["imageUrl"],
-                                fit: BoxFit.cover,
+                child: InkWell(
+                  onTap: () {
+                            Navigator.pushNamed(context, "/user_tabledetails",arguments: {"data" : data});
+                          },
+                  child: customCard(
+                    elevation: 5,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 5.h),
+                            child: SizedBox(
+                              width: 150.w,
+                              height: 120.h,
+                              child: ClipRRect(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.r)),
+                                child: Image.network(
+                                  data["imageUrl"],
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: 7.w,
-                          top: 5.h
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: 7.w,
+                            top: 5.h
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CustomText(
+                                text: "Table no ",
+                                size: 18.spMin,
+                                weight: FontWeight.w400,
+                              ),
+                              CustomText(
+                                text: data["table_no"],
+                                size: 18.spMin,
+                                weight: FontWeight.w600,
+                              ),
+                            ],
+                          ),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            CustomText(
-                              text: "Table no ",
-                              size: 18.spMin,
-                              weight: FontWeight.w400,
-                            ),
-                            CustomText(
-                              text: data["table_no"],
-                              size: 18.spMin,
-                              weight: FontWeight.w600,
-                            ),
-                          ],
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: 7.w,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              CustomText(
+                                text: "₹${data["prize"]}",
+                                size: 18.spMin,
+                                textStyle: const TextStyle(),
+                                weight: FontWeight.w600,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: 7.w,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CustomText(
-                              text: "₹${data["prize"]}",
-                              size: 18.spMin,
-                              textStyle: const TextStyle(),
-                              weight: FontWeight.w600,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               );
