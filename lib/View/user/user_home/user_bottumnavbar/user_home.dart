@@ -29,6 +29,7 @@ class _user_HomeState extends State<user_Home> {
   final _search = TextEditingController();
   String name = "";
   String email = "";
+  String? imageurl;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> fetchName() async {
@@ -37,29 +38,30 @@ class _user_HomeState extends State<user_Home> {
     User? user = _auth.currentUser;
     if (user != null) {
       try {
-        
-      DocumentSnapshot usersnap = await FirebaseFirestore.instance
-          .collection("Users")
-          .doc(user.uid)
-          .get();
+        DocumentSnapshot usersnap = await FirebaseFirestore.instance
+            .collection("Users")
+            .doc(user.uid)
+            .get();
 
-          if (usersnap.exists) {
-            setState(() {
+        if (usersnap.exists) {
+          setState(() {
             name = usersnap["name"] ?? "null";
             email = usersnap["email"] ?? "null";
-            });
-          }
-      } 
-      catch (e) {
+            imageurl = usersnap["imageUrl"] ?? "null";
+          });
+        }
+      } catch (e) {
         print(e);
       }
     }
   }
+
   @override
   void initState() {
     super.initState();
     fetchName();
   }
+
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeProvider>(context);
@@ -189,17 +191,13 @@ class _user_HomeState extends State<user_Home> {
                   ),
                 )
               ],
-              currentAccountPicture: Container(
-                  width: 100.w,
-                  height: 50.h,
-                  decoration: BoxDecoration(
-                      color: myColor.background,
-                      borderRadius: BorderRadius.circular(100.r)),
-                  child: Icon(
-                    IconlyBold.profile,
-                    size: 30,
-                    color: myColor.background,
-                  )),
+              currentAccountPicture: CircleAvatar(
+                radius: 50,
+                backgroundImage: imageurl != null && imageurl != "null"
+                        ? NetworkImage(
+                            imageurl!) // Use the image URL from Firebase
+                        : null,
+              ),
               accountName: CustomText(
                 text: name,
                 size: 20.spMin,

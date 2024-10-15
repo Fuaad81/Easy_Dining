@@ -24,6 +24,7 @@ class _admin_addFoodState extends State<admin_addFood> {
   final TextEditingController namecontroller = TextEditingController();
   final TextEditingController foodprizecontroller = TextEditingController();
   final TextEditingController descriptioncontroller = TextEditingController();
+  final TextEditingController timecontroller = TextEditingController();
   final formkey = GlobalKey<FormState>();
   XFile? pick;
   File? image;
@@ -145,6 +146,7 @@ class _admin_addFoodState extends State<admin_addFood> {
       await FirebaseFirestore.instance.collection("addFood").add({
         "foodname": namecontroller.text,
         "foodprize": foodprizecontroller.text,
+        "time": timecontroller.text,
         "category": selectedCategory,
         "discription": descriptioncontroller.text,
         "imageurl": imageUrl ?? ''
@@ -164,7 +166,6 @@ class _admin_addFoodState extends State<admin_addFood> {
             .child("${DateTime.now().microsecondsSinceEpoch}$fileExtension");
         firebase_storage.UploadTask uploadTask = ref.putFile(image!);
         await uploadTask.whenComplete(() => print("Upload Complete"));
-
         await uploadTask;
         final imgurl = await ref.getDownloadURL();
         setState(() {
@@ -269,6 +270,31 @@ class _admin_addFoodState extends State<admin_addFood> {
                                 borderRadius: BorderRadius.circular(10.r)),
                             hintText: "Food Prize",
                             controller: foodprizecontroller))
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 20.h),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                        width: 320.w,
+                        child: CustomTextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "type your prize!";
+                              }
+                              return null;
+                            },
+                            keyboardType: TextInputType.number,
+                            filled: true,
+                            fillColor: myColor.fieldbackground,
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(10.r)),
+                            hintText: "Food Time",
+                            controller: timecontroller))
                   ],
                 ),
               ),

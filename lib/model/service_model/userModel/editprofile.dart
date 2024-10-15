@@ -33,7 +33,7 @@ class userModel {
           email = usersnap["email"] ?? "null";
           number = usersnap["number"] ?? "null";
           address = usersnap["address"] ?? "null";
-          imageUrl = usersnap["imageUrl"] ?? null; // Fetching image URL
+          imageUrl = usersnap["imageUrl"] ?? "null"; // Fetching image URL
         }
       } catch (e) {
         print(e);

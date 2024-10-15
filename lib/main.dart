@@ -19,6 +19,8 @@ import 'package:easy_dine_in/View/admin/admin_home/admin_review.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_tab.dart';
 import 'package:easy_dine_in/View/delivery_boy/home/bottomnavigation/dboy_bottombar.dart';
+import 'package:easy_dine_in/View/delivery_boy/home/bottomnavigation/dboy_editprofile.dart';
+import 'package:easy_dine_in/View/delivery_boy/home/bottomnavigation/dboy_profile.dart';
 import 'package:easy_dine_in/View/delivery_boy/login/dboy_confirmpassword.dart';
 import 'package:easy_dine_in/View/delivery_boy/login/dboy_forgotpassword.dart';
 import 'package:easy_dine_in/View/delivery_boy/login/dboy_login.dart';
@@ -176,6 +178,8 @@ class MyApp extends StatelessWidget {
             "/db_register": (context) => const dboy_Register(),
             "/db_accountcreated": (context) => const dboy_Account_Created(),
             "/db_bottombar": (context) => const dboy_Bottom_Bar(),
+            "/db_profile": (context) => const dboy_Profile(),
+            "/db_editprofile": (context) => const dboy_EditProfile(),
           },
           initialRoute: "/splash",
         );

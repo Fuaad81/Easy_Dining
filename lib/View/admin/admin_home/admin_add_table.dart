@@ -69,6 +69,7 @@ class _AdminAddTableState extends State<AdminAddTable> {
               toolbarWidgetColor: Colors.white,
               initAspectRatio: CropAspectRatioPreset.original,
               cropStyle: CropStyle.rectangle,
+              
               aspectRatioPresets: [
                 CropAspectRatioPreset.original,
                 CropAspectRatioPreset.square,
@@ -159,6 +160,13 @@ class _AdminAddTableState extends State<AdminAddTable> {
 
   Future<void> savedetails() async {
     try {
+
+      if (imagelink == null) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content:
+                CustomText(text: "Please select an image", size: 20.spMin)));
+        return;
+      }
       await FirebaseFirestore.instance.collection("addTable").add({
         "table_no": namecontroller.text,
         "prize": prizecontroller.text,
@@ -267,6 +275,7 @@ class _AdminAddTableState extends State<AdminAddTable> {
                       onPressed: () {
                         savedetails();
                         saveImage();
+                        // Navigator.pop(context);
                       },
                       child: CustomText(text: "Submit", size: 20.spMin)),
                 ],

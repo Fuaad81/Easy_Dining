@@ -7,9 +7,11 @@ import 'package:easy_dine_in/model/service_model/userModel/editprofile.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UserEditProfile extends StatefulWidget {
@@ -48,17 +50,79 @@ class _UserEditProfileState extends State<UserEditProfile> {
   }
 
   Future<void> _pickImage() async {
-    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      setState(() {
-        _imageFile = File(pickedFile.path);
+    try {
+      final ImagePicker picker = ImagePicker();
+      final XFile? pickedFile = await picker
+          .pickImage(source: ImageSource.gallery)
+          .catchError((error) {
+        print("Error picking image: $error");
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Error picking image: $error")),
+        );
+        return null;
       });
+
+      if (pickedFile == null) {
+        print("No image selected");
+        return;
+      }
+
+      print("Image picked: ${pickedFile.path}");
+
+      try {
+        final CroppedFile? croppedFile = await ImageCropper().cropImage(
+          sourcePath: pickedFile.path,
+          uiSettings: [
+            AndroidUiSettings(
+              toolbarTitle: 'Crop Image',
+              toolbarColor: myColor.maincolor,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              cropStyle: CropStyle.circle,
+              aspectRatioPresets: [
+                CropAspectRatioPreset.original,
+                CropAspectRatioPreset.square,
+                CropAspectRatioPreset.ratio3x2
+              ],
+              lockAspectRatio: false,
+            ),
+            IOSUiSettings(
+              title: 'Crop Image',
+            ),
+          ],
+        ).catchError((error) {
+          print("Error cropping image: $error");
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Error cropping image: $error")),
+          );
+          return null;
+        });
+
+        if (croppedFile != null) {
+          setState(() {
+            _imageFile = File(croppedFile.path);
+          });
+          print("Image cropped and set: ${croppedFile.path}");
+        } else {
+          print("Cropping cancelled by user");
+        }
+      } on PlatformException catch (e) {
+        print("Platform exception during cropping: $e");
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Error: ${e.message}")),
+        );
+      }
+    } catch (e) {
+      print("Unexpected error: $e");
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("An unexpected error occurred: $e")),
+      );
     }
   }
 
   Future<String?> _uploadImage(File file) async {
     try {
-      final storageRef = FirebaseStorage.instance.ref().child('profile_images');
+      final storageRef = FirebaseStorage.instance.ref().child('profile_images').child("${DateTime.now().microsecondsSinceEpoch}.jpg");
       UploadTask uploadTask = storageRef.putFile(file);
       TaskSnapshot snapshot = await uploadTask;
       return await snapshot.ref.getDownloadURL();

@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
@@ -13,6 +15,36 @@ class dboy_Profile extends StatefulWidget {
 }
 
 class _dboy_ProfileState extends State<dboy_Profile> {
+  final TextEditingController namecontroller = TextEditingController();
+  final TextEditingController emailcontroller = TextEditingController();
+  final TextEditingController licensecontroller = TextEditingController();
+  final TextEditingController locationcontroller = TextEditingController();
+  final TextEditingController phonecontroller = TextEditingController();
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<void> fetchdata() async {
+    User? user = _auth.currentUser;
+
+    if (user != null) {
+      DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+          .collection("approveddboy")
+          .doc(user.uid)
+          .get();
+      setState(() {
+        namecontroller.text = documentSnapshot["name"] ?? "";
+        emailcontroller.text = documentSnapshot["email"] ?? "";
+        phonecontroller.text = documentSnapshot["phone"] ?? "";
+        // namecontroller.text = documentSnapshot["name"] ?? "";
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchdata();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +57,11 @@ class _dboy_ProfileState extends State<dboy_Profile> {
           weight: FontWeight.w500,
         ),
         actions: [
-          IconButton(onPressed: () {
-            
-          }, icon: const Icon(IconlyLight.edit))
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/db_editprofile");
+              },
+              icon: const Icon(IconlyLight.edit))
         ],
       ),
       body: Padding(
@@ -58,7 +92,8 @@ class _dboy_ProfileState extends State<dboy_Profile> {
                     width: 250.w,
                     child: CustomTextFormField(
                       readOnly: true,
-                      hintText: "Name",
+                      // hintText: "Name",
+                      controller: namecontroller,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r)),
                     ),
@@ -82,7 +117,8 @@ class _dboy_ProfileState extends State<dboy_Profile> {
                     width: 250.w,
                     child: CustomTextFormField(
                       readOnly: true,
-                      hintText: "sample@gmail.com",
+                      // hintText: "sample@gmail.com",
+                      controller: emailcontroller,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r)),
                     ),
@@ -172,7 +208,8 @@ class _dboy_ProfileState extends State<dboy_Profile> {
                     width: 250.w,
                     child: CustomTextFormField(
                       readOnly: true,
-                      hintText: "1234567890",
+                      // hintText: "1234567890",
+                      controller: phonecontroller,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r)),
                     ),
@@ -180,6 +217,7 @@ class _dboy_ProfileState extends State<dboy_Profile> {
                 ],
               ),
             ),
+            
           ],
         ),
       ),

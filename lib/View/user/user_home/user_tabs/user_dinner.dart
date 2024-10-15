@@ -114,7 +114,7 @@ class _user_dinnerItemState extends State<user_dinnerItem> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               CustomText(
-                                text: 'quantity',
+                                text: "${data["time"]} min",
                                 size: 14.spMin,
                                 textStyle: const TextStyle(),
                                 weight: FontWeight.w400,

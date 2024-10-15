@@ -3,7 +3,6 @@ import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customcard.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 
@@ -75,8 +74,13 @@ class _user_Food_DetailsState extends State<user_Food_Details> {
                         padding:
                             EdgeInsets.only(left: 12.w, top: 5.h, right: 10.w),
                         child: Row(
-                          // mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            CustomText(
+                          text: "₹${data["foodprize"]}",
+                          size: 20.spMin,
+                          weight: FontWeight.w600,
+                        ),
                             // RatingBar.builder(
                             //   glow: false,
                             //   itemCount: 5,
@@ -94,7 +98,7 @@ class _user_Food_DetailsState extends State<user_Food_Details> {
                             //   onRatingUpdate: (value) {},
                             // ),
                             CustomText(
-                              text: "10g - 20g",
+                              text: "${data["time"]} min",
                               size: 17.spMin,
                               weight: FontWeight.w500,
                             )
@@ -110,15 +114,6 @@ class _user_Food_DetailsState extends State<user_Food_Details> {
                           size: 18.spMin,
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsets.only(left: 10.w, bottom: 15.h, top: 5.h),
-                        child: CustomText(
-                          text: "₹${data["foodprize"]}",
-                          size: 20.spMin,
-                          weight: FontWeight.w600,
-                        ),
-                      )
                     ],
                   ),
                 ),

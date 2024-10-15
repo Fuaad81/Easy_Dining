@@ -111,7 +111,7 @@ class _user_breakFastState extends State<user_breakFast> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               CustomText(
-                                text: 'quantity',
+                                text: "${data["time"]} min",
                                 size: 14.spMin,
                                 textStyle: const TextStyle(),
                                 weight: FontWeight.w400,

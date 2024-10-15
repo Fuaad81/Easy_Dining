@@ -25,38 +25,87 @@ class _UserAllItemState extends State<UserAllItem> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child:
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.w),
-                    child: Container(
-                      width: 320.w,
-                      height: 150.h,
-                      decoration: BoxDecoration(
-                          color: myColor.fieldbackground,
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.r))),
-                      child: Center(
-                          child: CustomText(text: "Offers", size: 30.spMin)),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.w),
-                    child: Container(
-                      width: 320.w,
-                      height: 150.h,
-                      decoration: BoxDecoration(
-                          color: myColor.fieldbackground,
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.r))),
-                      child: Center(
-                          child: CustomText(text: "Offers", size: 30.spMin)),
-                    ),
-                  ),
-                ]),
+              // SingleChildScrollView(
+              //   scrollDirection: Axis.horizontal,
+              //   child:
+              //       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              //     Padding(
+              //       padding: EdgeInsets.only(left: 10.w),
+              //       child: Container(
+              //         width: 320.w,
+              //         height: 150.h,
+              //         decoration: BoxDecoration(
+              //             color: myColor.fieldbackground,
+              //             borderRadius:
+              //                 BorderRadius.all(Radius.circular(10.r))),
+              //         child: Center(
+              //             child: CustomText(text: "Offers", size: 30.spMin)),
+              //       ),
+              //     ),
+              //     Padding(
+              //       padding: EdgeInsets.only(left: 10.w),
+              //       child: Container(
+              //         width: 320.w,
+              //         height: 150.h,
+              //         decoration: BoxDecoration(
+              //             color: myColor.fieldbackground,
+              //             borderRadius:
+              //                 BorderRadius.all(Radius.circular(10.r))),
+              //         child: Center(
+              //             child: CustomText(text: "Offers", size: 30.spMin)),
+              //       ),
+              //     ),
+              //   ]),
+              // ),
+              SizedBox(
+                height: 150.h,
+                child: StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection("addOffer")
+                      .snapshots(),
+                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasError) {
+                      return Center(child: Text('Error: ${snapshot.error}'));
+                    } else if (!snapshot.hasData ||
+                        snapshot.data!.docs.isEmpty) {
+                      return Center(
+                        child: Text(
+                          'No offers available',
+                          style: TextStyle(
+                              fontSize: 16.sp, fontWeight: FontWeight.w500),
+                        ),
+                      );
+                    }
+
+                    return ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        final data = snapshot.data!.docs[index];
+                        return Padding(
+                          padding: EdgeInsets.only(left: 10.w),
+                          child: Container(
+                            width: 320.w,
+                            height: 150.h,
+                            decoration: BoxDecoration(
+                              color: myColor.fieldbackground,
+                              image: DecorationImage(
+                                image: NetworkImage(data["offerimage"]),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.r)),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
+
               StreamBuilder(
                 stream: FirebaseFirestore.instance
                     .collection("addFood")
@@ -94,7 +143,8 @@ class _UserAllItemState extends State<UserAllItem> {
                             EdgeInsets.only(top: 10.h, left: 5.w, right: 5.w),
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, "/user_fooddetails",arguments: {"data" : data});
+                            Navigator.pushNamed(context, "/user_fooddetails",
+                                arguments: {"data": data});
                           },
                           child: customCard(
                             elevation: 5,
@@ -157,7 +207,7 @@ class _UserAllItemState extends State<UserAllItem> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       CustomText(
-                                        text: 'quantity',
+                                        text: "${data["time"]} min",
                                         size: 14.spMin,
                                         textStyle: const TextStyle(),
                                         weight: FontWeight.w400,
