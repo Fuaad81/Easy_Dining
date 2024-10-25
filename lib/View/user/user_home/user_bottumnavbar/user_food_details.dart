@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_dine_in/Providers/user_cart_provider.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customcard.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
+import 'package:easy_dine_in/model/service_model/adminModel/add/addfood_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:provider/provider.dart';
 
 class user_Food_Details extends StatefulWidget {
   const user_Food_Details({super.key});
@@ -16,9 +19,11 @@ class user_Food_Details extends StatefulWidget {
 class _user_Food_DetailsState extends State<user_Food_Details> {
   @override
   Widget build(BuildContext context) {
+    final cartProvider = Provider.of<CartProvider>(context, listen: false);
     final Map<String, dynamic> args =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     DocumentSnapshot data = args['data'];
+    bool isAdded = cartProvider.cartItems.any((item) => item.foodName == data["foodname"]);
     return Scaffold(
       appBar: AppBar(
         title: CustomText(
@@ -35,7 +40,6 @@ class _user_Food_DetailsState extends State<user_Food_Details> {
               SizedBox(
                 width: 340.w,
                 child: customCard(
-                  
                   elevation: 5,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,10 +81,10 @@ class _user_Food_DetailsState extends State<user_Food_Details> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CustomText(
-                          text: "₹${data["foodprize"]}",
-                          size: 20.spMin,
-                          weight: FontWeight.w600,
-                        ),
+                              text: "₹${data["foodprize"]}",
+                              size: 20.spMin,
+                              weight: FontWeight.w600,
+                            ),
                             // RatingBar.builder(
                             //   glow: false,
                             //   itemCount: 5,
@@ -109,59 +113,68 @@ class _user_Food_DetailsState extends State<user_Food_Details> {
                         padding:
                             EdgeInsets.only(left: 10.w, right: 10.w, top: 10.h),
                         child: CustomText(
-                          text:
-                              data["discription"],
+                          text: data["discription"],
                           size: 18.spMin,
                         ),
                       ),
                     ],
                   ),
                 ),
-                
               ),
               Padding(
-          padding: EdgeInsets.only(top: 40.h),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  style: ButtonStyle(
-                    shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.r))),
-                    backgroundColor:
-                        WidgetStatePropertyAll(myColor.maincolor),
-                    foregroundColor:
-                        WidgetStatePropertyAll(myColor.background),
-                    minimumSize: WidgetStatePropertyAll(Size(150.w, 40.h)),
-                  ),
-                  child: CustomText(
-                    text: "Buy Now",
-                    size: 18.spMin,
-                    weight: FontWeight.w500,
-                  )),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  style: ButtonStyle(
-                    shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.r))),
-                    backgroundColor: WidgetStatePropertyAll(myColor.tabcolor),
-                    foregroundColor:
-                        WidgetStatePropertyAll(myColor.background),
-                    minimumSize: WidgetStatePropertyAll(Size(150.w, 40.h)),
-                  ),
-                  child: CustomText(
-                    text: "Add Cart",
-                    size: 18.spMin,
-                    weight: FontWeight.w500,
-                  )),
-            ],
-          ),
-                )
+                padding: EdgeInsets.only(top: 40.h),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        style: ButtonStyle(
+                          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.r))),
+                          backgroundColor:
+                              WidgetStatePropertyAll(myColor.maincolor),
+                          foregroundColor:
+                              WidgetStatePropertyAll(myColor.background),
+                          minimumSize:
+                              WidgetStatePropertyAll(Size(150.w, 40.h)),
+                        ),
+                        child: CustomText(
+                          text: "Buy Now",
+                          size: 18.spMin,
+                          weight: FontWeight.w500,
+                        )),
+                    ElevatedButton(
+                        onPressed: () {
+                          FoodItem foodItem = FoodItem(
+                              foodName: data["foodname"],
+                              foodPrice: data["foodprize"],
+                              description: data["discription"],
+                              time: data["time"],
+                              category: data["category"],
+                              imageUrl: data["imageurl"]);
+                          cartProvider.addToCart(foodItem);
+                        },
+                        style: ButtonStyle(
+                          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.r))),
+                          backgroundColor:
+                              WidgetStatePropertyAll(myColor.tabcolor),
+                          foregroundColor:
+                              WidgetStatePropertyAll(myColor.background),
+                          minimumSize:
+                              WidgetStatePropertyAll(Size(150.w, 40.h)),
+                        ),
+                        child: CustomText(
+                          text: isAdded ? "Added" :  "Add to Cart",
+
+                          size: 18.spMin,
+                          weight: FontWeight.w500,
+                        )),
+                  ],
+                ),
+              )
             ],
           ),
         ),

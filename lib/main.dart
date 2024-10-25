@@ -1,4 +1,5 @@
 import 'package:easy_dine_in/Providers/admin_provider.dart';
+import 'package:easy_dine_in/Providers/user_cart_provider.dart';
 import 'package:easy_dine_in/Providers/user_provider.dart';
 import 'package:easy_dine_in/Providers/theme_provider.dart';
 import 'package:easy_dine_in/View/admin/admin_bottumnavbar/admin_bottombar.dart';
@@ -6,6 +7,7 @@ import 'package:easy_dine_in/View/admin/admin_home/admin_add_food.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_notification.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_offer.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_table.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_booked_tab_details.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_db_accepted.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_db_acpt_details.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_db_req_detail.dart';
@@ -80,7 +82,8 @@ void main() async {
     ChangeNotifierProvider(create: (context) => UserProvider()),
     ChangeNotifierProvider(create: (context) => fadeAnimationProvider()),
     ChangeNotifierProvider(create: (context) => ThemeProvider()),
-    ChangeNotifierProvider(create: (context) => AdminNavbarProvider())
+    ChangeNotifierProvider(create: (context) => AdminNavbarProvider()),
+    ChangeNotifierProvider(create: (context) => CartProvider())
   ], child: const MyApp()));
 }
 
@@ -165,6 +168,7 @@ class MyApp extends StatelessWidget {
             "/admin_usertab": (context) => const admin_User_Tab(),
             "/admin_userlist": (context) => const admin_User_List(),
             "/admin_oredrlist": (context) => const admin_Order_List(),
+            "/admin_bookedtab": (context) => const AdminBookedTabDetails(),
             /*
             ! Admin Routes End
             */

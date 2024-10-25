@@ -26,6 +26,7 @@ class _admin_addNotificationState extends State<admin_addNotification> {
           "title": titlecontroller.text,
           "discription": discriptioncontroller.text
         });
+        // print(user.uid);
       } catch (e) {
         print(e);
       }

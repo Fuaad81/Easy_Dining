@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:flutter/material.dart';
@@ -22,34 +23,40 @@ class _user_notificationState extends State<user_notification> {
           weight: FontWeight.w500,
         ),
       ),
-      body: ListView.builder(
-        itemCount: 1,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.only(top: 10.h, left: 15.w, right: 15.w),
-            child: ListTile(
-              tileColor: myColor.notification,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.r)),
-              title: Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: CustomText(
-                  text: "⏳Limited-Time Deal",
-                  size: 20.spMin,
-                  weight: FontWeight.w500,
-                ),
-              ),
-              subtitle: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomText(
-                  text: "hurry! enjoy 20% off salad items in this weakend.",
-                  size: 18.spMin,
-                ),
-              ),
-            ),
-          );
-        },
-      ),
+      body: StreamBuilder(
+          stream:
+              FirebaseFirestore.instance.collection("notification").snapshots(),
+          builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            return ListView.builder(
+              itemCount: snapshot.data!.docs.length,
+              itemBuilder: (context, index) {
+                var data = snapshot.data!.docs[index];
+                return Padding(
+                  padding: EdgeInsets.only(top: 10.h, left: 15.w, right: 15.w),
+                  child: ListTile(
+                    tileColor: myColor.notification,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.r)),
+                    title: Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: CustomText(
+                        text: data["title"],
+                        size: 20.spMin,
+                        weight: FontWeight.w500,
+                      ),
+                    ),
+                    subtitle: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CustomText(
+                        text: data["discription"],
+                        size: 18.spMin,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            );
+          }),
     );
   }
 }

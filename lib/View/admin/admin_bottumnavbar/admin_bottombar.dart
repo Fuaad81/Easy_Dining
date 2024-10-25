@@ -5,6 +5,7 @@ import 'package:easy_dine_in/View/admin/admin_home/admin_order_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_profile.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
@@ -48,13 +49,15 @@ class _admin_BottombarState extends State<admin_Bottombar> {
             label: "Order List",
           ),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.history,
-                color: adminnavProvider.currentIndex == 2
+              icon: Image.asset(
+                "assets/icons/ic_table_fill.png",
+                width: 25.w,
+                height: 25.h,
+                color: adminnavProvider == 2
                     ? myColor.maincolor
                     : myColor.tabcolor,
               ),
-              label: "History"),
+              label: "Booked Table"),
           BottomNavigationBarItem(
               icon: Icon(
                 IconlyBold.profile,
@@ -66,7 +69,6 @@ class _admin_BottombarState extends State<admin_Bottombar> {
         ],
         currentIndex: adminnavProvider.currentIndex,
         onTap: adminnavProvider.adminIndex,
-        
         selectedLabelStyle: GoogleFonts.poppins(
           fontWeight: FontWeight.w500,
         ),

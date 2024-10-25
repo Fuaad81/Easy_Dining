@@ -180,64 +180,44 @@ class _UserAllItemState extends State<UserAllItem> {
                                     left: 7.w,
                                   ),
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       CustomText(
                                         text: data["foodname"],
                                         size: 18.spMin,
                                         weight: FontWeight.w600,
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.only(right: 2.w),
-                                        child: InkWell(
-                                            onTap: () {},
-                                            child: const Icon(
-                                              IconlyLight.heart,
-                                              size: 22,
-                                            )),
-                                      )
                                     ],
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(left: 7.w),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      CustomText(
-                                        text: "${data["time"]} min",
-                                        size: 14.spMin,
-                                        textStyle: const TextStyle(),
-                                        weight: FontWeight.w400,
-                                      ),
-                                    ],
+                                  child: CustomText(
+                                    text: data["discription"],
+                                    size: 16.spMin,
+                                    textOverflow: TextOverflow.ellipsis,
+                                    // textAlign: TextAlign.justify,
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(
-                                    left: 7.w,
-                                  ),
+                                      left: 7.w, top: 4.h, right: 7.w),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       CustomText(
                                         text: "₹${data["foodprize"]}",
-                                        size: 18.spMin,
+                                        size: 16.spMin,
                                         textStyle: const TextStyle(),
                                         weight: FontWeight.w600,
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.only(right: 2.w),
-                                        child: InkWell(
-                                            onTap: () {},
-                                            child: const Icon(
-                                              IconlyLight.bag,
-                                              size: 22,
-                                            )),
-                                      )
+                                      CustomText(
+                                        text: "${data["time"]} min",
+                                        size: 14.spMin,
+                                        textStyle: const TextStyle(),
+                                        weight: FontWeight.w400,
+                                      ),
                                     ],
                                   ),
                                 ),

@@ -1,10 +1,9 @@
-// ignore_for_file: depend_on_referenced_packages
-
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
+import 'package:easy_dine_in/model/service_model/adminModel/add/addfood_model.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
+// Import the Food model
 
 class admin_addFood extends StatefulWidget {
   const admin_addFood({super.key});
@@ -29,20 +29,6 @@ class _admin_addFoodState extends State<admin_addFood> {
   XFile? pick;
   File? image;
   String? imageUrl;
-
-  // Future<void> addImage() async {
-  //   try {
-  //     ImagePicker picked = ImagePicker();
-  //     pick = await picked.pickImage(source: ImageSource.gallery);
-  //     if (pick != null) {
-  //       setState(() {
-  //         image = File(pick!.path);
-  //       });
-  //     }
-  //   } catch (e) {
-  //     print("error : $e");
-  //   }
-  // }
 
   Future<void> addImage() async {
     try {
@@ -115,25 +101,6 @@ class _admin_addFoodState extends State<admin_addFood> {
     }
   }
 
-  // Future<void> saveImage() async {
-  //   if (image != null) {
-  //     try {
-  //       final ref = firebase_storage.FirebaseStorage.instance
-  //           .ref()
-  //           .child("foodImage")
-  //           .child(DateTime.now().microsecondsSinceEpoch.toString());
-  //       await ref.putFile(image!);
-  //       var imgurl = await ref.getDownloadURL();
-  //       setState(() {
-  //         imageUrl = imgurl;
-  //       });
-
-  //       print(imgurl);
-  //     } catch (e) {
-  //       print(e);
-  //     }
-  //   }
-  // }
   Future<void> saveData() async {
     try {
       if (imageUrl == null) {
@@ -143,14 +110,16 @@ class _admin_addFoodState extends State<admin_addFood> {
         return;
       }
 
-      await FirebaseFirestore.instance.collection("addFood").add({
-        "foodname": namecontroller.text,
-        "foodprize": foodprizecontroller.text,
-        "time": timecontroller.text,
-        "category": selectedCategory,
-        "discription": descriptioncontroller.text,
-        "imageurl": imageUrl ?? ''
-      });
+      FoodItem newFood = FoodItem(
+        foodName: namecontroller.text,
+        foodPrice: foodprizecontroller.text,
+        time: timecontroller.text,
+        category: selectedCategory ?? '',
+        description: descriptioncontroller.text,
+        imageUrl: imageUrl ?? ''
+      );
+
+      await FirebaseFirestore.instance.collection("addFood").add(newFood.toMap());
     } catch (e) {
       print("Error : $e");
     }
@@ -181,6 +150,7 @@ class _admin_addFoodState extends State<admin_addFood> {
 
   String? selectedCategory;
   final List<String> category = ["Break Fast", "Lunch", "Snack", "Dinner"];
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -360,6 +330,7 @@ class _admin_addFoodState extends State<admin_addFood> {
                   ],
                 ),
               ),
+              // ... [Rest of the form fields remain the same]
               Padding(
                 padding: EdgeInsets.only(top: 40.h),
                 child: Row(
@@ -377,7 +348,6 @@ class _admin_addFoodState extends State<admin_addFood> {
                             minimumSize:
                                 WidgetStatePropertyAll(Size(200.w, 50.h))),
                         onPressed: () {
-                          // Navigator.pushNamed(context, "");
                           if (formkey.currentState!.validate()) {
                             saveData();
                             saveImage();

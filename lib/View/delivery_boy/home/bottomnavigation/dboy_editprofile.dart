@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
@@ -146,9 +145,9 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
       if (_imageFile != null) {
         imageUrl = await _uploadImage(_imageFile!);
       }
-    User?  user = FirebaseAuth.instance.currentUser;
+      User? user = FirebaseAuth.instance.currentUser;
 
-    if (user != null) {
+      if (user != null) {
         await FirebaseFirestore.instance
             .collection("approveddboy")
             .doc(user.uid)
@@ -322,7 +321,6 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
                     SizedBox(
                       width: 250.w,
                       child: CustomTextFormField(
-                        
                         // hintText: "1234567890",
                         controller: phonecontroller,
                         border: OutlineInputBorder(
@@ -348,7 +346,8 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
                               WidgetStatePropertyAll(myColor.tabcolor),
                           foregroundColor:
                               WidgetStatePropertyAll(myColor.background),
-                          minimumSize: WidgetStatePropertyAll(Size(120.w, 40.h)),
+                          minimumSize:
+                              WidgetStatePropertyAll(Size(120.w, 40.h)),
                           textStyle: WidgetStatePropertyAll(
                               GoogleFonts.poppins(fontSize: 18)),
                         ),
@@ -369,7 +368,8 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
                               WidgetStatePropertyAll(myColor.maincolor),
                           foregroundColor:
                               WidgetStatePropertyAll(myColor.background),
-                          minimumSize: WidgetStatePropertyAll(Size(120.w, 40.h)),
+                          minimumSize:
+                              WidgetStatePropertyAll(Size(120.w, 40.h)),
                           textStyle: WidgetStatePropertyAll(
                               GoogleFonts.poppins(fontSize: 18)),
                         ),

@@ -14,6 +14,7 @@ class CustomText extends StatelessWidget {
   final Color? decorationColor;
   final TextDecorationStyle? decorationStyle;
   final double? decorationThickness;
+  final int? maxLines;
   final List<Shadow>? shadow;
   const CustomText({
     required this.text,
@@ -30,6 +31,7 @@ class CustomText extends StatelessWidget {
     this.decorationStyle,
     this.decorationThickness,
     this.shadow,
+    this.maxLines,
   });
 
   @override
@@ -38,6 +40,7 @@ class CustomText extends StatelessWidget {
       overflow: textOverflow,
       text,
       textAlign: textAlign,
+      maxLines: maxLines,
       style: GoogleFonts.poppins(
           textStyle: TextStyle(
               fontSize: size,
