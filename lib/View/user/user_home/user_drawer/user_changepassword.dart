@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
@@ -14,6 +16,7 @@ class user_Change_Password extends StatefulWidget {
 }
 
 class _user_Change_PasswordState extends State<user_Change_Password> {
+  final user = FirebaseAuth.instance.currentUser;
   final passcontroller = TextEditingController();
   final newpasscontroller = TextEditingController();
   final confirmpasscontroller = TextEditingController();
@@ -64,14 +67,16 @@ class _user_Change_PasswordState extends State<user_Change_Password> {
                     fillColor: myColor.fieldbackground,
                     controller: passcontroller,
                     obscureText: passview,
-
                     hintText: "current password",
                     suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
                             passview = !passview;
                           });
-                        }, icon: passview == true ? const Icon(IconlyLight.hide) : const Icon(IconlyLight.show)),
+                        },
+                        icon: passview == true
+                            ? const Icon(IconlyLight.hide)
+                            : const Icon(IconlyLight.show)),
                   ),
                 ),
               ),
@@ -135,22 +140,39 @@ class _user_Change_PasswordState extends State<user_Change_Password> {
                     fillColor: myColor.fieldbackground,
                     hintText: "confirm password",
                     suffixIcon: IconButton(
-                        onPressed: () {}, icon: const Icon(IconlyLight.show)),
+                        onPressed: () {
+                         
+                        },
+                        icon: const Icon(IconlyLight.show)),
                   ),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 20.h),
                 child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
+                    onPressed: () async{
+                       final user = FirebaseAuth.instance.currentUser;
+                          final data = await FirebaseFirestore.instance
+                              .collection("Users")
+                              .doc(user?.uid)
+                              .get();
+                          try {
+                            if (data["password"] == passcontroller) {
+                              FirebaseFirestore.instance.collection("Users").doc(user?.uid).update({
+                                "password": newpasscontroller.text
+                              });
+                            }
+                          } catch (e) {
+                            print("error : $e");
+                          }
                     },
                     style: ButtonStyle(
                       shape: WidgetStateProperty.all(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.r)),
                       ),
-                      backgroundColor: WidgetStateProperty.all(myColor.maincolor),
+                      backgroundColor:
+                          WidgetStateProperty.all(myColor.maincolor),
                       foregroundColor:
                           WidgetStateProperty.all(myColor.background),
                       minimumSize: WidgetStateProperty.all(Size(340.w, 45.h)),

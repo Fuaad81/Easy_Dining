@@ -1,8 +1,10 @@
 // ignore_for_file: prefer__ructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -144,9 +146,30 @@ class _user_confirmPasswordState extends State<user_confirmPassword> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                      onPressed: () {
-                        if (_formkey.currentState!.validate()) {}
-                        // Navigator.pushNamed(context, "/user_login");
+                      onPressed: () async {
+                        if (_formkey.currentState!.validate()) {
+                          try {
+                            final user = FirebaseAuth.instance.currentUser;
+
+                            if (user != null) {
+                              await user.updatePassword(_newpass.text);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content:
+                                        Text("Password updated successfully")),
+                              );
+                              FirebaseFirestore.instance
+                                  .collection("Users")
+                                  .doc(user.uid)
+                                  .update({"password": _newpass.text});
+                              Navigator.pushNamed(context, "/user_login");
+                            }
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Error: ${e.toString()}")),
+                            );
+                          }
+                        }
                       },
                       style: ButtonStyle(
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(

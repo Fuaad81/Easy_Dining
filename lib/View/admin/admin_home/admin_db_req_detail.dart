@@ -4,6 +4,7 @@ import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:photo_view/photo_view.dart';
 
 class admin_Db_Req_Details extends StatefulWidget {
   const admin_Db_Req_Details({super.key});
@@ -18,6 +19,16 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
     final Map<String, dynamic> args =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     DocumentSnapshot data = args['data'];
+    String getImageName(String imageUrl) {
+      if (imageUrl.isNotEmpty) {
+        // Get the last part of the URL, which is the image name
+        return imageUrl
+            .split('/')
+            .last; // This will split by '/' and take the last part
+      }
+      return "No image"; // Default hint if no image URL is available
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: CustomText(
@@ -155,11 +166,34 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                   border: OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.circular(10.r)),
-                                  hintText: "sample.jpg",
+                                  hintText: getImageName(data["image"]),
                                   suffixIcon: Padding(
                                     padding: const EdgeInsets.all(5.0),
                                     child: InkWell(
-                                      onTap: () {},
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Scaffold(
+                                              appBar: AppBar(
+                                                  title:
+                                                      const Text("Image View")),
+                                              body: PhotoView(
+                                                imageProvider:
+                                                    NetworkImage(data["image"]),
+                                                minScale: PhotoViewComputedScale
+                                                    .contained,
+                                                maxScale: PhotoViewComputedScale
+                                                        .covered *
+                                                    2,
+                                                heroAttributes:
+                                                    const PhotoViewHeroAttributes(
+                                                        tag: "imageHero"),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
                                       child: Container(
                                         width: 60.w,
                                         decoration: BoxDecoration(
@@ -200,7 +234,7 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                   border: OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.circular(10.r)),
-                                  hintText: "Location",
+                                  hintText: data["location"],
                                 ),
                               )
                             ],
@@ -243,7 +277,7 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
                                                   BorderRadius.circular(
                                                       10.r)))),
                                   onPressed: () {
-                                    approveRequest(data.id);
+                                    approveRequest(context,data.id);
                                   },
                                   child: CustomText(
                                       text: "Accept", size: 20.spMin))
@@ -263,7 +297,7 @@ class _admin_Db_Req_DetailsState extends State<admin_Db_Req_Details> {
   }
 }
 
-void approveRequest(String requestId) async {
+void approveRequest(context,String requestId) async {
   try {
     await FirebaseFirestore.instance
         .collection("dboyRegisterrq")
@@ -283,7 +317,9 @@ void approveRequest(String requestId) async {
       FirebaseFirestore.instance
           .collection("dboyRegisterrq")
           .doc(requestId)
-          .delete();
+          .delete().then((_){
+            Navigator.pop(context);
+          });
     });
 
     // Send a notification to the user

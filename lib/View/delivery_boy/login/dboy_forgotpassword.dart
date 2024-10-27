@@ -1,8 +1,10 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,8 +19,21 @@ class dboy_Forgot_Password extends StatefulWidget {
 }
 
 class _dboy_Forgot_PasswordState extends State<dboy_Forgot_Password> {
-
   final _forgotpass = TextEditingController();
+  final _formkey = GlobalKey<FormState>();
+
+  Future<bool> verifyEmail(String email) async {
+    try {
+      var querySnapshot = await FirebaseFirestore.instance
+          .collection("approveddboy")
+          .where("email", isEqualTo: email)
+          .get();
+      return querySnapshot.docs.isNotEmpty;
+    } catch (e) {
+      print("Error checking email: $e");
+      return false;
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +59,6 @@ class _dboy_Forgot_PasswordState extends State<dboy_Forgot_Password> {
                   Padding(
                     padding: EdgeInsets.only(top: 25.h),
                     child: ListTile(
-                      
                       leading: InkWell(
                           onTap: () {},
                           child: Icon(
@@ -61,79 +75,102 @@ class _dboy_Forgot_PasswordState extends State<dboy_Forgot_Password> {
                     ),
                   ),
                   Padding(
-              padding: EdgeInsets.only(top: 30.h),
-              child: Center(
-                child: CustomText(
-                  text:
-                      "Please enter your email correctly\nand reset your password",
-                  size: 20.spMin,
-                  color: myColor.background,
-                  weight: FontWeight.w400,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-                        ),
-                        Padding(
-              padding: EdgeInsets.only(top: 20.h),
-              child: SizedBox(
-                width: 315.w,
-                child: CustomTextFormField(
-                  filled: true,
-                      fillColor: myColor.fieldbackground,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
-                        borderSide: BorderSide.none
-                      ),
-                  controller: _forgotpass,
-                  labelText: CustomText(
-                    text: "enter your email",
-                    size: 18.spMin,
-                    weight: FontWeight.w400,
-                    textAlign: TextAlign.center,
-                  ),
-                  labelStyle: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: myColor.textcolor),
-                  prefixIcon: Icon(
-                    CupertinoIcons.mail,
-                    color: myColor.textcolor,
-                    size: 20,
-                  ),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-                ),
-              ),
-                        ),
-                        Padding(
-              padding: EdgeInsets.only(top: 20.h),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, "/db_otp");
-                      },
-                      style: ButtonStyle(
-                        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.r))),
-                        backgroundColor:
-                            WidgetStatePropertyAll(myColor.maincolor),
-                        foregroundColor:
-                            WidgetStatePropertyAll(myColor.background),
-                        minimumSize: WidgetStateProperty.all(Size(200.w, 45.h)),
-                        textStyle: WidgetStatePropertyAll(
-                            GoogleFonts.poppins(fontSize: 18)),
-                      ),
+                    padding: EdgeInsets.only(top: 30.h),
+                    child: Center(
                       child: CustomText(
-                        text: "send OTP",
+                        text:
+                            "Please enter your email correctly\nand reset your password",
                         size: 20.spMin,
-                        weight: FontWeight.w500,
+                        color: myColor.background,
+                        weight: FontWeight.w400,
                         textAlign: TextAlign.center,
-                      )),
-                ],
-              ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 20.h),
+                    child: SizedBox(
+                      width: 315.w,
+                      child: CustomTextFormField(
+                        filled: true,
+                        fillColor: myColor.fieldbackground,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.r),
+                            borderSide: BorderSide.none),
+                        controller: _forgotpass,
+                        labelText: CustomText(
+                          text: "enter your email",
+                          size: 18.spMin,
+                          weight: FontWeight.w400,
+                          textAlign: TextAlign.center,
                         ),
+                        labelStyle: GoogleFonts.poppins(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: myColor.textcolor),
+                        prefixIcon: Icon(
+                          CupertinoIcons.mail,
+                          color: myColor.textcolor,
+                          size: 20,
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                            horizontal: 20.w, vertical: 10.h),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 20.h),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                            onPressed: () async {
+                      final email = _forgotpass.text.trim();
+                      if (_formkey.currentState?.validate() ?? false) {
+                        bool emailExists = await verifyEmail(email);
+                        if (emailExists) {
+                          try {
+                            await FirebaseAuth.instance
+                                .sendPasswordResetEmail(email: email);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Password reset email sent!")),
+                            );
+                            Navigator.pop(context);
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Error: ${e.toString()}")),
+                            );
+                          }
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Email not found in our records.")),
+                          );
+                        }
+                      }
+                    },
+                            style: ButtonStyle(
+                              shape: WidgetStatePropertyAll(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(10.r))),
+                              backgroundColor:
+                                  WidgetStatePropertyAll(myColor.maincolor),
+                              foregroundColor:
+                                  WidgetStatePropertyAll(myColor.background),
+                              minimumSize:
+                                  WidgetStateProperty.all(Size(200.w, 45.h)),
+                              textStyle: WidgetStatePropertyAll(
+                                  GoogleFonts.poppins(fontSize: 18)),
+                            ),
+                            child: CustomText(
+                              text: "send OTP",
+                              size: 20.spMin,
+                              weight: FontWeight.w500,
+                              textAlign: TextAlign.center,
+                            )),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

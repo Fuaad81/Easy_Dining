@@ -50,8 +50,23 @@ class _AdminBookedTabDetailsState extends State<AdminBookedTabDetails> {
                   size: 18.spMin,
                   weight: FontWeight.w500,
                 ),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      width: 80,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10.r)
+                      ),
+                      
+                      child: Center(child: CustomText(text: data["status"], size: 18)),
+                    )
+                  ],
+                ),
                 subtitle: CustomText(text: data["email"], size: 18.spMin),
-                trailing: Container(),
+                
               ),
             ),
             Padding(

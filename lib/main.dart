@@ -1,7 +1,8 @@
 import 'package:easy_dine_in/Providers/admin_provider.dart';
-import 'package:easy_dine_in/Providers/user_cart_provider.dart';
-import 'package:easy_dine_in/Providers/user_provider.dart';
 import 'package:easy_dine_in/Providers/theme_provider.dart';
+import 'package:easy_dine_in/Providers/user_cart_provider.dart';
+import 'package:easy_dine_in/Providers/user_payment_provider.dart';
+import 'package:easy_dine_in/Providers/user_provider.dart';
 import 'package:easy_dine_in/View/admin/admin_bottumnavbar/admin_bottombar.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_food.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_add_notification.dart';
@@ -20,49 +21,46 @@ import 'package:easy_dine_in/View/admin/admin_home/admin_order_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_review.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_tab.dart';
+import 'package:easy_dine_in/View/admin/admin_login.dart';
 import 'package:easy_dine_in/View/delivery_boy/home/bottomnavigation/dboy_bottombar.dart';
 import 'package:easy_dine_in/View/delivery_boy/home/bottomnavigation/dboy_editprofile.dart';
 import 'package:easy_dine_in/View/delivery_boy/home/bottomnavigation/dboy_profile.dart';
-import 'package:easy_dine_in/View/delivery_boy/login/dboy_confirmpassword.dart';
 import 'package:easy_dine_in/View/delivery_boy/login/dboy_forgotpassword.dart';
 import 'package:easy_dine_in/View/delivery_boy/login/dboy_login.dart';
-import 'package:easy_dine_in/View/delivery_boy/login/dboy_otp.dart';
-import 'package:easy_dine_in/View/delivery_boy/register/dboy_accountcreated.dart';
 import 'package:easy_dine_in/View/delivery_boy/register/dboy_register.dart';
+import 'package:easy_dine_in/View/onboard_screen/onboardscreen1.dart';
+import 'package:easy_dine_in/View/splash.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_booking.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_bottomnav.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_cart.dart';
 import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_checkout.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_editprofile.dart';
 import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_food_details.dart';
-import 'package:easy_dine_in/View/user/user_home/user_drawer/user_changepassword.dart';
-import 'package:easy_dine_in/View/user/user_home/user_drawer/user_location.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_home.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_notification.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_profile.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_search.dart';
 import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_table_details.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_about.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_changepassword.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_favorite.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_feedback.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_location.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_order_list.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_paymeth.dart';
+import 'package:easy_dine_in/View/user/user_home/user_drawer/user_settings.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_theme.dart';
 import 'package:easy_dine_in/View/user/user_home/user_drawer/user_track_order.dart';
 import 'package:easy_dine_in/View/user/user_home/user_tabs/user_all.dart';
+import 'package:easy_dine_in/View/user/user_home/user_tabs/user_dinner.dart';
+import 'package:easy_dine_in/View/user/user_home/user_tabs/user_lunch.dart';
+import 'package:easy_dine_in/View/user/user_home/user_tabs/user_snack.dart';
 import 'package:easy_dine_in/View/user/user_login/user_confirmpassword.dart';
 import 'package:easy_dine_in/View/user/user_login/user_forgotpassword.dart';
 import 'package:easy_dine_in/View/user/user_login/user_login.dart';
 import 'package:easy_dine_in/View/user/user_login/user_otp.dart';
 import 'package:easy_dine_in/View/user/user_register/user_createdsucces.dart';
 import 'package:easy_dine_in/View/user/user_register/user_register.dart';
-import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_booking.dart';
-import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_bottomnav.dart';
-import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_cart.dart';
-import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_editprofile.dart';
-import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_home.dart';
-import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_notification.dart';
-import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_profile.dart';
-import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_search.dart';
-import 'package:easy_dine_in/View/user/user_home/user_drawer/user_about.dart';
-import 'package:easy_dine_in/View/user/user_home/user_drawer/user_favorite.dart';
-import 'package:easy_dine_in/View/user/user_home/user_drawer/user_feedback.dart';
-import 'package:easy_dine_in/View/user/user_home/user_drawer/user_settings.dart';
-import 'package:easy_dine_in/View/user/user_home/user_tabs/user_dinner.dart';
-import 'package:easy_dine_in/View/user/user_home/user_tabs/user_lunch.dart';
-import 'package:easy_dine_in/View/user/user_home/user_tabs/user_snack.dart';
-import 'package:easy_dine_in/View/onboard_screen/onboardscreen1.dart';
-import 'package:easy_dine_in/View/splash.dart';
-import 'package:easy_dine_in/View/admin/admin_login.dart';
 import 'package:easy_dine_in/allfile.dart';
 import 'package:easy_dine_in/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -83,7 +81,8 @@ void main() async {
     ChangeNotifierProvider(create: (context) => fadeAnimationProvider()),
     ChangeNotifierProvider(create: (context) => ThemeProvider()),
     ChangeNotifierProvider(create: (context) => AdminNavbarProvider()),
-    ChangeNotifierProvider(create: (context) => CartProvider())
+    ChangeNotifierProvider(create: (context) => CartProvider()),
+    ChangeNotifierProvider(create: (context) => PaymentProvider()),
   ], child: const MyApp()));
 }
 
@@ -117,7 +116,7 @@ class MyApp extends StatelessWidget {
             "/user_createsuccess": (context) => const user_createdSucces(),
             "/user_bottomnav": (context) => const user_bottomNavbar(),
             "/user_home": (context) => const user_Home(),
-            "/user_fooddetails": (context) => const user_Food_Details(),  
+            "/user_fooddetails": (context) => const UserFoodDetails(),  
             "/user_tablebooking": (context) => const user_Booking(),
             "/user_tabledetails": (context) => const user_Table_Details(),
             "/user_cart": (context) => const user_Cart(),
@@ -138,7 +137,7 @@ class MyApp extends StatelessWidget {
             "/user_trackorder": (context) => const user_Track_Order(),
             "/user_notification": (context) => const user_notification(),
             "/user_search": (context) => const user_Search(),
-            "/user_paymethod": (context) => const user_PayMethod(),
+            "/user_paymethod": (context) => const UserPayMethod(userDetails: [],),
             "/user_theme": (context) => const user_Theme(),
 
             /*
@@ -177,10 +176,7 @@ class MyApp extends StatelessWidget {
             */
             "/db_login": (context) => const dboy_Login(),
             "/db_forgotpassword": (context) => const dboy_Forgot_Password(),
-            "/db_otp": (context) => const dboy_Otp(),
-            "/db_confirmpassword": (context) => const dboy_Confirm_Password(),
             "/db_register": (context) => const dboy_Register(),
-            "/db_accountcreated": (context) => const dboy_Account_Created(),
             "/db_bottombar": (context) => const dboy_Bottom_Bar(),
             "/db_profile": (context) => const dboy_Profile(),
             "/db_editprofile": (context) => const dboy_EditProfile(),

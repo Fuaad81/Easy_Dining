@@ -51,11 +51,11 @@ class _admin_BottombarState extends State<admin_Bottombar> {
           BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/icons/ic_table_fill.png",
-                width: 25.w,
-                height: 25.h,
                 color: adminnavProvider == 2
                     ? myColor.maincolor
                     : myColor.tabcolor,
+                width: 25.w,
+                height: 25.h,
               ),
               label: "Booked Table"),
           BottomNavigationBarItem(

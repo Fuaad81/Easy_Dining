@@ -20,6 +20,7 @@ class _dboy_ProfileState extends State<dboy_Profile> {
   final TextEditingController licensecontroller = TextEditingController();
   final TextEditingController locationcontroller = TextEditingController();
   final TextEditingController phonecontroller = TextEditingController();
+  String? image;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> fetchdata() async {
@@ -34,7 +35,8 @@ class _dboy_ProfileState extends State<dboy_Profile> {
         namecontroller.text = documentSnapshot["name"] ?? "";
         emailcontroller.text = documentSnapshot["email"] ?? "";
         phonecontroller.text = documentSnapshot["phone"] ?? "";
-        // namecontroller.text = documentSnapshot["name"] ?? "";
+        locationcontroller.text = documentSnapshot["location"] ?? "";
+        image = documentSnapshot["image"];
       });
     }
   }
@@ -44,6 +46,16 @@ class _dboy_ProfileState extends State<dboy_Profile> {
     super.initState();
     fetchdata();
   }
+
+  String _getImageName(String imageUrl) {
+      if (imageUrl.isNotEmpty) {
+        // Get the last part of the URL, which is the image name
+        return imageUrl
+            .split('/')
+            .last; // This will split by '/' and take the last part
+      }
+      return "No image"; // Default hint if no image URL is available
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -64,161 +76,163 @@ class _dboy_ProfileState extends State<dboy_Profile> {
               icon: const Icon(IconlyLight.edit))
         ],
       ),
-      body: Padding(
-        padding: EdgeInsets.only(top: 10.h, left: 16.w, right: 16.w),
-        child: Column(
-          children: [
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 50,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(top: 10.h, left: 16.w, right: 16.w),
+          child: Column(
+            children: [
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                  ),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 20.h,
                 ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 20.h,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomText(
-                    text: "Name",
-                    size: 20.spMin,
-                    weight: FontWeight.w500,
-                  ),
-                  SizedBox(
-                    width: 250.w,
-                    child: CustomTextFormField(
-                      readOnly: true,
-                      // hintText: "Name",
-                      controller: namecontroller,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.r)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomText(
+                      text: "Name",
+                      size: 20.spMin,
+                      weight: FontWeight.w500,
                     ),
-                  )
-                ],
+                    SizedBox(
+                      width: 250.w,
+                      child: CustomTextFormField(
+                        readOnly: true,
+                        // hintText: "Name",
+                        controller: namecontroller,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.r)),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 20.h,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomText(
-                    text: "Email",
-                    size: 20.spMin,
-                    weight: FontWeight.w500,
-                  ),
-                  SizedBox(
-                    width: 250.w,
-                    child: CustomTextFormField(
-                      readOnly: true,
-                      // hintText: "sample@gmail.com",
-                      controller: emailcontroller,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.r)),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 20.h,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomText(
+                      text: "Email",
+                      size: 20.spMin,
+                      weight: FontWeight.w500,
                     ),
-                  )
-                ],
+                    SizedBox(
+                      width: 250.w,
+                      child: CustomTextFormField(
+                        readOnly: true,
+                        // hintText: "sample@gmail.com",
+                        controller: emailcontroller,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.r)),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 20.h,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomText(
-                    text: "License",
-                    size: 20.spMin,
-                    weight: FontWeight.w500,
-                  ),
-                  SizedBox(
-                    width: 250.w,
-                    child: CustomTextFormField(
-                      readOnly: true,
-                      hintText: "image",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.r)),
-                      suffixIcon: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: 60.w,
-                            decoration: BoxDecoration(
-                                color: myColor.maincolor,
-                                borderRadius: BorderRadius.circular(10.r)),
-                            child: Center(
-                                child: CustomText(
-                              text: "view",
-                              size: 14.spMin,
-                              color: myColor.background,
-                            )),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 20.h,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomText(
+                      text: "License",
+                      size: 20.spMin,
+                      weight: FontWeight.w500,
+                    ),
+                    SizedBox(
+                      width: 250.w,
+                      child: CustomTextFormField(
+                        readOnly: true,
+                        hintText: _getImageName(image!),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.r)),
+                        suffixIcon: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Container(
+                              width: 60.w,
+                              decoration: BoxDecoration(
+                                  color: myColor.maincolor,
+                                  borderRadius: BorderRadius.circular(10.r)),
+                              child: Center(
+                                  child: CustomText(
+                                text: "view",
+                                size: 14.spMin,
+                                color: myColor.background,
+                              )),
+                            ),
                           ),
                         ),
                       ),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 20.h,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomText(
+                      text: "Location",
+                      size: 20.spMin,
+                      weight: FontWeight.w500,
                     ),
-                  )
-                ],
+                    SizedBox(
+                      width: 250.w,
+                      child: CustomTextFormField(
+                        readOnly: true,
+                        hintText: "Location",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.r)),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 20.h,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomText(
-                    text: "Location",
-                    size: 20.spMin,
-                    weight: FontWeight.w500,
-                  ),
-                  SizedBox(
-                    width: 250.w,
-                    child: CustomTextFormField(
-                      readOnly: true,
-                      hintText: "Location",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.r)),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 20.h,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomText(
+                      text: "Phone No",
+                      size: 20.spMin,
+                      weight: FontWeight.w500,
                     ),
-                  )
-                ],
+                    SizedBox(
+                      width: 250.w,
+                      child: CustomTextFormField(
+                        readOnly: true,
+                        // hintText: "1234567890",
+                        controller: phonecontroller,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.r)),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 20.h,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomText(
-                    text: "Phone No",
-                    size: 20.spMin,
-                    weight: FontWeight.w500,
-                  ),
-                  SizedBox(
-                    width: 250.w,
-                    child: CustomTextFormField(
-                      readOnly: true,
-                      // hintText: "1234567890",
-                      controller: phonecontroller,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.r)),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            
-          ],
+              
+            ],
+          ),
         ),
       ),
     );

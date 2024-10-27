@@ -140,14 +140,8 @@ class _dboy_LoginState extends State<dboy_Login> {
                           controller: emailcontroller,
                           contentPadding: EdgeInsets.symmetric(
                               vertical: 15.h, horizontal: 20.w),
-                          labelText: Padding(
-                            padding: EdgeInsets.only(left: 5.w),
-                            child: CustomText(
-                              text: "email or phone",
-                              size: 18.spMin,
-                              weight: FontWeight.w400,
-                            ),
-                          ),
+                          hintText: "Enter your email",
+                         
                           validator: (value) {
                             if (value == null) {
                               return 'enter email correctly';
@@ -174,14 +168,8 @@ class _dboy_LoginState extends State<dboy_Login> {
                           controller: passwordcontroler,
                           contentPadding: EdgeInsets.symmetric(
                               vertical: 15.h, horizontal: 20.w),
-                          labelText: Padding(
-                            padding: EdgeInsets.only(left: 5.w),
-                            child: CustomText(
-                              text: "password",
-                              size: 18.spMin,
-                              weight: FontWeight.w400,
-                            ),
-                          ),
+                          hintText: "Password",
+                          
                           validator: (value) {
                             if (value == null) {
                               return 'password incorrect';

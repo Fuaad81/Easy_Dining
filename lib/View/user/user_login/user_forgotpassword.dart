@@ -5,6 +5,7 @@ import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/style/customtheme.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:easy_dine_in/model/Utils/widget/cutomtextfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,13 +22,13 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
   final _forgotpass = TextEditingController();
   final _formkey = GlobalKey<FormState>();
 
-  Future<bool> verifyEmail(String email) async {
+   Future<bool> verifyEmail(String email) async {
     try {
-      var querysnapshot = await FirebaseFirestore.instance
+      var querySnapshot = await FirebaseFirestore.instance
           .collection("Users")
           .where("email", isEqualTo: email)
           .get();
-      return querysnapshot.docs.isNotEmpty;
+      return querySnapshot.docs.isNotEmpty;
     } catch (e) {
       print("Error checking email: $e");
       return false;
@@ -110,20 +111,29 @@ class _user_forgotPasswordState extends State<user_forgotPassword> {
                   children: [
                     ElevatedButton(
                         onPressed: () async {
-                          if (_formkey.currentState!.validate()) {
-                            bool emailexist =
-                                await verifyEmail(_forgotpass.text);
-                            if (emailexist) {
-                              Navigator.pushNamed(context, "/user_confirmpass");
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text("email not found")),
-                              );
-                            }
+                      final email = _forgotpass.text.trim();
+                      if (_formkey.currentState?.validate() ?? false) {
+                        bool emailExists = await verifyEmail(email);
+                        if (emailExists) {
+                          try {
+                            await FirebaseAuth.instance
+                                .sendPasswordResetEmail(email: email);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Password reset email sent!")),
+                            );
+                            Navigator.pop(context);
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Error: ${e.toString()}")),
+                            );
                           }
-                          // Navigator.pushNamed(context, "/user_otp");
-                        },
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Email not found in our records.")),
+                          );
+                        }
+                      }
+                    },
                         style: ButtonStyle(
                           shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.r))),

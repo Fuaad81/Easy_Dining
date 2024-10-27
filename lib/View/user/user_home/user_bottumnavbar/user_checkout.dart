@@ -1,8 +1,10 @@
+import 'package:easy_dine_in/Providers/user_payment_provider.dart';
 import 'package:easy_dine_in/model/Utils/style/color.dart';
 import 'package:easy_dine_in/model/Utils/widget/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:provider/provider.dart';
 
 class user_Check_Out extends StatefulWidget {
   const user_Check_Out({super.key});
@@ -14,6 +16,7 @@ class user_Check_Out extends StatefulWidget {
 class _user_Check_OutState extends State<user_Check_Out> {
   @override
   Widget build(BuildContext context) {
+    final selectedPaymentMethod = context.watch<PaymentProvider>().selectedPaymentMethod;
     return Scaffold(
       appBar: AppBar(
         title: CustomText(text: "Check Out", size: 21.spMin),
@@ -176,7 +179,7 @@ class _user_Check_OutState extends State<user_Check_Out> {
               Padding(
                 padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 15.h),
                 child: InkWell(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pushNamed(context, "/user_paymethod");
                   },
                   child: Row(
@@ -190,12 +193,13 @@ class _user_Check_OutState extends State<user_Check_Out> {
                               BoxShadow(
                                 offset: const Offset(0, 4),
                                 blurRadius: 5,
-                                color: myColor.tabcolor
-                              )
-                            ]
+                                color: myColor.tabcolor,
+                              ),
+                            ],
                           ),
                           child: Padding(
-                            padding: EdgeInsets.only(left: 15.w,right: 15.w,top: 10.h,bottom: 10.h),
+                            padding: EdgeInsets.only(
+                                left: 15.w, right: 15.w, top: 10.h, bottom: 10.h),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -207,8 +211,11 @@ class _user_Check_OutState extends State<user_Check_Out> {
                                       size: 20.spMin,
                                       weight: FontWeight.w500,
                                     ),
+                                    // Display selected payment method
                                     CustomText(
-                                      text: "select pay method",
+                                      text: selectedPaymentMethod.isNotEmpty
+                                          ? selectedPaymentMethod
+                                          : "Select pay method",
                                       size: 18.spMin,
                                       weight: FontWeight.w400,
                                     ),

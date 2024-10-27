@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:photo_view/photo_view.dart';
 
 class dboy_EditProfile extends StatefulWidget {
   const dboy_EditProfile({super.key});
@@ -27,6 +28,7 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
   final TextEditingController phonecontroller = TextEditingController();
   final _formkey = GlobalKey<FormState>();
   File? _imageFile;
+  String? image;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> fetchdata() async {
@@ -41,7 +43,8 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
         namecontroller.text = documentSnapshot["name"] ?? "";
         emailcontroller.text = documentSnapshot["email"] ?? "";
         phonecontroller.text = documentSnapshot["phone"] ?? "";
-        // namecontroller.text = documentSnapshot["name"] ?? "";
+        locationcontroller.text = documentSnapshot["location"] ?? "";
+        image = documentSnapshot["image"];
       });
     }
   }
@@ -168,6 +171,16 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
     }
   }
 
+  String _getImageName(String imageUrl) {
+    if (imageUrl.isNotEmpty) {
+      // Get the last part of the URL, which is the image name
+      return imageUrl
+          .split('/')
+          .last; // This will split by '/' and take the last part
+    }
+    return "No image"; // Default hint if no image URL is available
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,210 +195,228 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 10.h, left: 16.w, right: 16.w),
-        child: InkWell(
-          onTap: _pickImage,
-          child: Column(
-            children: [
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: _pickImage,
+                  child: CircleAvatar(
                     radius: 50,
                   ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 20.h,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(
+                    text: "Name",
+                    size: 20.spMin,
+                    weight: FontWeight.w500,
+                  ),
+                  SizedBox(
+                    width: 230.w,
+                    child: CustomTextFormField(
+                      // hintText: "Name",
+                      controller: namecontroller,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.r)),
+                    ),
+                  )
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 20.h,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomText(
-                      text: "Name",
-                      size: 20.spMin,
-                      weight: FontWeight.w500,
-                    ),
-                    SizedBox(
-                      width: 250.w,
-                      child: CustomTextFormField(
-                        // hintText: "Name",
-                        controller: namecontroller,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.r)),
-                      ),
-                    )
-                  ],
-                ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 20.h,
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 20.h,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomText(
-                      text: "Email",
-                      size: 20.spMin,
-                      weight: FontWeight.w500,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(
+                    text: "Email",
+                    size: 20.spMin,
+                    weight: FontWeight.w500,
+                  ),
+                  SizedBox(
+                    width: 230.w,
+                    child: CustomTextFormField(
+                      // hintText: "sample@gmail.com",
+                      controller: emailcontroller,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.r)),
                     ),
-                    SizedBox(
-                      width: 250.w,
-                      child: CustomTextFormField(
-                        // hintText: "sample@gmail.com",
-                        controller: emailcontroller,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.r)),
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 20.h,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomText(
-                      text: "License",
-                      size: 20.spMin,
-                      weight: FontWeight.w500,
-                    ),
-                    SizedBox(
-                      width: 250.w,
-                      child: CustomTextFormField(
-                        hintText: "image",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.r)),
-                        suffixIcon: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: InkWell(
-                            onTap: () {},
-                            child: Container(
-                              width: 60.w,
-                              decoration: BoxDecoration(
-                                  color: myColor.maincolor,
-                                  borderRadius: BorderRadius.circular(10.r)),
-                              child: Center(
-                                  child: CustomText(
-                                text: "view",
-                                size: 14.spMin,
-                                color: myColor.background,
-                              )),
-                            ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 20.h,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(
+                    text: "License",
+                    size: 20.spMin,
+                    weight: FontWeight.w500,
+                  ),
+                  SizedBox(
+                    width: 230.w,
+                    child: CustomTextFormField(
+                      hintText: _getImageName(image!),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.r)),
+                      suffixIcon: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Scaffold(
+                                  appBar:
+                                      AppBar(title: const Text("Image View")),
+                                  body: PhotoView(
+                                    imageProvider: NetworkImage(image!),
+                                    minScale: PhotoViewComputedScale.contained,
+                                    maxScale:
+                                        PhotoViewComputedScale.covered * 2,
+                                    heroAttributes:
+                                        const PhotoViewHeroAttributes(
+                                            tag: "imageHero"),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: 60.w,
+                            decoration: BoxDecoration(
+                                color: myColor.maincolor,
+                                borderRadius: BorderRadius.circular(10.r)),
+                            child: Center(
+                                child: CustomText(
+                              text: "view",
+                              size: 14.spMin,
+                              color: myColor.background,
+                            )),
                           ),
                         ),
                       ),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 20.h,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomText(
-                      text: "Location",
-                      size: 20.spMin,
-                      weight: FontWeight.w500,
                     ),
-                    SizedBox(
-                      width: 250.w,
-                      child: CustomTextFormField(
-                        hintText: "Location",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.r)),
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 20.h,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomText(
-                      text: "Phone No",
-                      size: 20.spMin,
-                      weight: FontWeight.w500,
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 20.h,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(
+                    text: "Location",
+                    size: 20.spMin,
+                    weight: FontWeight.w500,
+                  ),
+                  SizedBox(
+                    width: 230.w,
+                    child: CustomTextFormField(
+                      // hintText: "Location",
+                      controller: locationcontroller,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.r)),
                     ),
-                    SizedBox(
-                      width: 250.w,
-                      child: CustomTextFormField(
-                        // hintText: "1234567890",
-                        controller: phonecontroller,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.r)),
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 40.h),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        style: ButtonStyle(
-                          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.r))),
-                          backgroundColor:
-                              WidgetStatePropertyAll(myColor.tabcolor),
-                          foregroundColor:
-                              WidgetStatePropertyAll(myColor.background),
-                          minimumSize:
-                              WidgetStatePropertyAll(Size(120.w, 40.h)),
-                          textStyle: WidgetStatePropertyAll(
-                              GoogleFonts.poppins(fontSize: 18)),
-                        ),
-                        child: CustomText(
-                          text: "cancel",
-                          size: 18.spMin,
-                          color: myColor.textcolor,
-                          weight: FontWeight.w500,
-                          textAlign: TextAlign.center,
-                          textStyle: const TextStyle(),
-                        )),
-                    ElevatedButton(
-                        onPressed: _updateProfile,
-                        style: ButtonStyle(
-                          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.r))),
-                          backgroundColor:
-                              WidgetStatePropertyAll(myColor.maincolor),
-                          foregroundColor:
-                              WidgetStatePropertyAll(myColor.background),
-                          minimumSize:
-                              WidgetStatePropertyAll(Size(120.w, 40.h)),
-                          textStyle: WidgetStatePropertyAll(
-                              GoogleFonts.poppins(fontSize: 18)),
-                        ),
-                        child: CustomText(
-                          text: "save",
-                          size: 18.spMin,
-                          color: myColor.background,
-                          weight: FontWeight.w500,
-                          textAlign: TextAlign.center,
-                          textStyle: const TextStyle(),
-                        )),
-                  ],
-                ),
-              )
-            ],
-          ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 20.h,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(
+                    text: "Phone No",
+                    size: 20.spMin,
+                    weight: FontWeight.w500,
+                  ),
+                  SizedBox(
+                    width: 230.w,
+                    child: CustomTextFormField(
+                      // hintText: "1234567890",
+                      controller: phonecontroller,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.r)),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 40.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: ButtonStyle(
+                        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.r))),
+                        backgroundColor:
+                            WidgetStatePropertyAll(myColor.tabcolor),
+                        foregroundColor:
+                            WidgetStatePropertyAll(myColor.background),
+                        minimumSize: WidgetStatePropertyAll(Size(120.w, 40.h)),
+                        textStyle: WidgetStatePropertyAll(
+                            GoogleFonts.poppins(fontSize: 18)),
+                      ),
+                      child: CustomText(
+                        text: "cancel",
+                        size: 18.spMin,
+                        color: myColor.textcolor,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: const TextStyle(),
+                      )),
+                  ElevatedButton(
+                      onPressed: _updateProfile,
+                      style: ButtonStyle(
+                        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.r))),
+                        backgroundColor:
+                            WidgetStatePropertyAll(myColor.maincolor),
+                        foregroundColor:
+                            WidgetStatePropertyAll(myColor.background),
+                        minimumSize: WidgetStatePropertyAll(Size(120.w, 40.h)),
+                        textStyle: WidgetStatePropertyAll(
+                            GoogleFonts.poppins(fontSize: 18)),
+                      ),
+                      child: CustomText(
+                        text: "save",
+                        size: 18.spMin,
+                        color: myColor.background,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                        textStyle: const TextStyle(),
+                      )),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

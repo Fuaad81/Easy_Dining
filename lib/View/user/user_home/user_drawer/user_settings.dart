@@ -25,6 +25,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
   }
   String name = "";
   String email = "";
+  String? imageurl;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> fetchData() async {
     User? user = _auth.currentUser;
@@ -38,12 +39,58 @@ class _user_accountSettingState extends State<user_accountSetting> {
           setState(() {
             name = data["name"] ?? "null";
             email = data["email"] ?? "null";
+            imageurl = data["imageUrl"] ?? "null";
           });
         }
       }
     } catch (e) {
       print("error :$e");
     }
+  }
+
+  Future<void> deleteUser() async {
+    User? user = _auth.currentUser;
+
+    if (user != null) {
+      // First, delete the user's data from Firestore
+      await FirebaseFirestore.instance.collection("Users").doc(user.uid).delete();
+
+      // Then delete the user from Firebase Authentication
+      try {
+        await user.delete();
+        // Optionally navigate back or show a success message
+        Navigator.pop(context); // Navigate back or handle accordingly
+      } catch (e) {
+        print("Error deleting user: $e");
+        // Handle error (e.g., user needs to reauthenticate)
+      }
+    }
+  }
+
+  void confirmDelete() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Confirm Deletion"),
+        content: const Text("Are you sure you want to delete your account? This action cannot be undone."),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text("Cancel"),
+          ),
+          TextButton(
+            onPressed: () {
+              deleteUser().then((_){
+                Navigator.pushReplacementNamed(context, "/user_login");
+              });
+            },
+            child: const Text("Delete"),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -79,7 +126,11 @@ class _user_accountSettingState extends State<user_accountSetting> {
                     borderRadius: BorderRadius.circular(10.r)),
                 tileColor: myColor.tabcolor.withOpacity(0.6),
                 leading: CircleAvatar(
-                  radius: 25.r,
+                  radius: 25,
+                  backgroundImage: imageurl != null && imageurl != "null"
+                        ? NetworkImage(
+                            imageurl!) // Use the image URL from Firebase
+                        : null,
                 ),
                 title: CustomText(
                   text: name,
@@ -252,6 +303,7 @@ class _user_accountSettingState extends State<user_accountSetting> {
               trailing: const Icon(IconlyLight.arrow_right_2),
             ),
             ListTile(
+              onTap: confirmDelete,
               leading: CircleAvatar(
                 radius: 20.r,
                 backgroundColor: myColor.errortext.withOpacity(0.2),
