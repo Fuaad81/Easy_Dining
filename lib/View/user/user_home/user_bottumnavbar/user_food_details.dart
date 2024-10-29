@@ -128,8 +128,8 @@ class _UserFoodDetailsState extends State<UserFoodDetails> {
                                 "location": documentSnapshot["address"],
                                 "time": data["time"],
                                 "description": data["discription"],
-                                "image": data["image"],
-                                "id": data["id"],
+                                "image": data["imageurl"],
+                                "id": data.id,
                               }
                             ];
 

@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:photo_view/photo_view.dart';
 
 class dboy_Profile extends StatefulWidget {
   const dboy_Profile({super.key});
@@ -20,7 +21,7 @@ class _dboy_ProfileState extends State<dboy_Profile> {
   final TextEditingController licensecontroller = TextEditingController();
   final TextEditingController locationcontroller = TextEditingController();
   final TextEditingController phonecontroller = TextEditingController();
-  String? image;
+  String image = '';
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> fetchdata() async {
@@ -36,7 +37,7 @@ class _dboy_ProfileState extends State<dboy_Profile> {
         emailcontroller.text = documentSnapshot["email"] ?? "";
         phonecontroller.text = documentSnapshot["phone"] ?? "";
         locationcontroller.text = documentSnapshot["location"] ?? "";
-        image = documentSnapshot["image"];
+        image = documentSnapshot["image"] ?? "";
       });
     }
   }
@@ -155,13 +156,36 @@ class _dboy_ProfileState extends State<dboy_Profile> {
                       width: 250.w,
                       child: CustomTextFormField(
                         readOnly: true,
-                        hintText: _getImageName(image!),
+                        hintText: _getImageName(image),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.r)),
                         suffixIcon: Padding(
                           padding: const EdgeInsets.all(5.0),
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Scaffold(
+                                              appBar: AppBar(
+                                                  title:
+                                                      const Text("Image View")),
+                                              body: PhotoView(
+                                                imageProvider:
+                                                    NetworkImage(image),
+                                                minScale: PhotoViewComputedScale
+                                                    .contained,
+                                                maxScale: PhotoViewComputedScale
+                                                        .covered *
+                                                    2,
+                                                heroAttributes:
+                                                    const PhotoViewHeroAttributes(
+                                                        tag: "imageHero"),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                            },
                             child: Container(
                               width: 60.w,
                               decoration: BoxDecoration(
@@ -196,8 +220,9 @@ class _dboy_ProfileState extends State<dboy_Profile> {
                     SizedBox(
                       width: 250.w,
                       child: CustomTextFormField(
+                        controller: locationcontroller,
                         readOnly: true,
-                        hintText: "Location",
+                        // hintText: "Location",
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.r)),
                       ),

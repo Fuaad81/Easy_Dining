@@ -167,7 +167,7 @@ class _admin_Db_Acpt_DetailsState extends State<admin_Db_Acpt_Details> {
                                       borderRadius:
                                           BorderRadius.circular(10.r)),
                                           readOnly: true,
-                                  initialValue:getImageName(data["image"]),
+                                  hintText:getImageName(data["image"]),
                                   suffixIcon: Padding(
                                     padding: const EdgeInsets.all(5.0),
                                     child: InkWell(

@@ -28,7 +28,7 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
   final TextEditingController phonecontroller = TextEditingController();
   final _formkey = GlobalKey<FormState>();
   File? _imageFile;
-  String? image;
+  String image = '';
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> fetchdata() async {
@@ -271,7 +271,7 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
                   SizedBox(
                     width: 230.w,
                     child: CustomTextFormField(
-                      hintText: _getImageName(image!),
+                      hintText: _getImageName(image),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.r)),
                       suffixIcon: Padding(
@@ -285,7 +285,7 @@ class _dboy_EditProfileState extends State<dboy_EditProfile> {
                                   appBar:
                                       AppBar(title: const Text("Image View")),
                                   body: PhotoView(
-                                    imageProvider: NetworkImage(image!),
+                                    imageProvider: NetworkImage(image),
                                     minScale: PhotoViewComputedScale.contained,
                                     maxScale:
                                         PhotoViewComputedScale.covered * 2,
