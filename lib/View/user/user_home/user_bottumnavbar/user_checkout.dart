@@ -245,7 +245,7 @@ class _user_Check_OutState extends State<user_Check_Out> {
                         borderRadius: BorderRadius.circular(10.r))),
                     minimumSize: WidgetStatePropertyAll(Size(300.w, 50.h))),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pushReplacementNamed(context, "/user_createsuccess");
                 },
                 child: CustomText(text: "Confirm Order", size: 20.spMin)),
           )

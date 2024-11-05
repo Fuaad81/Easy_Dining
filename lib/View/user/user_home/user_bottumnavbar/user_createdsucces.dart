@@ -29,7 +29,7 @@ class _user_createdSuccesState extends State<user_createdSucces> {
             ),
             Center(
               child: CustomText(
-                text: "Account Created",
+                text: "Thank You For \nYour Order!",
                 size: 24.spMin,
                 color: myColor.textcolor,
                 weight: FontWeight.w700,
@@ -41,7 +41,7 @@ class _user_createdSuccesState extends State<user_createdSucces> {
               padding:  EdgeInsets.only(top: 20.h),
               child: Center(
                 child: CustomText(
-                  text: "Your account has been\ncreated succesfully",
+                  text: "Your order will be delivered on time.Thank you!",
                   size: 22.spMin,
                   color: myColor.textcolor,
                   weight: FontWeight.w400,
@@ -58,7 +58,7 @@ class _user_createdSuccesState extends State<user_createdSucces> {
                 children: [
                   ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, "/user_bottomnav");
+                        Navigator.pop(context);
                       },
                       style: ButtonStyle(
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(

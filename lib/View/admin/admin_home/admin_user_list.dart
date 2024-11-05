@@ -13,14 +13,19 @@ class admin_User_List extends StatefulWidget {
 
 class _admin_User_ListState extends State<admin_User_List> {
   // final List <Color> colors= [
-  //   Colors.red,
-  //   Colors.blue,
-  //   Colors.grey,
-  //   Colors.green,
-  //   Colors.yellow,
-  //   Colors.teal,
-  //   Colors.red,
+  //   Colors.red.shade200,
+  //   Colors.blue.shade200,
+  //   Colors.grey.shade200,
+  //   Colors.green.shade200,
+  //   Colors.yellow.shade200,
+  //   Colors.teal.shade200,
+  //   Colors.red.shade200,
+  //   Colors.deepPurple.shade200,
   // ];
+  // Color _getRandomColor() {
+  //   final random = Random();
+  //   return colors[random.nextInt(colors.length)];
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +34,6 @@ class _admin_User_ListState extends State<admin_User_List> {
         centerTitle: true,
       ),
       body: StreamBuilder(
-        
         stream: FirebaseFirestore.instance.collection("Users").snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshots) {
           if (snapshots.connectionState == ConnectionState.waiting) {
@@ -61,10 +65,12 @@ class _admin_User_ListState extends State<admin_User_List> {
             return Padding(
               padding: EdgeInsets.only(left: 15.w,right: 15.w,top: 10.h),
               child: ListTile(
+                onTap: (){
+                  Navigator.pushNamed(context, "/admin_userdetails",arguments: {"data": data});
+                },
                 leading: CircleAvatar(
                   radius: 30,
-                  backgroundColor: myColor.background,
-                  child: Text(data["name"][0]),
+                  backgroundImage: NetworkImage(data["imageUrl"]),
                 ),
                 title:   CustomText(text: data["name"], size: 18.spMin,weight: FontWeight.w500,),
                 subtitle:   CustomText(text: data["email"], size: 14.spMin,weight: FontWeight.w400,),

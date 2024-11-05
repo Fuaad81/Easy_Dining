@@ -1,6 +1,7 @@
 import 'package:easy_dine_in/Providers/admin_provider.dart';
 import 'package:easy_dine_in/Providers/theme_provider.dart';
 import 'package:easy_dine_in/Providers/user_cart_provider.dart';
+import 'package:easy_dine_in/Providers/user_favorite.dart';
 import 'package:easy_dine_in/Providers/user_payment_provider.dart';
 import 'package:easy_dine_in/Providers/user_provider.dart';
 import 'package:easy_dine_in/View/admin/admin_bottumnavbar/admin_bottombar.dart';
@@ -20,7 +21,7 @@ import 'package:easy_dine_in/View/admin/admin_home/admin_new_table.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_order_list.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_review.dart';
 import 'package:easy_dine_in/View/admin/admin_home/admin_user_list.dart';
-import 'package:easy_dine_in/View/admin/admin_home/admin_user_tab.dart';
+import 'package:easy_dine_in/View/admin/admin_home/admin_user_details.dart';
 import 'package:easy_dine_in/View/admin/admin_login.dart';
 import 'package:easy_dine_in/View/delivery_boy/home/bottomnavigation/dboy_bottombar.dart';
 import 'package:easy_dine_in/View/delivery_boy/home/bottomnavigation/dboy_editprofile.dart';
@@ -59,7 +60,7 @@ import 'package:easy_dine_in/View/user/user_login/user_confirmpassword.dart';
 import 'package:easy_dine_in/View/user/user_login/user_forgotpassword.dart';
 import 'package:easy_dine_in/View/user/user_login/user_login.dart';
 import 'package:easy_dine_in/View/user/user_login/user_otp.dart';
-import 'package:easy_dine_in/View/user/user_register/user_createdsucces.dart';
+import 'package:easy_dine_in/View/user/user_home/user_bottumnavbar/user_createdsucces.dart';
 import 'package:easy_dine_in/View/user/user_register/user_register.dart';
 import 'package:easy_dine_in/allfile.dart';
 import 'package:easy_dine_in/firebase_options.dart';
@@ -82,6 +83,7 @@ void main() async {
     ChangeNotifierProvider(create: (context) => ThemeProvider()),
     ChangeNotifierProvider(create: (context) => AdminNavbarProvider()),
     ChangeNotifierProvider(create: (context) => CartProvider()),
+    ChangeNotifierProvider(create: (context) => FavoritesProvider()),
     ChangeNotifierProvider(create: (context) => PaymentProvider()),
   ], child: const MyApp()));
 }
@@ -164,7 +166,7 @@ class MyApp extends StatelessWidget {
             "/admin_dbrequested": (context) => const admin_db_Requested(),
             "/admin_dbreqdet": (context) => const admin_Db_Req_Details(),
             "/admin_dbacptdet": (context) => const admin_Db_Acpt_Details(),
-            "/admin_usertab": (context) => const admin_User_Tab(),
+            "/admin_userdetails": (context) => const admin_User_Details(),
             "/admin_userlist": (context) => const admin_User_List(),
             "/admin_oredrlist": (context) => const admin_Order_List(),
             "/admin_bookedtab": (context) => const AdminBookedTabDetails(),

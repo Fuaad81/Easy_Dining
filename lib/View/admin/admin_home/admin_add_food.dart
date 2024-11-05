@@ -253,7 +253,7 @@ class _admin_addFoodState extends State<admin_addFood> {
                         child: CustomTextFormField(
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return "type your prize!";
+                                return "Enter your expiry time!";
                               }
                               return null;
                             },
@@ -263,7 +263,7 @@ class _admin_addFoodState extends State<admin_addFood> {
                             border: OutlineInputBorder(
                                 borderSide: BorderSide.none,
                                 borderRadius: BorderRadius.circular(10.r)),
-                            hintText: "Food Time",
+                            hintText: "Expiry Time",
                             controller: timecontroller))
                   ],
                 ),
